@@ -80,7 +80,7 @@ if REAL_DATA:  # plotly.express.data.tips() — 244 restaurant bills and tips (B
 # --- Plot --------------------------------------------------------------------
 import seaborn as sns
 fig, ax = plt.subplots(figsize=(7.5, 5))
-sns.regplot(data=df, x=x, y=y, ax=ax, ci=95,
+sns.regplot(data=df, x=x, y=y, ax=ax, ci=95, seed=0,
             scatter_kws=dict(s=30, alpha=0.6, color=PALETTE[0], edgecolor="#fcfcfb"),
             line_kws=dict(color=PALETTE[1], linewidth=2))
 ax.text(0.03, 0.95, f"r = {fit.rvalue:.2f}\nn = {len(df)}", transform=ax.transAxes,

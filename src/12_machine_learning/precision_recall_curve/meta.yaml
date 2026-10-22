@@ -1,0 +1,25 @@
+title: Precision–Recall Curve
+engine: mpl
+level: intermediate
+order: 20
+purpose: Plots precision (positive predictive value) against recall (sensitivity) across thresholds. Unlike
+  ROC, it focuses on the positive class, so it stays honest when positives are rare.
+when_to_use:
+- Evaluate classifiers on imbalanced data (rare disease screening, fraud, defects)
+- Show the cost of false positives when chasing more recall
+avoid:
+- Classes are balanced and both matter equally (ROC is more familiar)
+- Comparing PR curves across datasets with different prevalence (the baselines differ)
+alternatives:
+- ROC curve
+- Precision/recall versus threshold line chart
+tips:
+- Draw the no-skill baseline at the prevalence (positive-class rate)
+- Report average precision (AP) in the legend
+example: Screening model for a rare outcome (about 8% prevalence), comparing two classifiers.
+read: Moving right catches more true cases (recall), usually at the cost of more false alarms (lower precision).
+  A curve that stays high for longer is better. The gray line is what random guessing achieves.
+real_data:
+  source: "sklearn.datasets.load_breast_cancer() \u2014 Wisconsin diagnostic breast cancer, 569 tumours (malignant = positive), bundled with scikit-learn"
+  offline: true
+data_shape: [model]

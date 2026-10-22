@@ -29,12 +29,12 @@
   name: Finance & investment
   description: Performance, risk, portfolios, markets, rates, derivatives and valuation, the everyday charts of investors and analysts.
   note: Educational examples with simulated or historical data. Not investment advice; past performance does not predict future returns.
-- folder: 11_scientific_clinical
-  name: Scientific & clinical
-  description: Specialised plots for statistics, biomedical research and model evaluation.
-- folder: 12_multivariate_ml
-  name: Multivariate & ML
-  description: Explore many variables at once and explain or diagnose statistical and machine-learning models.
+- folder: 11_scientific
+  name: Scientific
+  description: 'Specialised plots for statistics and scientific research: survival, effect sizes, agreement, omics, study flow and longitudinal data.'
+- folder: 12_machine_learning
+  name: Machine learning
+  description: 'Evaluate and explain fitted models: classification performance, calibration, learning curves, residuals, feature importance and feature effects.'
 - folder: 13_uncertainty
   name: Uncertainty
   description: Show what is not known (intervals, probabilities and possible outcomes) so readers do not over-trust a single number.

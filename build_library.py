@@ -375,6 +375,24 @@ def rel(c, ext):
     return f"{c['family']}/{c['slug']}/{c['slug']}.{ext}"
 
 
+def github_repo():
+    """(owner, repo, branch) from the `origin` remote when it is on GitHub, else None."""
+    try:
+        url = subprocess.run(["git", "remote", "get-url", "origin"], cwd=ROOT,
+                             capture_output=True, text=True).stdout.strip()
+        branch = subprocess.run(["git", "branch", "--show-current"], cwd=ROOT,
+                                capture_output=True, text=True).stdout.strip() or "main"
+    except OSError:
+        return None
+    m = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?$", url)
+    return (m.group(1), m.group(2), branch) if m else None
+
+
+def pages_url():
+    gh = github_repo()
+    return f"https://{gh[0].lower()}.github.io/{gh[1]}/" if gh else None
+
+
 def has_html(c):
     return c["engine"] in ("plotly", "altair") or "html" in c["sections"]
 
@@ -385,18 +403,25 @@ def preview(c):
 
 def write_readme(charts, families):
     n = len(charts)
+    site = pages_url()
+    live = (lambda path: site + path) if site else (lambda path: path)
     lines = [
         "# Data Visualization Library", "",
         f"A catalogue of **{n} chart types** in Python. Each entry explains the chart's design purpose, "
         "when to use it and when to avoid it, and shows a worked example. Every chart ships as a "
         "**Jupyter notebook** (explanation and rendered output) and a **standalone Python script**.", "",
-        "**Browse visually:** open [`gallery/index.html`](gallery/index.html) for a searchable, filterable gallery.", "",
+        (f"**Browse visually:** open the [interactive gallery]({site}gallery/) (GitHub Pages): search, filter by "
+         "goal, data and level, and open interactive charts live. github.com shows `.html` files as source code, "
+         "so use that link, or open `gallery/index.html` from a local copy. On this page, the tables below show "
+         "static previews and link to notebooks, which GitHub renders." if site else
+         "**Browse visually:** open [`gallery/index.html`](gallery/index.html) in a browser for a searchable, "
+         "filterable gallery."), "",
         "**Not sure which chart?** Read [How to Choose a Chart](HOW_TO_CHOOSE_A_CHART.md): a step-by-step "
         "guideline with a decision path, a finance quick reference and a pre-publication checklist.", "",
         "Families 01–09 follow the Financial Times "
         "[Visual Vocabulary](https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary), "
         "which groups charts by the *relationship in the data you want to show*. The other families cover "
-        "scientific and clinical plots, multivariate and machine-learning diagnostics, uncertainty, and "
+        "scientific plots, machine-learning evaluation and explanation, uncertainty, and "
         "common mistakes shown next to their fixes.", "",
         "## Quick start", "", "```bash",
         "python3 -m venv .venv && source .venv/bin/activate",
@@ -433,7 +458,7 @@ def write_readme(charts, families):
             use = c["when_to_use"][0].replace("|", "\\|")
             files = f"[ipynb]({rel(c, 'ipynb')}) · [py]({rel(c, 'py')})"
             if has_html(c):
-                files += f" · [interactive]({rel(c, 'html')})"
+                files += f" · [interactive]({live(rel(c, 'html'))})"
             level = c.get("level", "basic")
             tag = "" if level == "basic" else f"<br><sub>{LEVELS[level].lower()}</sub>"
             lines.append(f"| **{c['title']}** {marks}{tag} | {use} | {files} | "
@@ -461,6 +486,12 @@ def write_readme(charts, families):
               "pip install -r requirements-advanced.txt   # or: pip install -e \".[advanced]\"", "```", "",
               "Interactive charts (plotly, Altair, pydeck) save a standalone `.html` page next to the script. "
               "Open it in a browser, or use the **Live** button in the gallery. Animated charts also save a `.gif`."]
+    if site:
+        lines += ["", "## Publishing the gallery (GitHub Pages)", "",
+                  "`.github/workflows/pages.yml` publishes `gallery/` and the generated chart folders to "
+                  f"{site} on every push to the default branch. One-time setup: **Settings → Pages → Build and "
+                  "deployment → Source: GitHub Actions**. On Pages, the gallery's *Notebook* and *Script* links "
+                  "open on github.com (which renders notebooks); *Live* opens the interactive page itself."]
     lines += ["", "## Extending the library", "",
               "Everything above is generated. Edit the sources in `src/` and rebuild:", "", "```bash",
               "python build_library.py --new 04 my_chart   # scaffold src/04_.../my_chart/{meta.yaml,chart.py}",
@@ -527,7 +558,9 @@ def write_gallery(charts, families):
     page = page.replace("/*DATA*/", "const CHARTS = " + json.dumps(items, ensure_ascii=False)
                         + ";\nconst FAMILIES = " + json.dumps(fams, ensure_ascii=False)
                         + ";\nconst SHAPES = " + json.dumps(DATA_SHAPES, ensure_ascii=False)
-                        + ";\nconst LEVELS = " + json.dumps(LEVELS) + ";")
+                        + ";\nconst LEVELS = " + json.dumps(LEVELS)
+                        + ";\nconst REPO = " + json.dumps(dict(zip(("owner", "repo", "branch"), github_repo()))
+                                                         if github_repo() else None) + ";")
     (gdir / "index.html").write_text(page)
 
 

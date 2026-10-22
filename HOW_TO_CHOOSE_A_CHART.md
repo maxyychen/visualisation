@@ -62,7 +62,7 @@ The verb in your sentence picks a chart **family**. These nine families follow t
 | A share of a total | Part-to-whole | [Stacked bar](07_part_to_whole/stacked_bar/stacked_bar.ipynb) | [100% stacked bar](07_part_to_whole/percent_stacked_bar/percent_stacked_bar.ipynb), [treemap](07_part_to_whole/treemap/treemap.ipynb), [waffle](07_part_to_whole/waffle_chart/waffle_chart.ipynb), [waterfall](07_part_to_whole/waterfall_chart/waterfall_chart.ipynb) |
 | A location or geographic pattern | Spatial | [Choropleth](08_spatial/choropleth_world/choropleth_world.ipynb) | [Bubble map](08_spatial/bubble_map/bubble_map.ipynb), [tile grid map](08_spatial/tile_grid_map/tile_grid_map.ipynb), [hex-grid map](08_spatial/hexgrid_map/hexgrid_map.ipynb) |
 | Movement between stages or places | Flow | [Sankey](09_flow/sankey/sankey.ipynb) | [Funnel](09_flow/funnel_chart/funnel_chart.ipynb), [chord](09_flow/chord_diagram/chord_diagram.ipynb), [flow map](08_spatial/flow_map/flow_map.ipynb) |
-| An estimate, forecast or risk | Uncertainty | [Error bars / CI](11_scientific_clinical/error_bar_ci/error_bar_ci.ipynb) | [Fan chart](05_change_over_time/fan_chart/fan_chart.ipynb), [gradient interval](13_uncertainty/gradient_interval/gradient_interval.ipynb), [quantile dot plot](13_uncertainty/quantile_dotplot/quantile_dotplot.ipynb) |
+| An estimate, forecast or risk | Uncertainty | [Error bars / CI](11_scientific/error_bar_ci/error_bar_ci.ipynb) | [Fan chart](05_change_over_time/fan_chart/fan_chart.ipynb), [gradient interval](13_uncertainty/gradient_interval/gradient_interval.ipynb), [quantile dot plot](13_uncertainty/quantile_dotplot/quantile_dotplot.ipynb) |
 
 **Is the story a single number?** Then it isn't a chart. Use a [KPI stat tile](06_magnitude/kpi_stat_tile/kpi_stat_tile.ipynb),
 optionally with a [sparkline](05_change_over_time/sparklines/sparklines.ipynb) for context. A one-bar chart or a two-slice pie only adds ink.
@@ -79,14 +79,14 @@ optionally with a [sparkline](05_change_over_time/sparklines/sparklines.ipynb) f
 | 1 category + 1 number | [Sorted bar](03_ranking/ordered_bar/ordered_bar.ipynb), [dot plot](03_ranking/cleveland_dot/cleveland_dot.ipynb), [lollipop](03_ranking/lollipop_ranking/lollipop_ranking.ipynb) |
 | 1 category + 1 number, by group | [Box plot](04_distribution/box_plot/box_plot.ipynb), [violin](04_distribution/violin_plot/violin_plot.ipynb), [strip/jitter](04_distribution/strip_jitter/strip_jitter.ipynb), [ridgeline](04_distribution/ridgeline/ridgeline.ipynb) |
 | 2 numbers | [Scatter](02_correlation/scatter/scatter.ipynb), [hexbin](02_correlation/hexbin/hexbin.ipynb) (many points) |
-| 3+ numbers | [Bubble](02_correlation/bubble/bubble.ipynb), [pair plot](02_correlation/pair_plot/pair_plot.ipynb), [parallel coordinates](06_magnitude/parallel_coordinates/parallel_coordinates.ipynb), [PCA biplot](12_multivariate_ml/pca_biplot/pca_biplot.ipynb) |
+| 3+ numbers | [Bubble](02_correlation/bubble/bubble.ipynb), [pair plot](02_correlation/pair_plot/pair_plot.ipynb), [parallel coordinates](06_magnitude/parallel_coordinates/parallel_coordinates.ipynb), [PCA biplot](02_correlation/pca_biplot/pca_biplot.ipynb) |
 | Time + 1 number | [Line](05_change_over_time/line_chart/line_chart.ipynb), [column](06_magnitude/column_chart/column_chart.ipynb) (discrete periods), [calendar heatmap](05_change_over_time/calendar_heatmap/calendar_heatmap.ipynb) (daily) |
 | Time + several numbers | [Line + highlight](05_change_over_time/line_highlight/line_highlight.ipynb), [small multiples](05_change_over_time/small_multiples_line/small_multiples_line.ipynb), [stacked area](05_change_over_time/stacked_area/stacked_area.ipynb) (parts of a total) |
 | 2 categories + 1 number | [Grouped bar](06_magnitude/grouped_bar/grouped_bar.ipynb), [highlight table](06_magnitude/highlight_table/highlight_table.ipynb), [heatmap](09_flow/origin_destination_matrix/origin_destination_matrix.ipynb) |
 | Parent → child hierarchy | [Treemap](07_part_to_whole/treemap/treemap.ipynb), [sunburst](07_part_to_whole/sunburst/sunburst.ipynb), [icicle](07_part_to_whole/icicle/icicle.ipynb) |
 | From → to with amounts | [Sankey](09_flow/sankey/sankey.ipynb), [chord](09_flow/chord_diagram/chord_diagram.ipynb), [origin–destination matrix](09_flow/origin_destination_matrix/origin_destination_matrix.ipynb) |
 | Nodes and links | [Network graph](09_flow/network_graph/network_graph.ipynb), [adjacency matrix](09_flow/adjacency_matrix/adjacency_matrix.ipynb) (large networks) |
-| Overlapping sets | [Venn](07_part_to_whole/venn_diagram/venn_diagram.ipynb) (≤ 3 sets), [UpSet](11_scientific_clinical/upset_plot/upset_plot.ipynb) (more) |
+| Overlapping sets | [Venn](07_part_to_whole/venn_diagram/venn_diagram.ipynb) (≤ 3 sets), [UpSet](11_scientific/upset_plot/upset_plot.ipynb) (more) |
 | Locations | [Choropleth](08_spatial/choropleth_world/choropleth_world.ipynb) (regions), [bubble map](08_spatial/bubble_map/bubble_map.ipynb) (points), [hex-grid map](08_spatial/hexgrid_map/hexgrid_map.ipynb) (dense points) |
 | Prices or returns | [Cumulative return vs. benchmark](10_finance_investment/cumulative_return_benchmark/cumulative_return_benchmark.ipynb), [drawdown](10_finance_investment/drawdown_underwater/drawdown_underwater.ipynb), [tear sheet](10_finance_investment/performance_tear_sheet/performance_tear_sheet.ipynb) |
 
@@ -169,9 +169,9 @@ more certainty than you have.
 
 | Situation | Chart |
 |---|---|
-| Group means or effects | [Points + 95% CI](11_scientific_clinical/error_bar_ci/error_bar_ci.ipynb), not a bar of means ([see why](14_bad_vs_good/dynamite_plot/dynamite_plot.ipynb)) |
+| Group means or effects | [Points + 95% CI](11_scientific/error_bar_ci/error_bar_ci.ipynb), not a bar of means ([see why](14_bad_vs_good/dynamite_plot/dynamite_plot.ipynb)) |
 | A forecast | [Fan chart](05_change_over_time/fan_chart/fan_chart.ipynb), [Monte Carlo wealth paths](10_finance_investment/monte_carlo_wealth/monte_carlo_wealth.ipynb) |
-| Several estimates, compared | [Gradient interval](13_uncertainty/gradient_interval/gradient_interval.ipynb), [half-eye plot](13_uncertainty/half_eye/half_eye.ipynb), [forest plot](11_scientific_clinical/forest_plot/forest_plot.ipynb) |
+| Several estimates, compared | [Gradient interval](13_uncertainty/gradient_interval/gradient_interval.ipynb), [half-eye plot](13_uncertainty/half_eye/half_eye.ipynb), [forest plot](11_scientific/forest_plot/forest_plot.ipynb) |
 | Risk for a non-technical audience | [Icon array](13_uncertainty/icon_array/icon_array.ipynb) ("7 in 100"), [quantile dot plot](13_uncertainty/quantile_dotplot/quantile_dotplot.ipynb) |
 | Tail risk | [Return distribution with VaR/CVaR](10_finance_investment/return_distribution_var/return_distribution_var.ipynb) |
 

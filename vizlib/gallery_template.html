@@ -109,6 +109,12 @@
 <script>
 /*DATA*/
 const $ = (id) => document.getElementById(id);
+// On GitHub Pages, open notebooks and scripts on github.com (which renders .ipynb);
+// interactive .html pages stay on Pages, where they actually run.
+const ON_PAGES = REPO && location.hostname.endsWith(".github.io");
+const source = (path) => ON_PAGES
+  ? `https://github.com/${REPO.owner}/${REPO.repo}/blob/${REPO.branch}/${path.replace(/^\.\.\//, "")}`
+  : path;
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
 let fam = null, shape = null, level = null;
 try { fam = sessionStorage.getItem("vizlib-fam"); } catch (e) {}
@@ -180,7 +186,7 @@ function card(c) {
       <details><summary>Purpose &amp; when to use</summary>
         <p>${esc(c.purpose)}</p><h4>Use when</h4><ul>${li(c.use)}</ul><h4>Avoid when</h4><ul>${li(c.avoid)}</ul>
       </details>
-      <div class="links"><a href="${c.ipynb}">Notebook</a><a href="${c.py}">Script</a>${c.html ? `<button data-live="${c.slug}">Live</button>` : ""}</div>
+      <div class="links"><a href="${source(c.ipynb)}">Notebook</a><a href="${source(c.py)}">Script</a>${c.html ? `<button data-live="${c.slug}">Live</button>` : ""}</div>
     </div></article>`;
 }
 
