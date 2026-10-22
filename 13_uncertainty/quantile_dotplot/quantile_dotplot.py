@@ -23,6 +23,13 @@ ALTERNATIVES
   - Half-eye plot
   - CDF / ECDF plot (exact cumulative probabilities)
 
+REFERENCE
+  - Kay, M., Kola, T., Hullman, J. R. & Munson, S. A. (2016). When (ish) is my
+    bus? User-centered visualizations of uncertainty in everyday, mobile
+    predictive systems. Proceedings of the ACM CHI Conference on Human Factors
+    in Computing Systems (CHI 2016). https://idl.uw.edu/papers/when-ish-is-my-
+    bus
+
 EXAMPLE
 A predicted bus arrival time, modelled as a log-normal distribution with a
 median of about 11 minutes (after the "When (ish) is my bus?" study, Kay et

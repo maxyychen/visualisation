@@ -30,3 +30,9 @@ read: >-
   chance the bus comes within 9 minutes. If you need 9 minutes to finish your coffee, you will catch
   it about two times in three.
 data_shape: [uncertainty]
+reference:
+- text: Kay, M., Kola, T., Hullman, J. R. & Munson, S. A. (2016). When (ish) is my bus? User-centered
+    visualizations of uncertainty in everyday, mobile predictive systems. Proceedings of the ACM CHI Conference
+    on Human Factors in Computing Systems (CHI 2016).
+  url: https://idl.uw.edu/papers/when-ish-is-my-bus
+  year: 2016

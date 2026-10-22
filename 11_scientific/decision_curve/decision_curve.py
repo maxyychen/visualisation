@@ -23,6 +23,11 @@ ALTERNATIVES
   - ROC curve (discrimination only)
   - Calibration plot
 
+REFERENCE
+  - Vickers, A. J. & Elkin, E. B. (2006). Decision curve analysis: a novel
+    method for evaluating prediction models. Medical Decision Making 26(6),
+    565–574. https://doi.org/10.1177/0272989X06295361
+
 EXAMPLE
 Two logistic regression models (full and reduced) predicting a high-grade
 cancer finding at biopsy (prevalence about 20%), evaluated on a held-out test

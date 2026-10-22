@@ -31,3 +31,8 @@ read: >-
   averages differ, yet the outcome is far from certain, which a pair of overlapping error bars rarely
   makes clear.
 data_shape: [uncertainty]
+reference:
+- text: Hullman, J., Resnick, P. & Adar, E. (2015). Hypothetical outcome plots outperform error bars and
+    violin plots for inferences about reliability of variable ordering. PLOS ONE 10(11), e0142444.
+  url: https://doi.org/10.1371/journal.pone.0142444
+  year: 2015

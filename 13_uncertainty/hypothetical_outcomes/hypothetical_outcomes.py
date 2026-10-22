@@ -25,6 +25,12 @@ ALTERNATIVES
   - Quantile dotplot
   - Bar chart with intervals plus a stated probability that A > B
 
+REFERENCE
+  - Hullman, J., Resnick, P. & Adar, E. (2015). Hypothetical outcome plots
+    outperform error bars and violin plots for inferences about reliability of
+    variable ordering. PLOS ONE 10(11), e0142444.
+    https://doi.org/10.1371/journal.pone.0142444
+
 EXAMPLE
 Days to recovery under two treatments, with uncertain averages (Treatment A ~
 N(10, 1.6) and Treatment B ~ N(11.5, 1.6) days). Each frame is one draw;

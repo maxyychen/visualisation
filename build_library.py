@@ -524,17 +524,25 @@ def write_readme(charts, families):
               "`# %% real-data` and `# %% alt:<library>` cells. Its first line imports the shared style from `vizlib/`, "
               "so you can lint it and run it from the repo root (`PYTHONPATH=. python src/<family>/<slug>/chart.py`). The build inlines that style, so every generated script is standalone. "
               "To add a family, append it to `src/families.yaml`.", "",
-              "## Sources", "",
+              "## Sources", "", "### Guides and catalogues", "",
               "- Financial Times, *Visual Vocabulary*: https://github.com/Financial-Times/chart-doctor",
               "- The Data Visualisation Catalogue: https://datavizcatalogue.com",
               "- From Data to Viz (including its *caveats* collection): https://www.data-to-viz.com",
               "- The Python Graph Gallery: https://python-graph-gallery.com",
               "- data.europa.eu, *Choosing charts: the message*: "
-              "https://data.europa.eu/apps/data-visualisation-guide/choosing-charts-the-message",
-              "- Lex et al. (2014), *UpSet: Visualization of Intersecting Sets*, IEEE TVCG",
-              "- Vickers & Elkin (2006), *Decision curve analysis*, Medical Decision Making",
-              "- Kay et al. (2016), *When (ish) is my bus? Quantile dotplots*, CHI",
-              "- Hullman et al. (2015), *Hypothetical Outcome Plots*, PLOS ONE", ""]
+              "https://data.europa.eu/apps/data-visualisation-guide/choosing-charts-the-message"]
+    papers = {}
+    for c in charts:  # generated from each chart's meta.yaml `reference`, so it never drifts
+        for r in c.get("reference", []):
+            papers.setdefault((r["text"], r.get("url")), []).append(c)
+    if papers:
+        lines += ["", "### Research papers", "",
+                  f"The {len(papers)} papers behind specific charts in this library, generated from each chart's "
+                  "`reference` in `meta.yaml`. Each notebook repeats its citation in a **Reference** section.", ""]
+        for (text, url), used in sorted(papers.items(), key=lambda kv: kv[0][0].lower()):
+            charts_md = ", ".join(f"[{c['title'].split(' (')[0]}]({rel(c, 'ipynb')})" for c in used)
+            lines.append(f"- {text}" + (f" <{url}>" if url else "") + f" Used in: {charts_md}.")
+    lines += [""]
     (ROOT / "README.md").write_text("\n".join(lines))
 
 

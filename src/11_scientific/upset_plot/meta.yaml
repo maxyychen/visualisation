@@ -25,3 +25,8 @@ read: Each column is one exact combination of conditions (filled dots) and its b
   exactly that combination. The left bars show each condition's total. The highlighted column is the most common
   multi-morbidity pattern.
 data_shape: [sets]
+reference:
+- text: 'Lex, A., Gehlenborg, N., Strobelt, H., Vuillemot, R. & Pfister, H. (2014). UpSet: Visualization
+    of intersecting sets. IEEE Transactions on Visualization and Computer Graphics 20(12), 1983–1992.'
+  url: https://doi.org/10.1109/TVCG.2014.2346248
+  year: 2014

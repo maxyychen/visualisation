@@ -21,6 +21,12 @@ ALTERNATIVES
   - Venn diagram (2–3 sets)
   - Co-occurrence heatmap (pairwise overlaps only)
 
+REFERENCE
+  - Lex, A., Gehlenborg, N., Strobelt, H., Vuillemot, R. & Pfister, H. (2014).
+    UpSet: Visualization of intersecting sets. IEEE Transactions on
+    Visualization and Computer Graphics 20(12), 1983–1992.
+    https://doi.org/10.1109/TVCG.2014.2346248
+
 EXAMPLE
 Comorbidity patterns among 1,000 synthetic patients across five conditions
 (hypertension, diabetes, obesity, chronic kidney disease, COPD).

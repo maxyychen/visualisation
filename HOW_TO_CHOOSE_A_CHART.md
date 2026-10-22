@@ -334,3 +334,4 @@ Each links to a side-by-side example in the **Bad vs. good** family.
 - data.europa.eu, *Choosing charts: the message*: https://data.europa.eu/apps/data-visualisation-guide/choosing-charts-the-message
 - Cole Nussbaumer Knaflic, *Storytelling with Data* (2015)
 - Claus O. Wilke, *Fundamentals of Data Visualization* (2019): https://clauswilke.com/dataviz/
+- **Research papers behind specific charts:** see [README → Sources → Research papers](README.md#research-papers), generated from each chart's citation
