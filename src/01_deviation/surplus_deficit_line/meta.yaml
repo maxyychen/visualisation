@@ -1,0 +1,18 @@
+title: Surplus / Deficit Filled Line
+engine: mpl
+order: 30
+purpose: A line chart filled toward a reference value, in one color above it and another below. It shows
+  when a series runs in surplus or deficit and by how much.
+when_to_use:
+- Show a time series that swings around a baseline (balance, temperature anomaly, net flow)
+- Show the duration and size of positive and negative periods
+avoid:
+- Comparing several series (fills overlap and obscure each other)
+- The baseline has no meaning
+alternatives:
+- Diverging column chart over time
+- Plain line with a reference line
+example: Monthly temperature anomaly (°C vs. the 1991–2020 average) over 10 years, synthetic data.
+read: Red areas show months warmer than average and blue areas cooler. The shift from mostly blue to mostly
+  red shows the warming trend.
+data_shape: [time]

@@ -1,0 +1,29 @@
+title: Pie Chart
+engine: mpl
+order: 30
+purpose: 'A circle divided into slices that add up to 100%. It answers one question: roughly what share
+  of the whole is each part? People judge angles and areas less accurately than lengths, so a pie is for
+  a rough picture, not precise comparison.'
+when_to_use:
+- Show a simple part-to-whole split with few slices (≤ 6, ideally 2–4)
+- Show that one part is clearly dominant (about half or more)
+- General-audience communication where the 'slices of a whole' metaphor helps
+avoid:
+- There are more than 6 slices (fold the small ones into 'Other' or use a bar chart)
+- Slices are close in size and the difference matters
+- Comparing several pies side by side (use a 100% stacked bar)
+- The parts don't add up to a meaningful whole
+- 3-D or exploded pies, which distort the angles
+alternatives:
+- Bar chart
+- Donut chart
+- Waffle chart
+- 100% stacked bar
+tips:
+- Start the largest slice at 12 o'clock and go clockwise in descending order
+- Label slices directly and drop the legend
+- Separate slices with a thin surface-colored gap
+example: Share of web traffic by source (5 slices, the smallest folded into 'Other').
+read: Organic search brings in about two-fifths of traffic. Organic search and direct together make up
+  about two-thirds.
+data_shape: [categories]

@@ -1,0 +1,17 @@
+title: Event Timeline
+engine: mpl
+order: 150
+purpose: Places labelled events along a time axis, with stems alternating above and below so labels don't
+  collide. It shows chronology, gaps and the density of events at a glance.
+when_to_use:
+- Tell a historical narrative or company milestones
+- Show when discrete events happened relative to each other
+- Annotate the context behind changes seen in another chart
+avoid:
+- The events have quantitative values to compare (use a chart with a value axis)
+- There are dozens of events that would cram together (filter to key ones)
+alternatives:
+- Gantt chart (events with duration)
+- Annotated line chart
+example: Key milestones in the history of Python data visualization.
+data_shape: [time]

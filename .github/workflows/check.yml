@@ -1,0 +1,26 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt pytest && pip install -e .
+      # Unit tests for the reusable vizlib.finance metrics and report.
+      - run: pytest -q
+      # Validate every src/ chart and run each generated script (plus offline
+      # real-data variants) in a temp dir. Fast; does not execute notebooks.
+      - run: python build_library.py --check
+      # Fail if the committed outputs are stale relative to src/.
+      - run: |
+          python build_library.py --no-exec
+          git diff --stat --exit-code -- '*.py' README.md ':!vizlib' ':!tests' ':!src' || {
+            echo "::error::Generated files are out of date. Run 'python build_library.py' and commit."; exit 1; }

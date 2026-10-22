@@ -1,0 +1,27 @@
+title: Income Statement Sankey
+engine: plotly
+order: 300
+purpose: A Sankey diagram that follows revenue from its segments through cost of revenue, operating expenses,
+  interest and tax to net income. Band widths are proportional to dollars, so margins and the biggest
+  cost lines read at a glance.
+when_to_use:
+- Explain a company's profit and loss to non-accountants
+- Show where each dollar of revenue goes and which costs dominate
+- Compare segment contribution to total revenue
+avoid:
+- Comparing several companies or years precisely (use a margin table or stacked bars)
+- Line items that do not sum (other income, one-offs); reconcile them or add an explicit node
+alternatives:
+- Waterfall from revenue to net income
+- Common-size (% of revenue) bar chart
+tips:
+- Color profit nodes in one hue and cost nodes in an opposing hue; keep sources neutral
+- Put values in the node labels; Sankey widths alone are hard to compare
+- Order cost nodes from largest to smallest
+example: 'A fictional company''s fiscal-year P&L in $bn (illustrative): $100bn revenue from products and
+  services.'
+read: 'Read from left to right: $100bn of revenue splits into $58bn gross profit and $42bn cost of revenue.
+  After R&D, sales & marketing and G&A, $24bn of operating profit remains, and $18bn ends up as net income.'
+data_shape:
+- flows
+- hierarchy

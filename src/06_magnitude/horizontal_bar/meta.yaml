@@ -1,0 +1,19 @@
+title: Horizontal Bar Chart (sorted)
+engine: mpl
+order: 20
+purpose: Bars laid out horizontally and sorted by value. Long category labels stay readable, and the sort
+  turns the chart into a ranking as well as a size comparison.
+when_to_use:
+- Category names are long (countries, products, survey answers)
+- There are many categories (up to ~25)
+- Show both size and rank at once
+avoid:
+- Categories have a natural order such as time (keep that order, use columns)
+alternatives:
+- Lollipop chart
+- Dot plot
+- Treemap (many categories)
+tips:
+- Sort descending from top; label values at bar ends and drop the x-axis if every bar is labelled
+example: Most-used programming languages among survey respondents (% of respondents), synthetic data.
+data_shape: [categories, numeric]

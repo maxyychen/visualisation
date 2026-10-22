@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visualization Gallery</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f6f5f2; --surface: #fcfcfb; --border: #e3e2de;
+    --text: #0b0b0b; --text-2: #52514e; --muted: #7a7974;
+    --accent: #2a78d6; --accent-soft: #e4eefb; --chip: #ecebe7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #121211; --surface: #1a1a19; --border: #2e2e2c;
+      --text: #f0efec; --text-2: #c3c2b7; --muted: #8f8e88;
+      --accent: #3987e5; --accent-soft: #1d2b3d; --chip: #262624;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #121211; --surface: #1a1a19; --border: #2e2e2c;
+    --text: #f0efec; --text-2: #c3c2b7; --muted: #8f8e88;
+    --accent: #3987e5; --accent-soft: #1d2b3d; --chip: #262624;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  header { max-width: 1280px; margin: 0 auto; padding: 32px 16px 8px; }
+  h1 { font-size: 26px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { color: var(--text-2); margin: 0 0 20px; }
+  .controls { position: sticky; top: 0; z-index: 2; background: var(--bg);
+              max-width: 1280px; margin: 0 auto; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+  .search { width: 100%; padding: 10px 14px; font: inherit; color: var(--text); background: var(--surface);
+            border: 1px solid var(--border); border-radius: 8px; outline: none; }
+  .search:focus { border-color: var(--accent); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .chip { border: 1px solid transparent; background: var(--chip); color: var(--text-2); border-radius: 999px;
+          padding: 4px 11px; font: inherit; font-size: 13px; cursor: pointer; }
+  .chip[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+  .row { display: flex; gap: 10px; align-items: baseline; margin-top: 10px; }
+  .row .chips { margin-top: 0; }
+  .lbl { flex: 0 0 72px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  @media (max-width: 640px) { .row { flex-direction: column; gap: 4px; } .lbl { flex: none; } }
+  .chip .n { color: var(--muted); margin-left: 4px; font-variant-numeric: tabular-nums; }
+  .toggles { display: flex; gap: 14px; margin-top: 8px; font-size: 13px; color: var(--text-2); flex-wrap: wrap; }
+  .toggles label { display: inline-flex; gap: 5px; align-items: center; cursor: pointer; }
+  .count { color: var(--muted); font-size: 13px; margin-left: auto; }
+  main { max-width: 1280px; margin: 0 auto; padding: 18px 16px 60px;
+         display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+          display: flex; flex-direction: column; }
+  .thumb { background: #fcfcfb; aspect-ratio: 7 / 5; display: flex; align-items: center; justify-content: center;
+           border-bottom: 1px solid var(--border); }
+  .thumb img { max-width: 100%; max-height: 100%; display: block; }
+  .body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .fam { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .title { font-weight: 600; font-size: 15px; }
+  .badges { display: inline-flex; gap: 4px; margin-left: 4px; vertical-align: 1px; }
+  .badge { font-size: 10.5px; font-weight: 500; padding: 1px 6px; border-radius: 4px;
+           background: var(--chip); color: var(--text-2); }
+  .use { color: var(--text-2); font-size: 13.5px; }
+  details { font-size: 13px; color: var(--text-2); }
+  summary { cursor: pointer; color: var(--accent); }
+  details ul { margin: 4px 0 6px; padding-left: 18px; }
+  details h4 { margin: 8px 0 0; font-size: 12px; color: var(--text); }
+  .links { margin-top: auto; display: flex; gap: 12px; font-size: 13px; padding-top: 6px; }
+  .links a { color: var(--accent); text-decoration: none; }
+  .links a:hover { text-decoration: underline; }
+  .empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Visualization Gallery</h1>
+  <p class="sub" id="sub"></p>
+</header>
+<div class="controls">
+  <input class="search" id="q" type="search" placeholder="Search charts, purposes, use cases…  (e.g. drawdown, share, outlier, yield)" aria-label="Search charts">
+  <div class="row"><span class="lbl">Goal</span><div class="chips" id="chips" role="group" aria-label="Filter by family"></div></div>
+  <div class="row"><span class="lbl">Your data</span><div class="chips" id="shapes" role="group" aria-label="Filter by the data you have"></div></div>
+  <div class="toggles">
+    <label><input type="checkbox" id="real"> Has a real-data variant</label>
+    <label><input type="checkbox" id="alts"> Also shown in other libraries</label>
+    <label><input type="checkbox" id="interactive"> Interactive (plotly)</label>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+<main id="grid"></main>
+<script>
+/*DATA*/
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+let fam = null, shape = null;
+try { fam = sessionStorage.getItem("vizlib-fam"); } catch (e) {}
+$("sub").textContent = `${CHARTS.length} chart types in ${FAMILIES.length} families · each with a notebook and a runnable Python script`;
+
+function chips() {
+  const all = [{folder: null, name: "All", n: CHARTS.length}, ...FAMILIES];
+  $("chips").innerHTML = all.map((f) =>
+    `<button class="chip" data-f="${f.folder ?? ""}" aria-pressed="${(f.folder ?? null) === fam}">${esc(f.name)}<span class="n">${f.n}</span></button>`).join("");
+}
+function shapeChips() {
+  const all = [[null, "Any"], ...Object.entries(SHAPES)];
+  $("shapes").innerHTML = all.map(([k, label]) => {
+    const n = k ? CHARTS.filter((c) => c.shapes.includes(k)).length : CHARTS.length;
+    return n ? `<button class="chip" data-s="${k ?? ""}" aria-pressed="${k === shape}">${esc(label)}<span class="n">${n}</span></button>` : "";
+  }).join("");
+}
+$("shapes").addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  shape = b.dataset.s || null; shapeChips(); render();
+});
+$("chips").addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  fam = b.dataset.f || null;
+  try { fam ? sessionStorage.setItem("vizlib-fam", fam) : sessionStorage.removeItem("vizlib-fam"); } catch (e) {}
+  chips(); render();
+});
+
+function render() {
+  const q = $("q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const list = CHARTS.filter((c) => {
+    if (fam && c.family !== fam) return false;
+    if (shape && !c.shapes.includes(shape)) return false;
+    if ($("real").checked && !c.real) return false;
+    if ($("alts").checked && !c.alts.length) return false;
+    if ($("interactive").checked && c.engine !== "plotly") return false;
+    const hay = [c.title, c.familyName, c.purpose, ...c.use, ...c.avoid, c.slug].join(" ").toLowerCase();
+    return q.every((w) => hay.includes(w));
+  });
+  $("count").textContent = `${list.length} shown`;
+  $("grid").innerHTML = list.length ? list.map(card).join("") :
+    `<p class="empty">No charts match. Try a broader word, or clear the filters.</p>`;
+}
+
+function card(c) {
+  const badges = [c.real ? "real data" : "", c.alts.length ? "+" + c.alts.join(", ") : "", c.engine === "plotly" ? "interactive" : ""]
+    .filter(Boolean).map((b) => `<span class="badge">${esc(b)}</span>`).join("");
+  const li = (xs) => xs.map((x) => `<li>${esc(x)}</li>`).join("");
+  return `<article class="card">
+    <div class="thumb"><img loading="lazy" src="${c.thumb}" alt="${esc(c.title)} example"></div>
+    <div class="body">
+      <div class="fam">${esc(c.familyName)}</div>
+      <div class="title">${esc(c.title)}<span class="badges">${badges}</span></div>
+      <div class="use">${esc(c.use[0])}</div>
+      <details><summary>Purpose &amp; when to use</summary>
+        <p>${esc(c.purpose)}</p><h4>Use when</h4><ul>${li(c.use)}</ul><h4>Avoid when</h4><ul>${li(c.avoid)}</ul>
+      </details>
+      <div class="links"><a href="${c.ipynb}">Notebook</a><a href="${c.py}">Script</a>${c.html ? `<a href="${c.html}">Interactive</a>` : ""}</div>
+    </div></article>`;
+}
+
+["q", "real", "alts", "interactive"].forEach((id) => $(id).addEventListener("input", render));
+chips(); shapeChips(); render();
+</script>
+</body>
+</html>

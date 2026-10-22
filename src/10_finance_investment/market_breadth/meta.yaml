@@ -1,0 +1,29 @@
+title: Market Breadth Panels
+engine: mpl
+order: 230
+purpose: Stacks a cap-weighted index above two breadth measures, the cumulative advance-decline line and
+  the share of stocks above their 200-day moving average, on a shared time axis. It shows whether a rally
+  is broad-based or carried by a few large companies.
+when_to_use:
+- Check if an index move reflects most stocks or a handful of mega-caps
+- Spot divergences, such as an index making new highs while breadth weakens
+- Use as market-health context in investment commentary
+avoid:
+- Overlaying the measures on one chart with two or three y-axes (scales are arbitrary and imply false
+  crossovers)
+- The audience needs a single headline number (show % of stocks above the 200-day MA as a stat)
+alternatives:
+- Equal-weight vs cap-weight index (indexed to 100)
+- Histogram of constituent returns
+tips:
+- Share the x-axis and align panels so the same date lines up vertically
+- Shade the period of interest across all panels
+- Give each panel its own title or y-label and its own natural scale
+- Add a reference line (50%) to percentage breadth measures
+example: 300 simulated stocks over three years. In the last nine months the 12 largest rally while most
+  others drift lower, which is a classic 'narrow market' (illustrative).
+read: Inside the shaded period the index keeps rising, but the advance-decline line falls and fewer than
+  half of stocks stay above their 200-day average. The gains come from a few heavyweights.
+data_shape:
+- prices
+- time

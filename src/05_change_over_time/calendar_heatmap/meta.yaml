@@ -1,0 +1,21 @@
+title: Calendar Heatmap
+engine: mpl
+order: 100
+purpose: Lays daily values out on a week-by-weekday grid, like a wall calendar, and colors each day by
+  magnitude. Weekly rhythms, seasonal patterns and unusual days stand out across a whole year.
+when_to_use:
+- Show daily data over months or years (activity, sales, commits, admissions)
+- Find day-of-week and seasonal patterns
+- Spot specific days with anomalies (holidays, outages)
+avoid:
+- Precise values or trends need reading (color is imprecise; use a line)
+- There are fewer than ~2 months of data
+alternatives:
+- Line chart
+- Heatmap of weekday × hour
+tips:
+- Use a single-hue sequential scale; keep missing days visibly different (blank)
+example: Daily exercise minutes for one year.
+read: Each square is one day. Columns are weeks and rows are weekdays. Darker means more minutes, and
+  the dark bottom rows show that weekends are the most active days.
+data_shape: [time]

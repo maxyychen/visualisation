@@ -1,0 +1,27 @@
+title: Bubble Chart
+engine: mpl
+order: 30
+purpose: A scatter plot whose marker area encodes a third numeric variable. Three measures fit in one
+  view, with the size channel adding emphasis.
+when_to_use:
+- Show three numeric variables at once (x, y, and size)
+- Show entities whose size or weight matters (population, revenue)
+- Tell a 'Gapminder-style' story about countries or companies
+avoid:
+- Precise comparison of the third variable matters (area is judged poorly)
+- There are many bubbles that overlap heavily
+- Sizes span several orders of magnitude without scaling
+alternatives:
+- Scatter plot with color for a third variable
+- Small multiples
+tips:
+- Scale bubble *area*, not radius, to the value
+- Add a size legend with two or three reference bubbles
+- Draw large bubbles first so small ones remain visible on top
+example: GDP per capita vs. life expectancy for 40 fictional countries; bubble area = population.
+read: Position shows wealth (x) and health (y). Bubble area shows population. Richer countries live longer,
+  with diminishing returns, which is why the x-axis is logarithmic.
+real_data:
+  source: "plotly.express.data.gapminder() \u2014 Gapminder 2007 (Asia, Africa, Europe), bundled with plotly"
+  offline: true
+data_shape: [numeric, categories]

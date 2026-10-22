@@ -1,0 +1,24 @@
+title: Radar (Spider) Chart
+engine: mpl
+order: 50
+purpose: Plots several variables on axes radiating from a center and joins them into a polygon. Each entity's
+  overall profile reads as a shape.
+when_to_use:
+- Compare the profile of 1–3 entities across 4–8 variables on the same scale (skills, product attributes)
+- Show balance and strengths or weaknesses more than precise values
+avoid:
+- Variables use different units or scales (normalise first, or use a different chart)
+- Comparing more than ~3 entities (polygons overlap; use small multiples or parallel coordinates)
+- Precise comparison is required (radial distances and areas are hard to judge)
+alternatives:
+- Grouped bar chart
+- Parallel coordinates
+- Dot plot
+tips:
+- Area grows with the square of the values, so tell readers to compare along each axis, not by area
+- Keep axis order meaningful; the shape changes with order
+example: Player ratings (0–100) on six skills for two football players.
+real_data:
+  source: "sklearn.datasets.load_wine() \u2014 chemical analysis of 178 Italian wines from 3 cultivars, bundled with scikit-learn"
+  offline: true
+data_shape: [categories, numeric]

@@ -1,0 +1,30 @@
+title: Allocation Drift and Rebalancing
+engine: mpl
+order: 130
+data_shape: [prices, time, categories]
+purpose: >-
+  Two 100% stacked area panels show how a portfolio's weights evolve when markets move: with periodic
+  rebalancing the weights snap back to target, without it they drift towards whatever performed best.
+  The comparison makes the hidden risk of "set and forget" visible: a 60/40 portfolio quietly becomes a
+  much more aggressive one.
+when_to_use:
+  - Explain why and how often to rebalance
+  - Show how far a portfolio has drifted from its policy weights
+  - Compare rebalancing rules (calendar vs. threshold)
+avoid:
+  - More than five or six holdings (group into asset classes)
+  - The weights barely move (show a small table instead)
+alternatives:
+  - Line chart of the equity weight only, with the target band shaded
+  - Stacked bars at each rebalance date
+tips:
+  - Keep the same asset order and colors in both panels
+  - Draw the target weights as thin reference lines
+  - Use 2px surface-colored gaps between bands, not borders
+example: >-
+  A simulated 60% equities / 30% bonds / 10% cash portfolio, 2015–2024, rebalanced every January vs. never
+  rebalanced. Simple daily returns. Not investment advice.
+read: >-
+  In both panels the bands are the share of each asset, adding to 100%. On the left the equity band jumps
+  back to 60% each January. On the right it keeps growing with the stock market, so the portfolio ends up
+  far riskier than its 60/40 label suggests.

@@ -1,0 +1,21 @@
+title: Word Cloud
+engine: mpl
+order: 120
+purpose: Shows words from a text sized by their frequency. It gives an at-a-glance, impressionistic summary
+  of the dominant terms in open-ended text.
+when_to_use:
+- Give a quick first look at the themes of free-text responses, reviews or speeches
+- Engaging illustrations where precision is not required
+avoid:
+- Any analytical comparison (word size is confounded by word length; use a bar chart of frequencies)
+- Small corpora, or text where key phrases span several words
+alternatives:
+- Horizontal bar chart of top terms
+- Treemap of topics
+tips:
+- Remove stop-words; use one or two colors instead of random rainbow colors
+- Pair with a frequency bar chart for any real analysis
+example: Word frequencies from app-store reviews of a mobile banking app (synthetic).
+read: Bigger words appear more often. The bar chart beside the cloud gives the exact counts the cloud
+  cannot.
+data_shape: [text]

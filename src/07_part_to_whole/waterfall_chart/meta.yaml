@@ -1,0 +1,23 @@
+title: Waterfall Chart
+engine: mpl
+order: 100
+purpose: Shows how a starting value becomes an ending value through a sequence of positive and negative
+  steps. Each floating bar starts where the previous one ended, so the chart is a running total broken
+  into its contributions.
+when_to_use:
+- Bridge from one total to another (revenue → profit, last year → this year)
+- Show which components add to or subtract from a result
+- Variance analysis (budget vs. actual by driver)
+avoid:
+- Steps have no natural order
+- There are dozens of small steps (group them)
+alternatives:
+- Diverging bar of contributions
+- Stacked bar
+tips:
+- Use one color for increases, one for decreases, and a neutral for totals
+- Draw thin connector lines between bars
+example: Bridge from revenue to net profit for a fiscal year ($M).
+read: Read left to right. Gray bars are totals, blue bars add to the running total and orange bars subtract
+  from it. Net profit is what is left after all the steps.
+data_shape: [categories, numeric]

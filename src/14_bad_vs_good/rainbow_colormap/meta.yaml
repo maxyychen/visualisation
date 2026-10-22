@@ -1,0 +1,28 @@
+title: "Rainbow Colormap vs. One-Hue Sequential"
+engine: mpl
+order: 40
+purpose: >-
+  Rainbow colormaps such as jet do not change lightness evenly. They brighten to yellow and cyan and
+  darken at blue and red, so the eye sees sharp "bands" and boundaries that are not in the data, while
+  real gradients get flattened. They also have no intuitive low-to-high order and fail for color-blind
+  readers and in grayscale print.
+when_to_use:
+  - Use a one-hue sequential map (light = low, dark = high) for continuous magnitude
+  - Use a two-hue diverging map with a neutral midpoint when the data has a meaningful center
+avoid:
+  - Default "jet", "rainbow", "hsv" or "spectral" maps on heatmaps, surfaces and choropleths
+  - Any map where lightness does not increase monotonically
+alternatives:
+  - One-hue sequential (Blues, Greens, Oranges)
+  - Perceptually uniform multi-hue (viridis, cividis) when you need more steps
+  - Diverging (RdBu) for data around a midpoint
+tips:
+  - Check lightness (L*) across the colormap; it should rise or fall monotonically
+  - Always include a color bar with units
+  - Test in grayscale; a good sequential map still reads correctly
+example: A smooth synthetic field (two overlapping Gaussian bumps), like a dose or concentration map.
+read: >-
+  The field is perfectly smooth. Jet draws crisp yellow and cyan rings on the left that are not in the data.
+  The strips below each panel plot the colormap's lightness: jet's goes up and down (false edges), while the one-hue
+  map rises steadily, so it shows the gradient honestly.
+data_shape: [numeric, geo]

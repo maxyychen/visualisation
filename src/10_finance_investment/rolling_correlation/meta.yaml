@@ -1,0 +1,30 @@
+title: Rolling Correlation
+engine: mpl
+order: 80
+data_shape: [prices, time]
+purpose: >-
+  Plots the correlation between two assets computed over a moving window. Diversification depends on
+  correlation, and correlation is not constant: it shifts with inflation and policy regimes and tends to
+  rise in crises, exactly when diversification is needed most.
+when_to_use:
+  - Check whether a diversifier (bonds, gold, alternatives) still diversifies
+  - Show regime changes in the relationship between two markets
+  - Stress-test assumptions in a portfolio model that uses a single correlation number
+avoid:
+  - Comparing more than three or four pairs on one chart (use small multiples or a heatmap per period)
+  - Windows so short that the line is pure noise (under ~40 observations)
+alternatives:
+  - Correlation heatmap for two or three sub-periods
+  - Scatter of the two return series, colored by period
+tips:
+  - Mark the zero line and the full-period correlation as references
+  - State the window length (e.g. 63 trading days ≈ 3 months)
+  - Correlate returns, never price levels (trending prices correlate spuriously)
+example: >-
+  Simulated daily returns for equities, government bonds and gold, 2015–2024. The stock-bond
+  correlation flips from negative to positive in 2022, as it did when inflation returned. Not investment
+  advice.
+read: >-
+  Each line is the 63-day correlation of an asset's returns with equity returns. Below zero, the asset
+  tended to rise when stocks fell (a hedge). The bond line crossing above zero in 2022 means bonds and
+  stocks fell together.

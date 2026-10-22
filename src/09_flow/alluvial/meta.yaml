@@ -1,0 +1,21 @@
+title: Alluvial Diagram (Parallel Categories)
+engine: plotly
+order: 20
+purpose: Several categorical dimensions are drawn as vertical axes with ribbons connecting them. Each
+  ribbon is the group of records sharing a combination of categories. It shows how membership in one classification
+  maps onto another, or how groups change over time.
+when_to_use:
+- Show how individuals move between categories over time (plan tier in 2024 → 2025)
+- Explore associations among 2–4 categorical variables
+- Track cohort composition across stages
+avoid:
+- Variables are continuous (use parallel coordinates)
+- Each dimension has many categories (ribbons become unreadable)
+alternatives:
+- Sankey diagram
+- Mosaic/marimekko chart
+- Heatmap of a cross-tab
+example: '1,500 survey respondents: age group → preferred channel → satisfaction.'
+read: 'Ribbons are colored by channel: blue for App, orange for Web, green for Phone. Younger respondents
+  mostly use the app, and app users more often end up satisfied.'
+data_shape: [categories, flows]

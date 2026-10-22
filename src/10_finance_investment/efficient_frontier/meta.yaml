@@ -1,0 +1,33 @@
+title: Efficient Frontier
+engine: mpl
+order: 110
+data_shape: [prices, numeric]
+purpose: >-
+  Plots expected return against volatility for thousands of possible portfolios, traces the efficient
+  frontier (the best return for each level of risk) and adds the capital market line from the risk-free
+  rate through the tangency (maximum-Sharpe) portfolio. It is the picture behind modern portfolio theory:
+  diversification moves portfolios up and to the left of the individual assets.
+when_to_use:
+  - Explain diversification and the risk-return trade-off
+  - Compare a proposed allocation with what is achievable from the same assets
+  - Teach mean-variance optimisation, the minimum-variance and maximum-Sharpe portfolios
+avoid:
+  - Presenting the optimised weights as precise (they are very sensitive to expected-return estimates)
+  - Return estimates are just historical averages over a short period (the frontier will be overfitted)
+alternatives:
+  - Risk-return scatter of actual funds
+  - Risk contribution chart for one chosen portfolio
+tips:
+  - Color the random portfolios by Sharpe ratio with a one-hue sequential scale
+  - Mark the minimum-variance and tangency portfolios and label the individual assets
+  - State the assumptions (expected returns, covariance, no short sales, risk-free rate)
+example: >-
+  Five simulated asset classes with assumed expected returns, volatilities and correlations; 6,000 random
+  long-only portfolios; 3% risk-free rate. Not investment advice.
+read: >-
+  Each small dot is one random portfolio (darker = higher Sharpe ratio). The blue curve is the efficient
+  frontier: no portfolio does better at the same risk. The orange line from the risk-free rate touches the
+  frontier at the tangency portfolio, the mix with the best return per unit of risk.
+real_data:
+  source: plotly.express.data.stocks() — 6 tech stocks, mean and covariance of weekly returns 2018–2019 (annualised)
+  offline: true

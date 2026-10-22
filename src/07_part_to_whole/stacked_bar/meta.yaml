@@ -1,0 +1,26 @@
+title: Stacked Bar Chart
+engine: mpl
+order: 10
+purpose: Each bar is a total, divided into segments for its components. It shows the total and its composition
+  at once. The first segment and the total are easy to compare across bars. Inner segments are harder
+  to compare because they have no common baseline.
+when_to_use:
+- Compare totals across categories and show roughly what makes them up
+- Use few components (2–5), where the first segment is the most important
+- Show composition of counts or amounts, not percentages
+avoid:
+- Readers must compare the middle segments precisely (use grouped bars or small multiples)
+- There are more than ~5 components
+- Only the shares matter, not the totals (use a 100% stacked bar)
+alternatives:
+- Grouped bar chart
+- 100% stacked bar
+- Small-multiple bars
+tips:
+- Put the most important or most stable component on the baseline
+- Keep segment order the same in every bar and in the legend
+- Separate segments with a thin surface-colored gap, not a dark border
+example: Quarterly revenue of a software company, split by sales channel.
+read: Bar height is total revenue in the quarter and each colored segment is one sales channel.
+  Online, the top segment, grows every quarter while the other channels are roughly flat.
+data_shape: [categories]

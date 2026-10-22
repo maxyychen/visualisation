@@ -1,0 +1,24 @@
+title: Contour / Isarithmic Map
+engine: mpl
+order: 60
+purpose: Draws lines (isolines) or filled bands joining points of equal value over a continuous surface.
+  The shape of the field (peaks, valleys, gradients) becomes readable, as on topographic and weather maps.
+when_to_use:
+- Show a continuous phenomenon that varies smoothly over space (elevation, rainfall, temperature, pollution)
+- Show interpolated measurements from sensors or stations
+- Show any 2-D function z = f(x, y), including model response surfaces
+avoid:
+- The data is attached to discrete regions (use a choropleth)
+- There are too few sample points to justify interpolation
+alternatives:
+- Heatmap / raster
+- 3-D surface (rarely better)
+- Hexbin map
+tips:
+- Use a one-hue sequential scale, light to dark; a rainbow invents boundaries that aren't in the data
+- Label a few isolines directly instead of relying only on the color bar
+- Mark known reference points (stations, cities) for orientation
+example: Synthetic annual rainfall (mm) over a 100 × 80 km region with two mountain ranges and five towns.
+read: Darker bands get more rain. Closely spaced isolines mark steep gradients, such as the windward flank
+  of the north-west range.
+data_shape: [geo, numeric]

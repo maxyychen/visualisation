@@ -1,0 +1,32 @@
+title: Regression Residual Diagnostics
+engine: mpl
+order: 50
+purpose: >-
+  A 2×2 panel of standard checks for a linear regression: residuals vs fitted (non-linearity), normal
+  Q-Q (normality), scale-location (constant variance) and residuals vs leverage (influential points).
+  It shows whether the model's assumptions hold before you trust its coefficients and p-values.
+when_to_use:
+  - Validate any linear or generalized linear model before reporting it
+  - Find influential observations that drive the fit
+  - Decide whether to transform the outcome or add non-linear terms
+avoid:
+  - The audience only needs the model's conclusions (keep this in the appendix)
+  - The model is not regression-based (use calibration or residual plots specific to that model)
+alternatives:
+  - Calibration plot (classification)
+  - Partial residual plots per predictor
+tips:
+  - Add a smoothed trend line (LOWESS); a flat line at zero is what you want
+  - Label the few most extreme points by their row ID so they can be inspected
+  - Mark Cook's distance contours on the leverage panel
+example: >-
+  An ordinary-least-squares model of one-year disease progression on all 10 baseline variables of the
+  real Diabetes dataset bundled with scikit-learn (load_diabetes, 442 patients), fitted with statsmodels.
+read: >-
+  Top left, the residuals scatter evenly around zero with no curve, so a linear model is reasonable.
+  Top right, the points follow the Q-Q line except slightly in the tails. Bottom left, the trend climbs at
+  low fitted values and then levels off, a mild sign that errors are smaller for patients predicted to
+  progress least (consider a transformed outcome). Bottom right, the Cook's distance 0.5
+  contour lies beyond the plotted range, so no single patient dominates the fit. The three most
+  influential patients are labelled by row number for inspection.
+data_shape: [model]

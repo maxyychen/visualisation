@@ -1,0 +1,24 @@
+title: Histogram
+engine: mpl
+order: 10
+purpose: Bins one numeric variable into intervals and draws a bar for the count in each. It is the standard
+  way to see a distribution's shape, centre, spread, skew and gaps.
+when_to_use:
+- Show the shape of one numeric variable (normal, skewed, bimodal)
+- Find outliers, gaps and impossible values during data cleaning
+- Communicate a distribution to a general audience
+avoid:
+- There are fewer than ~30 values (use a strip or dot plot)
+- Comparing more than two or three groups (overlapping bars become unreadable)
+alternatives:
+- KDE density curve
+- Box plot
+- ECDF
+tips:
+- Try several bin widths; the shape can change with binning
+- Leave no gaps between bars, because the x-axis is continuous
+- Mark the mean or median with a reference line
+example: Delivery times (minutes) for 2,000 food orders, right-skewed (synthetic).
+read: Most orders arrive in 25–45 minutes. The long right tail means a minority of orders are much slower,
+  which pulls the mean above the median.
+data_shape: [numeric]

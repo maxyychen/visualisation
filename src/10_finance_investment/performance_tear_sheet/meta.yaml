@@ -1,0 +1,38 @@
+title: Performance Tear Sheet (one-page report)
+engine: mpl
+order: 10
+data_shape: [prices, time]
+purpose: >-
+  A one-page report that combines the charts and statistics an investor checks first: headline
+  metrics, growth of $1 against a benchmark, drawdowns, rolling risk, a monthly-returns calendar
+  and calendar-year returns. Return, risk and consistency read together, so no single flattering
+  number tells the story alone.
+when_to_use:
+  - Summarise a fund, strategy, or portfolio's track record on one page
+  - Compare a strategy with its benchmark across return, risk and consistency
+  - Produce a repeatable monthly or quarterly performance report from a price file
+avoid:
+  - The history is short (under ~2 years); rolling and calendar panels become noise
+  - The audience needs one message (show the single relevant chart instead)
+  - Returns are not time-weighted (cash flows distort them; compute TWR first)
+alternatives:
+  - Cumulative return vs. benchmark (just the growth line)
+  - Drawdown (underwater) chart
+  - Monthly returns heatmap
+tips:
+  - Always show the benchmark; absolute returns without context mislead
+  - Put growth on a log scale so equal percentage moves look equal across the history
+  - Report risk (volatility, max drawdown) next to return, never return alone
+  - "Reusable: `from vizlib.finance import tear_sheet` or run `python -m vizlib.finance prices.csv --price Fund --benchmark Index`"
+example: >-
+  Simulated daily returns for a fund and its benchmark index over seven years, including a sharp
+  crash and a slow bear market. The report comes from the reusable `vizlib.finance.tear_sheet()`
+  function.
+read: >-
+  Start with the headline tiles: the fund earned a higher CAGR than the benchmark with lower
+  volatility (beta below 1) and a shallower maximum drawdown. The growth panel shows where the gap opened, the
+  drawdown panel shows how deep and how long each loss was, and the calendar shows how consistent
+  the months were. Blue is a gain and orange a loss.
+real_data:
+  source: plotly.express.data.stocks (weekly prices 2018–2019, AAPL vs. equal-weight of six tech stocks)
+  offline: true

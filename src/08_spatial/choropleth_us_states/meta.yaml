@@ -1,0 +1,20 @@
+title: Choropleth Map (US states)
+engine: plotly
+order: 20
+purpose: A choropleth at the sub-national level, using built-in US state shapes keyed by two-letter postal
+  codes. It works for any state-level KPI.
+when_to_use:
+- Show a state-level rate or index for a US audience
+- Show regional patterns (South vs. Northeast, coastal vs. interior)
+avoid:
+- Small states such as RI, DE and DC matter to the story (they are nearly invisible; use a tile grid map)
+- Values are totals that scale with population
+alternatives:
+- Tile grid map
+- Sorted bar chart
+tips:
+- Use `locationmode='USA-states'` with postal codes, so no shapefile is needed
+- State the data year and the denominator in the title or legend
+- Viewing requires a network connection (plotly.js loads the map shapes)
+example: Illustrative (synthetic) uninsured rate (%) by state, with a South-to-North gradient.
+data_shape: [geo]

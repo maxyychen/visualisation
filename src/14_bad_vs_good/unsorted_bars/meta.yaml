@@ -1,0 +1,27 @@
+title: "Unsorted Rainbow Bars vs. Sorted Bars"
+engine: mpl
+order: 60
+purpose: >-
+  Bars in alphabetical (or random) order, each in a different color, make the reader do the sorting in
+  their head. The colors carry no information but suggest that they do, and vertical bars with long names
+  force rotated, hard-to-read labels.
+when_to_use:
+  - Sort nominal categories by value so ranking is immediate
+  - Use horizontal bars when category names are long
+  - Use one color for one series; add a second color only to highlight
+avoid:
+  - Alphabetical ordering of categories that have no natural order
+  - Coloring each bar differently "to look nice"
+  - Rotated 45°/90° x-axis labels
+alternatives:
+  - Sorted horizontal bar chart
+  - Lollipop or Cleveland dot plot for many categories
+tips:
+  - Keep natural orders (months, age bands, Likert levels) unsorted; sort everything else
+  - Put the value labels at the bar ends and lighten or drop the gridlines
+  - Use color to say something ("above target"), not to decorate
+example: Average outpatient waiting time (minutes) for ten clinics.
+read: >-
+  Find the clinic with the third-longest wait. On the left you scan back and forth and tilt your head; on the
+  right it is the third bar from the top. The single color plus one highlight also tells you which clinics exceed the 30-minute target.
+data_shape: [categories, numeric]

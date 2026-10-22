@@ -1,0 +1,19 @@
+title: Venn Diagram
+engine: mpl
+order: 110
+purpose: Overlapping circles that show how two or three sets share members. Each region is labeled with
+  its count, so readers see the size of every combination, including what is unique and what is shared.
+when_to_use:
+- Show overlap between 2–3 groups (customers holding products A, B, C)
+- Compare gene lists, customer segments, or feature sets
+avoid:
+- There are more than 3 sets (use an UpSet plot)
+- Exact area proportionality is expected (it is only approximate for 3 sets)
+alternatives:
+- UpSet plot
+- Euler diagram
+- Grouped bar of intersections
+example: 'Product holdings of 1,000 retail-bank customers: checking account, credit card, brokerage account.'
+read: Each region's number counts the customers with exactly that combination of products. The center
+  shows the 40 customers who hold all three, the bank's most cross-sold segment.
+data_shape: [sets]

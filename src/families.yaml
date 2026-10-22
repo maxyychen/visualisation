@@ -1,0 +1,43 @@
+- folder: 01_deviation
+  name: Deviation
+  description: 'Emphasise variations (+/-) from a fixed reference point: zero, a target, or an average.'
+- folder: 02_correlation
+  name: Correlation
+  description: Show the relationship between two or more variables.
+- folder: 03_ranking
+  name: Ranking
+  description: Use when an item's position in an ordered list matters more than its absolute value.
+- folder: 04_distribution
+  name: Distribution
+  description: Show values in a dataset and how often they occur; the shape (skew, spread, gaps) is the story.
+- folder: 05_change_over_time
+  name: Change over time
+  description: Emphasise changing trends, from intraday moves to series spanning decades.
+- folder: 06_magnitude
+  name: Magnitude
+  description: Compare sizes, relative or absolute (usually counts rather than rates).
+- folder: 07_part_to_whole
+  name: Part-to-whole
+  description: Show how a single entity breaks down into its components.
+- folder: 08_spatial
+  name: Spatial
+  description: Use when precise locations or geographic patterns matter more than anything else.
+- folder: 09_flow
+  name: Flow
+  description: Show the volume or intensity of movement between states, stages, or places.
+- folder: 10_finance_investment
+  name: Finance & investment
+  description: Performance, risk, portfolios, markets, rates, derivatives and valuation, the everyday charts of investors and analysts.
+  note: Educational examples with simulated or historical data. Not investment advice; past performance does not predict future returns.
+- folder: 11_scientific_clinical
+  name: Scientific & clinical
+  description: Specialised plots for statistics, biomedical research and model evaluation.
+- folder: 12_multivariate_ml
+  name: Multivariate & ML
+  description: Explore many variables at once and explain or diagnose statistical and machine-learning models.
+- folder: 13_uncertainty
+  name: Uncertainty
+  description: Show what is not known (intervals, probabilities and possible outcomes) so readers do not over-trust a single number.
+- folder: 14_bad_vs_good
+  name: Bad vs. good
+  description: Common chart mistakes, each shown next to a better alternative that fixes it.

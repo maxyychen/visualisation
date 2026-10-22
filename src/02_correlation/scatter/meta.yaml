@@ -1,0 +1,28 @@
+title: Scatter Plot
+engine: mpl
+order: 10
+purpose: 'Each observation is a dot placed by two numeric variables. It is the basic chart for relationships:
+  the direction, strength, shape (linear or curved), clusters and outliers all show at once.'
+when_to_use:
+- Show whether two numeric variables move together
+- Find clusters, gaps and outliers in two-dimensional data
+- Explore data before fitting a model
+avoid:
+- There are tens of thousands of points and heavy overplotting (use hexbin or 2-D density)
+- One variable is time (use a line chart)
+- Readers need exact values (use a table)
+alternatives:
+- Hexbin plot
+- 2-D density contour
+- Bubble chart (adds a third variable)
+tips:
+- Use semi-transparent markers so overlapping points stay visible
+- Use at most three colored groups; more is hard to tell apart
+- Start axes at sensible values, not necessarily zero
+example: Height and weight of 300 adults, split by sex (synthetic data).
+read: Each dot is one person. The cloud rises left to right, so taller people tend to weigh more. The
+  two colors overlap heavily, but men cluster further up and to the right.
+real_data:
+  source: "plotly.express.data.tips() \u2014 restaurant tipping data (Bryant & Smith 1995), bundled with plotly"
+  offline: true
+data_shape: [numeric, categories]

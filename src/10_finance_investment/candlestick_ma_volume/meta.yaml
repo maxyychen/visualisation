@@ -1,0 +1,30 @@
+title: Candlestick with Moving Averages, Bollinger Band & Volume
+engine: mpl
+order: 200
+purpose: The technical analyst's standard price panel. Candles show each day's open, high, low and close.
+  20- and 50-day moving averages show trend, a Bollinger band shows how unusual the price is relative
+  to its own recent volatility, and a separate volume panel shows conviction.
+when_to_use:
+- Review a single security's recent price action with trend and volatility context
+- Spot moving-average crossovers, band squeezes or breakouts, and volume spikes
+- Present to trading or portfolio-management audiences who read this format daily
+avoid:
+- The audience only needs the trend (a line of closing prices is clearer)
+- More than ~150 periods are shown (candles turn into noise; aggregate to weekly)
+- Putting volume on a second y-axis over the price (always give it its own panel)
+alternatives:
+- Basic candlestick (05 · Change over time)
+- Line of closing price with MA overlay
+- Cumulative return vs benchmark
+tips:
+- Keep indicator lines thinner and calmer than the candles; the price is the hero
+- Moving averages need a warm-up window, so compute them on more history than you show
+- Color volume bars by up/down day so volume and price read together
+- Label the indicators directly at the right edge instead of relying only on a legend
+example: 120 trading days of a simulated stock (illustrative), with 20/50-day moving averages, a 20-day
+  ±2σ Bollinger band and daily volume with its 20-day average.
+read: When the price stays above a rising 50-day MA the trend is up. When it leaves the gray band the
+  move is unusually large for this stock. Tall volume bars mark the days the market cared most.
+data_shape:
+- prices
+- time

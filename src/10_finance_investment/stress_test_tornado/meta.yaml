@@ -1,0 +1,29 @@
+title: Stress-Test Tornado Chart
+engine: mpl
+order: 100
+data_shape: [categories, numeric]
+purpose: >-
+  For each risk factor, a horizontal bar runs from the portfolio's P&L under a downside shock to its P&L
+  under an upside shock. Bars are sorted by total range, so the widest (most important) sensitivities sit
+  at the top and the chart narrows like a tornado. It ranks which assumptions matter most.
+when_to_use:
+  - Rank the sensitivity of a portfolio, valuation or budget to individual assumptions
+  - Communicate scenario or stress-test results to non-specialists
+  - Decide which inputs deserve more research or hedging
+avoid:
+  - Factors interact strongly (one-at-a-time shocks mislead; use joint scenarios)
+  - Shocks are not comparable in likelihood (state the shock size for each bar)
+alternatives:
+  - Scenario table with joint shocks
+  - DCF / two-way sensitivity table
+  - Waterfall from base case to stressed case
+tips:
+  - Label each bar end with the shock used (e.g. "equities −20%")
+  - Use the same diverging colors for loss and gain throughout
+  - Draw the base case as a vertical zero line
+example: >-
+  Simulated one-at-a-time shocks to a 100 million multi-asset portfolio (P&L in millions). Not
+  investment advice.
+read: >-
+  Each row is one factor. Orange extends to the loss under the downside shock and blue to the gain under
+  the upside shock. Equity markets dominate; inflation and FX matter far less for this portfolio.

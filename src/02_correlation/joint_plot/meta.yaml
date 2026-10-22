@@ -1,0 +1,21 @@
+title: Joint Plot (Scatter + Marginals)
+engine: mpl
+order: 90
+purpose: A scatter plot with the marginal distribution of each variable drawn along its axis. The joint
+  relationship and both individual distributions show together.
+when_to_use:
+- Show both the relationship and each variable's skew or outliers
+- Explore two key variables in detail
+avoid:
+- There are more than two or three groups (marginals get crowded)
+- Space is tight (dashboard tiles)
+alternatives:
+- Scatter plot
+- Hexbin with marginal histograms
+example: House size vs. sale price for 400 homes (synthetic, right-skewed prices).
+read: 'The centre panel shows price rising with size. The histograms on the edges show both variables
+  are right-skewed: most homes are mid-sized, with a long tail of large, expensive ones.'
+real_data:
+  source: "plotly.express.data.gapminder() \u2014 Gapminder 2007, bundled with plotly"
+  offline: true
+data_shape: [numeric]

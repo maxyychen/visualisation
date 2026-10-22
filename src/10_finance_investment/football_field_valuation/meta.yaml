@@ -1,0 +1,29 @@
+title: Football Field (Valuation Summary)
+engine: mpl
+order: 280
+purpose: Floating horizontal bars show the implied value-per-share range from each valuation method (trading
+  range, analyst targets, comparable companies, precedent deals, DCF, LBO) against the current share price.
+  It is the standard investment-banking summary of 'what is this company worth?'.
+when_to_use:
+- Summarise several valuation approaches on one common scale (value per share or EV)
+- Support M&A, fairness-opinion or equity-research discussions
+- Show where a proposed offer price sits relative to each method
+avoid:
+- The ranges come from inconsistent assumptions (net debt, share count or date); reconcile first
+- Only one method is available (show its sensitivity table instead)
+alternatives:
+- DCF sensitivity table
+- Dot plot of point estimates with ranges
+tips:
+- Group methods by family (market, relative, intrinsic) with consistent colors
+- Label the low and high values at each bar end
+- Draw the current price (and any offer price) as vertical reference lines across all bars
+- State the key assumption behind each range in its label
+example: A fictional company with 250M shares and $1.8bn net debt; ranges computed from multiples, a five-year
+  DCF and a simple LBO (illustrative).
+read: Each bar is the range of value per share from one method. Most bars span the current $38.50 price.
+  The LBO range sits lowest, as it usually does, because it is the price a financial buyer could pay and
+  still earn a 20–25% return.
+data_shape:
+- categories
+- uncertainty

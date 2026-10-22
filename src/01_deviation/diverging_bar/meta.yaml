@@ -1,0 +1,24 @@
+title: Diverging Bar Chart
+engine: mpl
+order: 10
+purpose: A bar chart whose bars grow left or right (or up or down) from a shared reference line. Color
+  shows direction, so the eye picks out above and below the baseline before reading magnitude.
+when_to_use:
+- Show how far each category sits above or below a baseline (zero, target, average)
+- Show signed values such as profit/loss, budget variance, or year-over-year change
+- Rank items by deviation while keeping the sign visible
+avoid:
+- There is no meaningful reference point (use a plain bar chart)
+- Values are all positive and the baseline is arbitrary
+- There are more than ~30 categories (consider a dot plot or table)
+alternatives:
+- Deviation lollipop
+- Surplus/deficit line (for time series)
+tips:
+- Sort bars by value so the zero-crossing is easy to locate
+- Use two opposite hues (warm/cool), never two shades of the same hue
+- Put category labels next to the bar's base, not inside the bars
+example: Change in annual sales versus the previous year for 12 product lines.
+read: Bars to the right of zero (blue) grew and bars to the left (orange) shrank. Bar length is the size
+  of the change.
+data_shape: [categories, numeric]

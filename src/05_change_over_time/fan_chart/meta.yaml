@@ -1,0 +1,22 @@
+title: Fan Chart (forecast uncertainty)
+engine: mpl
+order: 90
+purpose: Shows observed history followed by a forecast drawn as nested bands of uncertainty that widen
+  over time. It shows the best guess together with honest uncertainty about it.
+when_to_use:
+- Show forecasts or projections with confidence or prediction intervals
+- Show that uncertainty grows with the forecast horizon
+- Present model outputs to decision-makers (inflation, demand, epidemics)
+avoid:
+- The intervals have no statistical basis (they would imply false precision)
+- The audience will read the central line as a promise
+alternatives:
+- Line with a single confidence band
+- Spaghetti plot of scenarios
+tips:
+- Use one hue with increasing transparency for wider intervals
+- Mark clearly where observations end and forecasts begin
+example: 'Monthly demand: 4 years of history plus a 12-month forecast with 50/80/95% intervals.'
+read: The dark line is history and the blue line the central forecast. The darkest band holds a 50% chance
+  of the outcome and the lightest band 95%.
+data_shape: [time, uncertainty]

@@ -1,0 +1,19 @@
+title: Streamgraph
+engine: mpl
+order: 60
+purpose: A stacked area chart laid out around a central, wiggling baseline instead of zero. It gives an
+  organic, flowing picture of how many categories rise and fall over time.
+when_to_use:
+- Show the ebb and flow of many categories over time (music genres, topics, species)
+- Engaging, editorial graphics where overall patterns matter more than exact values
+avoid:
+- Precise values or totals must be read (there is no fixed baseline)
+- Analytical or dashboard contexts
+- There are few time points
+alternatives:
+- Stacked area chart
+- Small multiples
+- Heatmap
+example: Weekly listening share of six music genres across a year.
+read: Band thickness at any week is that genre's listening volume. The vertical position has no meaning.
+data_shape: [time, categories]

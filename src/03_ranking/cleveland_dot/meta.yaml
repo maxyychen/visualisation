@@ -1,0 +1,20 @@
+title: Cleveland Dot Plot
+engine: mpl
+order: 40
+purpose: Dots on a common scale, one row per category, sorted by value. Without bars the axis need not
+  start at zero, so small differences between similar values become visible.
+when_to_use:
+- Rank values that are close together and far from zero (e.g. life expectancy 70–85)
+- Compare two values per category (before/after, men/women) on each row
+avoid:
+- Readers will judge proportions from position (start at zero or use bars)
+alternatives:
+- Dumbbell chart
+- Lollipop chart
+tips:
+- Use light horizontal guide lines to link each dot to its label
+- When showing two dots per row, sort by one of them or by their difference
+example: Life expectancy for women and men in 12 countries (synthetic), sorted by women's value.
+read: Each row is a country. Blue dots are women and orange dots men, and the gray line is the gap. Women
+  outlive men everywhere, and the gap is widest in Brazil and the USA.
+data_shape: [categories, numeric]

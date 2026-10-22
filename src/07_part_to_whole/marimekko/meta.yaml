@@ -1,0 +1,20 @@
+title: Marimekko (Mosaic) Chart
+engine: mpl
+order: 90
+purpose: 'A 100% stacked bar chart in which each bar''s width is proportional to its total. It shows two
+  part-to-whole splits at once: how big each segment is (width) and how it divides internally (height).'
+when_to_use:
+- Show market size by segment together with share within each segment
+- Show a two-way categorical breakdown (a contingency table) as areas
+- Spot which large segments a player is weak in
+avoid:
+- Readers are unfamiliar with it and there is no time to explain it
+- There are many columns or many rows (thin slivers become unreadable)
+alternatives:
+- 100% stacked bar + separate bar of totals
+- Treemap
+- Heatmap table
+example: 'Smartphone market: size of each region (width) and brand share within it (height).'
+read: Column width is a region's share of the global market and segment height is brand share within that
+  region. Each block's area is that brand's share of the global market.
+data_shape: [categories]

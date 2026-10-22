@@ -1,0 +1,32 @@
+title: Hypothetical Outcome Plot (HOP)
+engine: plotly
+order: 30
+purpose: >-
+  Animates uncertainty instead of summarizing it. Each frame shows one plausible outcome drawn from the
+  distribution, so viewers experience how often one option beats another rather than reading
+  overlapping error bars. Hullman et al. (2015) found HOPs improve judgements of the probability that
+  A > B.
+when_to_use:
+  - Answer "how often is A better than B?" when the uncertainty intervals overlap
+  - Communicate model uncertainty to non-experts in an interactive or presentation setting
+  - Show that a "winner" by average is not a guaranteed winner
+avoid:
+  - The output is printed or static (it needs animation; use gradient intervals or half-eye instead)
+  - Readers need precise interval values
+  - The animation would run too fast to follow (under ~300 ms per frame)
+alternatives:
+  - Half-eye plot (static)
+  - Quantile dotplot
+  - Bar chart with intervals plus a stated probability that A > B
+tips:
+  - Hold axes fixed across frames so only the data moves
+  - Run at 2–3 frames per second, with play/pause and a slider
+  - Also state the summary probability in text for those who cannot watch it
+example: >-
+  Days to recovery under two treatments, with uncertain averages (Treatment A ~ N(10, 1.6) and
+  Treatment B ~ N(11.5, 1.6) days). Each frame is one draw; synthetic data.
+read: >-
+  Press play. B usually takes longer, but in roughly a quarter of the frames A is the slower one. The
+  averages differ, yet the outcome is far from certain, which a pair of overlapping error bars rarely
+  makes clear.
+data_shape: [uncertainty]

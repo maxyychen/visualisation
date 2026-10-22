@@ -1,0 +1,18 @@
+title: Highlight Table (heat-shaded table)
+engine: mpl
+order: 110
+purpose: A table of numbers with each cell shaded by its value. Readers can look up exact values and still
+  see high and low cells at a glance, which makes it a bridge between a table and a heatmap.
+when_to_use:
+- Readers need exact numbers and patterns (finance reports, cross-tabs)
+- Compare values across two categorical dimensions (product × month)
+avoid:
+- The table is huge (use a pure heatmap)
+- Rows have very different scales (shade per row or normalise first)
+alternatives:
+- Heatmap
+- Grouped bar chart
+tips:
+- Use a single-hue sequential scale; switch text to white on dark cells
+example: Units sold by product and month.
+data_shape: [categories, numeric]

@@ -1,0 +1,20 @@
+title: Bullet Chart
+engine: mpl
+order: 70
+purpose: Stephen Few's compact replacement for gauges. A bar shows the actual value, a tick marks the
+  target, and shaded bands mark qualitative ranges (poor, ok, good), all in a small strip.
+when_to_use:
+- Show KPI performance against target and qualitative thresholds in dashboards
+- Fit many metrics into little space (stack them vertically)
+avoid:
+- There is no target or benchmark
+- The audience is unfamiliar with it and has no legend to explain it
+alternatives:
+- KPI stat tile
+- Bar with reference line
+tips:
+- Bands are shades of gray; the bar is the only strong color
+example: Five quarterly KPIs versus target, each with poor/satisfactory/good ranges.
+read: Each row is one KPI. The inner bar is the actual value and the black tick is the target. The gray
+  bands mark poor, satisfactory and good. Orange bars missed the target.
+data_shape: [categories, numeric]

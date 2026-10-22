@@ -1,0 +1,28 @@
+title: "Dynamite Plot vs. Points + Confidence Interval"
+engine: mpl
+order: 80
+purpose: >-
+  A "dynamite plot" (bar of the mean plus a standard-error whisker) shows only two numbers per group and
+  hides the data. Groups with the same mean but completely different distributions (bimodal, skewed,
+  with outliers, tiny n) look identical. The bar also suggests that values fill the area from zero up to the mean, which they do not,
+  and SE whiskers are routinely misread as data spread or as confidence intervals.
+when_to_use:
+  - Show the raw data points (jittered or beeswarm) with the mean and 95% CI on top for small-to-moderate n
+  - Use box, violin or raincloud plots for larger samples
+  - State the interval type and n in the chart
+avoid:
+  - Bar charts of means for continuous measurements, common in lab and clinical papers
+  - Error bars without saying whether they are SD, SE or CI
+alternatives:
+  - Strip / beeswarm plot with mean ± 95% CI
+  - Box plot or raincloud plot
+  - Estimation plot (effect size with CI)
+tips:
+  - Prefer 95% CI over SE; label it explicitly ("mean ± 95% CI")
+  - Annotate n per group
+  - Bars are for counts and totals, not for means of continuous data
+example: A biomarker measured in two treatment groups of 30 patients, with the same mean but a unimodal vs. a bimodal response.
+read: >-
+  On the left the two treatments look identical. On the right, Treatment B splits patients into two groups,
+  responders and non-responders, which is a completely different clinical story that the bars hide.
+data_shape: [numeric, categories]

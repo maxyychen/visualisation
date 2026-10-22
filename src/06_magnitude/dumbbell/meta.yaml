@@ -1,0 +1,22 @@
+title: Dumbbell Chart (connected dot plot)
+engine: mpl
+order: 40
+purpose: 'Two dots per category joined by a line: before and after, or group A and group B. The line''s
+  length shows the gap and its direction shows which value is larger. It is far cleaner than paired bars.'
+when_to_use:
+- Compare two values per category (2015 vs. 2025, men vs. women, target vs. actual)
+- The size of the gap is the story
+- Values don't start at zero, so bars would be misleading
+avoid:
+- There are more than two values per category (use a dot plot with several markers)
+alternatives:
+- Grouped bar chart
+- Slope chart
+- Arrow chart
+tips:
+- Sort by the gap or by one end; label the two colors directly once at the top
+example: Life expectancy at birth in 2000 vs. 2022 for ten countries (approximate values).
+real_data:
+  source: "plotly.express.data.gapminder() \u2014 Gapminder life expectancy, GDP and population 1952\u20132007, bundled with plotly"
+  offline: true
+data_shape: [categories, numeric]

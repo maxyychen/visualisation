@@ -1,0 +1,30 @@
+title: Market Map (Sector Treemap Heatmap)
+engine: mpl
+order: 210
+purpose: 'A treemap where each rectangle is a stock, sized by market capitalisation, grouped by sector
+  and colored by the day''s return. It answers two questions at once: what moved, and how much of the
+  market it represents.'
+when_to_use:
+- Give a one-glance summary of the market or a portfolio on a given day or period
+- Show whether a move is broad (whole sectors one color) or concentrated in a few large names
+- Show many holdings (30–500) where size and return both matter
+avoid:
+- Precise comparison of returns is needed (use a sorted bar chart)
+- Constituents are similar in size (the treemap adds nothing over a grid heatmap)
+- Using a red/green scale alone (≈8% of men cannot separate them); use a blue/orange diverging scale
+alternatives:
+- Sorted bar chart of returns
+- Highlight table
+- Sector bar chart of contributions
+tips:
+- Use a diverging scale with a neutral gray at 0% and clip the extremes so one outlier doesn't wash out
+  the rest
+- Draw sector borders thicker than stock borders so the hierarchy is visible
+- Label only tiles big enough to hold the text; the rest are available on hover in interactive versions
+example: 31 fictional large-cap stocks in six sectors with simulated market caps and one day's returns
+  (illustrative).
+read: Big tiles are the largest companies. Blue tiles rose and orange tiles fell; the deeper the color,
+  the bigger the move. Here technology (large and blue) carried the day while energy fell across the board.
+data_shape:
+- prices
+- hierarchy

@@ -1,0 +1,26 @@
+title: Parallel Coordinates
+engine: mpl
+order: 60
+purpose: Each variable gets a vertical axis and each observation is a line crossing every axis. Patterns,
+  clusters and trade-offs across many dimensions become visible.
+when_to_use:
+- Explore multivariate data (4–12 numeric variables) for clusters and trade-offs
+- Compare groups on many attributes at once
+- Use interactive filtering (brushing) of high-dimensional records
+avoid:
+- General audiences (the chart takes explanation)
+- Thousands of lines would overplot (sample, aggregate, or use alpha)
+alternatives:
+- Radar chart (few entities)
+- Scatterplot matrix
+- Heatmap
+tips:
+- Normalise each axis (0–1) or give each its own scale
+- Color lines by group, and reorder axes to reveal correlations between neighbours
+example: 'Specs of 60 cars from three classes (synthetic): engine size, power, weight, mpg, price.'
+read: Each line is a car. Sports cars (green lines) run high on power and price but low on MPG, and the
+  crossing lines between Weight and MPG reveal their negative relationship.
+real_data:
+  source: "plotly.express.data.iris() \u2014 Fisher's (1936) iris measurements, bundled with plotly"
+  offline: true
+data_shape: [numeric, categories]

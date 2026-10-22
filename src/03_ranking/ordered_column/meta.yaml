@@ -1,0 +1,16 @@
+title: Ordered Column Chart
+engine: mpl
+order: 20
+purpose: Vertical bars sorted by value. It works like the ordered bar chart, but suits short labels and
+  layouts that are wider than they are tall.
+when_to_use:
+- Rank a handful of categories with short names
+- Fit a ranking into a wide slide or dashboard slot
+avoid:
+- Labels are long (they must be rotated, so use horizontal bars)
+- The x-axis is time (columns would suggest a sequence, not a rank)
+alternatives:
+- Ordered bar chart
+- Lollipop chart
+example: Number of medals won by the top 10 teams at a fictional games.
+data_shape: [categories, numeric]

@@ -1,0 +1,33 @@
+title: Relative Rotation Graph (RRG)
+engine: mpl
+order: 220
+purpose: Plots each sector's relative strength against a benchmark (x, RS-ratio) and the momentum of that
+  relative strength (y, RS-momentum), with a short tail of recent weeks. Sectors tend to rotate clockwise
+  through four quadrants (improving, leading, weakening, lagging), so the chart shows both where each
+  one is and where it is heading.
+when_to_use:
+- Compare sector or asset-class leadership relative to a benchmark
+- See which groups are gaining or losing relative momentum before the trend is obvious
+- Use as a sector-rotation dashboard for weekly reviews
+avoid:
+- The audience is unfamiliar with relative strength (start with a cumulative relative-return line)
+- There are more than ~10 series (tails become spaghetti)
+- Presenting it as a timing signal; it describes past relative performance and does not forecast
+alternatives:
+- Relative performance lines indexed to 100
+- Ranking table of trailing returns
+- Bump chart of sector ranks
+tips:
+- Keep tails short (5–10 periods) and mark the latest point clearly
+- Label each head directly; color is not needed when position and label identify the series
+- Tint the quadrants lightly and name them; the quadrant is the message
+- Explain the normalisation used. The original JdK RS-Ratio formula is proprietary, and this example uses
+  a transparent EMA-based approximation
+example: 104 weeks of six simulated sector indices against a simulated benchmark (illustrative). RS-ratio
+  = 100 × fast/slow EMA of relative strength; RS-momentum = 100 × RS-ratio / its value 3 weeks ago.
+read: 'Right of 100 means the sector is outperforming the benchmark, and above 100 means that outperformance
+  is accelerating. Follow each tail to its dot: most sectors move clockwise, from Improving to Leading
+  to Weakening to Lagging.'
+data_shape:
+- prices
+- time

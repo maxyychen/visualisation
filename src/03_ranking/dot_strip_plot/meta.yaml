@@ -1,0 +1,18 @@
+title: Dot Strip Plot (rank position)
+engine: mpl
+order: 50
+purpose: Places every item as a dot along a single value axis, one strip per group, with the item of interest
+  highlighted. It shows where one entity ranks within each of several measures.
+when_to_use:
+- Show where one item (your city, your product) ranks across several metrics
+- Show a ranking where the spread of the whole field matters too
+avoid:
+- There are no items worth highlighting (a box plot summarises spread better)
+- There are thousands of items per strip (dots merge)
+alternatives:
+- Beeswarm plot
+- Small-multiple ordered bars
+example: Scores of 30 cities on five liveability measures; 'Our city' is highlighted.
+read: Each gray dot is another city and the blue dot is ours, labelled with its rank. We lead on safety
+  but sit near the bottom on housing cost.
+data_shape: [categories, numeric]

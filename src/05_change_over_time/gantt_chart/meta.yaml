@@ -1,0 +1,21 @@
+title: Gantt Chart
+engine: mpl
+order: 110
+purpose: 'Horizontal bars placed on a time axis, one per task, showing start, duration and end. It is
+  the standard view of a schedule: sequence, overlap and progress.'
+when_to_use:
+- Plan or communicate project schedules, phases and milestones
+- Show overlapping activities and their timing
+- Track progress against plan
+avoid:
+- Complex dependency networks are the main concern (use a network/PERT diagram)
+- There are hundreds of tasks (group into phases)
+alternatives:
+- Event timeline
+- Swimmer plot (clinical)
+tips:
+- Color by phase or owner, not by task
+- Mark 'today' with a vertical line
+- Shade completed portions to show progress
+example: A 6-month software project with tasks in three phases.
+data_shape: [time, categories]

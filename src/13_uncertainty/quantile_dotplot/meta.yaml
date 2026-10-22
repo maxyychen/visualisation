@@ -1,0 +1,31 @@
+title: Quantile Dotplot
+engine: mpl
+order: 20
+purpose: >-
+  Turns a probability distribution into a small number of dots (here 20), each holding an equal share of
+  probability (5%), stacked like a histogram. Readers can count dots to answer "what are my chances?"
+  without reading a density curve. Kay et al. (2016) showed people make better decisions with it than
+  with densities or intervals.
+when_to_use:
+  - Communicate a predictive distribution to the public (arrival times, waiting times, forecasts)
+  - Support a threshold decision ("how likely is it before 10 minutes?")
+  - Show risk as frequencies, which most people find easier than percentages
+avoid:
+  - You need fine detail in the tails (20–50 dots cannot show rare events)
+  - Comparing many distributions at once (use half-eye or gradient intervals)
+alternatives:
+  - Icon array (for a single probability)
+  - Half-eye plot
+  - CDF / ECDF plot (exact cumulative probabilities)
+tips:
+  - Use 20, 50 or 100 dots so that one dot is a round percentage
+  - Highlight the dots on one side of the decision threshold and state the count
+  - Keep the dots round (equal aspect ratio)
+example: >-
+  A predicted bus arrival time, modelled as a log-normal distribution with a median of about 11 minutes
+  (after the "When (ish) is my bus?" study, Kay et al., CHI 2016).
+read: >-
+  Each dot is a 1-in-20 (5%) chance. Seven blue dots fall at or before 9 minutes, so there is about a 35%
+  chance the bus comes within 9 minutes. If you need 9 minutes to finish your coffee, you will catch
+  it about two times in three.
+data_shape: [uncertainty]

@@ -1,0 +1,27 @@
+title: Yield Curve History (Heatmap + Spread)
+engine: mpl
+order: 250
+purpose: Shows the whole term structure through time as a heatmap (maturity × date, color = yield), with
+  the 10Y–2Y spread in a panel below. Decades of rate cycles, curve flattening and inversions fit in one
+  figure.
+when_to_use:
+- Show how the entire yield curve evolved over years or decades
+- Relate policy-rate cycles to curve shape and inversions
+- Use as long-horizon macro context for fixed-income or allocation reports
+avoid:
+- Readers need exact yields on a given day (use a table or a single-date curve)
+- Using a rainbow colormap (it creates false bands); use one hue, light to dark
+alternatives:
+- Small-multiple yield curves by year
+- Lines for 2Y and 10Y yields over time
+tips:
+- Put short maturities at the bottom so 'up' means longer maturity
+- Share the time axis between the heatmap and the spread panel
+- 'Color the spread panel by sign: blue for a normal curve, orange for an inverted one'
+example: Monthly curves for 2000–2025 generated with a Nelson–Siegel model whose level and slope loosely
+  follow past US rate cycles (simulated, not actual data).
+read: Light vertical stripes are low-rate eras and dark stripes high-rate eras. When the bottom rows (short
+  maturities) are darker than the top rows, the curve is inverted, and the lower panel turns orange.
+data_shape:
+- time
+- numeric

@@ -1,0 +1,19 @@
+title: Waffle Chart
+engine: mpl
+order: 80
+purpose: A 10 × 10 grid of squares, each worth 1% (or one unit). Squares are colored by category. Counting
+  squares is more accurate than judging angles, and the 'n out of 100' framing is easy for any audience.
+when_to_use:
+- Communicate a few percentages to a general audience ('23 in every 100 customers')
+- A pie-chart alternative that supports more accurate reading
+- Show progress toward a goal
+avoid:
+- Values need precision finer than 1%
+- There are more than ~5 categories
+alternatives:
+- Pie chart
+- Single 100% stacked bar
+- Pictogram (isotype)
+example: How a typical household's financial assets are split, per $100 (illustrative).
+read: Each square is $1 of every $100 of financial assets. Fifteen squares, the green block, sit in bonds and other assets.
+data_shape: [categories]

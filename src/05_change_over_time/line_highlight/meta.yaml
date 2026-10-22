@@ -1,0 +1,23 @@
+title: Highlighted Line Chart (one vs. many)
+engine: mpl
+order: 20
+purpose: Draws every series in a muted gray and highlights the one or two that matter. The reader gets
+  the context of the whole group without a tangle of colors.
+when_to_use:
+- Show one entity in the context of many peers (your country vs. all others)
+- There are too many series for a legend (more than ~6)
+- The story is about one series' deviation from the pack
+avoid:
+- Every series is equally important (use small multiples)
+- The highlighted series is not the point of the story
+alternatives:
+- Small-multiple lines
+- Spaghetti plot with interactive hover
+tips:
+- Gray lines thin (1px) and light; highlight 2px in the first palette color
+- Label the highlighted series directly
+- Optionally add the group median as a dark reference line
+example: Unemployment rate of 20 regions over 15 years, highlighting one region.
+read: Gray lines are the other 19 regions, the dark line is their median, and blue is the region of interest,
+  which falls steadily below the pack.
+data_shape: [time, categories]

@@ -1,0 +1,29 @@
+title: Monte Carlo Retirement Projection
+engine: mpl
+order: 320
+purpose: Simulates thousands of possible market paths for a portfolio with withdrawals, then shows the
+  spread of outcomes as a percentile fan and the probability that the money lasts to each age. It replaces
+  a single misleading 'expected' line with a range and a probability.
+when_to_use:
+- Retirement or endowment planning with regular withdrawals
+- Communicate the risk of running out of money rather than an average outcome
+- Compare plans (spending levels, allocations) by their probability of success
+avoid:
+- Presenting the median path as a forecast
+- Hiding the return and inflation assumptions; results are only as good as these inputs
+- Drawing all simulated paths (spaghetti); show percentile bands and a few sample paths
+alternatives:
+- Fan chart
+- Table of success probabilities by spending level
+tips:
+- Work in real (inflation-adjusted) dollars so the numbers mean today's purchasing power
+- Show the probability of success as its own panel; it is the decision metric
+- 'Use a one-hue fan: darker = more likely'
+example: $1.5M at age 60, $70k/year inflation-adjusted withdrawals, real returns ~4.5% ± 11% a year, 5,000
+  simulated paths (illustrative; not financial advice).
+read: Half of the simulated paths end above the dark median line. The light band holds 80% of outcomes.
+  The right panel shows the share of paths with money left at each age; read off the chance the money
+  lasts to 95.
+data_shape:
+- time
+- uncertainty

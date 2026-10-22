@@ -1,0 +1,28 @@
+title: Permutation Feature Importance
+engine: mpl
+order: 70
+purpose: >-
+  Ranks features by how much a model's held-out performance drops when that feature's values are randomly
+  shuffled. Box plots over many shuffles show both the importance and its uncertainty.
+when_to_use:
+  - Rank the features any fitted model relies on (model-agnostic)
+  - Compare importance on held-out data rather than training data
+  - Show that some "important-looking" features are indistinguishable from zero
+avoid:
+  - Features are strongly correlated (shuffling one leaves its twin, so both look unimportant)
+  - You need the direction of an effect (use SHAP or partial dependence)
+alternatives:
+  - SHAP summary (direction and per-case detail)
+  - Impurity-based importance (fast but biased towards high-cardinality features)
+tips:
+  - Compute on a test set, not the training set
+  - Show the spread over repeats, not just a single bar
+  - Draw the zero line; boxes crossing zero are not reliably important
+example: >-
+  A random forest classifying wine cultivar in the real UCI Wine dataset (load_wine), with importance
+  measured as the drop in test-set accuracy over 30 shuffles of each feature.
+read: >-
+  Shuffling color intensity costs the most accuracy, followed by proline, flavanoids, alcohol and (weakly)
+  total phenols, so the forest relies on these few. Most of the other features sit on zero: thanks to redundancy among
+  the wine measurements, shuffling any one of them alone does not measurably hurt the model.
+data_shape: [model]

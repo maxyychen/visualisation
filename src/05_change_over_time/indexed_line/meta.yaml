@@ -1,0 +1,27 @@
+title: Indexed Line Chart (rebased to 100)
+engine: mpl
+order: 140
+purpose: Divides each series by its value at a common start date and multiplies by 100, so all series
+  start at 100 and show relative growth. It is the honest replacement for a dual-axis chart when series
+  have very different units or scales.
+when_to_use:
+- Compare growth of series with very different magnitudes (a small-cap vs. an index)
+- You are tempted to use a second y-axis. Index instead, so there is one honest scale
+- Show performance since an event (rebased at the event date)
+avoid:
+- Absolute levels matter more than relative change
+- The base period is unusual (spike or trough), which distorts every later value
+alternatives:
+- Two separate charts stacked vertically
+- Small multiples
+tips:
+- State the base date in the axis label or title ('Jan 2020 = 100')
+- Draw a reference line at 100
+- Consider a log scale when growth is multiplicative and large
+example: 'Users (thousands) and sessions (millions) of a product: different scales, compared by growth.'
+read: Every series starts at 100. A value of 250 means 2.5× its January 2023 level, whatever its original
+  units. Sessions grew fastest even though their raw numbers are on a completely different scale.
+real_data:
+  source: "plotly.express.data.gapminder() \u2014 Gapminder life expectancy, GDP and population 1952\u20132007, bundled with plotly"
+  offline: true
+data_shape: [time, prices]

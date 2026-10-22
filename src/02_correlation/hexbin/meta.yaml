@@ -1,0 +1,21 @@
+title: Hexbin Plot
+engine: mpl
+order: 60
+purpose: Bins a large scatter into hexagonal cells colored by point count. It replaces an unreadable blob
+  of overplotted points with a readable density surface.
+when_to_use:
+- Show a two-variable relationship with thousands to millions of points
+- Show where the data is concentrated, not just its extent
+avoid:
+- There are only a few hundred points (a scatter shows individual points better)
+- Individual outliers matter (binning hides them)
+alternatives:
+- 2-D density contour
+- Scatter with transparency
+tips:
+- Use a single-hue sequential color map, light = few, dark = many
+- Try a log color scale when density is very skewed
+example: '50,000 taxi trips: trip distance vs. fare (synthetic data).'
+read: Darker hexagons hold more trips. Most trips are short and cheap (bottom left). The fan shape shows
+  fares vary more on longer trips.
+data_shape: [numeric]

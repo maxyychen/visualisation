@@ -1,0 +1,26 @@
+title: Decision Curve Analysis
+engine: mpl
+order: 160
+purpose: Plots the net benefit of using a prediction model to decide on treatment, across the range of threshold
+  probabilities at which a clinician or patient would act. Each model is compared against the default strategies
+  "treat everyone" and "treat no one", so the plot shows whether a model is clinically useful and not just accurate.
+when_to_use:
+- Judge whether a risk model or biomarker would improve decisions (biopsy, adjuvant therapy, screening)
+- Compare models with similar AUC that may differ in clinical usefulness
+- Show the range of risk thresholds over which a model is worth using
+avoid:
+- The model will not be used to make a yes/no decision
+- The predicted probabilities are badly miscalibrated (fix calibration first; net benefit depends on it)
+alternatives:
+- ROC curve (discrimination only)
+- Calibration plot
+tips:
+- Limit the x-axis to clinically sensible thresholds (here 1–60%)
+- Always include the treat-all and treat-none reference lines
+- Clip the y-axis slightly below zero so the treat-all line does not dominate
+example: Two logistic regression models (full and reduced) predicting a high-grade cancer finding at biopsy
+  (prevalence about 20%), evaluated on a held-out test set of synthetic patients.
+read: At any threshold, the strategy with the highest line gives the most benefit. The full model gives the
+  highest net benefit across almost the whole range. The reduced model is useful too but falls towards zero at
+  high thresholds. Treating everyone is only competitive at very low thresholds.
+data_shape: [model]

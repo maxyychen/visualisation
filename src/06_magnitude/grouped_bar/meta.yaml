@@ -1,0 +1,23 @@
+title: Grouped (Clustered) Bar Chart
+engine: mpl
+order: 30
+purpose: Places bars for several sub-groups side by side within each category. Sub-groups can be compared
+  within a category, and the same sub-group across categories.
+when_to_use:
+- Compare 2–4 sub-groups across a handful of categories (sales by region and year)
+- Individual values matter more than the category total
+avoid:
+- There are more than ~4 sub-groups or ~8 categories (it becomes a barcode; use small multiples)
+- The total of each category is the main point (use stacked bars)
+alternatives:
+- Dumbbell chart (2 sub-groups)
+- Small-multiple bar charts
+- Stacked bar
+tips:
+- Keep a small gap between bars in a group and a larger gap between groups
+- Use consistent colors for each sub-group across all charts
+example: Sales by region for three consecutive years.
+real_data:
+  source: "plotly.express.data.medals_long() \u2014 2018 Winter Olympics short-track medal counts, bundled with plotly"
+  offline: true
+data_shape: [categories, numeric]

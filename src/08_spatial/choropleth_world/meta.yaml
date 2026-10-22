@@ -1,0 +1,26 @@
+title: Choropleth Map (world)
+engine: plotly
+order: 10
+purpose: Fills each region with a color that encodes a statistic. Geographic clusters and regional gradients
+  (the north–south divide, a hot spot) become visible at a glance.
+when_to_use:
+- Show a rate, ratio or index (life expectancy, % vaccinated) across countries or regions
+- Reveal spatial clusters and gradients
+- Show data that is already aggregated to administrative units
+avoid:
+- Values are raw counts, because big regions dominate visually (normalize to per-capita or use a bubble
+  map)
+- Small but important regions would be invisible (use a tile grid map)
+- Readers need to compare exact values (use a sorted bar chart)
+alternatives:
+- Tile grid map
+- Bubble map
+- Sorted bar chart
+tips:
+- Use a one-hue sequential scale for magnitude; use a diverging scale only around a meaningful midpoint
+- Use 5–7 classes, or a continuous scale with a clear legend title
+- Map shapes are fetched by plotly.js in the browser, so viewing the map requires a network connection
+example: Life expectancy at birth by country in 2007 (Gapminder dataset, bundled with plotly).
+read: Darker blue means longer life expectancy. The pale band across sub-Saharan Africa shows the regional
+  gap at a glance. Hover over a country to see its exact value.
+data_shape: [geo]

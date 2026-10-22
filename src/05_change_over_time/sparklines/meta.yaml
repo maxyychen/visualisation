@@ -1,0 +1,19 @@
+title: Sparklines
+engine: mpl
+order: 120
+purpose: Tiny, word-sized line charts with no axes, set next to numbers in a table or text (the term was
+  coined by Edward Tufte). They add the shape of the recent trend to each figure at very little cost in
+  space.
+when_to_use:
+- Dashboards and tables where each row needs trend context
+- Show general shape (up, down, volatile) for many metrics at once
+avoid:
+- Readers need actual values or comparisons between rows' scales
+- The trend is the main story (give it a full chart)
+alternatives:
+- Small multiples
+- KPI stat tile with delta
+tips:
+- Mark the last point with a dot and show the latest value as text
+example: Six business KPIs with their latest value and a 30-day sparkline.
+data_shape: [time]

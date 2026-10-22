@@ -1,0 +1,32 @@
+title: Half-Eye Plot (Density + Intervals)
+engine: mpl
+order: 50
+purpose: >-
+  Combines a half-violin density (the shape of the uncertainty) with a point estimate and two nested
+  intervals beneath it: a thick 66% interval and a thin 95% interval. It shows the full distribution and
+  conventional summaries in one compact mark, and is common for Bayesian posteriors and bootstrap
+  distributions.
+when_to_use:
+  - Show posterior or bootstrap distributions for several groups or parameters
+  - Distributions may be skewed, and a symmetric error bar would misrepresent them
+  - Combine intuitive shape with precise interval endpoints
+avoid:
+  - The audience is unfamiliar with intervals and densities (use an icon array or quantile dotplot)
+  - You have raw observations rather than uncertainty about an estimate (use a raincloud plot)
+alternatives:
+  - Forest plot (intervals only)
+  - Gradient interval
+  - Violin plot
+tips:
+  - Explain the two interval widths in a legend or caption
+  - Draw a reference line (zero effect, target) when there is one
+  - Order the groups by median unless they have a natural order
+example: >-
+  Posterior distributions of the reduction in systolic blood pressure (mmHg) for four
+  interventions, from simulated MCMC draws. Some are skewed.
+read: >-
+  The dot is the median, the thick bar holds the middle 66% of plausible values, and the thin bar
+  holds 95%. Medication clearly lowers blood pressure (all of its 95% interval is above 0). Salt
+  reduction is very likely beneficial. The app-based coaching posterior is wide and right-skewed: it
+  might do a lot or almost nothing.
+data_shape: [uncertainty]

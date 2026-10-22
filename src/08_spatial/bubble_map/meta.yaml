@@ -1,0 +1,23 @@
+title: Bubble Map (proportional symbols)
+engine: plotly
+order: 30
+purpose: Places a circle at each location with area proportional to a quantity. Unlike a choropleth, the
+  symbol size, not the region size, carries the value, so raw counts are safe to show.
+when_to_use:
+- Show counts or totals at point locations (city population, store revenue, case counts)
+- Show values whose locations do not match administrative boundaries
+avoid:
+- Points are so dense that circles overlap into a blob (aggregate, or use a hexbin or density map)
+- The value is a rate (a choropleth is more natural)
+alternatives:
+- Choropleth (for rates)
+- Dot density map
+- Sorted bar chart
+tips:
+- Scale circle area, not radius, to the value (plotly's `size` does this)
+- Draw large circles first and add a thin light outline so overlapping circles stay legible
+- Viewing requires a network connection (plotly.js loads the map shapes)
+example: Approximate population of the world's largest urban agglomerations (millions, illustrative).
+read: Each circle is a city, and its area is proportional to population. The cluster of large circles
+  in South and East Asia stands out.
+data_shape: [geo, numeric]

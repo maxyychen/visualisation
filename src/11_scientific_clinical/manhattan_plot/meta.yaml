@@ -1,0 +1,21 @@
+title: Manhattan Plot
+engine: mpl
+order: 80
+purpose: Plots −log10 p for every genetic variant against its genomic position, chromosome by chromosome.
+  Association signals stand out as 'skyscrapers' above a genome-wide significance line.
+when_to_use:
+- Show genome-wide association studies (GWAS) or epigenome-wide scans
+- Show any long, ordered sequence of tests where the location of strong signals matters
+avoid:
+- There are few tests (use a volcano or forest plot)
+- Position along the x-axis has no meaning
+alternatives:
+- Q-Q plot of p-values (checks inflation)
+- Regional association plot (zoom in)
+tips:
+- Alternate two shades of one hue by chromosome and use an accent color for significant hits
+- Draw the genome-wide (5×10⁻⁸) and suggestive (1×10⁻⁵) thresholds
+example: A synthetic GWAS of 40,000 SNPs across 22 autosomes with three true association peaks.
+read: Each dot is a SNP. The tall towers on chromosomes 2, 6 and 16 cross the genome-wide line and are
+  loci associated with the trait.
+data_shape: [numeric]

@@ -1,0 +1,19 @@
+title: Pictogram / Isotype Chart
+engine: mpl
+order: 80
+purpose: Represents quantities by counting repeated icons (Otto Neurath's Isotype). It turns abstract
+  numbers into countable things for general and infographic audiences.
+when_to_use:
+- Communicate counts or ratios to a broad public ('3 in 10 people…')
+- Engagement and memorability matter more than precision
+- Quantities are small, whole numbers or can be rounded to units
+avoid:
+- Values need precision (fractional icons are hard to read)
+- Icons are scaled by size instead of count (area distorts perception)
+alternatives:
+- Waffle chart
+- Bar chart
+tips:
+- One icon = a stated unit; repeat icons, never enlarge them
+example: Average daily screen time (hours) by age group; one icon = 1 hour, synthetic data.
+data_shape: [categories, numeric]

@@ -1,0 +1,19 @@
+title: Area Chart
+engine: mpl
+order: 40
+purpose: A line chart with the area below the line filled in. The fill stresses volume, the cumulative
+  size of the quantity over time, not just its trend.
+when_to_use:
+- Show a single quantity whose magnitude (volume) matters, such as traffic, energy, or storage used
+- Emphasise that values are counts or amounts accumulating from zero
+avoid:
+- Comparing several overlapping series (fills hide each other; use lines)
+- The y-axis does not start at zero (a fill implies zero baseline)
+alternatives:
+- Line chart
+- Stacked area chart (several parts of a total)
+tips:
+- Always start the y-axis at zero
+- Use a light fill plus a solid 2px line on top
+example: Daily website visits over 6 months.
+data_shape: [time]

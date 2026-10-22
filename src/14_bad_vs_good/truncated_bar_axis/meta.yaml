@@ -1,0 +1,26 @@
+title: "Truncated Bar Axis vs. Zero Baseline"
+engine: mpl
+order: 20
+purpose: >-
+  Bars encode value by length, so a bar chart whose y-axis starts above zero makes small differences
+  look large. In the example a 5-point gap looks like a 6-fold one. Readers judge the bar lengths, not
+  the tick labels.
+when_to_use:
+  - Always start bar and column charts at zero
+  - If the small differences are the story, switch to a dot plot, which may use a zoomed axis because it encodes position, not length
+avoid:
+  - Bar charts of values clustered far from zero (satisfaction scores, percentages near 100)
+  - Dashboard defaults that auto-scale the y-axis to the data range
+alternatives:
+  - Dot plot / Cleveland dot plot with a non-zero axis
+  - Deviation bar chart from a meaningful reference (target, average)
+tips:
+  - Bars and areas need a zero baseline; lines and dots do not
+  - Label the values directly if the differences need to be read precisely
+  - Show differences from a reference point explicitly if they matter
+example: Patient-satisfaction scores (out of 100) for four hospital wards.
+read: >-
+  On the left, Ward D's bar looks about six times taller than Ward A's. On the right, the true lengths show
+  scores of 92 and 97, which are nearly the same. The dot plot below the bars zooms in honestly, because
+  position (not length) carries the value.
+data_shape: [categories, numeric]

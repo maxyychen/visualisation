@@ -1,0 +1,16 @@
+title: Parliament (Semicircle) Chart
+engine: mpl
+order: 120
+purpose: Seats drawn as dots arranged in semicircular rows and colored by party. Each dot is a countable
+  unit, so the chart shows composition and whether a majority threshold is crossed.
+when_to_use:
+- Show seat allocation in a legislature or committee
+- Show any whole made of discrete units where reaching a threshold (50%) matters
+avoid:
+- The units are not discrete or the counts are very large (thousands)
+- There are many small parties (fold them into 'Other')
+alternatives:
+- Waffle chart
+- Single stacked bar with a majority line
+example: Seats in a 120-seat parliament after a (fictional) election.
+data_shape: [categories]

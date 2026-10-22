@@ -1,0 +1,23 @@
+title: Candlestick (OHLC) Chart
+engine: mpl
+order: 80
+purpose: Each period is drawn as a candle. The body spans open to close and the wicks span the low and
+  high, so one mark shows both direction and volatility. It is the standard view of financial price action.
+when_to_use:
+- Show open, high, low and close prices of stocks, currencies or commodities
+- Read intraperiod volatility and direction together
+- Serve trading audiences who expect this convention
+avoid:
+- General audiences who only need the trend (use a line of closing prices)
+- There are hundreds of periods (candles become unreadable; aggregate or use a line)
+alternatives:
+- Line chart of closing price
+- OHLC bar chart
+- Fan chart for ranges
+tips:
+- Use color for up/down days; keep wicks thin
+- Show volume on a separate panel below, never on a second y-axis
+example: 60 trading days of a synthetic stock, with a volume panel below.
+read: 'A candle''s body runs from open to close: blue means the price rose that day and orange means it
+  fell. Wicks show the day''s high and low. Volume sits on its own panel and scale.'
+data_shape: [time, prices]

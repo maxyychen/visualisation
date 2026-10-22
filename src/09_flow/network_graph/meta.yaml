@@ -1,0 +1,24 @@
+title: Network Graph (Node-Link Diagram)
+engine: mpl
+order: 50
+purpose: Entities are drawn as nodes and relationships as edges. A force-directed layout pulls connected
+  nodes together, so clusters, hubs, and bridges show in the structure itself.
+when_to_use:
+- 'Show relationships: collaboration, referral, citation, or communication networks'
+- Find communities, central hubs, and isolated nodes
+- Show topology where who connects to whom matters more than amounts
+avoid:
+- There are hundreds of densely connected nodes, a 'hairball' (filter, aggregate, or use an adjacency
+  matrix)
+- Readers need to compare quantitative values precisely
+alternatives:
+- Adjacency matrix heatmap
+- Arc diagram
+- Chord diagram
+tips:
+- Size nodes by degree or another importance measure
+- Color by community (at most 8 groups) and keep edges thin and light
+example: Co-authorship network of 40 researchers in three research groups (synthetic).
+read: Each dot is a researcher and each line a co-authored paper. The three groups form dense clusters,
+  and the yellow bridge author links them all.
+data_shape: [flows]

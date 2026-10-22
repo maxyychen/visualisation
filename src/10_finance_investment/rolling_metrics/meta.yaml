@@ -1,0 +1,33 @@
+title: Rolling Return, Volatility and Sharpe
+engine: mpl
+order: 60
+data_shape: [prices, time]
+purpose: >-
+  Three stacked panels sharing one time axis: trailing 12-month return, annualised volatility and Sharpe
+  ratio, each for the fund and its benchmark. A single full-period number hides regime changes; rolling
+  windows show whether performance and risk were stable or came from one lucky stretch.
+when_to_use:
+  - Check whether a strategy's edge is persistent or concentrated in one period
+  - Show how risk (volatility) changes across market regimes
+  - Monitor a live fund against its benchmark over time
+avoid:
+  - Histories shorter than about three window lengths (the lines are mostly noise)
+  - Mixing metrics with different units on a dual y-axis (use stacked panels, as here)
+alternatives:
+  - Full-period metrics table
+  - Rolling excess return only
+  - Monthly returns heatmap
+tips:
+  - State the window length and annualisation factor (√252 for daily, √52 for weekly data)
+  - Share the x-axis so events line up across panels
+  - Keep the benchmark gray; add a zero line to the return and Sharpe panels
+example: >-
+  Simulated daily returns of a fund and benchmark, 2015–2024, with a 252-trading-day window and a 2%
+  risk-free rate. Simple returns; volatility = std × √252. Not investment advice.
+read: >-
+  Each panel shows a trailing one-year statistic for the date on the x-axis. Volatility spikes in the
+  crash and in the bear market; the Sharpe panel shows when the fund's risk-adjusted return beat the
+  benchmark (blue above gray).
+real_data:
+  source: plotly.express.data.stocks() — weekly AMZN vs an equal-weight 6-stock tech basket, 2018–2019, 26-week window
+  offline: true

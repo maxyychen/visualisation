@@ -1,0 +1,24 @@
+title: Chord Diagram
+engine: mpl
+order: 40
+purpose: Groups are placed as arcs around a circle and joined by ribbons whose width is proportional to
+  the flow between them. It shows two-way flows in a matrix (A→B and B→A) compactly, including self-flows.
+when_to_use:
+- Show migration, trade, or transfers between a handful of entities in both directions
+- Show inter-relationships within a square flow matrix
+- Show at a glance which pairs dominate the exchange
+avoid:
+- There are more than ~10 groups (ribbons tangle)
+- Precise values are needed (use a heatmap of the matrix)
+- Flow is one-directional through stages (use a Sankey diagram)
+alternatives:
+- Origin–destination heatmap
+- Sankey diagram
+- Network graph
+tips:
+- Color each ribbon by its origin group so direction is visible
+example: Cross-border portfolio investment flows between five regions in a year (USD bn, illustrative).
+read: Each region's arc length is its total capital sent and received. A ribbon joins the investing
+  region to the destination and takes the investor's color. The wide blue ribbons show North America is
+  the largest source of cross-border investment.
+data_shape: [flows]

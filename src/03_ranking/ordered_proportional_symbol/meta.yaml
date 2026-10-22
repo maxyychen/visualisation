@@ -1,0 +1,19 @@
+title: Ordered Proportional Symbol Chart
+engine: mpl
+order: 80
+purpose: Circles sized by value and arranged in rank order. It suits values that span a very wide range,
+  where bars for the small items would be too short to see.
+when_to_use:
+- Rank items whose values differ by orders of magnitude (company valuations, city populations)
+- Make an eye-catching infographic where visual impact matters more than precision
+avoid:
+- Precise comparison is needed (people underestimate area differences)
+- Values are similar (the circles all look the same)
+alternatives:
+- Ordered bar chart with a log axis
+- Packed bubble chart
+tips:
+- Scale circle area (not radius) to value
+- Print the value inside or below each circle
+example: Population of the 10 largest metropolitan areas (millions, approximate).
+data_shape: [categories, numeric]

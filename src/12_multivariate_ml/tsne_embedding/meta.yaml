@@ -1,0 +1,30 @@
+title: t-SNE / UMAP Embedding
+engine: mpl
+order: 20
+purpose: >-
+  A non-linear projection that places observations with similar profiles near each other in 2-D. It
+  shows local neighbourhoods, clusters and how well labelled groups separate in high-dimensional data.
+when_to_use:
+  - Explore whether high-dimensional samples (patients, cells, documents) form clusters
+  - Check whether known labels correspond to natural groupings in the features
+  - Present single-cell, omics or embedding-model output
+avoid:
+  - You want to read distances or sizes between clusters (t-SNE does not preserve them)
+  - The axes would be interpreted as variables (they have no meaning)
+  - There are few variables, or a linear method such as PCA already shows the structure
+alternatives:
+  - PCA biplot (linear, interpretable axes)
+  - UMAP (umap-learn package; faster, keeps more global structure)
+  - Clustered heatmap
+tips:
+  - Hide the tick labels; the coordinates are arbitrary
+  - Try several perplexity values and random seeds before trusting a cluster
+  - Standardize the features first
+example: >-
+  The real Breast Cancer Wisconsin (Diagnostic) dataset bundled with scikit-learn (load_breast_cancer).
+  It has 569 tumours, each with 30 cell-nucleus measurements and a benign/malignant diagnosis.
+read: >-
+  Each dot is a tumour. Benign and malignant tumours occupy mostly separate regions, so the 30
+  measurements carry strong diagnostic signal. The handful of dots inside the other group's region
+  are the cases a classifier will find hardest.
+data_shape: [numeric, categories]

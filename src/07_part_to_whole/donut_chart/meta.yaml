@@ -1,0 +1,20 @@
+title: Donut Chart
+engine: mpl
+order: 40
+purpose: A pie chart with the center removed. Readers judge arc length rather than angle, and the hole
+  holds a headline number such as the total or the key share. The same limits as a pie apply.
+when_to_use:
+- Show a part-to-whole split with few categories (≤ 6) and a headline figure
+- Dashboards where a single compact share indicator is needed
+avoid:
+- There are more than 6 segments, or the segments are close in size
+- Precise comparison is needed (use a bar chart)
+alternatives:
+- Pie chart
+- Stacked bar (single bar)
+- Stat tile with the number only
+tips:
+- Put the key number in the center hole
+- Keep the ring thick enough (~30% of the radius) to read the arcs
+example: Repayment status of a consumer loan book of 1,240 loans.
+data_shape: [categories]

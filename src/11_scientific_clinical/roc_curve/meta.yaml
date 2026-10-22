@@ -1,0 +1,27 @@
+title: ROC Curve
+engine: mpl
+order: 30
+purpose: Plots a classifier's true-positive rate against its false-positive rate at every decision threshold.
+  The area under the curve (AUC) summarises discrimination independently of the threshold.
+when_to_use:
+- Compare the discriminative ability of diagnostic tests or ML classifiers
+- Choose an operating threshold that trades sensitivity against specificity
+- Use when classes are reasonably balanced
+avoid:
+- Positives are rare (ROC looks optimistic; use a precision–recall curve)
+- You care about calibrated probabilities rather than ranking (use a calibration plot)
+alternatives:
+- Precision–recall curve
+- Calibration plot
+- Confusion matrix at a chosen threshold
+tips:
+- Always draw the chance diagonal and put the AUC in the legend
+- Use a square aspect ratio so both axes read the same
+example: Two models (logistic regression, random forest) predicting a binary outcome on a held-out test
+  set.
+read: The closer a curve bows toward the top-left corner, the better the model separates the classes.
+  The diagonal is a coin flip.
+real_data:
+  source: "sklearn.datasets.load_breast_cancer() \u2014 Wisconsin diagnostic breast cancer, 569 tumours (malignant = positive), bundled with scikit-learn"
+  offline: true
+data_shape: [model]

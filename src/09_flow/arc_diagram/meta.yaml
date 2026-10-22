@@ -1,0 +1,21 @@
+title: Arc Diagram
+engine: mpl
+order: 60
+purpose: Nodes are placed along a single line and connections are drawn as arcs above it. The one-dimensional
+  layout makes node order meaningful (time, sequence, or group). Arc height shows how far apart connected
+  nodes are.
+when_to_use:
+- Show connections where node order matters (characters by first appearance, sequential steps)
+- Show co-occurrence or links within a sequence (repeated motifs, references)
+- Show a cleaner network layout for small graphs
+avoid:
+- The network is large or dense (arcs overlap heavily)
+- Structure such as clusters matters more than order (use a force-directed network)
+alternatives:
+- Network graph
+- Adjacency matrix
+- Chord diagram
+example: Board interlocks among 12 listed companies, where two firms are linked when they share directors (synthetic).
+read: Each arc joins two companies that share directors, and thicker arcs mean more shared seats.
+  Larger dots are the most connected boards, where governance influence concentrates.
+data_shape: [flows]

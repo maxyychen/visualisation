@@ -1,0 +1,23 @@
+title: Origin–Destination Matrix (Flow Heatmap)
+engine: mpl
+order: 70
+purpose: A grid with origins as rows, destinations as columns, and flow volume as cell shade. It shows
+  every pairwise flow without clutter, so it scales to many more entities than a chord or Sankey.
+when_to_use:
+- Show many-to-many flows between 10–50 places (commuting, migration, referrals)
+- Precise lookup of individual flows is needed
+- Compare inflow and outflow patterns (rows vs. columns)
+avoid:
+- The goal is an intuitive, story-like overview for a lay audience (use a Sankey or flow map)
+- Flows are sparse and few (use a network or chord)
+alternatives:
+- Chord diagram
+- Flow map
+- Sankey diagram
+tips:
+- Use a one-hue sequential ramp; mask or gray out the diagonal if self-flows are meaningless
+- Order rows and columns the same way, ideally by geography or cluster
+example: Daily commuter flows (thousands) between 8 districts of a city.
+read: Read across a row to see where residents of one district commute, and down a column to see where
+  a district's workers come from. The dark Central column marks it as the main job hub.
+data_shape: [flows]

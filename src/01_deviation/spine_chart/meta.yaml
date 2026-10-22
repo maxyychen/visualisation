@@ -1,0 +1,16 @@
+title: Spine Chart (opposing bars)
+engine: mpl
+order: 60
+purpose: Two sets of bars extend in opposite directions from a central spine. It splits one total into
+  two opposing components (for example, for vs. against, or imports vs. exports) for each category.
+when_to_use:
+- Show two opposing components per category (wins/losses, inflow/outflow, men/women)
+- Show each category's balance and its gross volume together
+avoid:
+- The two components are not opposites
+- The categories are age bands (that is a population pyramid; see Distribution)
+alternatives:
+- Grouped bar chart
+- Dumbbell chart
+example: Imports and exports of a country by trade partner (USD bn), synthetic data.
+data_shape: [categories, numeric]

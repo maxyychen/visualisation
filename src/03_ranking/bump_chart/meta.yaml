@@ -1,0 +1,21 @@
+title: Bump Chart
+engine: mpl
+order: 70
+purpose: Plots each item's rank (not its value) over several periods, with rank 1 at the top. Overtakes
+  and changes in standing are easy to follow even when the underlying values are close.
+when_to_use:
+- Track rank changes over several periods (league tables, top-10 charts)
+- Show the ranking itself rather than the gaps between values
+avoid:
+- The size of the gaps between items matters (ranks hide it)
+- There are many items that swap places constantly (spaghetti)
+alternatives:
+- Slope chart (two periods)
+- Line chart of values
+tips:
+- Highlight two or three items of interest and gray the rest
+- Label lines at the right end instead of using a legend
+example: League position of 8 football clubs over 6 seasons, highlighting 3 clubs.
+read: Higher on the chart means a better position. Athletic climbs steadily from 8th to 3rd, while Rovers
+  slides from 1st to 6th.
+data_shape: [categories, time]

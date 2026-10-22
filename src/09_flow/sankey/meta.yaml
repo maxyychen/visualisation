@@ -1,0 +1,25 @@
+title: Sankey Diagram
+engine: plotly
+order: 10
+purpose: Nodes joined by bands whose width is proportional to the quantity flowing between them. It shows
+  where a quantity comes from, where it goes, and where it is lost or split, and the total is conserved
+  along the way.
+when_to_use:
+- Show energy, money, or material flowing through a system
+- Show how a population moves through stages (lead → trial → paid plan)
+- Show the main paths and losses in a multi-step process
+avoid:
+- Flows form cycles or have many back-links (use a chord diagram or network)
+- There are too many nodes, giving a 'spaghetti' tangle (aggregate first)
+- Only one stage transition with one source (use a bar chart)
+alternatives:
+- Alluvial diagram
+- Funnel chart
+- Chord diagram
+tips:
+- Color links by their source (or by outcome) and keep them semi-transparent
+- Order nodes to minimize crossings
+example: 'Customer journey: 1,000 new sign-ups → first-week engagement → plan after 30 days.'
+read: Band width is the number of users. Follow the orange 'Activated' band to see how the 380 activated
+  users split across plans. Most 'Browsed only' users churn. Hover over a band for the exact count.
+data_shape: [flows]

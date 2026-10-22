@@ -1,0 +1,22 @@
+title: Sunburst Chart
+engine: plotly
+order: 60
+purpose: Concentric rings that show a hierarchy. The center is the root and each ring outward is one level
+  deeper. Each arc's angle is proportional to its value. In the interactive version, clicking a segment
+  zooms into that branch.
+when_to_use:
+- Show part-to-whole across 2–4 levels of hierarchy
+- Exploring how a total breaks down (budget → department → line item)
+- Interactive contexts where users can drill down
+avoid:
+- Precise comparison is needed (outer arcs are distorted by radius)
+- The hierarchy is deeper than ~4 levels or very unbalanced
+- Static print with many small segments
+alternatives:
+- Treemap
+- Icicle chart
+- Indented table
+example: Global sales by region → country → channel (synthetic).
+read: The inner ring is regions, the middle ring countries and the outer ring sales channels. Click a
+  segment to zoom into it and click the center to zoom back out.
+data_shape: [hierarchy]

@@ -1,0 +1,18 @@
+title: Population Pyramid
+engine: mpl
+order: 90
+purpose: Back-to-back horizontal histograms of age bands, with males on one side and females on the other.
+  A population's age structure (growing, stable or ageing) shows at a glance.
+when_to_use:
+- Show the age and sex structure of a population
+- Compare two groups across the same ordered bins
+avoid:
+- The bins are not ordered
+- Comparing many populations (use small multiples or overlay outlines)
+alternatives:
+- Spine chart
+- Overlaid outline pyramids for two years
+example: Age structure of a fictional ageing population (percent of total), in 5-year bands.
+read: Each row is an age band, with males to the left and females to the right. The bulge in middle age
+  and narrow base point to an ageing population with low birth rates. Women outnumber men at older ages.
+data_shape: [categories, numeric]

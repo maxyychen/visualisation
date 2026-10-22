@@ -1,0 +1,28 @@
+title: Yield Curve (with Inversion)
+engine: mpl
+order: 240
+purpose: Plots government bond yields against maturity for a few dates. The curve's shape (upward, flat
+  or inverted) summarises market expectations for interest rates and growth. Shading where long rates
+  fall below short rates makes inversion visible.
+when_to_use:
+- Compare the term structure of interest rates at several points in time
+- Explain an inversion (short rates above long rates), often watched as a recession signal
+- Provide fixed-income context for asset-allocation or duration decisions
+avoid:
+- Spacing maturities evenly as categories without saying so (1M→3M is not the same gap as 10Y→30Y)
+- More than 3–4 dates on one chart (use small multiples or the yield-curve history heatmap)
+alternatives:
+- Yield-curve history heatmap
+- 10Y–2Y spread line over time
+tips:
+- Use a square-root or log maturity axis so the short end isn't crushed
+- Highlight the latest curve and push older ones to gray
+- Label the 10Y–2Y spread for each curve, the number readers will look for
+example: 'Three stylised US-Treasury-like curves (illustrative values): a normal upward curve, a deeply
+  inverted curve and a partly re-steepened latest curve.'
+read: 'The inverted curve (orange) slopes down: two-year yields sit above ten-year yields, and the shaded
+  area marks the maturities yielding less than 3-month bills. The latest curve (blue) is still inverted
+  at the front but rises beyond five years.'
+data_shape:
+- numeric
+- time

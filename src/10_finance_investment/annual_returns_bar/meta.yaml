@@ -1,0 +1,28 @@
+title: Annual Returns vs. Benchmark
+engine: mpl
+order: 50
+data_shape: [prices, time, categories]
+purpose: >-
+  Paired columns showing a fund's and its benchmark's return for each calendar year, with a lower panel
+  of the yearly difference (excess return). Calendar-year returns are what regulators and factsheets
+  report, and the pairing shows at once in which years the fund helped or hurt.
+when_to_use:
+  - Report calendar-year performance against a benchmark
+  - Show whether out- or under-performance is consistent or driven by a few years
+  - Complement a cumulative-return chart, which hides year-to-year variation
+avoid:
+  - More than about 15 years (switch to a line of rolling returns)
+  - More than two or three series (bars become a picket fence; use a heatmap)
+alternatives:
+  - Monthly returns heatmap
+  - Rolling 12-month return line
+  - Dumbbell chart (fund vs benchmark per year)
+tips:
+  - Keep the benchmark recessive (gray) and the fund in the primary color
+  - Show the excess return in its own panel instead of asking readers to subtract bars
+  - Start the y-axis at zero; bars must have a zero baseline
+example: >-
+  Simulated calendar-year returns of a fund and its benchmark, 2015–2024. Not investment advice.
+read: >-
+  In the top panel each pair of bars is one year: blue is the fund, gray the benchmark. The bottom panel
+  shows the difference: blue bars are years the fund beat the benchmark, orange bars years it lagged.

@@ -1,0 +1,23 @@
+title: Flow Map (origin–destination)
+engine: plotly
+order: 40
+purpose: Draws lines between origins and destinations on a map, with line width (or opacity) encoding
+  the volume of movement. It combines geography with flow.
+when_to_use:
+- Show movement between places (flights, migration, trade, capital flows)
+- Show hub-and-spoke networks where geography matters
+avoid:
+- There are many crossing routes (it becomes a hairball; aggregate, or use a chord diagram or matrix)
+- The geography is irrelevant to the story (use a Sankey diagram)
+alternatives:
+- Sankey diagram
+- Chord diagram
+- Origin–destination matrix heatmap
+tips:
+- Encode volume with width and keep a single hue
+- Rotate the projection so the routes don't wrap across the map edge
+- Viewing requires a network connection (plotly.js loads the map shapes)
+example: Weekly passengers (thousands, illustrative) on routes out of a Taipei hub airport.
+read: Each line is a route from the hub (orange), and thicker lines carry more passengers. Short regional
+  routes in East Asia dominate the volume.
+data_shape: [geo, flows]

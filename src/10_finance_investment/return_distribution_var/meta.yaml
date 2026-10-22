@@ -1,0 +1,35 @@
+title: Return Distribution with VaR and CVaR
+engine: mpl
+order: 70
+data_shape: [prices, numeric]
+purpose: >-
+  A histogram of periodic returns with a fitted normal curve and the historical Value-at-Risk (VaR) and
+  Conditional VaR (CVaR, expected shortfall) marked. A second panel uses a log density scale so the fat
+  left tail is visible. Real returns have more extreme days than a normal distribution predicts, and
+  risk models that assume normality understate losses.
+when_to_use:
+  - Explain tail risk and what VaR / CVaR actually measure
+  - Show that returns are fat-tailed or skewed compared with a normal model
+  - Compare the loss distribution of two strategies (overlay or small multiples)
+avoid:
+  - Fewer than a few hundred observations (the tails are not estimable)
+  - The audience only needs a single risk number (use a stat tile with the VaR)
+alternatives:
+  - Q-Q plot against the normal distribution
+  - ECDF of returns with the 5% quantile marked
+  - Box plot of returns by year
+tips:
+  - State the confidence level, horizon and method (historical, parametric, Monte Carlo)
+  - Report VaR as a positive loss or a negative return, but be consistent
+  - Use a log y-axis or a tail zoom to make rare events visible
+example: >-
+  10 years of simulated daily returns drawn from a Student-t distribution (5 degrees of freedom), so the
+  tails are fatter than normal. Historical 95% and 99% one-day VaR and 95% CVaR. Not investment advice.
+read: >-
+  The bars are the observed returns and the gray curve is a normal distribution with the same mean and
+  standard deviation. On the log-scale panel the bars sit well above the curve far out in the tails: big
+  losses happen more often than the normal model says. VaR 95% is the loss exceeded on 5% of days; CVaR is
+  the average loss on those days.
+real_data:
+  source: plotly.express.data.stocks() — weekly FB returns, 2018–2019 (one-week VaR)
+  offline: true

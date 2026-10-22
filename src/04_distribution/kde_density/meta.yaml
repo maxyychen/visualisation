@@ -1,0 +1,23 @@
+title: Density Plot (KDE)
+engine: mpl
+order: 20
+purpose: A smoothed, continuous estimate of a distribution (kernel density estimate). With no bin edges
+  it shows shape clearly, and two or three groups can overlay without the clutter of overlapping bars.
+when_to_use:
+- Compare the shapes of two or three distributions on one axis
+- Show a smooth shape when the bin choice would distract
+avoid:
+- The sample is small (the smoothing invents shape)
+- The data is bounded (e.g. ≥ 0) and the curve would spill past the bound
+- The audience is unfamiliar with density (the y-axis is not a count)
+alternatives:
+- Histogram
+- Ridgeline plot
+- Violin plot
+example: Exam scores of three classes taught with different methods (synthetic).
+read: Flipped classes have the highest, tightest peak. Self-paced students split into two groups, one
+  struggling and one excelling, which an average alone would hide.
+real_data:
+  source: "plotly.express.data.iris() \u2014 Fisher's (1936) iris measurements, bundled with plotly"
+  offline: true
+data_shape: [numeric, categories]

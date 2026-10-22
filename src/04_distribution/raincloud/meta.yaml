@@ -1,0 +1,19 @@
+title: Raincloud Plot
+engine: mpl
+order: 100
+purpose: Combines a half-violin (the 'cloud'), a box plot, and jittered raw points (the 'rain'). Shape,
+  summary statistics and every observation appear together, which addresses the main criticism of bar
+  and box plots.
+when_to_use:
+- Compare groups in research reports where transparency matters
+- Show moderate samples where the shape, the summary and the raw data all matter
+avoid:
+- Space is limited or there are many groups
+- The audience is non-technical
+alternatives:
+- Violin plot + strip
+- Box plot + strip
+example: Reaction times (ms) under three caffeine conditions, 80 participants each (synthetic).
+read: For each condition, the cloud shows the distribution's shape, the box marks the median and quartiles,
+  and the rain shows each participant. One cup is fastest, and three cups widens the spread.
+data_shape: [numeric, categories]

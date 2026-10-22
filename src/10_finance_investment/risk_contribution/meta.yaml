@@ -1,0 +1,33 @@
+title: Risk Contribution vs. Capital Weight
+engine: mpl
+order: 90
+data_shape: [prices, categories]
+purpose: >-
+  Paired horizontal bars compare each asset's share of the capital with its share of the portfolio's
+  total risk (volatility). In most portfolios the two differ sharply. A classic "60/40" portfolio gets
+  most of its risk from equities, so the capital weights alone give a misleading picture of
+  diversification.
+when_to_use:
+  - Show where a portfolio's risk really comes from
+  - Explain risk-parity or risk-budgeting approaches
+  - Review a proposed allocation before it is implemented
+avoid:
+  - More than about 12 holdings (aggregate to asset classes or sectors first)
+  - The audience has not been introduced to volatility as the risk measure
+alternatives:
+  - 100% stacked bars (capital vs. risk)
+  - Treemap sized by risk contribution
+tips:
+  - "Percent risk contributions sum to 100%: RC_i = w_i (Σw)_i / (w'Σw)"
+  - Keep capital weights recessive (gray) and risk contributions in the primary color
+  - State the covariance estimation window and frequency
+example: >-
+  A simulated six-asset balanced portfolio with assumed annual volatilities and correlations. Not
+  investment advice.
+read: >-
+  For each asset, the gray bar is its share of the money and the blue bar its share of total portfolio
+  volatility. Equities hold about half the capital but generate most of the risk; bonds and cash hold
+  capital but add little risk.
+real_data:
+  source: plotly.express.data.stocks() — equal-weight portfolio of 6 tech stocks, covariance of weekly returns 2018–2019
+  offline: true

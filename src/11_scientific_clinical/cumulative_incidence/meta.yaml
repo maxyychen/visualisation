@@ -1,0 +1,27 @@
+title: Cumulative Incidence (Competing Risks)
+engine: mpl
+order: 150
+purpose: Plots the probability that a specific event has happened by time t when other events can prevent it,
+  for example relapse when patients can also die without relapsing. The Aalen–Johansen estimator splits
+  cumulative risk correctly between the competing causes.
+when_to_use:
+- Show time-to-event outcomes where a competing event removes patients from risk (death before relapse, transplant before death)
+- Report the actual absolute risk of a specific event for prognosis or counselling
+- Compare cause-specific risks between groups (pair with Gray's test or Fine–Gray regression)
+avoid:
+- There is only one possible event type and censoring is independent (Kaplan–Meier is fine)
+- The question is about biological effect rather than absolute risk (cause-specific hazards may suit better)
+alternatives:
+- Kaplan–Meier curve (no competing risks)
+- Stacked cumulative incidence (to show the total of all causes)
+tips:
+- 1 − Kaplan–Meier overestimates risk because it treats competing events as censored, as if those patients could
+  still have the event later. Show it as a contrast only when teaching this point.
+- The cause-specific curves plus the event-free curve add up to 1 at every time point
+- Label the curves directly and give the n at risk or the cohort size in the title
+example: Simulated cohort of 400 patients after surgery, followed for up to 10 years for cancer relapse
+  (event of interest) and death without relapse (competing event).
+read: The blue curve is the true absolute risk of relapse, which ends near a quarter. The gray curve
+  (1 − KM, treating deaths as censored) sits visibly higher and overstates that risk. The orange curve shows how many
+  patients died before they could relapse.
+data_shape: [events]

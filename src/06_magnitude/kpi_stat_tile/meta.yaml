@@ -1,0 +1,22 @@
+title: KPI Stat Tile (big number)
+engine: mpl
+order: 100
+purpose: When the story is one number, the best chart is the number itself. A large value with a label,
+  a change versus a comparison period, and an optional sparkline answers 'how are we doing?' instantly.
+when_to_use:
+- A single headline metric (one-bar charts and 2-slice pies should be tiles instead)
+- Show the top row of a dashboard
+- Show a value whose context is a change versus last period or target
+avoid:
+- Comparisons between many items are needed (use a chart)
+- The number is meaningless without a distribution or trend (add a sparkline or chart)
+alternatives:
+- Bullet chart
+- Sparklines table
+tips:
+- Show the delta with a sign and arrow, not only color
+- Use status colors only when the change has a good/bad meaning
+example: Four headline KPIs with deltas and 12-week sparklines.
+read: Each tile gives one metric, its change, and a 12-week trend. Arrows and text carry the direction.
+  Color only adds whether the change is good (green) or bad (red), so it never carries meaning alone.
+data_shape: [numeric, time]

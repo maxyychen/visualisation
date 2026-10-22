@@ -1,0 +1,27 @@
+title: Clustered Heatmap (with dendrograms)
+engine: mpl
+order: 120
+purpose: A matrix heatmap whose rows and columns are reordered by hierarchical clustering, with dendrograms
+  on the margins. Blocks of similar features and similar samples emerge without any prior grouping.
+when_to_use:
+- Show gene expression signatures across samples
+- Group customers, products or sensors by similarity profiles
+- Show a correlation matrix where variable order should reveal clusters
+avoid:
+- There are more than about 200 rows (summarise first or filter to the top-variance features)
+- Rows must keep a meaningful fixed order (time, rank)
+alternatives:
+- Plain heatmap
+- PCA / UMAP scatter
+- Parallel coordinates
+tips:
+- Z-score each row so color shows relative, not absolute, expression
+- Use a diverging colormap centered on 0, and add a color strip for known sample groups
+example: Synthetic expression of 40 genes in 16 samples (8 tumour, 8 normal) containing two co-regulated
+  modules.
+read: Rows (genes) and columns (samples) are reordered so that similar ones sit together. Samples split
+  cleanly into tumour and normal, driven by an up-regulated block (red) and a down-regulated block (blue).
+real_data:
+  source: "sklearn.datasets.load_breast_cancer() \u2014 40 sampled tumours (20 malignant, 20 benign), 10 nucleus features, bundled with scikit-learn"
+  offline: true
+data_shape: [numeric, hierarchy]

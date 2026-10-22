@@ -1,0 +1,28 @@
+title: Line Chart
+engine: mpl
+order: 10
+purpose: The standard way to show a continuous series over time. Points joined by a line put the reader's
+  attention on the trend, its direction, speed and turning points, more than on any single value.
+when_to_use:
+- Show a trend in a continuous measure over regular time intervals
+- Compare a few series (up to ~4) on the same scale
+- Make peaks, troughs and turning points visible
+avoid:
+- The data are discrete categories with no order (use a bar chart)
+- There are only 2–3 time points (use a slope chart or bars)
+- More than ~5 series would overlap into spaghetti (use small multiples or highlighting)
+alternatives:
+- Highlighted line chart
+- Small-multiple lines
+- Area chart
+tips:
+- Use a 2px line; markers only for sparse data
+- Label lines directly at their end instead of using a distant legend
+- The y-axis may start above zero for lines (unlike bars), but say so if the change looks exaggerated
+example: Monthly active users of three apps over three years, synthetic data.
+read: Each line is one app. Its slope is the growth rate. App C starts lowest but accelerates (its curve
+  bends upward) and overtakes App B in the final year.
+real_data:
+  source: "plotly.express.data.stocks() \u2014 weekly closing prices of large tech stocks 2018\u20132019 (normalised), bundled with plotly"
+  offline: true
+data_shape: [time]

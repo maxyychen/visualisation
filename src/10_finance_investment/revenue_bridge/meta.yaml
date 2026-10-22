@@ -1,0 +1,29 @@
+title: Revenue Bridge (Price / Volume / Mix / FX)
+engine: mpl
+order: 310
+purpose: 'A waterfall that walks from last year''s revenue to this year''s, one driver at a time: price,
+  volume, product mix, currency and acquisitions. It answers the CFO''s question ''why did revenue change?''
+  and separates organic from inorganic and currency effects.'
+when_to_use:
+- Explain the change in revenue, profit or margin between two periods
+- Separate organic growth from FX and M&A effects in earnings reviews
+- Communicate a budget-vs-actual variance by driver
+avoid:
+- Drivers are not additive or overlap (decompose them consistently first)
+- There are more than ~8 drivers (group the small ones into 'Other')
+- Truncating the y-axis to exaggerate small steps; choose a period where the drivers are material, or
+  chart the drivers alone
+alternatives:
+- Diverging bar of drivers only
+- Table with driver contributions
+tips:
+- Color increases and decreases in two opposing hues, and keep totals neutral
+- Draw thin connector lines between steps so the eye follows the running total
+- Label every step with its signed value, and the totals with their levels
+example: A fictional company's revenue moving from $400m (FY2024) to $515m (FY2025) (illustrative).
+read: Start at the gray FY2024 bar. Each blue step adds revenue and each orange step removes it. Higher
+  volume and the acquisition drove most of the growth, while currency and an unfavourable mix took some
+  back.
+data_shape:
+- categories
+- flows

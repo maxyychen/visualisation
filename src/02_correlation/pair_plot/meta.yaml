@@ -1,0 +1,22 @@
+title: Pair Plot (Scatter-plot Matrix)
+engine: mpl
+order: 80
+purpose: A grid of scatter plots for every pair of variables, with each variable's distribution on the
+  diagonal. It is a standard first look at a multivariate dataset.
+when_to_use:
+- Explore relationships among 3–6 numeric variables at once
+- Check how well groups separate across features (classification problems)
+- Find non-linear relationships that a correlation matrix would miss
+avoid:
+- There are more than ~6 variables (the panels get tiny)
+- The audience is non-technical (too dense for presentation)
+alternatives:
+- Correlation heatmap
+- Parallel coordinates
+example: Four flower measurements for three species (synthetic, iris-like).
+read: Each off-diagonal panel is a scatter plot of two measurements and the diagonal shows each measurement's
+  distribution. Petal length and width separate the three species almost perfectly.
+real_data:
+  source: "plotly.express.data.iris() \u2014 Fisher's (1936) iris measurements, bundled with plotly"
+  offline: true
+data_shape: [numeric, categories]

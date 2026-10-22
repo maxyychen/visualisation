@@ -1,0 +1,31 @@
+title: Monthly Returns Heatmap (Calendar Table)
+engine: mpl
+order: 40
+data_shape: [prices, time]
+purpose: >-
+  A year × month grid in which every cell is one month's return, colored on a diverging scale centered
+  at zero, with the full-year return in a separate column. It is the standard compact view in fund
+  factsheets: you can read exact numbers and also spot streaks, seasonality and bad years at a glance.
+when_to_use:
+  - Summarise a multi-year monthly track record on one page
+  - Look for streaks of losses, seasonality or a change in behavior after a given date
+  - Give readers exact monthly figures alongside the pattern
+avoid:
+  - Fewer than about two years of history (use a bar chart of monthly returns)
+  - Comparing two funds (use annual returns bars or a difference heatmap)
+alternatives:
+  - Annual returns bar chart
+  - Column chart of monthly returns
+  - Distribution of monthly returns (histogram)
+tips:
+  - Use a diverging palette with a neutral midpoint at exactly 0%, symmetric limits
+  - Keep the annual column visually separate; it is compounded, not a sum of months
+  - Print values in each cell; switch text to white on dark cells
+example: >-
+  Simulated monthly returns for a fund, 2015–2024 (compounded from daily returns). Not investment advice.
+read: >-
+  Blue cells are gaining months and orange cells losing months; stronger color means a bigger move.
+  The right-hand column is the compounded return for each calendar year.
+real_data:
+  source: plotly.express.data.stocks() — MSFT weekly prices resampled to month-end, 2018–2019
+  offline: true

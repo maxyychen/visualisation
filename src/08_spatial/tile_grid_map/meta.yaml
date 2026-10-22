@@ -1,0 +1,23 @@
+title: Tile Grid Map
+engine: mpl
+order: 50
+purpose: Replaces every region with an equal-sized square laid out roughly in its geographic position.
+  Each state gets the same visual weight, which fixes the choropleth's large-area bias.
+when_to_use:
+- Every region should count equally (US states, EU countries, districts)
+- Small regions (RI, DE, DC) would vanish on a real map
+- You want a compact, label-friendly map that works in print
+avoid:
+- Exact geography, distance or shape matters
+- The audience is unfamiliar with the regions and needs the real outlines to orient
+alternatives:
+- Choropleth map
+- Hexagon tile map
+- Sorted bar chart
+tips:
+- Label each tile with its code, and switch the text to white on dark tiles
+- Use the same one-hue sequential scale you would use on a choropleth
+example: The same illustrative state uninsured rates as the choropleth, on a tile grid.
+read: Each square is one state, placed roughly where it sits geographically. Darker squares have higher
+  rates, and DC and Rhode Island get the same weight as Texas.
+data_shape: [geo]

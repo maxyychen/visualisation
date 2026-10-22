@@ -1,0 +1,17 @@
+title: Deviation Lollipop (from mean)
+engine: mpl
+order: 40
+purpose: Each item is a dot joined by a thin stem to a reference value such as the group mean. It carries
+  the same message as a diverging bar with much less ink, so it works well with many items.
+when_to_use:
+- Show how far each item sits from the average or target
+- Show many categories, where solid bars would look heavy
+- Highlight outliers relative to a benchmark
+avoid:
+- Values are very close together (stems become invisible)
+- The audience expects conventional bar charts
+alternatives:
+- Diverging bar chart
+- Dot plot with a reference line
+example: Fuel efficiency (mpg) of 20 car models compared with the fleet average.
+data_shape: [categories, numeric]

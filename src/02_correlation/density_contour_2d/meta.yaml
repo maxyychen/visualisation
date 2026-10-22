@@ -1,0 +1,20 @@
+title: 2-D Density Contour Plot
+engine: mpl
+order: 70
+purpose: Estimates the joint probability density of two variables and draws it as filled contour bands,
+  like a topographic map. It shows peaks (modes) and the shape of the joint distribution.
+when_to_use:
+- Show where two variables jointly concentrate in large datasets
+- Reveal multiple clusters or modes
+- Compare the joint distributions of two or three groups
+avoid:
+- There are few data points (KDE invents smooth structure)
+- Exact counts are needed
+alternatives:
+- Hexbin plot
+- Scatter plot
+- Joint plot
+example: Eruption duration vs. waiting time for 1,000 geyser eruptions (synthetic, Old-Faithful-like).
+read: 'Darker bands mark higher density, like peaks on a map. Two peaks show two eruption types: short
+  eruptions followed by short waits, and long eruptions followed by long waits.'
+data_shape: [numeric]

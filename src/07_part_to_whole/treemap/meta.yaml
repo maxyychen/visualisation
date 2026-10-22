@@ -1,0 +1,24 @@
+title: Treemap
+engine: mpl
+order: 50
+purpose: Nested rectangles whose areas are proportional to values. It fits a large number of parts (and
+  optionally a hierarchy) into a small space, and the biggest contributors stand out.
+when_to_use:
+- Show part-to-whole with many categories (10–50+) where a pie would fail
+- Show hierarchical data (sector → company), coloring by the parent
+- Find the dominant contributors in a long tail
+avoid:
+- Precise comparison of similar values is needed (areas are hard to compare)
+- Values can be negative
+- There are very few categories (use a bar chart)
+alternatives:
+- Sunburst (hierarchy)
+- Bar chart
+- Icicle chart
+tips:
+- Color by parent group (categorical), not by a value ramp that repeats the area
+- Label only rectangles large enough to hold text
+example: A $268M equity portfolio, holdings grouped into four sectors.
+read: Each rectangle's area is a holding's market value and its color is the sector. The two largest
+  technology holdings together make up more than a third of the portfolio, a concentration risk.
+data_shape: [hierarchy]

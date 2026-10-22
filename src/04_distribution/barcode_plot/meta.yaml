@@ -1,0 +1,18 @@
+title: Barcode Plot (Rug Plot)
+engine: mpl
+order: 110
+purpose: Draws each observation as a thin vertical tick on a line. It is a minimal, high-resolution distribution
+  display that also works well for placing one item among the rest.
+when_to_use:
+- Show exactly where individual values fall, for example to highlight one country among all of them
+- Show a compact distribution strip for dashboards and tables
+- Add a margin to a density or scatter plot
+avoid:
+- There are many duplicate or close values (ticks overlap and hide counts)
+- The audience needs the shape (add a density curve)
+alternatives:
+- Dot strip plot
+- Histogram
+- Beeswarm
+example: Unemployment rate of 50 US-like states on three dates, highlighting one state.
+data_shape: [numeric]

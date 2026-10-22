@@ -1,0 +1,32 @@
+title: Risk-Return Scatter
+engine: mpl
+order: 120
+data_shape: [prices, numeric]
+purpose: >-
+  Places each fund or asset by its annualised volatility (x) and annualised return (y), with lines of
+  equal Sharpe ratio fanning out from the risk-free rate. It answers "was the return worth the risk?" for
+  many investments at once, instead of comparing returns alone.
+when_to_use:
+  - Compare a fund with its peer group or a set of indices
+  - Screen many investments for risk-adjusted performance
+  - Show where a proposed portfolio sits relative to the alternatives
+avoid:
+  - The periods differ between funds (statistics must cover the same dates)
+  - More than about 100 points without highlighting (it becomes a cloud; filter or highlight)
+alternatives:
+  - Efficient frontier (for what is achievable)
+  - Ranked bar chart of Sharpe ratios
+tips:
+  - Highlight the fund of interest and the benchmark; gray out the peers
+  - Add iso-Sharpe reference lines from the risk-free rate to make the trade-off visible
+  - Label only the points that matter
+example: >-
+  Simulated three-year statistics for 30 peer funds, the fund under review and its benchmark; 2%
+  risk-free rate. Not investment advice.
+read: >-
+  Up and to the left is better (more return for less risk). The thin gray rays are lines of equal Sharpe
+  ratio: any fund above a ray beat that Sharpe ratio. The blue fund sits above the benchmark's ray, so its
+  extra risk was rewarded.
+real_data:
+  source: plotly.express.data.stocks() — 6 tech stocks and their equal-weight basket, weekly returns 2018–2019
+  offline: true

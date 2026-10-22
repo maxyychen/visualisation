@@ -1,0 +1,29 @@
+title: Option Payoff Diagrams
+engine: mpl
+order: 260
+purpose: Plots profit or loss at expiry against the underlying price for an option strategy, with the
+  premium paid or received included. Small multiples put several strategies side by side, so their risk
+  profiles (capped, unlimited, range-bound) can be compared.
+when_to_use:
+- Explain or compare option strategies (directional, hedging, volatility, income)
+- Show breakeven prices, maximum gain and maximum loss
+- Check a proposed structure before trading it
+avoid:
+- Showing value before expiry (that needs a pricing model and time/volatility assumptions; plot Black–Scholes
+  value curves instead)
+- Mixing strategies with very different scales on one shared y-axis
+alternatives:
+- P&L table at selected prices
+- Value-before-expiry curves for several dates
+tips:
+- Mark the current price and the breakevens explicitly
+- Fill profit and loss areas in two opposing hues (blue/orange), not red/green alone
+- State the premium assumptions (model, volatility, time to expiry)
+example: Stock at $100. Premiums from Black–Scholes with 25% volatility, 3 months to expiry and a 4% rate
+  (illustrative; financing of the premium ignored).
+read: Blue areas are profit and orange areas are loss at expiry. The long call risks only its premium;
+  the protective put caps the downside of owning the stock; the straddle needs a big move either way;
+  the iron condor earns a small, capped profit if the price stays between 95 and 105.
+data_shape:
+- prices
+- numeric

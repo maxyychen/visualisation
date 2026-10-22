@@ -1,0 +1,25 @@
+title: Box Plot (Box-and-Whisker)
+engine: mpl
+order: 30
+purpose: 'Summarises a distribution with five numbers: the median, the quartiles (box) and the whiskers
+  to 1.5×IQR, with outliers drawn as points. It is compact enough to compare many groups side by side.'
+when_to_use:
+- Compare the medians and spreads of many groups
+- Flag outliers
+- Fit a statistical audience and small spaces
+avoid:
+- The distribution is multimodal (the box hides the peaks; use a violin or raincloud)
+- Sample sizes are small (show the points instead)
+- The audience is unfamiliar with quartiles
+alternatives:
+- Violin plot
+- Raincloud plot
+- Strip plot
+tips:
+- Overlay the raw points when n is moderate
+- Sort the groups by median
+example: Days taken to pay an invoice, by customer segment, for 1,000 invoices (synthetic).
+read: The thick line is the median and the box holds the middle 50% of invoices. Whiskers reach the
+  typical range and dots are outliers. Government customers pay slowest and least predictably, which
+  matters for cash-flow planning.
+data_shape: [numeric, categories]

@@ -1,0 +1,32 @@
+title: Drawdown (Underwater) Chart
+engine: mpl
+order: 30
+data_shape: [prices, time]
+purpose: >-
+  Plots, for every date, how far an investment sits below its previous peak. The area hangs "underwater"
+  from a zero line, so the depth, length and frequency of losses become visible. A cumulative-return
+  chart hides these, because recoveries quickly paint over the dips.
+when_to_use:
+  - Show the pain an investor would have experienced, not just the end result
+  - Compare maximum drawdown and time-to-recovery between strategies
+  - Pair with a cumulative-return chart in a performance report
+avoid:
+  - The series never falls meaningfully below its peak (the chart is empty)
+  - Very short histories, where one dip dominates
+alternatives:
+  - Cumulative return chart with peaks marked
+  - Table of the five worst drawdowns (depth, start, trough, recovery)
+tips:
+  - Share the x-axis with a price panel above; never put drawdown on a second y-axis
+  - Annotate the maximum drawdown and how long recovery took
+  - Fill in a single "loss" color; the zero line is the reference
+example: >-
+  Simulated daily prices for a fund, 2015–2024, with a sharp 2020-style crash and a slower 2022-style
+  bear market. Not investment advice.
+read: >-
+  The top panel is the price on a log scale. The bottom panel shows the percentage below the running
+  peak: zero means a new high. Deep, narrow troughs are crashes; long, shallow ones are slow bleeds that
+  can be just as painful to sit through.
+real_data:
+  source: plotly.express.data.stocks() — weekly NFLX, 2018–2019
+  offline: true

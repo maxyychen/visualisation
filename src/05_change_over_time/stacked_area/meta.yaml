@@ -1,0 +1,24 @@
+title: Stacked Area Chart
+engine: mpl
+order: 50
+purpose: Stacks several series on top of each other over time. The top edge shows the total, and each
+  band shows how much one component contributes.
+when_to_use:
+- Show how a total changes over time and which components drive it
+- Show a few (2–6) parts with a meaningful sum (energy mix, revenue by segment)
+avoid:
+- Readers need precise values for the middle layers (only the bottom layer has a flat baseline)
+- Components are not parts of a sum
+- There are many layers or layers that cross a lot
+alternatives:
+- Small-multiple area charts
+- 100% stacked area (when shares matter more than totals)
+- Line chart
+tips:
+- Put the most stable or most important layer at the bottom
+- Label layers directly inside the bands
+- Keep to 6 layers or fewer; fold the rest into 'Other'
+example: Electricity generation mix (TWh) by source over 20 years, synthetic data.
+read: The top edge is total generation. Coal (the bottom band) shrinks while wind and solar (the top bands)
+  grow, so the mix changes while the total stays roughly flat.
+data_shape: [time, categories]

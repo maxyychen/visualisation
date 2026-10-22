@@ -1,0 +1,17 @@
+title: Strip Plot (Jittered Dots)
+engine: mpl
+order: 50
+purpose: Plots every observation as a dot along a value axis, with random sideways jitter to reduce overlap.
+  Nothing is summarised away, so sample size, clusters and outliers stay visible.
+when_to_use:
+- Show small to medium samples (under ~300 per group) where every point matters
+- Expose the raw data behind a summary statistic
+- Overlay on box or violin plots
+avoid:
+- Samples are large (dots merge into a blob)
+alternatives:
+- Beeswarm plot
+- Box plot with points
+- Raincloud plot
+example: Sales uplift (%) per store in a three-arm promotion test, 40 stores per arm, with group means.
+data_shape: [numeric, categories]

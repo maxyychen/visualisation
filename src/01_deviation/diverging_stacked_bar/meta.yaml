@@ -1,0 +1,24 @@
+title: Diverging Stacked Bar (Likert)
+engine: mpl
+order: 20
+purpose: Stacks survey response levels so negative answers extend left and positive answers extend right
+  from a central neutral line. Overall sentiment and its composition show together.
+when_to_use:
+- Show Likert-scale survey results (disagree ↔ agree)
+- Compare sentiment across many questions or groups at a glance
+- Show ordered categorical responses that have a natural midpoint
+avoid:
+- Responses are not ordered or have no natural neutral point
+- Readers need exact values for the inner segments (use a table)
+- There are more than 5–7 response levels
+alternatives:
+- 100% stacked bar
+- Small-multiple bar charts per question
+tips:
+- Split the neutral category half left, half right of the center line
+- 'Use a diverging palette: two hues fading to a gray neutral'
+- Sort questions by net agreement
+example: Employee engagement survey with five questions on a 5-point agreement scale.
+read: The share of each bar right of center is agreement and left of center is disagreement. Questions
+  near the top have the most net agreement.
+data_shape: [categories]

@@ -1,0 +1,18 @@
+title: Packed Bubble Chart (proportional symbols)
+engine: mpl
+order: 90
+purpose: Circles sized by value and packed together without axes. It gives a quick, attractive impression
+  of which items are big and which are small.
+when_to_use:
+- Show orders of magnitude when values differ greatly (large vs. small players)
+- Editorial or overview graphics where precision is secondary
+avoid:
+- Values are close (people cannot compare circle areas precisely)
+- Exact comparison or ranking is needed (use bars)
+alternatives:
+- Treemap
+- Horizontal bar chart
+tips:
+- Scale circle AREA, not radius, to the value; label the biggest bubbles directly
+example: Market capitalisation of 15 (fictional) companies.
+data_shape: [categories, numeric, hierarchy]

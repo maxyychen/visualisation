@@ -1,0 +1,29 @@
+title: Lump Sum vs Dollar-Cost Averaging vs Cash
+engine: mpl
+order: 330
+purpose: Compares investing a sum all at once, spreading it over twelve months (dollar-cost averaging),
+  and leaving it in cash. One example path shows compounding over time, and a histogram across thousands
+  of simulated markets shows how often each choice wins and by how much.
+when_to_use:
+- Investor education on compounding and on the cost of waiting in cash
+- Frame the lump-sum vs DCA decision as a distribution of outcomes, not one anecdote
+- Show the effect of time in the market on long horizons
+avoid:
+- Showing a single historical or simulated path as proof; one path is an anecdote
+- Comparing strategies with different total contributions without saying so
+alternatives:
+- Fan chart of each strategy
+- Table of win rates and median differences
+tips:
+- Keep the amount invested identical across strategies
+- Plot the contributions line so growth is visible as the gap above it
+- Report the share of simulations where each strategy wins, and the median margin
+example: $60,000 available today, 10-year horizon; stocks ~7% ± 15% a year, cash 2% a year; DCA invests
+  $5,000 a month for 12 months (simulated, illustrative; not financial advice).
+read: On the example path, the lump sum (blue) ends highest, DCA (orange) trails because part of the money
+  waited in cash, and cash (gray) barely grows. The histogram shows the lump sum beat DCA in most simulations,
+  but not all, and DCA's wins came in markets that fell early.
+data_shape:
+- prices
+- time
+- uncertainty

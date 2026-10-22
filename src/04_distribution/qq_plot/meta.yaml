@@ -1,0 +1,18 @@
+title: Q-Q Plot (Quantile-Quantile)
+engine: mpl
+order: 120
+purpose: Plots a sample's quantiles against those of a theoretical distribution, usually the normal. If
+  the points follow the diagonal, the data fits; curved tails show skew or heavy tails.
+when_to_use:
+- Check the normality assumption before t-tests or regression (e.g. on residuals)
+- Diagnose skew, heavy tails or outliers relative to a reference distribution
+- Compare two samples' distributions quantile by quantile
+avoid:
+- Communicating with a general audience (it is a diagnostic tool)
+alternatives:
+- Histogram with a fitted normal curve
+- ECDF vs. theoretical CDF
+example: Normal vs. right-skewed vs. heavy-tailed samples (n = 200 each), side by side.
+read: Points on the orange line mean the data matches a normal distribution. An upward curve at the right
+  end means right skew, and an S-shape with both ends pulling away means heavy tails.
+data_shape: [numeric]

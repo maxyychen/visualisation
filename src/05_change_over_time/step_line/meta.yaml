@@ -1,0 +1,17 @@
+title: Step Line Chart
+engine: mpl
+order: 70
+purpose: A line that moves in horizontal and vertical steps instead of diagonals. It shows that a value
+  holds constant between changes, as with policy rates, prices, or inventory levels.
+when_to_use:
+- Show values that change at discrete moments and stay flat in between (interest rates, tariffs, headcount)
+- Make the timing and size of each change visible
+avoid:
+- The quantity varies continuously (a sloped line is more honest)
+alternatives:
+- Line chart
+- Event timeline
+tips:
+- Use where='post' when the value takes effect at the change date
+example: Central bank policy rate decisions, 2019–2025, synthetic data.
+data_shape: [time]

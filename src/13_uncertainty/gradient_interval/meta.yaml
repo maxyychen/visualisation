@@ -1,0 +1,30 @@
+title: Gradient Interval
+engine: mpl
+order: 10
+purpose: >-
+  Draws each estimate's uncertainty as a band whose opacity follows the probability density: darkest at
+  the most likely value, fading out towards the tails. Unlike a hard-edged error bar, it does not suggest
+  that values just inside the interval are plausible and values just outside are impossible.
+when_to_use:
+  - Present forecasts or estimates to a general audience, where error bars get misread as hard limits
+  - Compare several uncertain estimates on one scale
+  - Show that intervals overlap without implying a bright-line cutoff
+avoid:
+  - The audience needs exact interval endpoints (add numbers or use a forest plot)
+  - The distribution is multimodal (the gradient hides the bumps; use a density or half-eye)
+alternatives:
+  - Half-eye plot (density shape plus intervals)
+  - Error bars / forest plot (precise endpoints)
+  - Quantile dotplot (countable probabilities)
+tips:
+  - Use one hue and vary only opacity
+  - Mark the point estimate with a thin dark tick
+  - Keep a reference line (zero or target) for orientation
+example: >-
+  Projected 2030 sales growth for six regions, each with a normal predictive distribution of different
+  width (synthetic forecast).
+read: >-
+  Darker means more likely. The North and Coast estimates are tight; the Mountain region is the most
+  uncertain and has real probability of shrinking (the faint band crosses zero). The South has the
+  highest central estimate, but its band overlaps heavily with the Coast's.
+data_shape: [uncertainty]

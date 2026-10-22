@@ -1,0 +1,30 @@
+title: Kaplan–Meier Survival Curve
+engine: mpl
+order: 10
+purpose: A step function estimating the probability of remaining event-free over time while correctly
+  handling censored subjects, meaning those whose follow-up ended before an event. It is the standard
+  figure for time-to-event outcomes in clinical trials and cohort studies.
+when_to_use:
+- Compare overall survival, progression-free survival or time-to-relapse between treatment arms or risk
+  groups
+- Show any time-to-event outcome with censoring (churn, machine failure, time to readmission)
+- Report median survival and survival at landmark times (1-year, 5-year)
+avoid:
+- Survival curves cross substantially (the log-rank test is weak; report RMST or landmark analyses as
+  well)
+- There are competing risks (use cumulative incidence functions)
+- There are many groups (more than 3–4 curves become unreadable; facet instead)
+alternatives:
+- Cumulative incidence plot
+- Swimmer plot (patient-level detail)
+- Forest plot of hazard ratios
+tips:
+- Always show a numbers-at-risk table aligned under the x-axis
+- Mark censored observations with small ticks
+- Show confidence bands and truncate the x-axis where few subjects remain at risk
+example: 'A simulated two-arm oncology trial (120 patients per arm): median overall survival is about
+  12 months on control and 18 months on the new treatment, with administrative censoring at up to 48 months.'
+read: 'Each step down is one or more deaths, and the ticks are censored patients. A curve that stays higher
+  means better survival. Read the median where each curve crosses 0.5, and check the at-risk table: estimates
+  far to the right rest on few patients.'
+data_shape: [events]

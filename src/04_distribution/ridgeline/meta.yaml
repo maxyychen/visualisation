@@ -1,0 +1,25 @@
+title: Ridgeline Plot (Joy Plot)
+engine: mpl
+order: 70
+purpose: Stacks partially overlapping density curves for many groups, one per row. Shifts in the distribution
+  across groups or time read as a compact landscape.
+when_to_use:
+- Compare distributions across many groups (5–20), especially ordered ones like months or years
+- Show how a distribution shifts over time
+avoid:
+- There are only two or three groups (overlay KDEs instead)
+- Precise reading of density values is needed
+alternatives:
+- Violin plot
+- Small-multiple histograms
+- Box plots
+tips:
+- Order the rows meaningfully (time, or by median)
+- Use one hue or a sequential ramp mapped to the order
+example: Daily maximum temperature distribution for each month of the year (synthetic city).
+read: Each ridge is one month's distribution of daily highs, and darker color means warmer. The peaks
+  move right towards July and back left by December.
+real_data:
+  source: "plotly.express.data.gapminder() \u2014 Gapminder life expectancy, GDP and population 1952\u20132007, bundled with plotly"
+  offline: true
+data_shape: [numeric, categories]

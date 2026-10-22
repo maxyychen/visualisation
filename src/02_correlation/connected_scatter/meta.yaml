@@ -1,0 +1,22 @@
+title: Connected Scatter Plot
+engine: mpl
+order: 40
+purpose: A scatter plot whose points are joined in time order. It shows how the relationship between two
+  variables changes over time, including loops, reversals and turning points.
+when_to_use:
+- Show how two variables evolved together over time (e.g. unemployment vs. inflation)
+- Show cycles and path dependency that two separate line charts would hide
+avoid:
+- The audience is unfamiliar with the form (it needs annotation to be read)
+- There are many time points or a path that crosses itself a lot
+- There are several series (paths tangle)
+alternatives:
+- Two aligned line charts (small multiples)
+- Indexed line chart
+tips:
+- Label the start, the end and key turning points with years
+- Use arrows or a light-to-dark gradient to show direction
+example: Annual unemployment vs. inflation rate for a fictional economy, 2004–2023 (Phillips-curve style).
+read: Follow the arrows from 2004 (faint) to 2023 (solid). Each step is one year. The looping path shows
+  the economy cycling between high-inflation and high-unemployment phases.
+data_shape: [numeric, time]

@@ -1,0 +1,30 @@
+title: Icon Array (Risk Communication)
+engine: mpl
+order: 40
+purpose: >-
+  Shows a probability as a grid of 100 people, colouring those affected. Natural frequencies ("7 in
+  100") shown as countable figures are understood far better than percentages or relative risks,
+  especially by people with low numeracy. Icon arrays are a recommended format in patient decision aids.
+when_to_use:
+  - Communicate a risk or benefit to patients or the public
+  - Compare absolute risks between options (treatment vs no treatment)
+  - Counter the inflation produced by relative risk ("doubles the risk" from 1 to 2 in 100)
+avoid:
+  - The risk is very small (under 1 in 1,000 needs 1,000 icons; use a different denominator or text)
+  - The audience is technical and needs intervals or many comparisons
+alternatives:
+  - Waffle chart (same idea, abstract squares)
+  - Quantile dotplot (for distributions)
+  - A plain sentence with natural frequencies
+tips:
+  - Use the same denominator (100) for every option you compare
+  - Group the affected icons together, starting from one corner
+  - State the number in words next to each array
+example: >-
+  The chance of a serious side effect within one year: 7 in 100 patients on Treatment A and 15 in 100 on
+  Treatment B (illustrative numbers).
+read: >-
+  Each figure is one patient out of 100. Count the orange figures: 7 on Treatment A and 15 on
+  Treatment B. B roughly doubles the risk, but most patients on either treatment have no serious side
+  effect.
+data_shape: [uncertainty, categories]

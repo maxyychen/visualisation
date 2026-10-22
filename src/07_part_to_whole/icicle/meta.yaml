@@ -1,0 +1,19 @@
+title: Icicle Chart
+engine: plotly
+order: 70
+purpose: A rectangular, linear version of the sunburst. Each hierarchy level is a row (or column), and
+  each child sits directly under its parent with a width proportional to its value. Straight edges are
+  easier to compare than arcs, and long labels fit better.
+when_to_use:
+- Show hierarchical part-to-whole where labels are long
+- Show file-system sizes, cost breakdowns, or org structures
+- Need accurate comparison at every level of a hierarchy
+avoid:
+- The hierarchy has only one level (use a bar or treemap)
+- There are hundreds of leaves (use a treemap)
+alternatives:
+- Sunburst
+- Treemap
+- Flame graph (performance profiling)
+example: Disk usage of a project folder by directory and file type.
+data_shape: [hierarchy]

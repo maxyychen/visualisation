@@ -1,0 +1,25 @@
+title: Slope Chart
+engine: mpl
+order: 60
+purpose: Joins each item's value at two points in time (or two conditions) with a straight line. The slope
+  shows the direction and size of change, and crossing lines show changes in rank.
+when_to_use:
+- Compare rankings or values between exactly two time points or conditions
+- Highlight which items rose and which fell
+avoid:
+- There are more than two time points (use a bump or line chart)
+- There are too many items, so lines and labels collide (~15 max)
+alternatives:
+- Dumbbell chart
+- Bump chart
+- Grouped bar chart
+tips:
+- Color by direction (up/down) or highlight a few items and gray the rest
+- Label both ends directly; no legend needed
+example: Market share (%) of 8 smartphone brands in 2019 vs. 2024 (synthetic).
+read: Blue lines gained share and orange lines lost more than two points. Echo and Cirrus rose, while
+  Borealis and Delta fell sharply.
+real_data:
+  source: "plotly.express.data.gapminder() \u2014 Gapminder life expectancy, GDP and population 1952\u20132007, bundled with plotly"
+  offline: true
+data_shape: [categories, time]

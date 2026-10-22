@@ -1,0 +1,24 @@
+title: Small Multiples (line)
+engine: mpl
+order: 30
+purpose: Repeats the same small chart, with the same axes and scale, once per series. Each series gets
+  its own panel, so comparison is about shape rather than untangling colors.
+when_to_use:
+- Compare trends across many groups (5–30)
+- Series overlap too much on a single chart
+- Pattern shape matters more than precise cross-series values
+avoid:
+- Precise comparison of two series at the same time point is required (overlay them)
+- Panels would need different y-scales and readers would compare heights across panels
+alternatives:
+- Highlighted line chart
+- Heatmap (time × group)
+tips:
+- Share both axes (sharex/sharey) so panels are comparable
+- Show the other series faintly in each panel for context
+- Order panels meaningfully (by latest value, by region), not alphabetically by default
+example: Weekly sales index for 9 stores over one year.
+real_data:
+  source: "plotly.express.data.gapminder() \u2014 Gapminder life expectancy, GDP and population 1952\u20132007, bundled with plotly"
+  offline: true
+data_shape: [time, categories]

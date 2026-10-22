@@ -1,0 +1,23 @@
+title: Violin Plot
+engine: mpl
+order: 40
+purpose: A mirrored density curve for each group, often with a mini box plot inside. It keeps a box plot's
+  compact group comparison while showing the full shape of each distribution.
+when_to_use:
+- Compare distributions across groups when the shape matters (bimodality, skew)
+- Show large samples per group
+avoid:
+- There are small samples (under ~30 per group)
+- The audience is non-technical (box plots or histograms are more familiar)
+alternatives:
+- Box plot
+- Raincloud plot
+- Ridgeline plot
+example: Daily screen time (hours) by age group, with a split by weekday vs. weekend.
+read: 'Each violin shows where values concentrate: wider means more people. The left half is weekdays
+  and the right half weekends, and the dashed lines are quartiles. Teenagers have the most screen time
+  and the widest spread.'
+real_data:
+  source: "plotly.express.data.tips() \u2014 restaurant tipping data (Bryant & Smith 1995), bundled with plotly"
+  offline: true
+data_shape: [numeric, categories]

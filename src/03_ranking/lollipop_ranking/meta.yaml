@@ -1,0 +1,16 @@
+title: Lollipop Chart
+engine: mpl
+order: 30
+purpose: A thin stem with a dot at the value. It encodes the same thing as a bar but with far less ink,
+  so long rankings look lighter and the endpoints stand out.
+when_to_use:
+- Show rankings with many items (15–40) where bars would form a heavy block
+- Show values that are all large and similar, where the endpoints matter
+avoid:
+- The axis does not start at zero (the stem length then misleads)
+- There are very few categories (a bar chart is more familiar)
+alternatives:
+- Ordered bar chart
+- Cleveland dot plot
+example: Average customer rating (out of 100) for 20 coffee shops.
+data_shape: [categories, numeric]

@@ -1,0 +1,23 @@
+title: Ordered Horizontal Bar Chart
+engine: mpl
+order: 10
+purpose: Horizontal bars sorted from largest to smallest. Sorting turns comparison into a ranking that
+  reads top to bottom, and horizontal bars leave room for long category labels.
+when_to_use:
+- Rank categories by a single value (top 10 products, countries, causes)
+- Show categories with long names
+- Highlight where one item of interest sits in the ranking
+avoid:
+- 'The categories have a natural order (months, age bands): keep that order instead'
+- There are more than ~25 categories (show the top N and fold the rest into 'Other')
+alternatives:
+- Lollipop chart
+- Cleveland dot plot
+- Ordered column chart
+tips:
+- Put the largest value at the top
+- Use one color, and highlight only the item that matters, with the rest in gray
+- Label values directly and drop the x-axis when there are few bars
+example: Top 12 programming languages by share of developers (synthetic survey), highlighting Python.
+read: Bars run from most used (top) to least used. Python is highlighted in blue and ranks second.
+data_shape: [categories, numeric]

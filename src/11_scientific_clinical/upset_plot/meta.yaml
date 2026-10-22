@@ -1,0 +1,26 @@
+title: UpSet Plot
+engine: mpl
+order: 140
+purpose: Shows how several sets overlap. A matrix of dots marks which sets make up each intersection, and a bar
+  above each column gives its size. It scales to many sets where Venn and Euler diagrams become unreadable.
+when_to_use:
+- Show the overlap of more than three sets (comorbidities, gene lists, mutation co-occurrence, survey multi-select answers)
+- Rank intersections by size to find the most common combinations
+- Compare exact intersection counts rather than reading shapes
+avoid:
+- There are only two or three sets and the audience expects a Venn diagram
+- The number of non-empty intersections is huge (keep the top 15–25 and say so)
+alternatives:
+- Venn diagram (2–3 sets)
+- Co-occurrence heatmap (pairwise overlaps only)
+tips:
+- Use it instead of a Venn diagram for more than three sets, because Venn regions become impossible to size or read
+- Sort intersections by size and show only the largest ones
+- Show each set's total size as horizontal bars beside the matrix
+- Highlight one intersection of interest and keep the rest neutral
+example: Comorbidity patterns among 1,000 synthetic patients across five conditions (hypertension, diabetes,
+  obesity, chronic kidney disease, COPD).
+read: Each column is one exact combination of conditions (filled dots) and its bar shows how many patients have
+  exactly that combination. The left bars show each condition's total. The highlighted column is the most common
+  multi-morbidity pattern.
+data_shape: [sets]

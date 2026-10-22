@@ -1,0 +1,30 @@
+title: Factor Exposure (Betas with Confidence Intervals)
+engine: mpl
+order: 150
+data_shape: [prices, model, uncertainty]
+purpose: >-
+  A dot-and-whisker chart of the coefficients from regressing a fund's excess returns on common risk
+  factors (market, size, value, momentum, quality), with 95% confidence intervals. It reveals what a fund
+  is really exposed to, and whether its "alpha" survives once those exposures are accounted for.
+when_to_use:
+  - Look past a fund's label to the systematic risks it takes
+  - Check whether outperformance is skill (alpha) or factor exposure
+  - Compare factor tilts across funds (small multiples or grouped dots)
+avoid:
+  - Short histories (wide intervals make every coefficient look insignificant)
+  - Factors that are highly collinear (coefficients become unstable)
+alternatives:
+  - Rolling beta line chart (exposures over time)
+  - Table of coefficients, t-statistics and R²
+tips:
+  - Draw a zero line, and note that the market beta is compared with 1, not 0
+  - Gray out coefficients whose interval crosses zero
+  - Report annualised alpha and R² in the title or a note
+example: >-
+  Five years of simulated daily returns for a fund and five long-short factors, regressed with OLS
+  (statsmodels). The simulated fund has a market beta of 1.05, a value tilt and a small momentum tilt.
+  Not investment advice.
+read: >-
+  Each dot is an estimated exposure and the whisker its 95% confidence interval. Blue exposures are
+  statistically distinguishable from zero; gray ones are not. The fund behaves like the market plus a
+  value tilt, and its alpha interval includes zero, so there is no evidence of skill beyond these factors.

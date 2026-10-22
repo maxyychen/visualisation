@@ -1,0 +1,30 @@
+title: Performance Attribution (Brinson)
+engine: mpl
+order: 140
+data_shape: [categories, numeric]
+purpose: >-
+  Decomposes a portfolio's excess return over its benchmark into allocation (over- or under-weighting
+  sectors), selection (picking better or worse securities within sectors) and interaction effects, using
+  the Brinson-Fachler model. A waterfall walks from the benchmark return to the portfolio return; a
+  second panel shows the effects by sector, so you can see which decisions added or cost value.
+when_to_use:
+  - Explain why a fund beat or lagged its benchmark over a period
+  - Separate the value of sector calls from stock picking
+  - Report to investment committees or clients
+avoid:
+  - Multi-period attribution without a proper linking method (effects do not simply add across periods)
+  - Strategies that are not managed by sector weights (use factor attribution instead)
+alternatives:
+  - Factor exposure / factor attribution chart
+  - Table of contribution to return by holding
+tips:
+  - "State the model: Brinson-Fachler allocation = (w_p − w_b)(r_b,i − R_b), selection = w_b (r_p,i − r_b,i), interaction = (w_p − w_b)(r_p,i − r_b,i)"
+  - Show totals as dark anchor bars and effects as floating bars
+  - Effects must sum exactly to the excess return; print the check
+example: >-
+  A simulated one-year attribution for a fund with six sectors against its benchmark. Not investment
+  advice.
+read: >-
+  Left: start from the benchmark return, add each effect (blue adds value, orange subtracts) and arrive at
+  the portfolio return. Right: the same allocation and selection effects split by sector, showing, for
+  example, that the technology overweight helped while stock selection in energy hurt.

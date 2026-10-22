@@ -1,0 +1,22 @@
+title: Funnel Chart
+engine: mpl
+order: 30
+purpose: A sequence of centered bars, one per stage of a process, each no larger than the one before.
+  It shows how many items remain at each step and where the largest drop-offs occur.
+when_to_use:
+- Show a sales or marketing conversion pipeline (visit → sign-up → purchase)
+- Show applicant screening pipelines (loan applications, hiring, trial recruitment)
+- Find the stage with the biggest loss
+avoid:
+- Stages are not strictly sequential or subsets of each other
+- Values can increase between stages (use a bar chart or waterfall)
+alternatives:
+- Horizontal bar chart with conversion %
+- Sankey diagram (to show where drop-offs go)
+tips:
+- Label each stage with both the count and the conversion from the previous step
+- 'Use one color: the stages are the same measure, not different categories'
+example: A B2B sales pipeline for one year, from inbound leads to closed-won deals.
+read: Bar width is the number of deals still in the pipeline. The biggest loss is at qualification
+  (48% pass); demos and closing each keep 56%.
+data_shape: [categories, flows]

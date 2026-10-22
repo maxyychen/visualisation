@@ -1,0 +1,26 @@
+title: "Bubble Scaled by Radius vs. by Area"
+engine: mpl
+order: 90
+purpose: >-
+  Readers judge a circle by its area. If the radius (or diameter) is made proportional to the value, the
+  area grows with the square of the value, so a value twice as large looks four times as large and an 8× difference
+  looks like a 64× difference.
+when_to_use:
+  - Scale bubble AREA proportional to value (radius ∝ √value) in bubble charts, bubble maps and packed circles
+  - Use bars instead when precise comparison matters, since people underestimate area differences even when area is scaled correctly
+avoid:
+  - Hand-built bubble charts that set radius or diameter from the value
+  - Icons or pictograms scaled in both width and height by the value
+alternatives:
+  - Bar chart (precise comparison)
+  - Area-scaled bubbles with a size legend
+  - Pictogram / isotype (count icons instead of scaling one)
+tips:
+  - In matplotlib `scatter`, `s` is already an area (pt²), so pass s ∝ value, not s ∝ value²
+  - In plotly, use `sizemode="area"`
+  - Add a size legend with 2–3 reference bubbles
+example: Annual patient volume of four clinics (1k, 2k, 4k and 8k).
+read: >-
+  Clinic D sees 8× as many patients as Clinic A. On the left its circle covers 64× the area and dominates the
+  panel. On the right it covers 8× the area, which matches the data.
+data_shape: [categories, numeric]

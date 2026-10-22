@@ -1,0 +1,23 @@
+title: 100% Stacked Bar Chart
+engine: mpl
+order: 20
+purpose: Stacked bars scaled so that each one totals 100%. Absolute size is removed, so readers compare
+  the share of each component across groups.
+when_to_use:
+- Compare proportions across groups whose totals differ a lot
+- Show how a mix changes across categories or periods
+- Show survey answer shares by demographic group
+avoid:
+- The totals themselves matter (use a stacked bar or marimekko)
+- There are many components, or components with tiny shares
+alternatives:
+- Marimekko chart
+- Diverging stacked bar (for ordered responses)
+- Small-multiple pies
+tips:
+- Horizontal bars leave room for long group labels
+- Label shares inside segments only when the segment is wide enough
+example: Energy mix of electricity generation in five regions (synthetic shares).
+read: Each bar is 100% of a region's generation. Compare the width of one color, for example green renewables,
+  between regions. The bars are sorted by renewable share.
+data_shape: [categories]

@@ -1,0 +1,16 @@
+title: Diverging Column (over time)
+engine: mpl
+order: 50
+purpose: Vertical bars rising from or falling below zero, one per time period. Each discrete period's
+  positive or negative result stands on its own.
+when_to_use:
+- Show discrete periods with signed results (monthly net cash flow, quarterly earnings surprise)
+- Count the positive and negative periods
+avoid:
+- The data is continuous and dense (use a surplus/deficit line)
+- There are more than ~60 periods
+alternatives:
+- Surplus/deficit filled line
+- Waterfall chart (to show the cumulative effect)
+example: Monthly net cash flow of a small business over two years.
+data_shape: [time, numeric]

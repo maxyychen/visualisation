@@ -1,0 +1,24 @@
+title: Volcano Plot
+engine: mpl
+order: 70
+purpose: A scatter of effect size (log2 fold change) against statistical significance (−log10 p) for thousands
+  of features at once. Hits that are both large and significant rise to the upper corners.
+when_to_use:
+- Show differential gene or protein expression (RNA-seq, proteomics, metabolomics)
+- Show any mass univariate test where both effect size and p-value matter
+avoid:
+- There are only a few features (use a forest plot or table)
+- There are no p-values (use an MA plot or rank plot)
+alternatives:
+- MA plot
+- Clustered heatmap of the top hits
+- Ranked bar chart of fold changes
+tips:
+- Draw the fold-change and significance thresholds as thin reference lines
+- Color only the significant up- and down-regulated features (two opposite hues) and leave the rest gray
+- Label only the handful of top hits
+example: Synthetic RNA-seq comparison of tumour versus normal tissue, 8,000 genes with about 4% truly
+  changed.
+read: Genes in the upper right are strongly up-regulated and highly significant, and those in the upper
+  left are down-regulated. Gray genes fail the FDR < 0.05 or |log2FC| ≥ 1 cut-off.
+data_shape: [numeric]

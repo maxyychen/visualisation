@@ -1,0 +1,28 @@
+title: Implied Volatility Smile & Surface
+engine: mpl
+order: 270
+purpose: Implied volatility (the σ that makes Black–Scholes match an option's market price) plotted across
+  strikes for several expiries (the smile or skew), next to a strike × expiry heatmap of the whole surface.
+  It shows how the market prices tail risk and how that changes with time.
+when_to_use:
+- 'Show equity skew: downside puts priced at higher volatility than upside calls'
+- Compare smile steepness across expiries (short-dated skew is usually steeper)
+- Quality-check a volatility surface before using it for pricing or risk
+avoid:
+- Audiences without options background (explain implied volatility first, or show a single ATM term structure)
+- 3-D surface plots for reports (hard to read exact values; occlusion); use lines plus a heatmap
+alternatives:
+- ATM volatility term structure line
+- 25-delta risk-reversal time series
+tips:
+- Order expiry colors with a one-hue ramp (light = near, dark = far), since expiry is ordered
+- Mark the spot or forward price on the strike axis
+- Annotate heatmap cells only if the grid is small; otherwise rely on the colorbar
+example: 'A parametric equity-style surface: ATM vol rising with maturity, skew and curvature fading as
+  1/√T (simulated, spot $100).'
+read: Every curve slopes down to the right, so low strikes (crash protection) carry higher implied vol.
+  The 1-month curve (lightest) is the steepest. In the heatmap the darkest cells sit at low strikes and
+  short expiries.
+data_shape:
+- numeric
+- prices
