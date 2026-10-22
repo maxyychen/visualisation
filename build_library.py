@@ -391,6 +391,8 @@ def write_readme(charts, families):
         "when to use it and when to avoid it, and shows a worked example. Every chart ships as a "
         "**Jupyter notebook** (explanation and rendered output) and a **standalone Python script**.", "",
         "**Browse visually:** open [`gallery/index.html`](gallery/index.html) for a searchable, filterable gallery.", "",
+        "**Not sure which chart?** Read [How to Choose a Chart](HOW_TO_CHOOSE_A_CHART.md): a step-by-step "
+        "guideline with a decision path, a finance quick reference and a pre-publication checklist.", "",
         "Families 01–09 follow the Financial Times "
         "[Visual Vocabulary](https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary), "
         "which groups charts by the *relationship in the data you want to show*. The other families cover "

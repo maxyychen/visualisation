@@ -4,6 +4,8 @@ A catalogue of **189 chart types** in Python. Each entry explains the chart's de
 
 **Browse visually:** open [`gallery/index.html`](gallery/index.html) for a searchable, filterable gallery.
 
+**Not sure which chart?** Read [How to Choose a Chart](HOW_TO_CHOOSE_A_CHART.md): a step-by-step guideline with a decision path, a finance quick reference and a pre-publication checklist.
+
 Families 01–09 follow the Financial Times [Visual Vocabulary](https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary), which groups charts by the *relationship in the data you want to show*. The other families cover scientific and clinical plots, multivariate and machine-learning diagnostics, uncertainty, and common mistakes shown next to their fixes.
 
 ## Quick start
