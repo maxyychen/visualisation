@@ -26,6 +26,8 @@ example: >-
   (statsmodels). The simulated fund has a market beta of 1.05, a value tilt and a small momentum tilt.
   Not investment advice.
 read: >-
-  Each dot is an estimated exposure and the whisker its 95% confidence interval. Blue exposures are
-  statistically distinguishable from zero; gray ones are not. The fund behaves like the market plus a
-  value tilt, and its alpha interval includes zero, so there is no evidence of skill beyond these factors.
+  Each dot is an estimated exposure and the whisker its 95% confidence interval. Blue exposures differ
+  significantly from their reference (1 for the market, 0 for the others); gray ones do not. The fund
+  has a slightly above-market beta (1.05), a clear value tilt (0.38) and smaller momentum (+0.09) and
+  quality (−0.10) tilts; its size exposure is indistinguishable from zero. The alpha interval (about
+  −10% to +6% a year) includes zero, so there is no evidence of skill beyond these factors.

@@ -32,10 +32,11 @@ example: >-
   Left: a conventional 4 × 4 bivariate palette. Right: a 4-level VSUP.
 read: >-
   On the VSUP map, dark, saturated tiles are estimates that are both high and reliable. Grayish
-  tiles say "this estimate is uncertain"; only the broad level (low or high) can be read. Compare a
+  tiles say "this estimate is uncertain": the moderately uncertain ones keep only a low/high distinction,
+  and the grayest (the smallest samples, such as WY, MT and HI) carry no value information at all. Compare a
   small state with a large state of similar colour on the left map: on the right, the small
   state loses its detail because its survey was too small to support it.
 reference:
   - text: "Correll, M., Moritz, D. & Heer, J. (2018). Value-suppressing uncertainty palettes. Proceedings of the ACM CHI Conference on Human Factors in Computing Systems (CHI 2018)."
-    url: https://tableau.com/research/publications/value-suppressing-uncertainty-palettes
+    url: https://doi.org/10.1145/3173574.3174216
     year: 2018

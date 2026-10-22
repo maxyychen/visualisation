@@ -14,5 +14,11 @@ avoid:
 alternatives:
 - Diverging bar chart
 - Dot plot with a reference line
-example: Fuel efficiency (mpg) of 20 car models compared with the fleet average.
+tips:
+- Sort items by deviation so the crossover from below to above average is easy to find
+- State the reference value (here the fleet mean) in the axis label
+- Use two opposite hues for above and below, and keep stems thin so the dots carry the value
+example: Fuel efficiency (mpg) of 20 car models compared with the fleet average, simulated data.
+read: Blue dots are models more efficient than the fleet average of 29.2 mpg and orange dots are less
+  efficient. Nine models beat the average. Model 10 stands out, about 12 mpg below it.
 data_shape: [categories, numeric]

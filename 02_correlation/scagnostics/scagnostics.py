@@ -28,8 +28,7 @@ REFERENCE
   - Wilkinson, L., Anand, A. & Grossman, R. (2005). Graph-theoretic
     scagnostics. Proceedings of the IEEE Symposium on Information
     Visualization (InfoVis 2005), 157–164. 20-Year Test of Time Award, IEEE
-    VIS 2025. https://tableau.com/research/publications/graph-theoretic-
-    scagnostics
+    VIS 2025. https://doi.org/10.1109/INFVIS.2005.1532142
 
 EXAMPLE
 Eight simulated characteristics for 400 stocks in four sectors: size, beta,

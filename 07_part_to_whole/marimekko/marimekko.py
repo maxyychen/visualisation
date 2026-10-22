@@ -21,8 +21,8 @@ ALTERNATIVES
   - Heatmap table
 
 EXAMPLE
-Smartphone market: size of each region (width) and brand share within it
-(height).
+Smartphone market (fictional brands and figures): size of each region (width)
+and brand share within it (height).
 
 Run:  python marimekko.py
 """

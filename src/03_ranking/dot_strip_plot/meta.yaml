@@ -13,7 +13,12 @@ avoid:
 alternatives:
 - Beeswarm plot
 - Small-multiple ordered bars
-example: Scores of 30 cities on five liveability measures; 'Our city' is highlighted.
-read: Each gray dot is another city and the blue dot is ours, labelled with its rank. We lead on safety
-  but sit near the bottom on housing cost.
+tips:
+- Make every score point the same way (higher = better), renaming metrics such as cost to affordability
+- Gray the field and give the highlighted item one strong color plus a direct rank label
+- Use jitter or transparency when many dots share similar values
+example: Scores of 30 cities on five liveability measures (simulated); 'Our city' is highlighted. Higher
+  scores are better on every measure.
+read: Each gray dot is another city and the blue dot is ours, labelled with its rank out of 30. Our best
+  results are transit (#4) and safety (#6); we sit near the bottom on affordability (#28).
 data_shape: [categories, numeric]

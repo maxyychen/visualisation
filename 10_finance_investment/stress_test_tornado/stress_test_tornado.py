@@ -25,7 +25,7 @@ ALTERNATIVES
   - Waterfall from base case to stressed case
 
 EXAMPLE
-Simulated one-at-a-time shocks to a 100 million multi-asset portfolio (P&L in
+Simulated one-at-a-time shocks to a $100 million multi-asset portfolio (P&L in
 millions). Not investment advice.
 
 NOTE: Educational examples with simulated or historical data. Not investment

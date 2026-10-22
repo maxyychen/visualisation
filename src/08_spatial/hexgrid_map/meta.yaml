@@ -27,6 +27,6 @@ example: >-
   50,000 simulated card transactions in a coastal metro area (40 × 30 km). The point pattern combines a
   downtown core, three suburban centres, two malls and scattered background activity on land only.
 read: >-
-  The darkest hexes are downtown on the coast, with secondary hot spots at the suburban centres and
-  the malls. Pale hexes along the edges show thin background activity, and the blank strip of sea on
+  The darkest single hexes are the two malls, whose activity is packed into a small area. Downtown on
+  the coast is the largest dark cluster, and the three suburban centres form broader, mid-blue patches. Pale hexes along the edges show thin background activity, and the blank strip of sea on
   the right has none.

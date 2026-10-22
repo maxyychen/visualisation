@@ -20,7 +20,7 @@ ALTERNATIVES
   - Dot strip plot
 
 EXAMPLE
-Salaries of 250 data scientists by seniority (synthetic), colored by remote
+Salaries of 248 data scientists by seniority (synthetic), colored by remote
 vs. on-site.
 
 Run:  python beeswarm.py

@@ -31,5 +31,11 @@ example: >-
 read: >-
   The dendrogram joins the most correlated assets first; the three big branches are equities, bonds
   and commodities, which appear as bright blocks on the diagonal of the heatmap. In the weights panel,
-  HRP gives the low-volatility bonds more weight than equal weighting does, and spreads it more
-  evenly within each cluster than pure inverse-volatility weighting.
+  HRP puts about 83% in the low-volatility bonds, against 61% for inverse-volatility and 33% for
+  equal weighting, because every split divides capital by inverse variance. Within each cluster
+  the calmest asset (Bund, Gold, JP eq.) gets the largest HRP weight.
+reference:
+- text: López de Prado, M. (2016). Building diversified portfolios that outperform out of sample. The
+    Journal of Portfolio Management 42(4), 59–69.
+  url: https://doi.org/10.3905/jpm.2016.42.4.059
+  year: 2016

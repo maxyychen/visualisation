@@ -15,5 +15,12 @@ alternatives:
 - Dot strip plot
 - Histogram
 - Beeswarm
-example: Unemployment rate of 50 US-like states on three dates, highlighting one state.
+tips:
+- Use thin, semi-transparent ticks so clusters read darker than gaps
+- Make the highlighted item thicker and coloured, and keep everything else gray
+- Put one strip per date or group on a shared x-axis so positions can be compared
+example: Unemployment rate of 50 US-like states on three dates, highlighting one state (simulated).
+read: Each gray tick is one state, and the orange tick is S07. In April 2020 every state jumped and the
+  spread widened from about 2–5% to about 6–18%. S07 went from below the median (2.7%) to the 9th-highest
+  rate (15.8%), then returned to the middle of the pack (3.9%) by January 2022.
 data_shape: [numeric]

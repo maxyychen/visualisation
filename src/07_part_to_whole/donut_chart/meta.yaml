@@ -17,5 +17,8 @@ alternatives:
 tips:
 - Put the key number in the center hole
 - Keep the ring thick enough (~30% of the radius) to read the arcs
-example: Repayment status of a consumer loan book of 1,240 loans.
+example: Repayment status of a consumer loan book of 1,240 loans (illustrative).
+read: The ring is the whole book and the center gives the headline share, 85% of loans current. The
+  orange arcs, darker as arrears worsen, make up the other 15% (112 loans 30–89 days late, 48 loans 90+
+  days late and 30 defaulted).
 data_shape: [categories]

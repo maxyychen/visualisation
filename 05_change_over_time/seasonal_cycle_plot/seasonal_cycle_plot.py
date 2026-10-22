@@ -22,7 +22,8 @@ ALTERNATIVES
   - Small multiples by year
 
 EXAMPLE
-Monthly electricity demand for six years, highlighting the most recent year.
+Monthly electricity demand for six years, highlighting the most recent year
+(synthetic).
 
 Run:  python seasonal_cycle_plot.py
 """

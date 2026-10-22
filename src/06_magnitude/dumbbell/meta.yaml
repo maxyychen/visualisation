@@ -17,6 +17,9 @@ alternatives:
 tips:
 - Sort by the gap or by one end; label the two colors directly once at the top
 example: Life expectancy at birth in 2000 vs. 2022 for ten countries (approximate values).
+read: Orange dots are 2000, blue dots 2022, and the gray bar between them is the gain (labelled). Every
+  country rose; Nigeria (+7.3) and China (+7.2) gained most and the USA least (+0.7), yet Nigeria still
+  trails Japan by about 30 years.
 real_data:
   source: "plotly.express.data.gapminder() \u2014 Gapminder life expectancy, GDP and population 1952\u20132007, bundled with plotly"
   offline: true

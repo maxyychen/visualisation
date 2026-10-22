@@ -21,7 +21,8 @@ tips:
 - Put the most important or most stable component on the baseline
 - Keep segment order the same in every bar and in the legend
 - Separate segments with a thin surface-colored gap, not a dark border
-example: Quarterly revenue of a software company, split by sales channel.
+example: Quarterly revenue of a software company, split by sales channel (illustrative data).
 read: Bar height is total revenue in the quarter and each colored segment is one sales channel.
-  Online, the top segment, grows every quarter while the other channels are roughly flat.
+  The total rises from $9.8M to $12.2M. Online, the top segment, nearly doubles ($1.2M to $2.3M), while
+  Direct sales and Partners grow more slowly.
 data_shape: [categories]

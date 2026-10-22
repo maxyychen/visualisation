@@ -18,8 +18,9 @@ tips:
 - Color by direction (up/down) or highlight a few items and gray the rest
 - Label both ends directly; no legend needed
 example: Market share (%) of 8 smartphone brands in 2019 vs. 2024 (synthetic).
-read: Blue lines gained share and orange lines lost more than two points. Echo and Cirrus rose, while
-  Borealis and Delta fell sharply.
+read: Blue lines gained share, orange lines lost more than two points and gray lines lost less. Echo,
+  Cirrus and Gamma rose by 3.5–4 points, while Borealis (-6.5) and Delta (-4.5) fell sharply; Cirrus
+  overtook Borealis for second place.
 real_data:
   source: "plotly.express.data.gapminder() \u2014 Gapminder life expectancy, GDP and population 1952\u20132007, bundled with plotly"
   offline: true

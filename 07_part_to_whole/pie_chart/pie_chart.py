@@ -28,7 +28,8 @@ ALTERNATIVES
   - 100% stacked bar
 
 EXAMPLE
-Share of web traffic by source (5 slices, the smallest folded into 'Other').
+Share of web traffic by source (illustrative); seven sources, the three
+smallest folded into 'Other' to keep 5 slices.
 
 Run:  python pie_chart.py
 

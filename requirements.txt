@@ -8,6 +8,7 @@ altair
 vl-convert-python
 scipy
 statsmodels
+lifelines
 scikit-learn
 squarify
 networkx

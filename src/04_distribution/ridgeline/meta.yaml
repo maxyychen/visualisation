@@ -19,7 +19,7 @@ tips:
 - Use one hue or a sequential ramp mapped to the order
 example: Daily maximum temperature distribution for each month of the year (synthetic city).
 read: Each ridge is one month's distribution of daily highs, and darker color means warmer. The peaks
-  move right towards July and back left by December.
+  move right towards July–August and back left by December.
 real_data:
   source: "plotly.express.data.gapminder() \u2014 Gapminder life expectancy, GDP and population 1952\u20132007, bundled with plotly"
   offline: true

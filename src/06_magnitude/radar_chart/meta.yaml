@@ -18,7 +18,9 @@ alternatives:
 tips:
 - Area grows with the square of the values, so tell readers to compare along each axis, not by area
 - Keep axis order meaningful; the shape changes with order
-example: Player ratings (0–100) on six skills for two football players.
+example: Player ratings (0–100) on six skills for two fictional football players.
+read: Compare the two polygons along each spoke. Player A is the attacker, stronger on pace (88),
+  shooting (85) and dribbling (86); Player B leads on passing (88), defending (76) and physical (82).
 real_data:
   source: "sklearn.datasets.load_wine() \u2014 chemical analysis of 178 Italian wines from 3 cultivars, bundled with scikit-learn"
   offline: true

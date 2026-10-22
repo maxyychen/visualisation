@@ -24,7 +24,7 @@ ALTERNATIVES
   - Dot plot
 
 EXAMPLE
-Player ratings (0–100) on six skills for two football players.
+Player ratings (0–100) on six skills for two fictional football players.
 
 Run:  python radar_chart.py
       python radar_chart.py --real-data   (real dataset: sklearn.datasets.load_wine() — chemical analysis of 178 Italian wines from 3 cultivars, bundled with scikit-learn)

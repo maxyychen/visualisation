@@ -16,7 +16,7 @@ alternatives:
 tips:
 - Highlight two or three items of interest and gray the rest
 - Label lines at the right end instead of using a legend
-example: League position of 8 football clubs over 6 seasons, highlighting 3 clubs.
+example: League position of 8 fictional football clubs over 6 seasons, highlighting 3 clubs.
 read: Higher on the chart means a better position. Athletic climbs steadily from 8th to 3rd, while Rovers
   slides from 1st to 6th.
 data_shape: [categories, time]

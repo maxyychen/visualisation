@@ -16,6 +16,10 @@ alternatives:
 - Network graph
 - Adjacency matrix
 - Chord diagram
+tips:
+- Order the nodes meaningfully (by group, time or a clustering), since arc length depends on the order
+- Encode weight with arc thickness and keep arcs semi-transparent so crossings stay legible
+- Draw arcs on one side only for undirected links; use above vs. below the line to show direction
 example: Board interlocks among 12 listed companies, where two firms are linked when they share directors (synthetic).
 read: Each arc joins two companies that share directors, and thicker arcs mean more shared seats.
   Larger dots are the most connected boards, where governance influence concentrates.

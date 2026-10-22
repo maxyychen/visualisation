@@ -22,7 +22,8 @@ ALTERNATIVES
   - Beeswarm
 
 EXAMPLE
-Unemployment rate of 50 US-like states on three dates, highlighting one state.
+Unemployment rate of 50 US-like states on three dates, highlighting one state
+(simulated).
 
 Run:  python barcode_plot.py
 """

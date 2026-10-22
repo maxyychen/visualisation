@@ -28,6 +28,12 @@ example: >-
   Simulated daily returns for 24 stocks in four sectors over two years (market factor + sector factor
   + stock-specific noise). Not investment advice.
 read: >-
-  Each dot is a stock, and each line joins it to its most similar neighbour. Stocks of the same color
-  (sector) form branches, so the sector factor dominates. Thicker lines mean higher correlation. Stocks
-  with many links, near the centre, move most with the market.
+  Each dot is a stock, and the lines are the strongest correlations needed to connect all of them
+  without loops. Stocks of the same color (sector) form branches, so the sector factor dominates.
+  Thicker lines mean higher correlation. Hubs with many links (here FIN5) are the stocks most
+  correlated with many others and tie the sectors together.
+reference:
+- text: Mantegna, R. N. (1999). Hierarchical structure in financial markets. The European Physical Journal
+    B 11(1), 193–197.
+  url: https://doi.org/10.1007/s100510050929
+  year: 1999

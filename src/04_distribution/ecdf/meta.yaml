@@ -16,7 +16,7 @@ alternatives:
 - Box plot
 tips:
 - Add reference lines at key percentiles (median, p95)
-example: Page-load latency for two server versions, 3,000 requests each, with p50 and p95 marked.
+example: Page-load latency for two server versions, 3,000 simulated requests each, with p50 and p95 marked.
 read: 'Read across from p95 to each curve, then down: 95% of v2 requests finish faster than the v1 p95.
   A curve further left is better at every percentile.'
 data_shape: [numeric]

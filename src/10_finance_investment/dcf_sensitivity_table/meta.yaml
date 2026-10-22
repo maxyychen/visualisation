@@ -24,7 +24,8 @@ tips:
 example: Five-year free-cash-flow forecast ($600m→$780m), $1.8bn net debt, 250M shares and a $38.50 share
   price; terminal value by the Gordon growth formula (illustrative).
 read: Each cell is value per share for one WACC (column) and terminal growth (row), with the % up- or
-  downside to $38.50 below it. The base case (8.5%, 2.0%) is outlined. Moving one column right lowers
-  value by several dollars, a reminder that the discount rate drives most of the answer.
+  downside to $38.50 below it. The base case (8.5%, 2.0%) is outlined at $36.2, 6% below the price.
+  Moving one column right (WACC +0.5 pp) lowers value by about $3, about as much as moving one row
+  up (growth −0.5 pp), so both terminal-value assumptions matter as much as the forecast itself.
 data_shape:
 - numeric

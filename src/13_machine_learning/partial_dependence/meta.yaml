@@ -1,0 +1,33 @@
+title: Partial Dependence & ICE Plot
+engine: mpl
+level: intermediate
+order: 100
+purpose: >-
+  Shows how a model's prediction changes as one feature varies while the others stay at their observed
+  values. Thin ICE lines trace individual cases and the bold line is their average (partial dependence),
+  which exposes the shape of a feature's effect: linear, threshold, plateau or interaction.
+when_to_use:
+  - Explain the shape of a feature's effect in a black-box model (gradient boosting, random forest)
+  - Check for thresholds or saturation that a linear model would miss
+  - Spot interactions (ICE lines that are not parallel)
+avoid:
+  - The feature is strongly correlated with others (the model gets evaluated on impossible combinations)
+  - You need effects for more than ~2 features at once
+alternatives:
+  - SHAP dependence plot
+  - Accumulated local effects (ALE) plot, which copes better with correlated features
+tips:
+  - Add a rug of the observed values so readers see where data is thin
+  - Center the ICE lines (subtract each line's starting value) if levels vary a lot
+  - Keep ICE lines thin and gray, and the average line bold
+example: >-
+  A gradient-boosting model of disease progression one year after baseline, fitted to the real Diabetes
+  dataset bundled with scikit-learn (load_diabetes, 442 patients, standardized features). The panels
+  show BMI and the serum triglycerides measure (s5).
+read: >-
+  Predicted progression is nearly flat for below-average BMI (about 130), then jumps just above the
+  average (to about 175) and again near 0.07 (to about 205): a step or threshold shape rather than a
+  straight line. Triglycerides (s5) rise more gradually, in steps from about −0.045 upward (from about
+  110 to 195). Gray lines are individual patients. Because they run roughly parallel, the effect is
+  similar across patients.
+data_shape: [model]

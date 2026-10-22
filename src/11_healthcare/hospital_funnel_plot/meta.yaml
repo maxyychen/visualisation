@@ -1,0 +1,40 @@
+title: Hospital Funnel Plot (readmission rates)
+engine: mpl
+level: intermediate
+order: 230
+data_shape: [numeric, uncertainty]
+purpose: >-
+  Plots each hospital's outcome rate against its volume, with exact binomial control limits around the
+  overall rate that narrow as volume grows. Small hospitals swing furthest by chance, so the limits form
+  a funnel. Only hospitals outside the funnel differ from the benchmark by more than chance explains.
+  This is the standard way to publish comparative hospital performance without a misleading league table.
+when_to_use:
+  - Compare readmission, mortality or infection rates across hospitals, wards or surgeons of very different size
+  - Decide which units merit a review (outside 99.8%) and which are within expected variation
+  - Replace a ranked league table in a public or board report
+avoid:
+  - Outcomes are not risk-adjusted and case mix differs a lot (adjust first, then plot observed/expected)
+  - Volumes are similar everywhere (a dot plot with one interval is simpler)
+  - Many units fall outside the limits (overdispersion; inflate the limits before drawing conclusions)
+alternatives:
+  - Caterpillar plot of rates with confidence intervals
+  - Risk-adjusted CUSUM or VLAD for monitoring one unit over time
+  - Funnel plot of fund alphas (the same method in the Scientific family)
+tips:
+  - "What it fixes: a league table puts the smallest, luckiest and unluckiest hospitals at the extremes"
+  - Use exact binomial limits for small volumes; normal approximations are too narrow at low n
+  - 95% limits are a warning and 99.8% limits an alarm; label only hospitals beyond the outer limits
+  - Use the national or pooled rate as the target, and state it on the chart
+example: >-
+  120 simulated hospitals with 200 to 12,000 discharges a year and a pooled 30-day readmission rate of
+  about 14%. Two large hospitals truly readmit more often (17.5%) and one truly less (11%); the rest
+  differ only by chance.
+read: >-
+  The smallest hospitals, on the left, have the most extreme rates but sit inside the funnel: with a few
+  hundred discharges, a rate of 10% or 18% is not unusual. Only three hospitals fall outside the 99.8%
+  limits, exactly the three with a real difference. The league table on the right shows how ranking by
+  raw rate would mostly name small hospitals that are within expected variation.
+reference:
+  - text: "Spiegelhalter, D. J. (2005). Funnel plots for comparing institutional performance. Statistics in Medicine 24(8), 1185–1202."
+    url: https://doi.org/10.1002/sim.1970
+    year: 2005

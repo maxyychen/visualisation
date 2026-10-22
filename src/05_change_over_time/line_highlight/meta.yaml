@@ -18,7 +18,8 @@ tips:
 - Gray lines thin (1px) and light; highlight 2px in the first palette color
 - Label the highlighted series directly
 - Optionally add the group median as a dark reference line
-example: Unemployment rate of 20 regions over 15 years, highlighting one region.
-read: Gray lines are the other 19 regions, the dark line is their median, and blue is the region of interest,
-  which falls steadily below the pack.
+example: Unemployment rate of 20 regions over 15 years, highlighting one region (synthetic).
+read: Gray lines are the other 19 regions, the dark gray line is their median, and blue is Region 07. It
+  starts about 2 points above the median in 2010, falls faster every year, and by 2024 is among the
+  lowest, about 2 points below the median, despite sharing the 2020 spike.
 data_shape: [time, categories]

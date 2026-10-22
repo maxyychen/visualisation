@@ -61,8 +61,8 @@ plt.rcParams.update({
 rng = np.random.default_rng(5)
 dates = pd.bdate_range("2015-01-01", "2024-12-31")
 n = len(dates)
-# Time-varying correlation with equities: bonds -0.35 until 2021, then +0.45; gold drifts around +0.05.
-rho_bond = np.where(dates < "2021-10-01", -0.35, 0.45) + 0.15 * np.sin(np.arange(n) / 90)
+# Time-varying correlation with equities: bonds -0.35 until 2021, then +0.45 from 2022; gold drifts around +0.05.
+rho_bond = np.where(dates < "2022-01-01", -0.35, 0.45) + 0.15 * np.sin(np.arange(n) / 90)
 rho_gold = 0.05 + 0.2 * np.sin(np.arange(n) / 260 + 1)
 z_eq, z_b, z_g = rng.standard_normal((3, n))
 eq = 0.010 * z_eq

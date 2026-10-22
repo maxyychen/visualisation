@@ -21,7 +21,8 @@ tips:
 - Draw large bubbles first so small ones remain visible on top
 example: GDP per capita vs. life expectancy for 40 fictional countries; bubble area = population.
 read: Position shows wealth (x) and health (y). Bubble area shows population. Richer countries live longer,
-  with diminishing returns, which is why the x-axis is logarithmic.
+  with diminishing returns per extra dollar; on the logarithmic x-axis that curve becomes a roughly straight
+  rising band.
 real_data:
   source: "plotly.express.data.gapminder() \u2014 Gapminder 2007 (Asia, Africa, Europe), bundled with plotly"
   offline: true

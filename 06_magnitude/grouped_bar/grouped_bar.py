@@ -22,7 +22,7 @@ ALTERNATIVES
   - Stacked bar
 
 EXAMPLE
-Sales by region for three consecutive years.
+Sales by region for three consecutive years (illustrative data).
 
 Run:  python grouped_bar.py
       python grouped_bar.py --real-data   (real dataset: plotly.express.data.medals_long() — 2018 Winter Olympics short-track medal counts, bundled with plotly)

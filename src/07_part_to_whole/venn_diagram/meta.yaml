@@ -14,7 +14,12 @@ alternatives:
 - UpSet plot
 - Euler diagram
 - Grouped bar of intersections
-example: 'Product holdings of 1,000 retail-bank customers: checking account, credit card, brokerage account.'
+example: 'Product holdings of 1,000 retail-bank customers (simulated): checking account, credit card, brokerage account.'
 read: Each region's number counts the customers with exactly that combination of products. The center
-  shows the 40 customers who hold all three, the bank's most cross-sold segment.
+  shows the 40 customers who hold all three, the bank's most cross-sold segment. The seven regions add up to 720; the other 280 customers hold none of
+  the three and fall outside the circles.
 data_shape: [sets]
+tips:
+- Keep to two or three sets; beyond that, region shapes become unreadable, so use an UpSet plot
+- Print the count in every region, because circle overlaps are only approximately area-proportional
+- State the total and how many items belong to none of the sets, which a Venn diagram cannot show

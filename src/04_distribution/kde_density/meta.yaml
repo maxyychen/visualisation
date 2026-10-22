@@ -15,6 +15,10 @@ alternatives:
 - Histogram
 - Ridgeline plot
 - Violin plot
+tips:
+- Set common_norm=False when groups differ in size so each curve integrates to 1
+- Check the bandwidth against a histogram; too wide hides bimodality, too narrow invents bumps
+- For bounded data (scores, percentages) clip the estimate at the bounds (seaborn's clip=)
 example: Exam scores of three classes taught with different methods (synthetic).
 read: Flipped classes have the highest, tightest peak. Self-paced students split into two groups, one
   struggling and one excelling, which an average alone would hide.

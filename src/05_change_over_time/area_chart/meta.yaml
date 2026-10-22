@@ -2,11 +2,11 @@ title: Area Chart
 engine: mpl
 level: basic
 order: 40
-purpose: A line chart with the area below the line filled in. The fill stresses volume, the cumulative
-  size of the quantity over time, not just its trend.
+purpose: A line chart with the area below the line filled in. The fill stresses volume, the size of the
+  quantity measured from zero at each point in time, not just its trend.
 when_to_use:
 - Show a single quantity whose magnitude (volume) matters, such as traffic, energy, or storage used
-- Emphasise that values are counts or amounts accumulating from zero
+- Emphasise that values are counts or amounts measured from zero
 avoid:
 - Comparing several overlapping series (fills hide each other; use lines)
 - The y-axis does not start at zero (a fill implies zero baseline)
@@ -16,5 +16,7 @@ alternatives:
 tips:
 - Always start the y-axis at zero
 - Use a light fill plus a solid 2px line on top
-example: Daily website visits over 6 months.
+example: Daily website visits over 6 months (synthetic).
+read: Visits grow steadily from about 2,000 to about 3,500 a day over the half-year. The regular sawtooth
+  is a weekly cycle, and the zero baseline makes the growth read as a change in volume.
 data_shape: [time]

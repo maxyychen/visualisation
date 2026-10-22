@@ -15,6 +15,10 @@ alternatives:
 - Stacked area chart
 - Small multiples
 - Heatmap
-example: Weekly listening share of six music genres across a year.
+tips:
+- Smooth the series lightly; jagged inputs make the bands hard to follow
+- Order layers so the most variable ones sit on the outside, away from the centre
+- Label bands directly where they are thickest when space allows
+example: Weekly listening volume of six music genres across a year (synthetic).
 read: Band thickness at any week is that genre's listening volume. The vertical position has no meaning.
 data_shape: [time, categories]

@@ -1,0 +1,26 @@
+title: Bland–Altman Plot
+engine: mpl
+level: intermediate
+order: 110
+purpose: Plots the difference between two measurement methods against their mean, with lines for the mean
+  bias and the 95% limits of agreement. It answers whether two methods agree well enough to be interchangeable,
+  which a correlation coefficient cannot.
+when_to_use:
+- Compare a new measurement device or assay with a reference standard
+- Assess inter-rater or test–retest agreement on a continuous scale
+- Detect proportional bias, where the difference grows with magnitude
+avoid:
+- Measurements are categorical (use Cohen's kappa or a confusion matrix)
+- The goal is prediction rather than agreement (use a scatter plot with regression)
+alternatives:
+- Scatter plot with identity line
+- Passing–Bablok / Deming regression plot
+tips:
+- Label the bias and both limits of agreement directly on the plot
+- A trend in the cloud means proportional bias; consider plotting percent differences
+example: Simulated systolic blood pressure measured in 150 patients with a cuff device (A) and an arterial line
+  (B).
+read: On average the arterial line reads 3.0 mmHg higher than the cuff (the bias). About 95% of differences fall
+  between the orange limits of agreement, −10.4 to +16.4 mmHg; whether a 27 mmHg-wide band is acceptable is a
+  clinical judgement, not a statistical one. A slight upward slope in the cloud hints at proportional bias.
+data_shape: [numeric]

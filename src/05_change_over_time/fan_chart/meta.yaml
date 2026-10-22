@@ -17,7 +17,7 @@ alternatives:
 tips:
 - Use one hue with increasing transparency for wider intervals
 - Mark clearly where observations end and forecasts begin
-example: 'Monthly demand: 4 years of history plus a 12-month forecast with 50/80/95% intervals.'
+example: 'Monthly demand (synthetic): 4 years of history plus a 12-month forecast with 50/80/95% intervals.'
 read: The dark line is history and the blue line the central forecast. The darkest band holds a 50% chance
   of the outcome and the lightest band 95%.
 data_shape: [time, uncertainty]

@@ -18,7 +18,8 @@ alternatives:
 tips:
 - Use one color for increases, one for decreases, and a neutral for totals
 - Draw thin connector lines between bars
-example: Bridge from revenue to net profit for a fiscal year ($M).
+example: Bridge from revenue to net profit for a fiscal year ($M, illustrative).
 read: Read left to right. Gray bars are totals, blue bars add to the running total and orange bars subtract
-  from it. Net profit is what is left after all the steps.
+  from it. Revenue of $480M shrinks to a net profit of $75M (about a 16% margin); cost of goods ($190M)
+  is the biggest deduction.
 data_shape: [categories, numeric]

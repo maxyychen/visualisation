@@ -26,10 +26,10 @@ ALTERNATIVES
   - Small multiples of individual event paths
 
 EXAMPLE
-160 simulated earnings announcements (about 60% beats). Abnormal returns come
-from a market model estimated on days −250 to −30, and the event window is day
-−10 to +10. The simulation includes a small pre-announcement run-up and post-
-announcement drift. Not investment advice.
+160 simulated earnings announcements (88 beats, 72 misses). Abnormal returns
+come from a market model estimated on days −250 to −30, and the event window
+is day −10 to +10. The simulation includes a small pre-announcement run-up and
+post-announcement drift. Not investment advice.
 
 NOTE: Educational examples with simulated or historical data. Not investment
 advice; past performance does not predict future returns.

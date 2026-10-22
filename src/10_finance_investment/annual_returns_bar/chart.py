@@ -25,7 +25,7 @@ ax.axhline(0, color="#52514e", linewidth=1)
 ax.yaxis.set_major_formatter(PercentFormatter(1.0, decimals=0))
 ax.set_ylabel("Calendar-year return")
 ax.set_title(f"{fund_name} vs. {bench_name}: calendar-year returns")
-ax.legend(loc="upper left", ncol=2)
+ax.legend(loc="upper right", ncol=2)
 ax.grid(axis="x", visible=False)
 
 colors = np.where(excess >= 0, PALETTE[0], PALETTE[1])

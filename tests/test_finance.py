@@ -134,3 +134,28 @@ def test_cli(tmp_path):
     out = tmp_path / "report.png"
     fin.main([str(csv), "--price", "Fund", "--benchmark", "Index", "-o", str(out)])
     assert out.exists() and out.stat().st_size > 10_000
+
+
+def test_calmar_without_drawdown_is_nan_and_reports_still_work():
+    r = series(np.full(300, 0.001), name="Steady")
+    assert np.isnan(fin.calmar(r, 252))
+    assert np.isnan(fin.summary_stats(r).loc["Calmar", "Steady"])
+    fin.tear_sheet(r)
+
+
+def test_summary_stats_uses_the_benchmark_period_for_both_columns():
+    r = series(np.r_[np.full(50, -0.02), np.full(100, 0.01)], name="Fund")
+    b = r.iloc[50:].rename("Index")
+    s = fin.summary_stats(r, b)
+    assert s.loc["Total return", "Fund"] == pytest.approx(s.loc["Total return", "Index"])
+
+
+def test_drawdown_periods_reports_peak_and_start():
+    r = fin.to_returns(series([100, 120, 90, 130]))
+    p = fin.drawdown_periods(r).iloc[0]
+    assert p["peak"] == r.index[0] and p["start"] == r.index[1] and p["recovery"] == r.index[2]
+
+
+def test_calendar_daily_data_uses_365():
+    idx = pd.date_range("2024-01-01", periods=60, freq="D")
+    assert fin.infer_periods_per_year(idx) == 365

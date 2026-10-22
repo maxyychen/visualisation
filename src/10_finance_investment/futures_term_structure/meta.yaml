@@ -24,8 +24,9 @@ tips:
   - Mark the dates of the plotted curves on the spread history
 example: >-
   Simulated crude-oil futures, 2019–2024: futures priced as F = S·e^((r − y)·T) with a stochastic
-  convenience yield y. The market sits in contango during a glut and flips into steep backwardation
-  during a supply squeeze. Not investment advice.
+  convenience yield y that also moves the spot price. The market sits in contango during a glut
+  (cheap spot oil) and flips into steep backwardation during a supply squeeze (expensive spot oil).
+  Not investment advice.
 read: >-
   Left: each line is the whole futures curve on one date. Rising lines are contango and falling lines
   are backwardation. Right: the 12-month minus front-month spread as a percentage of the front month,

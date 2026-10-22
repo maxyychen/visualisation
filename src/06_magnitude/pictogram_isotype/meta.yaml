@@ -17,4 +17,6 @@ alternatives:
 tips:
 - One icon = a stated unit; repeat icons, never enlarge them
 example: Average daily screen time (hours) by age group; one icon = 1 hour, synthetic data.
+read: Count the phones. Each full phone is one hour a day and a partly filled phone is half an hour.
+  Teens (7.5 h) spend more than twice as long on screens as adults 55+ (3.5 h).
 data_shape: [categories, numeric]

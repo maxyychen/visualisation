@@ -19,7 +19,7 @@ ALTERNATIVES
   - Grouped bar chart
 
 EXAMPLE
-Units sold by product and month.
+Units sold by product and month (simulated).
 
 Run:  python highlight_table.py
 """

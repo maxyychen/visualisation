@@ -14,7 +14,9 @@ df.head()
 
 # %% plot
 fig = px.icicle(df, path=[px.Constant("project"), "folder", "sub"], values="size_mb", color="folder",
-                color_discrete_sequence=PALETTE, title="Disk usage by folder (MB)")
-fig.update_traces(root_color="#d0cfca", tiling=dict(orientation="v"),
+                color_discrete_map={"(?)": "#d0cfca",  # the root has no single folder: neutral gray
+                                    **dict(zip(df["folder"].unique(), PALETTE))},
+                title="Disk usage by folder (MB)")
+fig.update_traces(tiling=dict(orientation="v"), texttemplate="%{label}<br>%{value:,} MB",
                   marker=dict(line=dict(color="#fcfcfb", width=2)))
 fig.update_layout(width=850, height=500, margin=dict(t=60, l=10, r=10, b=10))

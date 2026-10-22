@@ -19,7 +19,7 @@ tips:
 - Sort bars by value so the zero-crossing is easy to locate
 - Use two opposite hues (warm/cool), never two shades of the same hue
 - Put category labels next to the bar's base, not inside the bars
-example: Change in annual sales versus the previous year for 12 product lines.
+example: Change in annual sales versus the previous year for 12 product lines, simulated data.
 read: Bars to the right of zero (blue) grew and bars to the left (orange) shrank. Bar length is the size
   of the change.
 data_shape: [categories, numeric]

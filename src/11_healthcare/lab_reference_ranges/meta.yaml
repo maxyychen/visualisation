@@ -1,0 +1,33 @@
+title: Lab Results with Reference Ranges
+engine: mpl
+level: basic
+order: 410
+data_shape: [time, numeric]
+purpose: >-
+  Small multiples show one patient's laboratory tests over time. Each test has its normal reference
+  range as a shaded band, and out-of-range results carry an H or L label. Every test keeps its own
+  units and scale, and abnormal values and trends are obvious without reading a table.
+when_to_use:
+  - Review a patient's lab trends at a glance (rounds, case review, patient portals)
+  - Show which results are outside the reference range and whether they are improving
+  - Monitor any set of measurements that have acceptable ranges (process control limits, risk limits)
+avoid:
+  - Comparing the same test across many patients (use a funnel plot, box plots or a lasagna plot)
+  - Reference ranges depend on age, sex or lab and are not known (do not shade a misleading band)
+  - Exact values and timestamps are required (use the table)
+alternatives:
+  - Patient timeline
+  - Table with H/L flags
+  - Run chart (one measure, with the median and run rules)
+tips:
+  - Give every test its own y-axis and units; never force different tests onto one scale
+  - Flag out-of-range values with a text label (H/L), not color alone
+  - Keep the time axis shared so changes across tests line up
+  - Use de-identified data (shift dates, drop identifiers); executed notebooks store their outputs
+example: >-
+  Five simulated lab tests for one patient with chronic kidney disease, measured over 12 months, with
+  adult reference ranges.
+read: >-
+  Creatinine and potassium start high (H), above their bands, fall after the medication change around
+  month 5 and are back in range from August (creatinine is borderline high once more in November). Haemoglobin stays low (L) throughout. Sodium and glucose stay within
+  range except for one high glucose.

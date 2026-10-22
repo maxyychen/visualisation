@@ -21,7 +21,8 @@ ALTERNATIVES
   - Annotated line chart
 
 EXAMPLE
-Key milestones in the history of Python data visualization.
+Key milestones in the history of Python data visualization (dates
+approximate).
 
 Run:  python event_timeline.py
 """

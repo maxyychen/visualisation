@@ -18,7 +18,10 @@ tips:
 - Share both axes (sharex/sharey) so panels are comparable
 - Show the other series faintly in each panel for context
 - Order panels meaningfully (by latest value, by region), not alphabetically by default
-example: Weekly sales index for 9 stores over one year.
+example: Weekly sales index for 9 stores over one year (synthetic).
+read: Each panel shows one store in blue against the other eight in gray, sorted by the final value in
+  brackets. Store B nearly doubles, most stores end between about 110 and 135, and Store A collapses to
+  13, a drop that would be lost in a single chart of nine overlapping lines.
 real_data:
   source: "plotly.express.data.gapminder() \u2014 Gapminder life expectancy, GDP and population 1952\u20132007, bundled with plotly"
   offline: true

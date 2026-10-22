@@ -62,7 +62,7 @@ The verb in your sentence picks a chart **family**. These nine families follow t
 | A share of a total | Part-to-whole | [Stacked bar](07_part_to_whole/stacked_bar/stacked_bar.ipynb) | [100% stacked bar](07_part_to_whole/percent_stacked_bar/percent_stacked_bar.ipynb), [treemap](07_part_to_whole/treemap/treemap.ipynb), [waffle](07_part_to_whole/waffle_chart/waffle_chart.ipynb), [waterfall](07_part_to_whole/waterfall_chart/waterfall_chart.ipynb) |
 | A location or geographic pattern | Spatial | [Choropleth](08_spatial/choropleth_world/choropleth_world.ipynb) | [Bubble map](08_spatial/bubble_map/bubble_map.ipynb), [tile grid map](08_spatial/tile_grid_map/tile_grid_map.ipynb), [hex-grid map](08_spatial/hexgrid_map/hexgrid_map.ipynb), [surprise map](08_spatial/surprise_map/surprise_map.ipynb) (counts that just follow population) |
 | Movement between stages or places | Flow | [Sankey](09_flow/sankey/sankey.ipynb) | [Funnel](09_flow/funnel_chart/funnel_chart.ipynb), [chord](09_flow/chord_diagram/chord_diagram.ipynb), [flow map](08_spatial/flow_map/flow_map.ipynb) |
-| An estimate, forecast or risk | Uncertainty | [Error bars / CI](11_scientific/error_bar_ci/error_bar_ci.ipynb) | [Fan chart](05_change_over_time/fan_chart/fan_chart.ipynb), [gradient interval](13_uncertainty/gradient_interval/gradient_interval.ipynb), [quantile dot plot](13_uncertainty/quantile_dotplot/quantile_dotplot.ipynb) |
+| An estimate, forecast or risk | Uncertainty | [Gradient interval](14_uncertainty/gradient_interval/gradient_interval.ipynb) | [Error bars / CI](12_scientific/error_bar_ci/error_bar_ci.ipynb), [fan chart](05_change_over_time/fan_chart/fan_chart.ipynb), [quantile dot plot](14_uncertainty/quantile_dotplot/quantile_dotplot.ipynb) |
 
 **Is the story a single number?** Then it isn't a chart. Use a [KPI stat tile](06_magnitude/kpi_stat_tile/kpi_stat_tile.ipynb),
 optionally with a [sparkline](05_change_over_time/sparklines/sparklines.ipynb) for context. A one-bar chart or a two-slice pie only adds ink.
@@ -86,7 +86,7 @@ optionally with a [sparkline](05_change_over_time/sparklines/sparklines.ipynb) f
 | Parent → child hierarchy | [Treemap](07_part_to_whole/treemap/treemap.ipynb), [sunburst](07_part_to_whole/sunburst/sunburst.ipynb), [icicle](07_part_to_whole/icicle/icicle.ipynb) |
 | From → to with amounts | [Sankey](09_flow/sankey/sankey.ipynb), [chord](09_flow/chord_diagram/chord_diagram.ipynb), [origin–destination matrix](09_flow/origin_destination_matrix/origin_destination_matrix.ipynb) |
 | Nodes and links | [Network graph](09_flow/network_graph/network_graph.ipynb), [adjacency matrix](09_flow/adjacency_matrix/adjacency_matrix.ipynb) (large networks) |
-| Overlapping sets | [Venn](07_part_to_whole/venn_diagram/venn_diagram.ipynb) (≤ 3 sets), [UpSet](11_scientific/upset_plot/upset_plot.ipynb) (more) |
+| Overlapping sets | [Venn](07_part_to_whole/venn_diagram/venn_diagram.ipynb) (≤ 3 sets), [UpSet](12_scientific/upset_plot/upset_plot.ipynb) (more) |
 | Locations | [Choropleth](08_spatial/choropleth_world/choropleth_world.ipynb) (regions), [bubble map](08_spatial/bubble_map/bubble_map.ipynb) (points), [hex-grid map](08_spatial/hexgrid_map/hexgrid_map.ipynb) (dense points) |
 | Prices or returns | [Cumulative return vs. benchmark](10_finance_investment/cumulative_return_benchmark/cumulative_return_benchmark.ipynb), [drawdown](10_finance_investment/drawdown_underwater/drawdown_underwater.ipynb), [tear sheet](10_finance_investment/performance_tear_sheet/performance_tear_sheet.ipynb) |
 
@@ -99,8 +99,8 @@ Most chart failures are scale failures. Check these before choosing:
 | More than ~10 categories | Bars and slices become unreadable | Sort, show top-N, fold the rest into "Other", or use a table |
 | More than ~4 lines | Spaghetti | [Highlight one, gray the rest](05_change_over_time/line_highlight/line_highlight.ipynb), or [small multiples](05_change_over_time/small_multiples_line/small_multiples_line.ipynb) |
 | More than ~5 slices | Pie angles can't be compared | [Sorted bar](03_ranking/ordered_bar/ordered_bar.ipynb) or [stacked bar](07_part_to_whole/stacked_bar/stacked_bar.ipynb) |
-| More than ~10,000 points | Overplotting turns into a blob | Transparency → [hexbin](02_correlation/hexbin/hexbin.ipynb) → [datashader](15_interactive_advanced/datashader_scatter/datashader_scatter.ipynb) |
-| Millions of points in a line | Plotting libraries slow down; naive thinning drops spikes | [LTTB / MinMaxLTTB downsampling](15_interactive_advanced/lttb_downsampling/lttb_downsampling.ipynb) |
+| More than ~10,000 points | Overplotting turns into a blob | Transparency → [hexbin](02_correlation/hexbin/hexbin.ipynb) → [datashader](16_interactive_advanced/datashader_scatter/datashader_scatter.ipynb) |
+| Millions of points in a line | Plotting libraries slow down; naive thinning drops spikes | [LTTB / MinMaxLTTB downsampling](16_interactive_advanced/lttb_downsampling/lttb_downsampling.ipynb) |
 | Measures on different scales | The temptation of a dual axis | [Index to 100](05_change_over_time/indexed_line/indexed_line.ipynb), or stack panels sharing the x-axis ([rolling metrics](10_finance_investment/rolling_metrics/rolling_metrics.ipynb)) |
 | More than ~8 colours needed | Hues become indistinguishable | Fold into "Other", facet into small multiples, or label directly |
 
@@ -124,10 +124,10 @@ Most chart failures are scale failures. Check these before choosing:
 | Choose | When | Library examples |
 |---|---|---|
 | **Static** (the default) | Reports, slides, print, decisions: anything that must say one thing reliably | Almost everything |
-| **Interactive** | Readers need *their own* what-if, or their own slice of a large dataset | [Option payoff explorer](15_interactive_advanced/option_payoff_explorer/option_payoff_explorer.ipynb), [linked price & returns](15_interactive_advanced/linked_price_returns/linked_price_returns.ipynb), [crossfilter dashboard](15_interactive_advanced/crossfilter_dashboard/crossfilter_dashboard.ipynb) |
-| **Animated** | The motion itself is the story (a curve inverting, a ranking reshuffling), usually in a presentation | [Animated yield curve](15_interactive_advanced/animated_yield_curve/animated_yield_curve.ipynb), [bar-chart race](15_interactive_advanced/bar_chart_race/bar_chart_race.ipynb) |
+| **Interactive** | Readers need *their own* what-if, or their own slice of a large dataset | [Option payoff explorer](16_interactive_advanced/option_payoff_explorer/option_payoff_explorer.ipynb), [linked price & returns](16_interactive_advanced/linked_price_returns/linked_price_returns.ipynb), [crossfilter dashboard](16_interactive_advanced/crossfilter_dashboard/crossfilter_dashboard.ipynb) |
+| **Animated** | The motion itself is the story (a curve inverting, a ranking reshuffling), usually in a presentation | [Animated yield curve](16_interactive_advanced/animated_yield_curve/animated_yield_curve.ipynb), [bar-chart race](16_interactive_advanced/bar_chart_race/bar_chart_race.ipynb) |
 
-To **compare** across time, [small multiples beat animation](14_bad_vs_good/animation_vs_small_multiples/animation_vs_small_multiples.ipynb): with
+To **compare** across time, [small multiples beat animation](15_bad_vs_good/animation_vs_small_multiples/animation_vs_small_multiples.ipynb): with
 animation, readers must remember earlier frames. Every interactive chart should also work as a
 static image of its default state.
 
@@ -136,12 +136,12 @@ static image of its default state.
 ## Step 5: Encode honestly
 
 ### Position, length and scale
-- **Bars start at zero.** Bar length is the value, so a cut axis exaggerates differences ([see why](14_bad_vs_good/truncated_bar_axis/truncated_bar_axis.ipynb)).
+- **Bars start at zero.** Bar length is the value, so a cut axis exaggerates differences ([see why](15_bad_vs_good/truncated_bar_axis/truncated_bar_axis.ipynb)).
   Lines and dots can zoom in, because position carries the value.
 - **Use a log scale for long-run growth** (prices, wealth, GDP) so that equal percentage moves look equal.
-- **Sort categories** by value unless they have a natural order such as time, age bands or ratings ([see why](14_bad_vs_good/unsorted_bars/unsorted_bars.ipynb)).
-- **Size encodes area, not radius.** A bubble twice the value should have twice the area ([see why](14_bad_vs_good/bubble_radius_scaling/bubble_radius_scaling.ipynb)).
-- **One y-axis per panel.** Never a dual axis ([see why](14_bad_vs_good/dual_axis_vs_indexed/dual_axis_vs_indexed.ipynb)).
+- **Sort categories** by value unless they have a natural order such as time, age bands or ratings ([see why](15_bad_vs_good/unsorted_bars/unsorted_bars.ipynb)).
+- **Size encodes area, not radius.** A bubble twice the value should have twice the area ([see why](15_bad_vs_good/bubble_radius_scaling/bubble_radius_scaling.ipynb)).
+- **One y-axis per panel.** Never a dual axis ([see why](15_bad_vs_good/dual_axis_vs_indexed/dual_axis_vs_indexed.ipynb)).
 
 ### Colour: assign it by the job it does
 
@@ -152,7 +152,7 @@ static image of its default state.
 | **Polarity** (above/below, gain/loss) | Two opposite hues around a neutral gray midpoint | [Monthly returns heatmap](10_finance_investment/monthly_returns_heatmap/monthly_returns_heatmap.ipynb) |
 | **Emphasis** (this one matters) | One accent colour, everything else gray | [Line highlight](05_change_over_time/line_highlight/line_highlight.ipynb), [sorted bar](03_ranking/ordered_bar/ordered_bar.ipynb) |
 
-- Never use a rainbow colour map ([see why](14_bad_vs_good/rainbow_colormap/rainbow_colormap.ipynb)). It invents boundaries and fails for colour-blind readers.
+- Never use a rainbow colour map ([see why](15_bad_vs_good/rainbow_colormap/rainbow_colormap.ipynb)). It invents boundaries and fails for colour-blind readers.
 - Don't rely on red/green alone for gains and losses. Blue/orange is colour-blind-safe; add signs (+/−) or labels too.
 - Text stays in neutral ink. Colour the mark, not the label.
 
@@ -170,16 +170,16 @@ more certainty than you have.
 
 | Situation | Chart |
 |---|---|
-| Group means or effects | [Points + 95% CI](11_scientific/error_bar_ci/error_bar_ci.ipynb), not a bar of means ([see why](14_bad_vs_good/dynamite_plot/dynamite_plot.ipynb)); [estimation plot](11_scientific/estimation_plot/estimation_plot.ipynb) to show the effect size itself |
-| Repeated experiments (replicates) | [SuperPlot](11_scientific/superplot/superplot.ipynb): statistics on replicates, not on every point |
+| Group means or effects | [Points + 95% CI](12_scientific/error_bar_ci/error_bar_ci.ipynb), not a bar of means ([see why](15_bad_vs_good/dynamite_plot/dynamite_plot.ipynb)); [estimation plot](12_scientific/estimation_plot/estimation_plot.ipynb) to show the effect size itself |
+| Repeated experiments (replicates) | [SuperPlot](12_scientific/superplot/superplot.ipynb): statistics on replicates, not on every point |
 | A forecast | [Fan chart](05_change_over_time/fan_chart/fan_chart.ipynb), [Monte Carlo wealth paths](10_finance_investment/monte_carlo_wealth/monte_carlo_wealth.ipynb) |
-| Several estimates, compared | [Gradient interval](13_uncertainty/gradient_interval/gradient_interval.ipynb), [half-eye plot](13_uncertainty/half_eye/half_eye.ipynb), [forest plot](11_scientific/forest_plot/forest_plot.ipynb) |
-| Risk for a non-technical audience | [Icon array](13_uncertainty/icon_array/icon_array.ipynb) ("7 in 100"), [quantile dot plot](13_uncertainty/quantile_dotplot/quantile_dotplot.ipynb) |
+| Several estimates, compared | [Gradient interval](14_uncertainty/gradient_interval/gradient_interval.ipynb), [half-eye plot](14_uncertainty/half_eye/half_eye.ipynb), [forest plot](12_scientific/forest_plot/forest_plot.ipynb) |
+| Risk for a non-technical audience | [Icon array](14_uncertainty/icon_array/icon_array.ipynb) ("7 in 100"), [quantile dot plot](14_uncertainty/quantile_dotplot/quantile_dotplot.ipynb) |
 | Tail risk | [Return distribution with VaR/CVaR](10_finance_investment/return_distribution_var/return_distribution_var.ipynb) |
-| Many simulated paths or curves | [Functional boxplot](13_uncertainty/functional_boxplot/functional_boxplot.ipynb): median path, central region and outlier paths |
-| A result that depends on analyst choices | [Specification curve](13_uncertainty/specification_curve/specification_curve.ipynb): every reasonable specification at once |
+| Many simulated paths or curves | [Functional boxplot](14_uncertainty/functional_boxplot/functional_boxplot.ipynb): median path, central region and outlier paths |
+| A result that depends on analyst choices | [Specification curve](14_uncertainty/specification_curve/specification_curve.ipynb): every reasonable specification at once |
 | A map of estimates with different precision | [Value-suppressing uncertainty palette](08_spatial/vsup_map/vsup_map.ipynb) |
-| "Is this pattern real or noise?" | [Lineup protocol](11_scientific/lineup_protocol/lineup_protocol.ipynb): hide the real chart among null charts |
+| "Is this pattern real or noise?" | [Lineup protocol](12_scientific/lineup_protocol/lineup_protocol.ipynb): hide the real chart among null charts |
 
 ---
 
@@ -244,17 +244,17 @@ Movement between stages or places?     → funnel (one path) / sankey (branches)
 | Is the allocation efficient? | [Efficient frontier](10_finance_investment/efficient_frontier/efficient_frontier.ipynb), [risk/return scatter](10_finance_investment/risk_return_scatter/risk_return_scatter.ipynb) |
 | Why did we beat (or miss) the benchmark? | [Brinson attribution](10_finance_investment/brinson_attribution/brinson_attribution.ipynb) |
 | How do assets cluster? | [Correlation heatmap](02_correlation/correlation_heatmap/correlation_heatmap.ipynb), [correlation network](10_finance_investment/correlation_network_mst/correlation_network_mst.ipynb), [TMFG network](10_finance_investment/tmfg_network/tmfg_network.ipynb), [HRP dendrogram](10_finance_investment/hrp_dendrogram/hrp_dendrogram.ipynb) |
-| Is a fund's outperformance skill or luck? | [Funnel plot](11_scientific/funnel_plot/funnel_plot.ipynb) (alpha vs. track-record length) |
-| Is my backtest robust? | [Specification curve](13_uncertainty/specification_curve/specification_curve.ipynb) |
-| Are the model's default probabilities reliable? | [CORP reliability diagram](12_machine_learning/corp_reliability_diagram/corp_reliability_diagram.ipynb) |
-| Which of two forecasts is better? | [Murphy diagram](12_machine_learning/murphy_diagram/murphy_diagram.ipynb) |
-| Why did the model score this applicant high-risk? | [SHAP waterfall](12_machine_learning/shap_waterfall/shap_waterfall.ipynb) |
+| Is a fund's outperformance skill or luck? | [Funnel plot](12_scientific/funnel_plot/funnel_plot.ipynb) (alpha vs. track-record length) |
+| Is my backtest robust? | [Specification curve](14_uncertainty/specification_curve/specification_curve.ipynb) |
+| Are the model's default probabilities reliable? | [CORP reliability diagram](13_machine_learning/corp_reliability_diagram/corp_reliability_diagram.ipynb) |
+| Which of two forecasts is better? | [Murphy diagram](13_machine_learning/murphy_diagram/murphy_diagram.ipynb) |
+| Why did the model score this applicant high-risk? | [SHAP waterfall](13_machine_learning/shap_waterfall/shap_waterfall.ipynb) |
 | What is the market doing? | [Candlestick + moving averages](10_finance_investment/candlestick_ma_volume/candlestick_ma_volume.ipynb), [sector heatmap](10_finance_investment/sector_heatmap/sector_heatmap.ipynb), [market breadth](10_finance_investment/market_breadth/market_breadth.ipynb) |
-| What are rates telling us? | [Yield curve](10_finance_investment/yield_curve/yield_curve.ipynb), [yield curve history](10_finance_investment/yield_curve_history/yield_curve_history.ipynb), [animated yield curve](15_interactive_advanced/animated_yield_curve/animated_yield_curve.ipynb) |
-| What does this option position do? | [Option payoff](10_finance_investment/option_payoff/option_payoff.ipynb), [option payoff explorer](15_interactive_advanced/option_payoff_explorer/option_payoff_explorer.ipynb) (interactive) |
-| What is the company worth? | [Football field](10_finance_investment/football_field_valuation/football_field_valuation.ipynb), [DCF sensitivity table](10_finance_investment/dcf_sensitivity_table/dcf_sensitivity_table.ipynb), [DCF explorer](15_interactive_advanced/dcf_explorer/dcf_explorer.ipynb) |
+| What are rates telling us? | [Yield curve](10_finance_investment/yield_curve/yield_curve.ipynb), [yield curve history](10_finance_investment/yield_curve_history/yield_curve_history.ipynb), [animated yield curve](16_interactive_advanced/animated_yield_curve/animated_yield_curve.ipynb) |
+| What does this option position do? | [Option payoff](10_finance_investment/option_payoff/option_payoff.ipynb), [option payoff explorer](16_interactive_advanced/option_payoff_explorer/option_payoff_explorer.ipynb) (interactive) |
+| What is the company worth? | [Football field](10_finance_investment/football_field_valuation/football_field_valuation.ipynb), [DCF sensitivity table](10_finance_investment/dcf_sensitivity_table/dcf_sensitivity_table.ipynb), [DCF explorer](16_interactive_advanced/dcf_explorer/dcf_explorer.ipynb) |
 | Where does the revenue go, and why did it change? | [Income statement sankey](10_finance_investment/income_statement_sankey/income_statement_sankey.ipynb), [revenue bridge](10_finance_investment/revenue_bridge/revenue_bridge.ipynb), [waterfall](07_part_to_whole/waterfall_chart/waterfall_chart.ipynb) |
-| Will the money last? | [Monte Carlo wealth](10_finance_investment/monte_carlo_wealth/monte_carlo_wealth.ipynb), [retirement planner](15_interactive_advanced/retirement_planner/retirement_planner.ipynb) (interactive) |
+| Will the money last? | [Monte Carlo wealth](10_finance_investment/monte_carlo_wealth/monte_carlo_wealth.ipynb), [retirement planner](16_interactive_advanced/retirement_planner/retirement_planner.ipynb) (interactive) |
 | Lump sum or dollar-cost averaging? | [Compounding & DCA](10_finance_investment/compounding_dca/compounding_dca.ipynb) |
 
 Finance-specific rules:
@@ -272,16 +272,16 @@ Each links to a side-by-side example in the **Bad vs. good** family.
 
 | Mistake | Why it misleads | Fix |
 |---|---|---|
-| [Dual y-axis](14_bad_vs_good/dual_axis_vs_indexed/dual_axis_vs_indexed.ipynb) | Axis ranges are arbitrary, so crossings and slopes are invented | Index to 100, or two panels |
-| [Truncated bar axis](14_bad_vs_good/truncated_bar_axis/truncated_bar_axis.ipynb) | Small differences look huge | Start bars at zero, or use dots |
-| [Pie with close values](14_bad_vs_good/pie_close_values/pie_close_values.ipynb) | Angles can't be compared | Sorted bar |
-| [Rainbow colour map](14_bad_vs_good/rainbow_colormap/rainbow_colormap.ipynb) | Creates false bands, not colour-blind safe | One-hue sequential |
-| [Spaghetti lines](14_bad_vs_good/spaghetti_vs_highlight/spaghetti_vs_highlight.ipynb) | Nothing stands out | Highlight one, gray the rest |
-| [Unsorted bars](14_bad_vs_good/unsorted_bars/unsorted_bars.ipynb) | Ranking is hidden | Sort by value |
-| [Overplotting](14_bad_vs_good/overplotting/overplotting.ipynb) | Density is invisible | Transparency, hexbin, datashader |
-| [Bar of means ("dynamite plot")](14_bad_vs_good/dynamite_plot/dynamite_plot.ipynb) | Hides the distribution and the sample size | Points + confidence interval |
-| [Bubbles scaled by radius](14_bad_vs_good/bubble_radius_scaling/bubble_radius_scaling.ipynb) | Exaggerates differences quadratically | Scale by area |
-| [Animation for comparison](14_bad_vs_good/animation_vs_small_multiples/animation_vs_small_multiples.ipynb) | Relies on memory | Small multiples |
+| [Dual y-axis](15_bad_vs_good/dual_axis_vs_indexed/dual_axis_vs_indexed.ipynb) | Axis ranges are arbitrary, so crossings and slopes are invented | Index to 100, or two panels |
+| [Truncated bar axis](15_bad_vs_good/truncated_bar_axis/truncated_bar_axis.ipynb) | Small differences look huge | Start bars at zero, or use dots |
+| [Pie with close values](15_bad_vs_good/pie_close_values/pie_close_values.ipynb) | Angles can't be compared | Sorted bar |
+| [Rainbow colour map](15_bad_vs_good/rainbow_colormap/rainbow_colormap.ipynb) | Creates false bands, not colour-blind safe | One-hue sequential |
+| [Spaghetti lines](15_bad_vs_good/spaghetti_vs_highlight/spaghetti_vs_highlight.ipynb) | Nothing stands out | Highlight one, gray the rest |
+| [Unsorted bars](15_bad_vs_good/unsorted_bars/unsorted_bars.ipynb) | Ranking is hidden | Sort by value |
+| [Overplotting](15_bad_vs_good/overplotting/overplotting.ipynb) | Density is invisible | Transparency, hexbin, datashader |
+| [Bar of means ("dynamite plot")](15_bad_vs_good/dynamite_plot/dynamite_plot.ipynb) | Hides the distribution and the sample size | Points + confidence interval |
+| [Bubbles scaled by radius](15_bad_vs_good/bubble_radius_scaling/bubble_radius_scaling.ipynb) | Exaggerates differences quadratically | Scale by area |
+| [Animation for comparison](15_bad_vs_good/animation_vs_small_multiples/animation_vs_small_multiples.ipynb) | Relies on memory | Small multiples |
 
 ---
 
@@ -306,7 +306,7 @@ Each links to a side-by-side example in the **Bad vs. good** family.
 **Colour and labels**
 - [ ] Colour has a job (identity, magnitude, polarity or emphasis), with ≤ 8 hues
 - [ ] No rainbow; no red/green-only encoding
-- [ ] Direct labels where possible; a legend whenever there are ≥ 2 series
+- [ ] Every series is identifiable without relying on colour: direct labels where possible, otherwise a legend
 - [ ] Units, currency and data source are stated
 
 **Delivery**

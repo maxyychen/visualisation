@@ -20,8 +20,9 @@ tips:
 - Annotate the coefficients when there are few variables
 example: Correlations between the monthly returns of eight asset classes over 15 years (synthetic, factor-model data).
 read: Red cells are positive correlations and blue cells negative; darker means stronger. Equity markets
-  move together, and REITs and high yield lean towards stocks. Treasuries are negatively correlated with
-  equities, which is why they diversify a stock portfolio.
+  move together, and REITs and high yield lean towards stocks. Treasuries are mildly negatively correlated with
+  equities (about -0.2), which is why they diversify a stock portfolio; gold is roughly uncorrelated with
+  everything except commodities.
 real_data:
   source: "plotly.express.data.stocks() \u2014 weekly prices of six large US tech stocks, 2018\u20132019, bundled with plotly"
   offline: true

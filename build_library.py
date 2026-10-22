@@ -429,11 +429,11 @@ def write_readme(charts, families):
          "filterable gallery."), "",
         "**Not sure which chart?** Read [How to Choose a Chart](HOW_TO_CHOOSE_A_CHART.md): a step-by-step "
         "guideline with a decision path, a finance quick reference and a pre-publication checklist.", "",
+        "**Using AI to make charts?** Read [Agentic AI and Data Visualization](AGENTIC_AI_AND_VISUALIZATION.md).", "",
         "Families 01–09 follow the Financial Times "
         "[Visual Vocabulary](https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary), "
-        "which groups charts by the *relationship in the data you want to show*. The other families cover "
-        "scientific plots, machine-learning evaluation and explanation, uncertainty, and "
-        "common mistakes shown next to their fixes.", "",
+        "which groups charts by the *relationship in the data you want to show*. The other families are "
+        + ", ".join(f"**{v['name']}**" for k, v in list(families.items())[9:]) + ".", "",
         "## Quick start", "", "```bash",
         "python3 -m venv .venv && source .venv/bin/activate",
         "pip install -r requirements.txt",
@@ -448,7 +448,9 @@ def write_readme(charts, families):
         "use a stat tile.",
         "3. **Add color last**, and only by the job it does: identity (categorical), magnitude (one-hue "
         "sequential), or polarity (two-hue diverging with a neutral midpoint).",
-        "4. **Avoid the classic mistakes.** See [14 · Bad vs. good](#14-bad-vs-good).", "",
+        "4. **Avoid the classic mistakes.** See " + next(
+            (f"[{k[:2]} · {v['name']}](#{k.replace('_', '-')})" for k, v in families.items() if "bad_vs_good" in k),
+            "the bad-vs-good family") + ".", "",
         "**Chart chooser:** see [What data do you have?](#chooser) below, or filter by data type in the gallery.", "",
         "Legend: 📄 method from a research paper (see [Methods from the research literature](#research)) · ★ real-dataset variant · 🔀 also shown in other libraries (plotly / Altair / seaborn) · "
         "<sub>intermediate</sub> / <sub>advanced</sub> level (unmarked = basic) · animated charts preview as GIFs", "",
@@ -501,7 +503,17 @@ def write_readme(charts, families):
               "From the command line, with your own CSV of prices:", "", "```bash",
               "pip install -e .     # once, at the repo root",
               "python -m vizlib.finance prices.csv --price Fund --benchmark Index --rf 0.03 -o report.png",
-              "pytest               # unit tests for the metrics", "```"]
+              "pytest               # unit tests for the metrics", "```",
+              "", "## Reusable healthcare toolkit: `vizlib.health`", "",
+              "Tested statistics behind the healthcare charts: Kaplan–Meier with Greenwood confidence bands "
+              "(checked against `lifelines`), median survival and RMST; run-chart rules, p- and u-chart limits, exact "
+              "funnel-plot limits, VLAD and risk-adjusted CUSUM; epidemic-curve binning and time-varying Rt "
+              "(Cori et al. 2013); reference-range flags.", "",
+              "```python", "from vizlib.health import kaplan_meier, run_chart_signals, p_chart, estimate_rt",
+              "km = kaplan_meier(df[\"months\"], df[\"died\"])     # survival table with 95% CI",
+              "run_chart_signals(monthly_rate)                      # shifts, trends, runs",
+              "estimate_rt(daily_cases, serial_interval)            # Rt with 95% credible interval", "```", "",
+              "> Use de-identified data. Executed notebooks store their outputs, including any patient-level values."]
     lines += ["", "## Advanced extras", "",
               "Large-data, 3-D map and time-series charts use optional packages:", "", "```bash",
               "pip install -r requirements-advanced.txt   # or: pip install -e \".[advanced]\"", "```", "",
@@ -513,6 +525,13 @@ def write_readme(charts, families):
                   f"{site} on every push to the default branch. One-time setup: **Settings → Pages → Build and "
                   "deployment → Source: GitHub Actions**. On Pages, the gallery's *Notebook* and *Script* links "
                   "open on github.com (which renders notebooks); *Live* opens the interactive page itself."]
+    lines += ["", "## Agentic AI and data visualization", "",
+              "AI agents can now turn a plain-language request into working chart code in seconds, and most of this "
+              "library was itself written by agents. Research shows their charts are uneven in quality, and that AI "
+              "models are easily fooled by misleading designs, so judgement, explicit rules and tests matter more than "
+              "ever. [Agentic AI and Data Visualization](AGENTIC_AI_AND_VISUALIZATION.md) covers how the workflow "
+              "changes, what the research says, lessons from building this library, and a checklist for using an "
+              "agent to make a chart."]
     lines += ["", "## Extending the library", "",
               "Everything above is generated. Edit the sources in `src/` and rebuild:", "", "```bash",
               "python build_library.py --new 04 my_chart   # scaffold src/04_.../my_chart/{meta.yaml,chart.py}",

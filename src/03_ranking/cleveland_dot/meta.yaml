@@ -17,5 +17,6 @@ tips:
 - When showing two dots per row, sort by one of them or by their difference
 example: Life expectancy for women and men in 12 countries (synthetic), sorted by women's value.
 read: Each row is a country. Blue dots are women and orange dots men, and the gray line is the gap. Women
-  outlive men everywhere, and the gap is widest in Brazil and the USA.
+  outlive men everywhere; the gap is widest in Brazil (6.6 years) and Korea (6.2) and narrowest in the UK
+  (3.6).
 data_shape: [categories, numeric]

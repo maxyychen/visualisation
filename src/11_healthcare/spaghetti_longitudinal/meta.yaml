@@ -1,0 +1,28 @@
+title: Spaghetti Plot (Longitudinal Trajectories)
+engine: mpl
+level: intermediate
+order: 420
+purpose: Draws one thin line per subject for repeated measurements over time, with the group mean and its
+  confidence band on top. Individual variation, dropout and the average trend are visible together, which a plot of
+  means alone hides.
+when_to_use:
+- Show repeated lab values, vital signs or scores per patient over follow-up visits
+- Show between-patient heterogeneity around an average trajectory
+- Spot unusual individual trajectories, dropout and irregular visit timing
+avoid:
+- There are hundreds of subjects so the lines become a solid mass (sample them, use a density band, or facet by group)
+- Only group averages matter and individual data cannot be shown (for privacy reasons)
+alternatives:
+- Mean ± CI line chart
+- Small multiples (one panel per patient for small n)
+- Heatmap (patients × visits)
+tips:
+- Draw individual lines thin and gray, and the summary line thick and colored
+- Highlight one illustrative patient in a contrasting color with a direct label
+- Share the y-axis across panels so groups are comparable
+example: eGFR (kidney function) measured at scheduled visits over 24 months in 40 synthetic patients per arm,
+  with some missed visits and dropout. Placebo is compared with an active treatment.
+read: Gray lines are individual patients and the thick blue line is the arm mean with its 95% CI. Kidney function
+  declines on placebo but stays roughly flat on treatment. Individual patients vary widely, and the orange patient
+  declines steeply despite being on treatment.
+data_shape: [time, numeric]

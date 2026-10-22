@@ -19,7 +19,7 @@ ALTERNATIVES
   - KPI stat tile with delta
 
 EXAMPLE
-Six business KPIs with their latest value and a 30-day sparkline.
+Six business KPIs with their latest value and a 30-day sparkline (synthetic).
 
 Run:  python sparklines.py
 """

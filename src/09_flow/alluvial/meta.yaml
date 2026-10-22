@@ -16,6 +16,10 @@ alternatives:
 - Sankey diagram
 - Mosaic/marimekko chart
 - Heatmap of a cross-tab
+tips:
+- Order categories the same way on every axis and put the dimension of interest first
+- Color ribbons by one dimension (here channel) so they can be followed across all axes
+- Keep to 2–4 dimensions with a few categories each
 example: '1,500 survey respondents: age group → preferred channel → satisfaction.'
 read: 'Ribbons are colored by channel: blue for App, orange for Web, green for Phone. Younger respondents
   mostly use the app, and app users more often end up satisfied.'

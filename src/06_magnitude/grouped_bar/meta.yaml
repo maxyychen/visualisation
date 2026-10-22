@@ -17,7 +17,9 @@ alternatives:
 tips:
 - Keep a small gap between bars in a group and a larger gap between groups
 - Use consistent colors for each sub-group across all charts
-example: Sales by region for three consecutive years.
+example: Sales by region for three consecutive years (illustrative data).
+read: Each cluster is a region and each color a year. West is the largest region every year; North,
+  East and Central grow each year, while South is the only region shrinking ($35M to $31M).
 real_data:
   source: "plotly.express.data.medals_long() \u2014 2018 Winter Olympics short-track medal counts, bundled with plotly"
   offline: true

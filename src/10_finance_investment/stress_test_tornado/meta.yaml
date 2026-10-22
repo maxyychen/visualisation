@@ -23,8 +23,10 @@ tips:
   - Use the same diverging colors for loss and gain throughout
   - Draw the base case as a vertical zero line
 example: >-
-  Simulated one-at-a-time shocks to a 100 million multi-asset portfolio (P&L in millions). Not
+  Simulated one-at-a-time shocks to a $100 million multi-asset portfolio (P&L in millions). Not
   investment advice.
 read: >-
   Each row is one factor. Orange extends to the loss under the downside shock and blue to the gain under
-  the upside shock. Equity markets dominate; inflation and FX matter far less for this portfolio.
+  the upside shock. Equity markets dominate (a range of about $23 million), followed by interest rates;
+  oil and inflation matter far less for this portfolio. Losses under the downside shocks are larger
+  than the matching gains, so the risk is skewed to the downside.

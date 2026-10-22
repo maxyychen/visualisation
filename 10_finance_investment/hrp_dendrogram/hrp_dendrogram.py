@@ -23,6 +23,11 @@ ALTERNATIVES
   - Risk contribution chart
   - Clustered heatmap (seaborn clustermap)
 
+REFERENCE
+  - López de Prado, M. (2016). Building diversified portfolios that outperform
+    out of sample. The Journal of Portfolio Management 42(4), 59–69.
+    https://doi.org/10.3905/jpm.2016.42.4.059
+
 EXAMPLE
 Simulated daily returns for 12 assets in three groups (equities, bonds,
 commodities) over three years. HRP is implemented from scratch with
@@ -142,6 +147,9 @@ ax_w.set_title("2. Allocate risk down the tree", loc="left")
 ax_w.legend(loc="lower right", fontsize=9)
 fig.suptitle("Hierarchical risk parity: from correlation clusters to portfolio weights",
              x=0.06, ha="left", fontsize=14, fontweight="bold")
+fig.canvas.draw()                                 # align dendrogram leaves with heatmap columns
+ph, pdg = ax_h.get_position(), ax_d.get_position()
+ax_d.set_position([ph.x0, pdg.y0, ph.width, pdg.height])
 
 # --- Save / show -------------------------------------------------------------
 out = Path(__file__).with_name(Path(__file__).stem + ".png")

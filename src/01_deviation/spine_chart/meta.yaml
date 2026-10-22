@@ -13,5 +13,12 @@ avoid:
 alternatives:
 - Grouped bar chart
 - Dumbbell chart
+tips:
+- Use the same scale on both sides and label the ticks with absolute values
+- Sort categories by total volume so the largest partners sit on top
+- Give the two sides clearly different hues and name them in the axis label or legend
 example: Imports and exports of a country by trade partner (USD bn), synthetic data.
+read: Orange bars to the left are imports and blue bars to the right are exports. China is the largest
+  partner and runs a deficit (imports 140 vs. exports 120). The USA and Vietnam are the only partners
+  where exports exceed imports.
 data_shape: [categories, numeric]

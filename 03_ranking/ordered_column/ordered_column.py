@@ -11,7 +11,8 @@ WHEN TO USE
 
 AVOID WHEN
   - Labels are long (they must be rotated, so use horizontal bars)
-  - The x-axis is time (columns would suggest a sequence, not a rank)
+  - The categories are time periods (keep them in time order instead of
+    sorting by value)
 
 ALTERNATIVES
   - Ordered bar chart

@@ -23,8 +23,9 @@ tips:
 - Add a reference line (50%) to percentage breadth measures
 example: 300 simulated stocks over three years. In the last nine months the 12 largest rally while most
   others drift lower, which is a classic 'narrow market' (illustrative).
-read: Inside the shaded period the index keeps rising, but the advance-decline line falls and fewer than
-  half of stocks stay above their 200-day average. The gains come from a few heavyweights.
+read: Inside the shaded period the index keeps rising, but the advance-decline line rolls over and the
+  share of stocks above their 200-day average drops from about 80% to below half. The gains come from a
+  few heavyweights.
 data_shape:
 - prices
 - time

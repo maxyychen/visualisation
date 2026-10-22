@@ -27,6 +27,7 @@ example: >-
   365 days of simulated website sessions (detrended): an AR(1) process with a weekly pattern, as
   traffic dips every weekend.
 read: >-
-  The ACF decays slowly with spikes at lags 7, 14 and 21, so there is short-term memory plus a weekly
-  cycle. The PACF has a large bar at lag 1 and another near lag 7, then mostly stays inside the band.
-  A model with one autoregressive term and a weekly seasonal term should fit.
+  The ACF has a bar of about 0.5 at lag 1 (short-term memory) and spikes of about 0.5 at lags 7, 14,
+  21 and 28 that do not die out, the signature of a fixed weekly cycle. The PACF has a large bar at
+  lag 1 and a cluster around lags 6–9, then shrinks toward the band after about lag 16. A model with
+  one autoregressive term plus weekly seasonality (a seasonal term or day-of-week effects) should fit.

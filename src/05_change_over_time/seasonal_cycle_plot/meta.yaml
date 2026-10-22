@@ -16,5 +16,8 @@ alternatives:
 - Small multiples by year
 tips:
 - Gray out past years and color the current year
-example: Monthly electricity demand for six years, highlighting the most recent year.
+example: Monthly electricity demand for six years, highlighting the most recent year (synthetic).
+read: Every year has the same double cycle, with peaks in winter (January) and summer (July–August) and
+  troughs in spring and autumn. The blue 2024 line is at or near the top of the gray earlier years in most
+  months, highest of all in winter and August, so demand is up across the year rather than in one season.
 data_shape: [time]

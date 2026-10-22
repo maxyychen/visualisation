@@ -14,6 +14,10 @@ avoid:
 alternatives:
 - Violin plot + strip
 - Box plot + strip
+tips:
+- Lay the clouds out horizontally so the half-violin, box and rain stack cleanly
+- Keep the box narrow and unfilled so it does not hide the points
+- Use one colour per group consistently across cloud and rain
 example: Reaction times (ms) under three caffeine conditions, 80 participants each (synthetic).
 read: For each condition, the cloud shows the distribution's shape, the box marks the median and quartiles,
   and the rain shows each participant. One cup is fastest, and three cups widens the spread.

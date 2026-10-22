@@ -16,5 +16,12 @@ alternatives:
 - Sunburst
 - Treemap
 - Flame graph (performance profiling)
-example: Disk usage of a project folder by directory and file type.
+tips:
+- Show values (or shares) in the labels, since the widths alone are hard to read for small children
+- Color by the top-level branch and let children inherit a lighter shade
+- Sort children by size so the largest sit at the start of each parent
+example: Disk usage of a project folder by directory and file type (illustrative sizes).
+read: The top row is the whole project (about 2,000 MB); each row below splits its parent, with width
+  proportional to size. The data folder takes over half the space, mostly raw files (820 MB), and models
+  take a third, while src and docs are slivers.
 data_shape: [hierarchy]

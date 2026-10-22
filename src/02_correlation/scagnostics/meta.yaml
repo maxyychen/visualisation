@@ -36,5 +36,5 @@ read: >-
   right show the top pair for monotonic, outlying and striated, so you can check each flag by eye.
 reference:
   - text: "Wilkinson, L., Anand, A. & Grossman, R. (2005). Graph-theoretic scagnostics. Proceedings of the IEEE Symposium on Information Visualization (InfoVis 2005), 157–164. 20-Year Test of Time Award, IEEE VIS 2025."
-    url: https://tableau.com/research/publications/graph-theoretic-scagnostics
+    url: https://doi.org/10.1109/INFVIS.2005.1532142
     year: 2005

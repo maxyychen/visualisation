@@ -19,7 +19,7 @@ tips:
 - State the base date in the axis label or title ('Jan 2020 = 100')
 - Draw a reference line at 100
 - Consider a log scale when growth is multiplicative and large
-example: 'Users (thousands) and sessions (millions) of a product: different scales, compared by growth.'
+example: 'Users (thousands), sessions (millions) and revenue ($M) of a product (synthetic): different scales, compared by growth.'
 read: Every series starts at 100. A value of 250 means 2.5× its January 2023 level, whatever its original
   units. Sessions grew fastest even though their raw numbers are on a completely different scale.
 real_data:

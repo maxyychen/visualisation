@@ -20,7 +20,7 @@ ALTERNATIVES
   - Stat tile with the number only
 
 EXAMPLE
-Repayment status of a consumer loan book of 1,240 loans.
+Repayment status of a consumer loan book of 1,240 loans (illustrative).
 
 Run:  python donut_chart.py
 """
@@ -55,7 +55,9 @@ s
 
 # --- Plot --------------------------------------------------------------------
 fig, ax = plt.subplots(figsize=(6.5, 6))
-wedges, _ = ax.pie(s.values, colors=PALETTE[:len(s)], startangle=90, counterclock=False,
+# ordered severity: one neutral hue for 'Current', then light -> dark orange for worsening arrears
+colors = [PALETTE[0], "#f5b38f", PALETTE[1], "#a8401a"]
+wedges, _ = ax.pie(s.values, colors=colors, startangle=90, counterclock=False,
                    wedgeprops=dict(width=0.32, edgecolor="#fcfcfb", linewidth=2))
 ax.text(0, 0.08, f"{s['Current'] / s.sum():.0%}", ha="center", va="center",
         fontsize=30, fontweight="bold")

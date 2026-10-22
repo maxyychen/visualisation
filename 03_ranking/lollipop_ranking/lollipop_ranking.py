@@ -7,7 +7,7 @@ with far less ink, so long rankings look lighter and the endpoints stand out.
 
 WHEN TO USE
   - Show rankings with many items (15–40) where bars would form a heavy block
-  - Show values that are all large and similar, where the endpoints matter
+  - Rank items where the endpoint matters more than the filled area of a bar
 
 AVOID WHEN
   - The axis does not start at zero (the stem length then misleads)
@@ -18,7 +18,7 @@ ALTERNATIVES
   - Cleveland dot plot
 
 EXAMPLE
-Average customer rating (out of 100) for 20 coffee shops.
+Average customer rating (out of 100) for 20 coffee shops, simulated data.
 
 Run:  python lollipop_ranking.py
 """

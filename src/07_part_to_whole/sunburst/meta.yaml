@@ -21,3 +21,7 @@ example: Global sales by region → country → channel (synthetic).
 read: The inner ring is regions, the middle ring countries and the outer ring sales channels. Click a
   segment to zoom into it and click the center to zoom back out.
 data_shape: [hierarchy]
+tips:
+- Limit the hierarchy to three levels and colour by the top level so each branch reads as one group
+- Label only segments large enough to hold text; leave the rest to hover tooltips
+- Angles are hard to compare across rings, so use a treemap or icicle when precise comparison matters

@@ -22,7 +22,7 @@ ALTERNATIVES
   - Heatmap (time × group)
 
 EXAMPLE
-Weekly sales index for 9 stores over one year.
+Weekly sales index for 9 stores over one year (synthetic).
 
 Run:  python small_multiples_line.py
       python small_multiples_line.py --real-data   (real dataset: plotly.express.data.gapminder() — Gapminder life expectancy, GDP and population 1952–2007, bundled with plotly)

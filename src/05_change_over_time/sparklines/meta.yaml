@@ -16,5 +16,8 @@ alternatives:
 - KPI stat tile with delta
 tips:
 - Mark the last point with a dot and show the latest value as text
-example: Six business KPIs with their latest value and a 30-day sparkline.
+example: Six business KPIs with their latest value and a 30-day sparkline (synthetic).
+read: Each row is one KPI. The line is its last 30 days on its own scale, the dot and bold number are
+  today's value, and the percentage is the change over the period. Revenue (+24%) and orders (+12%) are
+  climbing, but churn is also up 20%, a rise that is bad news even though its sparkline points up like the others.
 data_shape: [time]

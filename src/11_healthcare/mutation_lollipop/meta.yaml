@@ -1,0 +1,26 @@
+title: Mutation Lollipop Plot
+engine: mpl
+level: advanced
+order: 80
+purpose: Draws a protein as a horizontal bar with its functional domains, and places a lollipop at each mutated amino
+  acid position. Stem height is the number of patients with that mutation and head color is the mutation type, so
+  hotspots and their location relative to domains are visible at once.
+when_to_use:
+- Show where mutations fall along one gene or protein in a cohort
+- Identify hotspots and whether they cluster in a functional domain
+- Contrast hotspot mutations (oncogene pattern) with scattered truncating mutations (tumour-suppressor pattern)
+avoid:
+- Comparing many genes (use an oncoprint or frequency bars)
+- Mutations are too dense to separate at the plotted resolution (bin positions or zoom into a domain)
+alternatives:
+- OncoPrint
+- Histogram of mutation positions
+tips:
+- Label only the top few hotspots with their amino-acid change
+- Use distinct, consistent colors for mutation classes and keep domain colors muted
+- Give the protein length and the cohort size so readers can judge the counts
+example: Somatic mutations in a TP53-like protein (393 amino acids) across 300 synthetic tumours, with hotspots in the
+  DNA-binding domain.
+read: Tall lollipops are recurrent hotspots, and almost all of them sit in the DNA-binding domain. Truncating
+  mutations (orange) are scattered along the whole protein, the classic pattern of a tumour-suppressor gene.
+data_shape: [categories, numeric]

@@ -21,7 +21,8 @@ ALTERNATIVES
   - Small-multiple bar charts per question
 
 EXAMPLE
-Employee engagement survey with five questions on a 5-point agreement scale.
+Employee engagement survey with five questions on a 5-point agreement scale,
+illustrative numbers.
 
 Run:  python diverging_stacked_bar.py
 """
@@ -60,7 +61,8 @@ pct = np.array([[5, 12, 20, 40, 23],
                 [3, 8, 15, 45, 29],
                 [6, 14, 24, 35, 21]], dtype=float)
 df = pd.DataFrame(pct, index=questions, columns=levels)
-df = df.loc[(df["Agree"] + df["Strongly agree"]).sort_values().index]
+net = df["Agree"] + df["Strongly agree"] - df["Disagree"] - df["Strongly disagree"]
+df = df.loc[net.sort_values().index]  # sort by net agreement
 df
 
 # --- Plot --------------------------------------------------------------------

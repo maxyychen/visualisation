@@ -6,12 +6,18 @@ purpose: A thin stem with a dot at the value. It encodes the same thing as a bar
   so long rankings look lighter and the endpoints stand out.
 when_to_use:
 - Show rankings with many items (15–40) where bars would form a heavy block
-- Show values that are all large and similar, where the endpoints matter
+- Rank items where the endpoint matters more than the filled area of a bar
 avoid:
 - The axis does not start at zero (the stem length then misleads)
 - There are very few categories (a bar chart is more familiar)
 alternatives:
 - Ordered bar chart
 - Cleveland dot plot
-example: Average customer rating (out of 100) for 20 coffee shops.
+tips:
+- Start the stems at zero, as with bars; if the values are close and far from zero, use a dot plot instead
+- Sort by value so the ranking reads top to bottom
+- Keep the stems thin and the dots large enough to carry the value
+example: Average customer rating (out of 100) for 20 coffee shops, simulated data.
+read: Shops are sorted from the highest rating (top) to the lowest. Café Nero leads with about 96; most
+  shops sit between 72 and 90, and Café Crema and Café Kona trail below 67.
 data_shape: [categories, numeric]

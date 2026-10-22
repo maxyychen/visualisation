@@ -16,7 +16,7 @@ alternatives:
 - Heatmap of weekday × hour
 tips:
 - Use a single-hue sequential scale; keep missing days visibly different (blank)
-example: Daily exercise minutes for one year.
+example: Daily exercise minutes for one year (synthetic).
 read: Each square is one day. Columns are weeks and rows are weekdays. Darker means more minutes, and
   the dark bottom rows show that weekends are the most active days.
 data_shape: [time]

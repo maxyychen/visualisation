@@ -21,7 +21,8 @@ ALTERNATIVES
   - ECDF vs. theoretical CDF
 
 EXAMPLE
-Normal vs. right-skewed vs. heavy-tailed samples (n = 200 each), side by side.
+Normal vs. right-skewed vs. heavy-tailed samples (simulated, n = 200 each),
+side by side.
 
 Run:  python qq_plot.py
 """

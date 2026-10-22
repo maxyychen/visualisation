@@ -19,7 +19,7 @@ ALTERNATIVES
   - Waterfall chart (to show the cumulative effect)
 
 EXAMPLE
-Monthly net cash flow of a small business over two years.
+Monthly net cash flow of a small business over two years, simulated data.
 
 Run:  python diverging_column_time.py
 """

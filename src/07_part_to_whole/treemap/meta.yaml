@@ -19,7 +19,8 @@ alternatives:
 tips:
 - Color by parent group (categorical), not by a value ramp that repeats the area
 - Label only rectangles large enough to hold text
-example: A $268M equity portfolio, holdings grouped into four sectors.
-read: Each rectangle's area is a holding's market value and its color is the sector. The two largest
+example: A $268M equity portfolio (fictional holdings), grouped into four sectors.
+read: Each colored block is a sector and each rectangle inside it is a holding, with area proportional to
+  market value. Technology is nearly two-thirds of the portfolio ($172M of $268M). The two largest
   technology holdings together make up more than a third of the portfolio, a concentration risk.
 data_shape: [hierarchy]

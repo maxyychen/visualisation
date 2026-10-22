@@ -1,0 +1,29 @@
+title: "Overplotting vs. Density Binning"
+engine: mpl
+level: basic
+order: 70
+purpose: >-
+  With tens of thousands of points, opaque markers pile on top of each other until the plot becomes a
+  solid blob. Dense regions and sparse regions look the same, so the chart hides where the data actually
+  is. Hidden clusters, gaps and the true shape of the relationship disappear.
+when_to_use:
+  - Use a hexbin or 2-D histogram (with a log color scale) for more than ~5,000 points
+  - Use small, transparent markers for a few thousand points
+  - Use 2-D density contours to show the shape of the distribution
+avoid:
+  - Default scatter plots of large datasets (logs, sensors, EHR extracts, genomics)
+  - Large opaque markers drawn in data order (the last group drawn hides the others)
+alternatives:
+  - Hexbin plot
+  - 2-D density / contour plot
+  - Scatter with alpha (transparency) and small markers
+  - Random subsample (state that you did so)
+tips:
+  - A log color scale reveals both the dense core and the sparse tail
+  - Always add a color bar labeled with the count per bin
+  - With alpha, pick a value so that ~10–50 overlapping points saturate
+example: 60,000 lab measurements of two biomarkers, including a small hidden subpopulation.
+read: >-
+  The left panel shows one big blob. The right panel shows that most patients fall in one broad, elongated cloud
+  with a dense center, and that a second, compact subpopulation sits at high values of both markers. The left plot hides it completely.
+data_shape: [numeric]

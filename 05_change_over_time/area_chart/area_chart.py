@@ -3,12 +3,13 @@ Area Chart  -  family: Change over time
 
 DESIGN PURPOSE
 A line chart with the area below the line filled in. The fill stresses volume,
-the cumulative size of the quantity over time, not just its trend.
+the size of the quantity measured from zero at each point in time, not just
+its trend.
 
 WHEN TO USE
   - Show a single quantity whose magnitude (volume) matters, such as traffic,
     energy, or storage used
-  - Emphasise that values are counts or amounts accumulating from zero
+  - Emphasise that values are counts or amounts measured from zero
 
 AVOID WHEN
   - Comparing several overlapping series (fills hide each other; use lines)
@@ -19,7 +20,7 @@ ALTERNATIVES
   - Stacked area chart (several parts of a total)
 
 EXAMPLE
-Daily website visits over 6 months.
+Daily website visits over 6 months (synthetic).
 
 Run:  python area_chart.py
 

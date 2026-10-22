@@ -1,0 +1,39 @@
+title: Adverse Event Dot Plot (incidence and relative risk)
+engine: mpl
+level: advanced
+order: 90
+data_shape: [categories, uncertainty]
+purpose: >-
+  Two aligned panels summarise a trial's safety profile. The left panel shows how often each adverse
+  event occurred in each arm; the right shows the relative risk with its 95% confidence interval on a
+  log scale. Rows are sorted by relative risk, so events that are more common on treatment rise to the
+  top without hiding how common they are.
+when_to_use:
+  - Summarise many adverse event types from a two-arm trial on one page
+  - Spot safety signals, meaning events clearly more frequent on treatment, while keeping their absolute incidence in view
+  - Replace long adverse-event tables in a safety review or a data monitoring committee report
+avoid:
+  - Events are very rare, so the intervals span orders of magnitude and dominate the panel (report counts)
+  - More than two arms need comparing (use one panel per comparison)
+  - Timing matters more than frequency (use cumulative incidence curves)
+alternatives:
+  - Forest plot
+  - Volcano plot of adverse events (risk difference vs. p-value)
+  - Cumulative incidence curves for key events
+tips:
+  - Put relative risk on a log scale so 0.5 and 2 are equally far from 1
+  - Keep incidence next to relative risk; a doubled risk of a 0.5% event matters less than of a 20% event
+  - Sort by relative risk (or by incidence) rather than alphabetically
+example: >-
+  Simulated two-arm trial (250 patients per arm) reporting 20 adverse event types, with incidence on
+  treatment and on placebo.
+read: >-
+  Read each row across. The left dots show incidence in each arm, and the right dot the relative risk
+  with its 95% interval. Rows near the top, with intervals entirely right of 1, are the safety signals
+  (bold labels). Neutropenia, nausea and diarrhoea are both common and clearly elevated; rash and
+  decreased appetite are elevated with intervals just clear of 1; alopecia and peripheral neuropathy are
+  elevated too, but rarer.
+reference:
+  - text: "Amit, O., Heiberger, R. M. & Lane, P. W. (2008). Graphical approaches to the analysis of safety data from clinical trials. Pharmaceutical Statistics 7(1), 20–35."
+    url: https://doi.org/10.1002/pst.254
+    year: 2008

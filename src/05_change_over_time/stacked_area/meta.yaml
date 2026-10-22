@@ -20,6 +20,7 @@ tips:
 - Label layers directly inside the bands
 - Keep to 6 layers or fewer; fold the rest into 'Other'
 example: Electricity generation mix (TWh) by source over 20 years, synthetic data.
-read: The top edge is total generation. Coal (the bottom band) shrinks while wind and solar (the top bands)
-  grow, so the mix changes while the total stays roughly flat.
+read: The top edge is total generation. Coal (the bottom band) shrinks steadily while wind and solar (the
+  top bands) grow faster and faster. The total dips slightly until about 2011, then rises to about 470 TWh
+  by 2024, roughly 15% above 2005.
 data_shape: [time, categories]

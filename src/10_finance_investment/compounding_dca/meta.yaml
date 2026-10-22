@@ -21,9 +21,10 @@ tips:
 - Report the share of simulations where each strategy wins, and the median margin
 example: $60,000 available today, 10-year horizon; stocks ~7% ± 15% a year, cash 2% a year; DCA invests
   $5,000 a month for 12 months (simulated, illustrative; not financial advice).
-read: On the example path, the lump sum (blue) ends highest, DCA (orange) trails because part of the money
-  waited in cash, and cash (gray) barely grows. The histogram shows the lump sum beat DCA in most simulations,
-  but not all, and DCA's wins came in markets that fell early.
+read: On the example path, the lump sum (blue) ends highest, DCA (orange) trails slightly because part of
+  the money waited in cash, and cash (gray) grows only at its 2% rate. The histogram shows the lump sum beat
+  DCA in 58% of simulations, more often than not but far from always; DCA wins when the market falls
+  during the first year.
 data_shape:
 - prices
 - time

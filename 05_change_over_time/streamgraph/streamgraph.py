@@ -23,7 +23,7 @@ ALTERNATIVES
   - Heatmap
 
 EXAMPLE
-Weekly listening share of six music genres across a year.
+Weekly listening volume of six music genres across a year (synthetic).
 
 Run:  python streamgraph.py
 """

@@ -23,5 +23,6 @@ tips:
 - Map shapes are fetched by plotly.js in the browser, so viewing the map requires a network connection
 example: Life expectancy at birth by country in 2007 (Gapminder dataset, bundled with plotly).
 read: Darker blue means longer life expectancy. The pale band across sub-Saharan Africa shows the regional
-  gap at a glance. Hover over a country to see its exact value.
+  gap at a glance.
+  Gray countries, such as Russia, have no data in this dataset. Hover over a country to see its exact value.
 data_shape: [geo]

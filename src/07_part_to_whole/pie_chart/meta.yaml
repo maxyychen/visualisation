@@ -24,7 +24,7 @@ tips:
 - Start the largest slice at 12 o'clock and go clockwise in descending order
 - Label slices directly and drop the legend
 - Separate slices with a thin surface-colored gap
-example: Share of web traffic by source (5 slices, the smallest folded into 'Other').
+example: Share of web traffic by source (illustrative); seven sources, the three smallest folded into 'Other' to keep 5 slices.
 read: Organic search brings in about two-fifths of traffic. Organic search and direct together make up
   about two-thirds.
 data_shape: [categories]

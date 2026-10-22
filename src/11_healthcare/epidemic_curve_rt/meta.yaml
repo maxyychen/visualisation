@@ -1,0 +1,41 @@
+title: Epidemic Curve with Time-Varying Rt
+engine: mpl
+level: advanced
+order: 300
+data_shape: [time, uncertainty]
+purpose: >-
+  Pairs the epidemic curve (daily cases by onset date, stacked by case status) with an estimate of the
+  time-varying reproduction number Rt and its credible interval, on a shared time axis. The curve shows
+  how many people are ill; Rt shows whether transmission is growing (above 1) or shrinking (below 1),
+  which the curve alone reveals only after a delay.
+when_to_use:
+  - Track an outbreak and judge whether control measures are working
+  - Brief decision-makers on whether incidence will rise or fall next
+  - Compare transmission before and after an intervention date
+avoid:
+  - Case counts are tiny or reporting is very irregular (Rt estimates become noise; widen the window)
+  - Testing or case definitions changed a lot over the period (Rt partly tracks testing, not transmission)
+  - You don't have a credible serial-interval estimate for the pathogen
+alternatives:
+  - Epidemic curve alone with a 7-day average
+  - Growth rate or doubling time over time
+  - Nowcast with reporting-delay correction
+tips:
+  - Plot cases by symptom-onset date, not report date, when you have it; recent days will be incomplete
+  - Always show Rt's interval, and draw the Rt = 1 threshold the reader judges against
+  - Share the x-axis with the epidemic curve, but keep them as separate panels (never a dual axis)
+  - Rt here uses the Cori et al. method with a 7-day window and a gamma serial interval (mean 4.7, SD 2.9 days); the estimate for each day uses that day and the six before it
+  - The grey line is the true Rt used in the simulation, shown only to check the estimate
+example: >-
+  A simulated outbreak over 110 days using a renewal process: the true reproduction number is 1.6 until
+  physical-distancing measures on day 40, then falls to about 0.75. Around 70% of cases are laboratory
+  confirmed and the rest probable.
+read: >-
+  Cases keep rising for a few days after the measures and peak on day 42, because infections already
+  under way keep producing cases; the decline that follows is slow. Rt drops through 1 about eight days
+  after the measures and stays below it, signalling a sustained decline even while daily counts were
+  still near their peak. The grey line shows the estimate tracking the true simulated Rt.
+reference:
+  - text: "Cori, A., Ferguson, N. M., Fraser, C. & Cauchemez, S. (2013). A new framework and software to estimate time-varying reproduction numbers during epidemics. American Journal of Epidemiology 178(9), 1505–1512."
+    url: https://doi.org/10.1093/aje/kwt133
+    year: 2013

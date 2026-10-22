@@ -28,4 +28,4 @@ example: >-
 read: >-
   In both panels the bands are the share of each asset, adding to 100%. On the left the equity band jumps
   back to 60% each January. On the right it keeps growing with the stock market, so the portfolio ends up
-  far riskier than its 60/40 label suggests.
+  far riskier than its 60/30/10 target: equities end near 82% instead of 60%.

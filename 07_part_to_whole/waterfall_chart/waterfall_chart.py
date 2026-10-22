@@ -20,7 +20,7 @@ ALTERNATIVES
   - Stacked bar
 
 EXAMPLE
-Bridge from revenue to net profit for a fiscal year ($M).
+Bridge from revenue to net profit for a fiscal year ($M, illustrative).
 
 Run:  python waterfall_chart.py
 """

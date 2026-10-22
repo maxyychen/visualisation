@@ -17,4 +17,6 @@ alternatives:
 tips:
 - Sort descending from top; label values at bar ends and drop the x-axis if every bar is labelled
 example: Most-used programming languages among survey respondents (% of respondents), synthetic data.
+read: Bars are sorted from most to least used. JavaScript (62%) and Python (58%) lead, and R is last at
+  5%. Respondents could pick several languages, so the percentages add up to more than 100%.
 data_shape: [categories, numeric]

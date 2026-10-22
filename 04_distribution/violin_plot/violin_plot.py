@@ -21,7 +21,8 @@ ALTERNATIVES
   - Ridgeline plot
 
 EXAMPLE
-Daily screen time (hours) by age group, with a split by weekday vs. weekend.
+Daily screen time (hours) by age group, with a split by weekday vs. weekend
+(synthetic).
 
 Run:  python violin_plot.py
       python violin_plot.py --real-data   (real dataset: plotly.express.data.tips() — restaurant tipping data (Bryant & Smith 1995), bundled with plotly)

@@ -7,9 +7,10 @@ name = "vizlib"
 version = "0.2.0"
 description = "Data visualization library: chart catalogue, shared styles and finance performance tools"
 requires-python = ">=3.10"
-dependencies = ["numpy", "pandas", "matplotlib"]
+dependencies = ["numpy", "pandas", "matplotlib", "scipy"]
 
 [project.optional-dependencies]
+health = ["lifelines"]
 advanced = ["datashader", "pydeck", "imageio", "statsmodels", "networkx",
             "plotly", "kaleido", "altair", "vl-convert-python", "umap-learn", "pacmap"]
 

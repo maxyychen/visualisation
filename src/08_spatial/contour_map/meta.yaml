@@ -20,6 +20,6 @@ tips:
 - Label a few isolines directly instead of relying only on the color bar
 - Mark known reference points (stations, cities) for orientation
 example: Synthetic annual rainfall (mm) over a 100 × 80 km region with two mountain ranges and five towns.
-read: Darker bands get more rain. Closely spaced isolines mark steep gradients, such as the windward flank
-  of the north-west range.
+read: Darker bands get more rain. Closely spaced isolines mark steep gradients, such as the flanks of
+  the north-west range; the far east, away from both ranges, is driest.
 data_shape: [geo, numeric]

@@ -24,7 +24,7 @@ tips:
   - Always show a confidence band; state n per group
   - Mark day 0 and the zero line clearly
 example: >-
-  160 simulated earnings announcements (about 60% beats). Abnormal returns come from a market
+  160 simulated earnings announcements (88 beats, 72 misses). Abnormal returns come from a market
   model estimated on days −250 to −30, and the event window is day −10 to +10. The simulation includes
   a small pre-announcement run-up and post-announcement drift. Not investment advice.
 read: >-

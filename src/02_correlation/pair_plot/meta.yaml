@@ -14,6 +14,10 @@ avoid:
 alternatives:
 - Correlation heatmap
 - Parallel coordinates
+tips:
+- Show only the lower triangle (corner plot); the upper triangle repeats it
+- Color by group and put density curves on the diagonal to show separation per variable
+- Keep markers small and semi-transparent; each panel is tiny
 example: Four flower measurements for three species (synthetic, iris-like).
 read: Each off-diagonal panel is a scatter plot of two measurements and the diagonal shows each measurement's
   distribution. Petal length and width separate the three species almost perfectly.

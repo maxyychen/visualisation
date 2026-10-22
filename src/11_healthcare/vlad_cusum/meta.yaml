@@ -1,0 +1,44 @@
+title: VLAD and Risk-Adjusted CUSUM (surgical outcomes)
+engine: mpl
+level: advanced
+order: 220
+data_shape: [time, model]
+purpose: >-
+  Two complementary charts for monitoring outcomes patient by patient while adjusting for how sick each
+  patient was. The variable life-adjusted display (VLAD) plots cumulative expected minus observed deaths,
+  an intuitive "statistical lives saved" line. The risk-adjusted Bernoulli CUSUM accumulates evidence
+  that the odds of death have risen (here, doubled) and signals when that evidence crosses a threshold.
+when_to_use:
+  - Monitor a surgeon, team or unit continuously, operation by operation, rather than in quarterly batches
+  - Adjust for case mix so that taking on high-risk patients isn't penalised
+  - Detect a sustained deterioration early, with a defined false-alarm behaviour
+avoid:
+  - No validated pre-operative risk model exists (the charts are only as good as the expected risks)
+  - Events are very rare and volumes tiny (signals take years to accumulate)
+  - You only need a periodic comparison across units (use a funnel plot)
+alternatives:
+  - Funnel plot of risk-adjusted mortality across units
+  - p-chart of monthly mortality (simpler, but slower and not risk-adjusted per patient)
+  - Unadjusted CUSUM (penalises high-risk case mix)
+tips:
+  - VLAD is for communication (easy to read); the risk-adjusted CUSUM is for decisions (it has a threshold)
+  - "Each patient adds log(R/(1−p+Rp)) to the CUSUM if they die and log(1/(1−p+Rp)) if they survive, where p is their predicted risk and R the odds ratio to detect"
+  - Choose the threshold h by simulation to balance false alarms against detection delay; h ≈ 4.5 is a common starting point
+  - Reset the CUSUM to zero after a signal and review the cases before continuing
+example: >-
+  600 simulated consecutive cardiac operations. Each patient's predicted risk of death comes from a
+  pre-operative logistic model (average about 6%). From operation 400 onward the true odds of death are
+  2.5 times what the model predicts.
+read: >-
+  For the first 400 operations the VLAD stays within a few lives of zero (it drifts up to about +6 and
+  back purely by chance): observed deaths track the case mix. After operation 400 it falls steadily,
+  meaning more deaths than expected. The risk-adjusted CUSUM confirms this formally: it crosses the
+  threshold at operations 471 and 554 (orange markers, reset after each) and never during the
+  in-control period, even when the VLAD's chance dip around operation 300 looks alarming.
+reference:
+  - text: "Lovegrove, J., Valencia, O., Treasure, T., Sherlaw-Johnson, C. & Gallivan, S. (1997). Monitoring the results of cardiac surgery by variable life-adjusted display. The Lancet 350, 1128–1130."
+    url: https://doi.org/10.1016/S0140-6736%2897%2906507-0
+    year: 1997
+  - text: "Steiner, S. H., Cook, R. J. & Farewell, V. T. (2001). Risk-adjusted monitoring of binary surgical outcomes. Medical Decision Making 21(3), 163–169."
+    url: https://doi.org/10.1177/0272989X0102100301
+    year: 2001

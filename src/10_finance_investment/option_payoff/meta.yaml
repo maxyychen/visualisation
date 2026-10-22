@@ -24,7 +24,8 @@ example: Stock at $100. Premiums from Black–Scholes with 25% volatility, 3 mon
   (illustrative; financing of the premium ignored).
 read: Blue areas are profit and orange areas are loss at expiry. The long call risks only its premium;
   the protective put caps the downside of owning the stock; the straddle needs a big move either way;
-  the iron condor earns a small, capped profit if the price stays between 95 and 105.
+  the iron condor earns its small, capped maximum profit if the price ends between 95 and 105, and
+  still profits anywhere between its breakevens (about 91 and 109).
 data_shape:
 - prices
 - numeric

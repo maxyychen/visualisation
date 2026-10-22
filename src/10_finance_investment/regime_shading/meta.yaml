@@ -30,5 +30,5 @@ example: >-
   with statsmodels' MarkovRegression. Not investment advice.
 read: >-
   Orange bands mark days the model puts more than 50% probability on the turbulent regime. Prices
-  fall and swing widely inside the bands and grind higher outside them. The lower panel shows the
+  swing widely inside the bands, where the big drops happen, and move more steadily outside them. The lower panel shows the
   probability itself: values near 0 or 1 mean the model is confident, values in between mean it is not.

@@ -1,0 +1,31 @@
+title: WebGL Scatter (200k interactive points)
+engine: plotly
+order: 220
+level: advanced
+data_shape: [numeric, categories]
+purpose: >-
+  An interactive scatter drawn on the GPU (WebGL) instead of as SVG elements, so a browser can pan,
+  zoom and hover over hundreds of thousands of points smoothly. It keeps the individual point and its
+  hover details, which density images like datashader give up.
+when_to_use:
+  - Explore 50k to ~1M points interactively, zooming into dense regions
+  - Points must stay individually inspectable (hover to see a trade, a customer, a sensor reading)
+  - Share an exploratory view as a standalone HTML file
+avoid:
+  - Millions of points or more (the file gets heavy; aggregate with datashader)
+  - Static print output (use a density plot)
+  - Small data (normal SVG scatter is crisper)
+alternatives:
+  - Million-point scatter with datashader (static density)
+  - Hexbin plot
+tips:
+  - Use small markers with some transparency; zoom does the rest
+  - Store data as float32 to keep the HTML file small
+  - Keep to ≤ 3 color groups on a scatter
+  - Plotly switches to WebGL with `go.Scattergl` (or `render_mode="webgl"` in plotly express)
+example: >-
+  200,000 simulated stock-day observations: daily return vs. trading volume relative to its
+  20-day average, split by market-cap group (large, mid, small).
+read: >-
+  Zoom into the center to see individual days, and hover over a point for its values. Returns fan out
+  as relative volume rises: big moves come with heavy trading, and small caps (green) spread widest.

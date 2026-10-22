@@ -21,8 +21,8 @@ ALTERNATIVES
   - Box plot
 
 EXAMPLE
-Page-load latency for two server versions, 3,000 requests each, with p50 and
-p95 marked.
+Page-load latency for two server versions, 3,000 simulated requests each, with
+p50 and p95 marked.
 
 Run:  python ecdf.py
 

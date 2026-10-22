@@ -75,8 +75,10 @@ REAL_DATA = "--real-data" in sys.argv
 if REAL_DATA:  # plotly.express.data.stocks() — MSFT weekly prices resampled to month-end, 2018–2019
     import plotly.express as px
     stocks = px.data.stocks().set_index("date")
-    px_m = pd.Series(stocks["MSFT"].values, index=pd.to_datetime(stocks.index)).resample("ME").last()
-    monthly = px_m.pct_change().dropna()
+    weekly = pd.Series(stocks["MSFT"].values, index=pd.to_datetime(stocks.index))
+    px_m = weekly.resample("ME").last()
+    monthly = px_m.pct_change()
+    monthly.iloc[0] = px_m.iloc[0] / weekly.iloc[0] - 1  # first month: from the first price, not dropped
     name = "MSFT"
     monthly.tail()
 

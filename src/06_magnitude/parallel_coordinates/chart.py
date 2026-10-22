@@ -25,8 +25,9 @@ for i, (cls, g) in enumerate(norm.groupby(df["class"])):
     ax.plot([], [], color=PALETTE[i], label=cls, linewidth=2)
 for j, c in enumerate(cols):
     ax.axvline(j, color="#8c8b86", linewidth=1)
-    ax.text(j, 1.03, f"{df[c].max():.3g}", ha="center", fontsize=8, color="#52514e")
-    ax.text(j, -0.06, f"{df[c].min():.3g}", ha="center", fontsize=8, color="#52514e")
+    fmt = (lambda v: f"{v:,.0f}") if df[c].max() >= 100 else (lambda v: f"{v:.3g}")
+    ax.text(j, 1.03, fmt(df[c].max()), ha="center", fontsize=8, color="#52514e")
+    ax.text(j, -0.06, fmt(df[c].min()), ha="center", fontsize=8, color="#52514e")
 ax.set_xticks(range(len(cols)), cols)
 ax.set_yticks([])
 ax.grid(False)

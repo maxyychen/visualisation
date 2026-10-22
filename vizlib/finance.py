@@ -41,10 +41,14 @@ def to_returns(prices: pd.Series | pd.DataFrame, log: bool = False):
 
 
 def infer_periods_per_year(index: pd.Index) -> int:
-    """252 for daily, 52 weekly, 12 monthly, 4 quarterly, 1 annual (from the median gap)."""
+    """From the median gap: 252 for trading-day data, 365 for calendar-day data (trades every
+    day, e.g. crypto: more than 10% of dates fall on weekends), 52 weekly, 12 monthly,
+    4 quarterly, 1 annual."""
     if len(index) < 3 or not isinstance(index, pd.DatetimeIndex):
         return 252
     days = float(np.median(np.diff(index.values).astype("timedelta64[D]").astype(float)))
+    if days <= 4 and np.mean(index.dayofweek >= 5) > 0.10:
+        return 365
     for limit, ppy in ((4, 252), (10, 52), (45, 12), (120, 4)):
         if days <= limit:
             return ppy
@@ -72,20 +76,23 @@ def max_drawdown(returns: pd.Series) -> float:
 
 
 def drawdown_periods(returns: pd.Series, top: int = 5) -> pd.DataFrame:
-    """The `top` worst drawdowns: peak date, trough date, recovery date (NaT if ongoing), depth."""
+    """The `top` worst drawdowns: peak (last date at the high; NaT if the series starts by
+    falling), start (first date under water), trough, recovery (first date back at the high;
+    NaT if ongoing) and depth."""
     dd = drawdown(returns)
-    out, in_dd, start = [], False, None
+    out, in_dd, start, peak, prev = [], False, None, None, pd.NaT
     for t, v in dd.items():
         if v < 0 and not in_dd:
-            in_dd, start = True, t
+            in_dd, start, peak = True, t, prev
         elif v == 0 and in_dd:
             seg = dd[start:t]
-            out.append((start, seg.idxmin(), t, seg.min()))
+            out.append((peak, start, seg.idxmin(), t, seg.min()))
             in_dd = False
+        prev = t
     if in_dd:
         seg = dd[start:]
-        out.append((start, seg.idxmin(), pd.NaT, seg.min()))
-    df = pd.DataFrame(out, columns=["start", "trough", "recovery", "depth"])
+        out.append((peak, start, seg.idxmin(), pd.NaT, seg.min()))
+    df = pd.DataFrame(out, columns=["peak", "start", "trough", "recovery", "depth"])
     return df.sort_values("depth").head(top).reset_index(drop=True)
 
 
@@ -124,8 +131,9 @@ def sortino(returns: pd.Series, rf: float = 0.0, periods_per_year: Optional[int]
 
 
 def calmar(returns: pd.Series, periods_per_year: Optional[int] = None) -> float:
-    """CAGR divided by the absolute maximum drawdown."""
-    return float(cagr(returns, periods_per_year) / abs(max_drawdown(returns)))
+    """CAGR divided by the absolute maximum drawdown (NaN if there was no drawdown)."""
+    mdd = abs(max_drawdown(returns))
+    return float(cagr(returns, periods_per_year) / mdd) if mdd > 0 else float("nan")
 
 
 def var_historical(returns: pd.Series, level: float = 0.95) -> float:
@@ -204,9 +212,9 @@ def summary_stats(returns: pd.Series, benchmark: Optional[pd.Series] = None, rf:
             "Best period": float(r.max()), "Worst period": float(r.min()),
             "% positive periods": float((r > 0).mean()),
         }
-    cols = {returns.name or "Strategy": stats(returns)}
+    r, b = returns.align(benchmark, join="inner") if benchmark is not None else (returns, None)
+    cols = {returns.name or "Strategy": stats(r)}  # same period as the benchmark column
     if benchmark is not None:
-        r, b = returns.align(benchmark, join="inner")
         cols[benchmark.name or "Benchmark"] = stats(b)
         rel = {"Beta": beta(r, b), "Alpha (ann.)": alpha(r, b, rf, periods_per_year),
                "Tracking error": tracking_error(r, b, periods_per_year),

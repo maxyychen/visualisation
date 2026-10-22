@@ -14,5 +14,9 @@ alternatives:
 - Event timeline
 tips:
 - Use where='post' when the value takes effect at the change date
-example: Central bank policy rate decisions, 2019–2025, synthetic data.
+example: US Federal Reserve policy rate decisions (upper bound of the federal funds target range),
+  January 2019 to June 2025.
+read: Each step is one decision, and the rate stays flat until the next one. The Fed cut three times in
+  2019, then to 0.25% in two emergency cuts in March 2020, held there for two years, raised the rate 11
+  times to 5.50% by July 2023, and cut it back to 4.50% in late 2024.
 data_shape: [time]

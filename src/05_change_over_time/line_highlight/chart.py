@@ -13,14 +13,15 @@ df.iloc[:, :5]
 
 # %% plot
 focus = "Region 07"
+peer_median = df.drop(columns=focus).median(axis=1)
 fig, ax = plt.subplots(figsize=(9, 4.8))
 for col in df.columns.drop(focus):
     ax.plot(df.index, df[col], color=GRAY, linewidth=1, alpha=0.7)
-ax.plot(df.index, df.median(axis=1), color="#52514e", linewidth=1.5)
+ax.plot(df.index, peer_median, color="#52514e", linewidth=1.5)
 ax.plot(df.index, df[focus], color=PALETTE[0], linewidth=2.5)
 ax.text(df.index[-1] + 0.2, df[focus].iloc[-1], focus, color=PALETTE[0],
         va="center", fontweight="bold")
-ax.text(df.index[-1] + 0.2, df.median(axis=1).iloc[-1], "Median", color="#52514e", va="center")
+ax.text(df.index[-1] + 0.2, peer_median.iloc[-1], "Peer median", color="#52514e", va="center")
 ax.set_xlim(df.index[0], df.index[-1] + 2.2)
 ax.set_ylabel("Unemployment rate (%)")
 ax.set_title("Region 07 cut unemployment faster than its peers")

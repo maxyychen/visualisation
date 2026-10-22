@@ -15,5 +15,7 @@ alternatives:
 - Grouped bar chart
 tips:
 - Use a single-hue sequential scale; switch text to white on dark cells
-example: Units sold by product and month.
+example: Units sold by product and month (simulated).
+read: Read the exact number in each cell; darker blue means more units. Phones dominate and rise every
+  month to 396 in June, and every product except Keyboards has its best month in June.
 data_shape: [categories, numeric]

@@ -23,6 +23,11 @@ ALTERNATIVES
   - Clustered correlation heatmap (HRP dendrogram)
   - Correlation heatmap
 
+REFERENCE
+  - Mantegna, R. N. (1999). Hierarchical structure in financial markets. The
+    European Physical Journal B 11(1), 193–197.
+    https://doi.org/10.1007/s100510050929
+
 EXAMPLE
 Simulated daily returns for 24 stocks in four sectors over two years (market
 factor + sector factor + stock-specific noise). Not investment advice.

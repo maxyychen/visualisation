@@ -24,8 +24,8 @@ ALTERNATIVES
   - Small multiples
 
 EXAMPLE
-Users (thousands) and sessions (millions) of a product: different scales,
-compared by growth.
+Users (thousands), sessions (millions) and revenue ($M) of a product
+(synthetic): different scales, compared by growth.
 
 Run:  python indexed_line.py
       python indexed_line.py --real-data   (real dataset: plotly.express.data.gapminder() — Gapminder life expectancy, GDP and population 1952–2007, bundled with plotly)

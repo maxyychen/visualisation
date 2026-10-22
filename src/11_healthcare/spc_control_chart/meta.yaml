@@ -1,0 +1,43 @@
+title: Control Charts (p-chart and u-chart)
+engine: mpl
+level: intermediate
+order: 210
+data_shape: [time, uncertainty]
+purpose: >-
+  Shewhart control charts plot a rate or proportion over time with a centre line and 3-sigma limits
+  computed from each period's own denominator. Points outside the limits are special-cause variation
+  worth investigating; everything inside is the common-cause noise of a stable process. The p-chart
+  handles proportions (infections per operation), the u-chart rates per unit of exposure (falls per
+  1,000 bed-days).
+when_to_use:
+  - Monitor a quality or safety indicator whose denominator changes from period to period
+  - Decide whether a single bad month needs investigation or is within normal variation
+  - Show whether an improvement has moved the process to a new, stable level
+avoid:
+  - Denominators are tiny (a handful of cases per period); the limits become meaningless
+  - The data show strong seasonality or overdispersion (use a Laney p′/u′ chart or a model)
+  - You have no time order (use a funnel plot to compare units instead)
+alternatives:
+  - Run chart (no limits, fewer assumptions)
+  - Funnel plot (comparing many units at one time)
+  - XmR chart (continuous measures such as waiting times)
+tips:
+  - "Limits step up and down because they depend on each period's denominator: small months get wider limits"
+  - Mark signals with a label, not colour alone, and investigate before acting
+  - Freeze the centre line and limits on a stable baseline and extend them; recalculate only after a sustained, explained change
+  - "Use the run rules as well as the limits: 8 or more consecutive points on one side of the centre line is a signal even when no point crosses a limit"
+  - "p-chart limits: p̄ ± 3·√(p̄(1−p̄)/nᵢ); u-chart limits: ū ± 3·√(ū/aᵢ), both clipped at zero"
+example: >-
+  Simulated hospital data over 36 months. Top: surgical-site infections as a proportion of operations
+  (80–220 operations a month), with one outbreak month. Bottom: inpatient falls per 1,000 bed-days,
+  with a falls-prevention bundle introduced in month 28.
+read: >-
+  The infection proportion stays inside its stepped limits except for one month above the upper limit:
+  a special cause (here, a simulated outbreak) worth investigating. The falls rate is stable until the
+  prevention bundle starts. No single later month is below the lower limit, but every month after the
+  change sits below the frozen baseline centre line (triangles), which the 8-point shift rule flags as
+  a real, sustained improvement.
+reference:
+  - text: "Mohammed, M. A., Worthington, P. & Woodall, W. H. (2008). Plotting basic control charts: tutorial notes for healthcare practitioners. Quality and Safety in Health Care 17(2), 137–145."
+    url: https://qualitysafety.bmj.com/content/17/2/137
+    year: 2008

@@ -13,5 +13,12 @@ avoid:
 alternatives:
 - Surplus/deficit filled line
 - Waterfall chart (to show the cumulative effect)
-example: Monthly net cash flow of a small business over two years.
+tips:
+- Use one hue for positive and an opposite hue for negative periods
+- Keep the zero line darker than the gridlines so the sign reads first
+- Label every period or every few periods; do not let tick labels overlap
+example: Monthly net cash flow of a small business over two years, simulated data.
+read: Blue columns are months with positive cash flow and orange columns are months with negative cash
+  flow. The split is even, 12 and 12. The large inflows (Oct 23, Feb 24) outweigh the outflows, so the
+  two-year total is positive.
 data_shape: [time, numeric]

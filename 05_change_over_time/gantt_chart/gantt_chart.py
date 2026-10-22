@@ -21,7 +21,7 @@ ALTERNATIVES
   - Swimmer plot (clinical)
 
 EXAMPLE
-A 6-month software project with tasks in three phases.
+A 4-month software project with tasks in three phases (illustrative).
 
 Run:  python gantt_chart.py
 """

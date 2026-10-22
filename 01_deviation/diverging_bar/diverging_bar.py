@@ -23,7 +23,8 @@ ALTERNATIVES
   - Surplus/deficit line (for time series)
 
 EXAMPLE
-Change in annual sales versus the previous year for 12 product lines.
+Change in annual sales versus the previous year for 12 product lines,
+simulated data.
 
 Run:  python diverging_bar.py
 """

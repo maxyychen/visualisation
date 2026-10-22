@@ -15,6 +15,10 @@ alternatives:
 - Hexbin plot
 - Scatter plot
 - Joint plot
+tips:
+- Use a single-hue sequential palette, light = low density, dark = high density
+- Overlay the raw points faintly so readers can see how much data supports each contour
+- Check the bandwidth; too small invents bumps, too large merges real modes
 example: Eruption duration vs. waiting time for 1,000 geyser eruptions (synthetic, Old-Faithful-like).
 read: 'Darker bands mark higher density, like peaks on a map. Two peaks show two eruption types: short
   eruptions followed by short waits, and long eruptions followed by long waits.'

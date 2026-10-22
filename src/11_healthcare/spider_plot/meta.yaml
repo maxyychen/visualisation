@@ -1,0 +1,35 @@
+title: Spider Plot (tumour change from baseline)
+engine: mpl
+level: intermediate
+order: 55
+data_shape: [time, categories]
+purpose: >-
+  One line per patient tracks the percentage change in tumour size from baseline at each scan. Lines
+  colored by best response show how deep and how durable each response was, and when progression set
+  in. That trajectory is lost in a single best-response waterfall.
+when_to_use:
+  - Show depth, speed and durability of tumour response in early-phase oncology trials
+  - Show the timing of progression or discontinuation, patient by patient
+  - Complement a waterfall plot (best change) and a swimmer plot (time on treatment)
+avoid:
+  - There are more than about 40 patients (lines tangle; use a waterfall plus Kaplan–Meier)
+  - Scans are irregular and sparse (lines suggest continuity that was not measured)
+  - The audience needs a single summary statistic such as objective response rate
+alternatives:
+  - Tumour response waterfall
+  - Swimmer plot
+  - Small multiples by response category
+tips:
+  - Draw the RECIST reference lines (+20% and −30% from baseline) in neutral gray
+  - "RECIST progression is measured from the nadir (+20% and at least 5 mm above the smallest sum so far), not from baseline: a responder can progress while still below the +20% line"
+  - Color by best overall response, not by patient, so the 4 categories stay readable
+  - Mark why a line ends (progression, toxicity, still on study) with a distinct marker shape
+example: >-
+  Simulated phase II cohort of 30 patients scanned every 6 weeks for up to 48 weeks: sum of target-lesion
+  diameters as % change from baseline, colored by best overall response.
+read: >-
+  Lines that dive below the −30% line belong to responders; the green complete responses reach −100%
+  (all target lesions gone). Orange lines progressed at the first scan. A cross marks a line that ended in
+  progression, judged against each patient's nadir: several stable-disease and partial-response lines end
+  with a cross well below the +20% line because they regrew 20% from their lowest point. An arrow marks
+  a patient still on study.

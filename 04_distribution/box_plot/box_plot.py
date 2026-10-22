@@ -3,8 +3,9 @@ Box Plot (Box-and-Whisker)  -  family: Distribution
 
 DESIGN PURPOSE
 Summarises a distribution with five numbers: the median, the quartiles (box)
-and the whiskers to 1.5×IQR, with outliers drawn as points. It is compact
-enough to compare many groups side by side.
+and the whiskers (reaching the furthest point within 1.5×IQR of the box), with
+outliers drawn as points. It is compact enough to compare many groups side by
+side.
 
 WHEN TO USE
   - Compare the medians and spreads of many groups
@@ -23,7 +24,7 @@ ALTERNATIVES
   - Strip plot
 
 EXAMPLE
-Days taken to pay an invoice, by customer segment, for 1,000 invoices
+Days taken to pay an invoice, by customer segment, for 1,020 invoices
 (synthetic).
 
 Run:  python box_plot.py

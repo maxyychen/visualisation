@@ -20,6 +20,7 @@ tips:
 - Size nodes by degree or another importance measure
 - Color by community (at most 8 groups) and keep edges thin and light
 example: Co-authorship network of 40 researchers in three research groups (synthetic).
-read: Each dot is a researcher and each line a co-authored paper. The three groups form dense clusters,
+read: Each dot is a researcher and each line joins two researchers who
+  have co-authored at least one paper. The three groups form dense clusters,
   and the yellow bridge author links them all.
 data_shape: [flows]

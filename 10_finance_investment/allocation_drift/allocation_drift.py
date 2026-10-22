@@ -100,10 +100,10 @@ for ax, (title, w) in zip(axes, panels):
     ax.grid(False)
     ax.yaxis.set_major_formatter(PercentFormatter(1.0, decimals=0))
 axes[0].set_ylabel("Portfolio weight")
-axes[1].legend(loc="upper center", bbox_to_anchor=(-0.05, -0.08), ncol=3)
-fig.suptitle("A 60/40/10 portfolio drifts unless it is rebalanced (thin lines = target)", x=0.02,
+fig.suptitle("A 60/30/10 portfolio drifts unless it is rebalanced (thin lines = target)", x=0.02,
              ha="left", fontsize=13, weight="bold")
-fig.tight_layout()
+fig.legend(*axes[0].get_legend_handles_labels(), loc="lower center", ncol=3)
+fig.tight_layout(rect=(0, 0.06, 1, 1))
 
 # --- Save / show -------------------------------------------------------------
 out = Path(__file__).with_name(Path(__file__).stem + ".png")

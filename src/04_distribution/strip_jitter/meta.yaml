@@ -14,5 +14,13 @@ alternatives:
 - Beeswarm plot
 - Box plot with points
 - Raincloud plot
-example: Sales uplift (%) per store in a three-arm promotion test, 40 stores per arm, with group means.
+tips:
+- Keep the jitter narrower than the gap between groups so lanes stay separate
+- Use semi-transparent dots with a light edge so overlaps stay visible
+- Draw the group mean or median as a short bar on top of the dots
+example: Sales uplift (%) per store in a three-arm promotion test, 40 stores per arm, with group means
+  (synthetic).
+read: Each dot is one store and the black bar is the arm's mean. Both promotions lift sales on average
+  (8% and 11% vs. 0% with no promotion), but stores vary widely and a few promoted stores still fell,
+  so the arms overlap more than the means suggest.
 data_shape: [numeric, categories]

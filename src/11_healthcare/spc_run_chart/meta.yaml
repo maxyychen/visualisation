@@ -1,0 +1,40 @@
+title: Run Chart (quality improvement)
+engine: mpl
+level: intermediate
+order: 200
+data_shape: [time]
+purpose: >-
+  A time-ordered line of a process measure with its median, read with a few probability-based rules
+  (shift, trend, number of runs). It separates real change from the ordinary month-to-month noise that
+  tempts teams to react to every up and down, and it needs no control limits or distributional
+  assumptions.
+when_to_use:
+  - Judge whether a change (new protocol, staffing, audit) actually improved a process measure
+  - Track a quality indicator monthly or weekly when you have roughly 10 or more points
+  - Start quality-improvement work before you have enough data for a control chart
+avoid:
+  - You have fewer than about 10 points (the rules have little power)
+  - You need to know whether a single point is unusual (use a control chart with limits)
+  - The measure is a mix of very different denominators month to month (use a p-chart)
+alternatives:
+  - Control chart (p-chart, u-chart, XmR) with 3-sigma limits
+  - Before/after box plots (loses the time order)
+tips:
+  - "Shift: 6 or more consecutive points on one side of the median; points exactly on the median neither break nor count"
+  - "Trend: 5 or more consecutive points all going up (or all down); repeated values are skipped"
+  - Freeze the baseline median before the change and extend it, so the post-change points are judged against the old process
+  - Annotate when the change was made; the reader should see cause and effect on one axis
+  - Don't add a linear trend line; it imposes a model the rules don't need
+example: >-
+  Simulated monthly hand-hygiene compliance on a hospital ward over 30 months. A new alcohol-rub
+  dispenser and feedback programme starts in month 16. The median is frozen from the 15 baseline
+  months.
+read: >-
+  Before the programme the points scatter around the baseline median of 71.5% with no signal. Around
+  the change, eight points in a row climb steadily (a trend, triangles), and from the last
+  baseline month onward every point sits above the old median (a shift of 16 points, orange). Both
+  rules flag a real improvement, not chance.
+reference:
+  - text: "Perla, R. J., Provost, L. P. & Murray, S. K. (2011). The run chart: a simple analytical tool for learning from variation in healthcare processes. BMJ Quality & Safety 20(1), 46–51."
+    url: https://doi.org/10.1136/bmjqs.2009.037895
+    year: 2011

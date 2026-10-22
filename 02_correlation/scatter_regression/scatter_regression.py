@@ -22,8 +22,8 @@ ALTERNATIVES
   - Residual plot
 
 EXAMPLE
-Weekly advertising spend vs. sales for 80 weeks, with an OLS fit and 95%
-confidence band.
+Weekly advertising spend vs. sales for 80 weeks (simulated data), with an OLS
+fit and a bootstrapped 95% confidence band.
 
 Run:  python scatter_regression.py
       python scatter_regression.py --real-data   (real dataset: plotly.express.data.tips() — 244 restaurant bills and tips (Bryant & Smith 1995), bundled with plotly)

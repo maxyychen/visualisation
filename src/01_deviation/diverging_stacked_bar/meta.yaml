@@ -19,7 +19,8 @@ tips:
 - Split the neutral category half left, half right of the center line
 - 'Use a diverging palette: two hues fading to a gray neutral'
 - Sort questions by net agreement
-example: Employee engagement survey with five questions on a 5-point agreement scale.
-read: The share of each bar right of center is agreement and left of center is disagreement. Questions
-  near the top have the most net agreement.
+example: Employee engagement survey with five questions on a 5-point agreement scale, illustrative numbers.
+read: Blue segments (right) are agreement and red segments (left) are disagreement; the gray neutral
+  share is split across the center line. Good team communication has the most net agreement (74% agree vs.
+  11% disagree), while Clear career path is the only clearly negative item (27% vs. 48%).
 data_shape: [categories]

@@ -14,5 +14,12 @@ avoid:
 alternatives:
 - Gantt chart (events with duration)
 - Annotated line chart
-example: Key milestones in the history of Python data visualization.
+tips:
+- Alternate stem heights (and above/below) so neighbouring labels do not collide
+- Keep labels to two or three words and put the year next to each one
+- Use a real date axis so uneven gaps between events stay visible
+example: Key milestones in the history of Python data visualization (dates approximate).
+read: Each dot is one milestone on a true time scale. After matplotlib (2003) and the NumPy/pandas
+  foundations, there is a four-year gap, then a burst of new libraries between 2012 and 2016 as
+  interactive and declarative tools arrived.
 data_shape: [time]

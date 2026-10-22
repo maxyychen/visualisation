@@ -6,10 +6,11 @@ rng = np.random.default_rng(12)
 dates = pd.bdate_range("2019-01-01", "2024-12-31")
 n = len(dates)
 t = np.arange(n)
-spot = 60 * np.exp(np.cumsum(rng.normal(0, 0.022, n)) * 0.6 + 0.25 * np.sin(t / 260))
+noise = rng.normal(0, 0.022, n)
 # convenience yield: low in a glut (2020), high in a squeeze (2022), mean-reverting noise
 conv = 0.04 + 0.10 * np.exp(-((t - 330) / 60.0) ** 2) * -1.2 + 0.16 * np.exp(-((t - 900) / 120.0) ** 2)
 conv = conv + np.convolve(rng.normal(0, 0.01, n), np.ones(20) / 20, mode="same")
+spot = 60 * np.exp(0.3 * np.cumsum(noise) + 3 * (conv - 0.04))   # cheap in a glut, dear in a squeeze
 r = 0.03
 months = np.arange(1, 13)
 curves = pd.DataFrame(spot[:, None] * np.exp((r - conv[:, None]) * months[None, :] / 12),
@@ -19,6 +20,7 @@ show_dates = [pd.Timestamp(d) for d in ("2019-06-03", "2020-04-20", "2022-06-14"
 curves.loc[curves.index.isin(show_dates)].round(1)
 
 # %% plot
+date_colors = [PALETTE[2], PALETTE[3], PALETTE[4], PALETTE[6]]   # not blue/orange: those mean contango/backwardation
 fig, (ax_c, ax_s) = plt.subplots(1, 2, figsize=(12, 4.8), gridspec_kw={"width_ratios": [1, 1.5], "wspace": 0.22})
 ends, label_y = [], {}
 for d in show_dates:
@@ -31,12 +33,12 @@ for v, d in sorted(ends):                       # keep end labels at least 6 $ a
 for k, d in enumerate(show_dates):
     d = curves.index[curves.index.get_indexer([d], method="nearest")[0]]
     row = curves.loc[d]
-    ax_c.plot(months, row.values, color=PALETTE[k], marker="o", markersize=3.5)
+    ax_c.plot(months, row.values, color=date_colors[k], marker="o", markersize=3.5)
     shape = "contango" if row.iloc[-1] > row.iloc[0] else "backwardation"
     ax_c.annotate(f"{d:%b %Y}\n{shape}", (months[-1], row.iloc[-1]), xytext=(12.4, label_y[d]),
-                  textcoords="data", va="center", fontsize=8.5, color=PALETTE[k],
-                  arrowprops=dict(arrowstyle="-", color=PALETTE[k], linewidth=0.6, shrinkA=0, shrinkB=2))
-    ax_s.scatter(d, spread.loc[d], color=PALETTE[k], s=45, zorder=4, edgecolor="#fcfcfb", linewidth=1.5)
+                  textcoords="data", va="center", fontsize=8.5, color=date_colors[k],
+                  arrowprops=dict(arrowstyle="-", color=date_colors[k], linewidth=0.6, shrinkA=0, shrinkB=2))
+    ax_s.scatter(d, spread.loc[d], color=date_colors[k], s=45, zorder=4, edgecolor="#fcfcfb", linewidth=1.5)
 ax_c.set_xticks(months)
 ax_c.set_xlim(0.5, 15.5)
 ax_c.set_xlabel("Months to expiry")

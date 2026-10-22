@@ -15,7 +15,11 @@ alternatives:
 - 100% stacked bar + separate bar of totals
 - Treemap
 - Heatmap table
-example: 'Smartphone market: size of each region (width) and brand share within it (height).'
+example: 'Smartphone market (fictional brands and figures): size of each region (width) and brand share within it (height).'
+tips:
+- Label each column with its total so the widths can be checked
+- Put the most important segment on the baseline and use gray for 'Other'
+- Keep columns and segments to about 5 each so slivers stay readable
 read: Column width is a region's share of the global market and segment height is brand share within that
   region. Each block's area is that brand's share of the global market.
 data_shape: [categories]

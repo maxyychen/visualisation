@@ -1,0 +1,38 @@
+title: Patient Timeline (LifeLines-style record overview)
+engine: mpl
+level: intermediate
+order: 400
+data_shape: [time, events, categories]
+purpose: >-
+  Lays out one patient's record (encounters, diagnoses, medications and a key lab value) as parallel
+  swimlanes on a shared time axis. Cause and effect that a chronological list buries become visible:
+  a drug started after a diagnosis, a lab value that improved, an admission that followed a gap in
+  treatment.
+when_to_use:
+  - Review a single patient's history at a glance (case review, care coordination, clinical teaching)
+  - Show how treatments line up with diagnoses, admissions and lab trends
+  - Show any entity's event history across several kinds of event (customer, asset, account)
+avoid:
+  - Comparing many patients (use a swimmer plot or lasagna plot)
+  - The record has hundreds of events in a short period (aggregate or zoom first)
+  - Exact values matter more than sequence (use a table)
+alternatives:
+  - Swimmer plot
+  - Gantt chart
+  - Lab reference-range small multiples
+tips:
+  - Keep one shared time axis and one lane per kind of event
+  - Use bars for things with duration (stays, prescriptions) and markers for instants (diagnoses, visits)
+  - Draw the lab reference range as a band so out-of-range periods stand out
+  - Use de-identified data (shift dates, drop identifiers); executed notebooks store their outputs
+example: >-
+  A simulated patient over 18 months: type 2 diabetes and hypertension diagnoses, three medications
+  started and adjusted, one hospital admission and outpatient visits, and HbA1c measured every few months.
+read: >-
+  The HbA1c lane shows the effect of treatment. It falls into the target band (≤ 7.0%) about six months
+  after metformin starts, and again after empagliflozin is added in month 11. The admission in month 10 follows a gap in metformin, visible as
+  a break in its bar.
+reference:
+  - text: "Plaisant, C., Milash, B., Rose, A., Widoff, S. & Shneiderman, B. (1996). LifeLines: visualizing personal histories. Proceedings of the ACM CHI Conference on Human Factors in Computing Systems (CHI '96), 221–227."
+    url: https://doi.org/10.1145/238386.238493
+    year: 1996

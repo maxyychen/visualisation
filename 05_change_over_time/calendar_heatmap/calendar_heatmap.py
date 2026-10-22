@@ -21,7 +21,7 @@ ALTERNATIVES
   - Heatmap of weekday × hour
 
 EXAMPLE
-Daily exercise minutes for one year.
+Daily exercise minutes for one year (synthetic).
 
 Run:  python calendar_heatmap.py
 """

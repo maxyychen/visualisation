@@ -22,7 +22,8 @@ ALTERNATIVES
   - Lollipop chart
 
 EXAMPLE
-Quarterly revenue for two years, highlighting the latest quarter.
+Quarterly revenue for two years (illustrative data), highlighting the latest
+quarter.
 
 Run:  python column_chart.py
 """

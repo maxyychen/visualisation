@@ -13,5 +13,11 @@ avoid:
 alternatives:
 - Waffle chart
 - Single stacked bar with a majority line
+tips:
+- State the majority threshold on the chart
+- Order parties along the arc by political position (left to right) and fill seats by angle, not by row
+- Use gray for 'Other' and independents
 example: Seats in a 120-seat parliament after a (fictional) election.
+read: Each dot is one seat. No party reaches the 61-seat majority. Party A has 52, so it needs a partner,
+  and A + C (66 seats) is the smallest two-party majority.
 data_shape: [categories]

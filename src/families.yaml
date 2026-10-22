@@ -29,18 +29,22 @@
   name: Finance & investment
   description: Performance, risk, portfolios, markets, rates, derivatives and valuation, the everyday charts of investors and analysts.
   note: Educational examples with simulated or historical data. Not investment advice; past performance does not predict future returns.
-- folder: 11_scientific
+- folder: 11_healthcare
+  name: Healthcare & life sciences
+  description: Clinical trials, survival, oncology, hospital quality and operations, epidemiology and patient-level records.
+  note: 'Examples use simulated data. De-identify patient data before analysing it in notebooks: executed notebooks store their outputs.'
+- folder: 12_scientific
   name: Scientific
-  description: 'Specialised plots for statistics and scientific research: survival, effect sizes, agreement, omics, study flow and longitudinal data.'
-- folder: 12_machine_learning
+  description: 'Domain-neutral statistics and research plots: effect sizes, meta-analysis, agreement, omics, replicates and visual inference.'
+- folder: 13_machine_learning
   name: Machine learning
   description: 'Evaluate and explain fitted models: classification performance, calibration, learning curves, residuals, feature importance and feature effects.'
-- folder: 13_uncertainty
+- folder: 14_uncertainty
   name: Uncertainty
   description: Show what is not known (intervals, probabilities and possible outcomes) so readers do not over-trust a single number.
-- folder: 14_bad_vs_good
+- folder: 15_bad_vs_good
   name: Bad vs. good
   description: Common chart mistakes, each shown next to a better alternative that fixes it.
-- folder: 15_interactive_advanced
+- folder: 16_interactive_advanced
   name: Interactive, animated & big data
   description: What-if sliders, linked views, animation and million-point rendering. Use these when exploration or motion adds understanding that a static chart cannot.

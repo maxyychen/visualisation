@@ -83,3 +83,6 @@ ax_w.set_title("2. Allocate risk down the tree", loc="left")
 ax_w.legend(loc="lower right", fontsize=9)
 fig.suptitle("Hierarchical risk parity: from correlation clusters to portfolio weights",
              x=0.06, ha="left", fontsize=14, fontweight="bold")
+fig.canvas.draw()                                 # align dendrogram leaves with heatmap columns
+ph, pdg = ax_h.get_position(), ax_d.get_position()
+ax_d.set_position([ph.x0, pdg.y0, ph.width, pdg.height])

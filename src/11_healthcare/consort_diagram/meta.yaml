@@ -1,0 +1,26 @@
+title: CONSORT Flow Diagram
+engine: mpl
+level: basic
+order: 10
+purpose: A standardised flowchart showing how participants moved through a randomised trial, from assessment for
+  eligibility through allocation and follow-up to analysis, with the number excluded and the reason at each step.
+  Readers use it to judge selection bias and attrition.
+when_to_use:
+- Report any randomised controlled trial (required by the CONSORT statement and most journals)
+- Show participant flow in cohort studies or screening programmes (STROBE/STARD-style flow)
+- Make attrition and exclusions transparent
+avoid:
+- The process is not a sequential flow of participants (use a Sankey diagram for many-to-many flows)
+alternatives:
+- Sankey diagram (when flows split and merge)
+- Funnel chart (single-path attrition)
+tips:
+- Make the numbers add up at every step; reviewers check them
+- Keep arms side by side with identical box positions so they can be compared
+- Put exclusion reasons in side boxes, not in the main flow
+example: A synthetic (simulated) two-arm trial with 480 people assessed, 360 randomised, and loss to follow-up in each arm.
+read: Follow the main flow from top to bottom. Side boxes give the people excluded at each stage and why. Each
+  arm's analysed count is the number allocated minus those lost to follow-up (181 − 7 = 174 and 179 − 9 = 170);
+  patients who discontinued the intervention are still followed and analysed. Compare the arms row by row to see
+  whether attrition differs between them.
+data_shape: [flows]

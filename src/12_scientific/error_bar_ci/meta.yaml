@@ -1,0 +1,27 @@
+title: Means with 95% Confidence Intervals
+engine: mpl
+level: intermediate
+order: 130
+purpose: Plots each group's mean as a dot with a 95% confidence interval, over the raw observations. Readers
+  see the estimate, its uncertainty, and the data behind it, which a bar-of-means ('dynamite plot') hides.
+when_to_use:
+- Compare group means from experiments or trials (dose groups, conditions)
+- Show estimates together with their uncertainty
+- Replace 'dynamite plots' (bars with error whiskers)
+avoid:
+- Distributions are strongly skewed or multimodal (show box, violin or raincloud plots)
+- The audience may confuse SD, SE and CI (always say which one in the axis label or caption)
+alternatives:
+- Box plot
+- Raincloud plot
+- Forest plot
+tips:
+- State whether the bars are SD, SE or 95% CI
+- Draw the raw points lightly behind the summary, jittered horizontally
+- Two 95% CIs can overlap by up to about a quarter of their length and still differ at p < 0.05, so don't judge differences by overlap
+example: LDL cholesterol reduction after 12 weeks in four dose groups of a synthetic (simulated) trial.
+read: Each blue dot is a group mean, and its bar is the 95% CI; the gray dots show the spread of individual
+  patients. Every dose is clearly above placebo and the means rise with dose (4.6% to 31.9%). The intervals of
+  adjacent doses overlap, but overlap alone does not mean "no difference"; compare doses with a test or a CI for
+  the difference.
+data_shape: [uncertainty, categories]

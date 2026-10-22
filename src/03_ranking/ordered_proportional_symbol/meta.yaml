@@ -16,5 +16,8 @@ alternatives:
 tips:
 - Scale circle area (not radius) to value
 - Print the value inside or below each circle
-example: Population of the 10 largest metropolitan areas (millions, approximate).
+example: Market value ($bn) of the 10 largest companies in a fictional stock index; values span two
+  orders of magnitude.
+read: Circle area is market value, ranked from largest (left) to smallest. Novacorp ($2,900bn) is almost
+  100 times Zephyr ($30bn); on a linear bar chart the last few companies would be barely visible slivers.
 data_shape: [categories, numeric]

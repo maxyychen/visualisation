@@ -13,6 +13,10 @@ avoid:
 alternatives:
 - Scatter plot
 - Hexbin with marginal histograms
+tips:
+- Use the same bin width rules on both marginals so their shapes are comparable
+- Make points semi-transparent; switch the centre panel to hexbin or KDE for thousands of points
+- Consider a log axis when a marginal is strongly right-skewed
 example: House size vs. sale price for 400 homes (synthetic, right-skewed prices).
 read: 'The centre panel shows price rising with size. The histograms on the edges show both variables
   are right-skewed: most homes are mid-sized, with a long tail of large, expensive ones.'

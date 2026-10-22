@@ -12,6 +12,7 @@ crash = (dates >= "2020-02-20") & (dates <= "2020-03-23")
 mkt[crash] -= 0.012
 mkt[(dates >= "2022-01-01") & (dates <= "2022-10-15")] -= 0.0011
 fund = 0.00024 + 0.9 * mkt + rng.normal(0, 0.004, n)
+fund[0] = mkt[0] = 0.0  # the first date is the start: both series begin at exactly 10,000
 prices = 10_000 * (1 + pd.DataFrame({"Fund": fund, "Benchmark": mkt}, index=dates)).cumprod()
 freq = 252  # observations per year, used for CAGR
 prices.tail()
@@ -27,7 +28,7 @@ prices.tail()
 
 # %% plot
 fund_name, bench_name = prices.columns[:2]
-years = len(prices) / freq
+years = (len(prices) - 1) / freq  # n prices span n - 1 return periods
 fig, ax = plt.subplots(figsize=(9, 5))
 ax.plot(prices.index, prices[bench_name], color=GRAY, linewidth=1.6, label=bench_name)
 ax.plot(prices.index, prices[fund_name], color=PALETTE[0], linewidth=2, label=fund_name)

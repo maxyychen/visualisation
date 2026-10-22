@@ -13,6 +13,10 @@ avoid:
 alternatives:
 - Diverging column chart over time
 - Plain line with a reference line
+tips:
+- Use interpolated fills so the color switches exactly where the line crosses the baseline
+- Choose a warm/cool or gain/loss hue pair that matches the meaning of the sign
+- Draw the line itself on top of the fills so individual values stay readable
 example: Monthly temperature anomaly (°C vs. the 1991–2020 average) over 10 years, synthetic data.
 read: Red areas show months warmer than average and blue areas cooler. The shift from mostly blue to mostly
   red shows the warming trend.

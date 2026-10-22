@@ -13,7 +13,11 @@ avoid:
 alternatives:
 - Histogram with a fitted normal curve
 - ECDF vs. theoretical CDF
-example: Normal vs. right-skewed vs. heavy-tailed samples (n = 200 each), side by side.
+tips:
+- Use the same theoretical distribution as the assumption you are checking (normal for residuals)
+- Judge the middle of the plot more than the extreme points, which wobble even for normal data
+- Add a confidence band (e.g. statsmodels or pingouin) to see which departures are larger than noise
+example: Normal vs. right-skewed vs. heavy-tailed samples (simulated, n = 200 each), side by side.
 read: Points on the orange line mean the data matches a normal distribution. An upward curve at the right
   end means right skew, and an S-shape with both ends pulling away means heavy tails.
 data_shape: [numeric]

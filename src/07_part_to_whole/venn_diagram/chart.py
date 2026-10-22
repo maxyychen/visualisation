@@ -20,5 +20,6 @@ for patch in v.patches:
 for t in v.subset_labels:
     if t is not None:
         t.set_fontsize(10)
-ax.set_title("Which bank products do customers hold? (n = 1,000)")
+n_none = 1000 - sum(subsets.values())        # customers holding none of the three
+ax.set_title(f"Which bank products do customers hold? (n = 1,000; {n_none} hold none)")
 fig.tight_layout()

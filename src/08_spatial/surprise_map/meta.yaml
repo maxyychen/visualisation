@@ -34,8 +34,8 @@ example: >-
 read: >-
   Panel 1 mostly repeats the population map (CA, TX, FL, NY). Panel 2 puts small states such as
   NE and KS at the top, largely by chance. Panel 3 gives its strongest signal to NY and FL, large
-  states with genuinely more cases, and shows WI and MN in blue; NE and KS get roughly half
-  that signal despite topping panel 2. GA and CA also show blue: in states this large, even a modest gap from the average is
+  states with genuinely more cases, and shows WI and MN in blue; NE and KS get half that signal
+  or less despite topping panel 2. GA and CA also show blue: in states this large, even a modest gap from the average is
   hard to explain by chance.
 reference:
   - text: "Correll, M. & Heer, J. (2017). Surprise! Bayesian weighting for de-biasing thematic maps. IEEE Transactions on Visualization and Computer Graphics 23(1), 651–660."

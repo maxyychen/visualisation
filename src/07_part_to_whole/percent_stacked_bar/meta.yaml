@@ -19,6 +19,6 @@ tips:
 - Horizontal bars leave room for long group labels
 - Label shares inside segments only when the segment is wide enough
 example: Energy mix of electricity generation in five regions (synthetic shares).
-read: Each bar is 100% of a region's generation. Compare the width of one color, for example green renewables,
-  between regions. The bars are sorted by renewable share.
+read: Each bar is 100% of a region's generation. Compare the width of one color, for example the amber renewables,
+  between regions. The bars are sorted by renewable share, so West (50%) is on top.
 data_shape: [categories]

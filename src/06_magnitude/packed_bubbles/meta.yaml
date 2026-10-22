@@ -16,4 +16,6 @@ alternatives:
 tips:
 - Scale circle AREA, not radius, to the value; label the biggest bubbles directly
 example: Market capitalisation of 15 (fictional) companies.
-data_shape: [categories, numeric, hierarchy]
+read: Each circle's area is a company's market cap and its color the sector. Co. A ($480B) is about twice
+  Co. B ($243B); small bubbles are left unlabelled, so use a bar chart if their exact values matter.
+data_shape: [categories, numeric]

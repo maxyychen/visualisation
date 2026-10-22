@@ -32,9 +32,7 @@ ALTERNATIVES
 REFERENCE
   - Correll, M., Moritz, D. & Heer, J. (2018). Value-suppressing uncertainty
     palettes. Proceedings of the ACM CHI Conference on Human Factors in
-    Computing Systems (CHI 2018).
-    https://tableau.com/research/publications/value-suppressing-uncertainty-
-    palettes
+    Computing Systems (CHI 2018). https://doi.org/10.1145/3173574.3174216
 
 EXAMPLE
 Simulated survey estimates of mortgage delinquency for 50 states and DC. Large

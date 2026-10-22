@@ -19,7 +19,8 @@ ALTERNATIVES
   - Line chart of values
 
 EXAMPLE
-League position of 8 football clubs over 6 seasons, highlighting 3 clubs.
+League position of 8 fictional football clubs over 6 seasons, highlighting 3
+clubs.
 
 Run:  python bump_chart.py
 """

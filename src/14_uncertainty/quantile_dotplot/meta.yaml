@@ -1,0 +1,44 @@
+title: Quantile Dotplot
+engine: mpl
+level: intermediate
+order: 20
+purpose: >-
+  Turns a probability distribution into a small number of dots (here 20), each holding an equal share of
+  probability (5%), stacked like a histogram. Readers can count dots to answer "what are my chances?"
+  without reading a density curve. Kay et al. (2016) found that people estimate probabilities more
+  precisely from it than from a density plot, and Fernandes et al. (2018) found that it leads to better
+  decisions than intervals or no uncertainty display.
+when_to_use:
+  - Communicate a predictive distribution to the public (arrival times, waiting times, forecasts)
+  - Support a threshold decision ("how likely is it before 10 minutes?")
+  - Show risk as frequencies, which most people find easier than percentages
+avoid:
+  - You need fine detail in the tails (20–50 dots cannot show rare events)
+  - Comparing many distributions at once (use half-eye or gradient intervals)
+alternatives:
+  - Icon array (for a single probability)
+  - Half-eye plot
+  - CDF / ECDF plot (exact cumulative probabilities)
+tips:
+  - Use 20, 50 or 100 dots so that one dot is a round percentage
+  - Highlight the dots on one side of the decision threshold and state the count
+  - Keep the dots round (equal aspect ratio)
+example: >-
+  A predicted bus arrival time, modelled as a log-normal distribution with a median of about 11 minutes
+  (after the "When (ish) is my bus?" study, Kay et al., CHI 2016).
+read: >-
+  Each dot is a 1-in-20 (5%) chance, stacked in the one-minute interval it falls in. Six blue dots fall
+  before the 9-minute line, so there is about a 30% chance the bus comes within 9 minutes. If you need
+  9 minutes to finish your coffee, you will catch it about seven times in ten.
+data_shape: [uncertainty]
+reference:
+- text: Kay, M., Kola, T., Hullman, J. R. & Munson, S. A. (2016). When (ish) is my bus? User-centered
+    visualizations of uncertainty in everyday, mobile predictive systems. Proceedings of the ACM CHI Conference
+    on Human Factors in Computing Systems (CHI 2016).
+  url: https://idl.uw.edu/papers/when-ish-is-my-bus
+  year: 2016
+- text: Fernandes, M., Walls, L., Munson, S., Hullman, J. & Kay, M. (2018). Uncertainty displays using quantile
+    dotplots or CDFs improve transit decision-making. Proceedings of the ACM CHI Conference on Human Factors
+    in Computing Systems (CHI 2018).
+  url: https://doi.org/10.1145/3173574.3173718
+  year: 2018

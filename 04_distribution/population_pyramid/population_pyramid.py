@@ -65,8 +65,8 @@ fig, ax = plt.subplots(figsize=(8, 6.5))
 ax.barh(df["band"], -df["male"], color=PALETTE[0], height=0.85, label="Male")
 ax.barh(df["band"], df["female"], color=PALETTE[1], height=0.85, label="Female")
 ax.axvline(0, color="#fcfcfb", linewidth=2)
-lim = 4.5
-ticks = np.arange(-4, 5, 1)
+lim = 5
+ticks = np.arange(-5, 6, 1)
 ax.set_xticks(ticks, [f"{abs(t)}%" for t in ticks])
 ax.set_xlim(-lim, lim)
 ax.set_xlabel("Share of total population")

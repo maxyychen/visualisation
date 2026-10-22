@@ -18,4 +18,7 @@ tips:
 - State the data year and the denominator in the title or legend
 - Viewing requires a network connection (plotly.js loads the map shapes)
 example: Illustrative (synthetic) uninsured rate (%) by state, with a South-to-North gradient.
+read: Darker blue means a higher uninsured rate. The southern band (OK, NC, FL, SC, GA, all above 12%)
+  is darkest, while California, Pennsylvania and much of the North are pale. Tiny RI, DE and DC are hard
+  to see at all, which is why the tile grid map exists.
 data_shape: [geo]

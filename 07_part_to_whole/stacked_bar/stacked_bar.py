@@ -24,7 +24,8 @@ ALTERNATIVES
   - Small-multiple bars
 
 EXAMPLE
-Quarterly revenue of a software company, split by sales channel.
+Quarterly revenue of a software company, split by sales channel (illustrative
+data).
 
 Run:  python stacked_bar.py
 

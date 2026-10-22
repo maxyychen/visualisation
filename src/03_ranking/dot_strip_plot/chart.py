@@ -3,11 +3,11 @@ from vizlib.mpl_style import *  # noqa: F401,F403  (inlined on build)
 
 # %% data
 rng = np.random.default_rng(2)
-metrics = ["Safety", "Healthcare", "Education", "Housing cost", "Transit"]
+metrics = ["Safety", "Healthcare", "Education", "Affordability", "Transit"]
 cities = [f"City {i}" for i in range(29)] + ["Our city"]
 rows = [(c, m, rng.uniform(30, 95)) for c in cities for m in metrics]
 df = pd.DataFrame(rows, columns=["city", "metric", "score"])
-ours = {"Safety": 88, "Healthcare": 74, "Education": 52, "Housing cost": 35, "Transit": 81}
+ours = {"Safety": 88, "Healthcare": 74, "Education": 52, "Affordability": 35, "Transit": 81}
 df.loc[df["city"] == "Our city", "score"] = df.loc[df["city"] == "Our city", "metric"].map(ours)
 df["rank"] = df.groupby("metric")["score"].rank(ascending=False).astype(int)
 df[df["city"] == "Our city"]

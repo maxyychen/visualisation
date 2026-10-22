@@ -43,8 +43,10 @@ fig, ax = plt.subplots(figsize=(10, 5.5))
 y = np.arange(len(df))[::-1]
 for yi, row in zip(y, df.itertuples()):
     ax.barh(yi, row.high - row.low, left=row.low, height=0.55, color=family_color[row.family])
-    ax.text(row.low - 0.4, yi, f"${row.low:.1f}", ha="right", va="center", fontsize=9, color="#52514e")
-    ax.text(row.high + 0.4, yi, f"${row.high:.1f}", ha="left", va="center", fontsize=9, color="#52514e")
+    ax.text(row.low - 0.4, yi, f"${row.low:.1f}", ha="right", va="center", fontsize=9, color="#52514e", zorder=4,
+            bbox=dict(facecolor="#fcfcfb", edgecolor="none", pad=0.6))
+    ax.text(row.high + 0.4, yi, f"${row.high:.1f}", ha="left", va="center", fontsize=9, color="#52514e", zorder=4,
+            bbox=dict(facecolor="#fcfcfb", edgecolor="none", pad=0.6))
 ax.axvline(price_now, color="#0b0b0b", linewidth=1.5)
 ax.text(price_now, y[0] + 0.55, f"Current ${price_now:.2f}", ha="center", va="bottom", fontsize=9.5,
         fontweight="bold")

@@ -20,7 +20,8 @@ ALTERNATIVES
   - Dot plot with a reference line
 
 EXAMPLE
-Fuel efficiency (mpg) of 20 car models compared with the fleet average.
+Fuel efficiency (mpg) of 20 car models compared with the fleet average,
+simulated data.
 
 Run:  python deviation_lollipop.py
 """
