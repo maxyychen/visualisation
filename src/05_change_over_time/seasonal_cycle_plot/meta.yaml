@@ -1,5 +1,6 @@
 title: Seasonal (Cycle) Plot
 engine: mpl
+level: intermediate
 order: 130
 purpose: Overlays each year as its own line on a shared month axis, or groups values by season. Seasonal
   patterns can be compared year against year, which a long continuous line hides.

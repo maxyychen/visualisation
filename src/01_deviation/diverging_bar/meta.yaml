@@ -1,5 +1,6 @@
 title: Diverging Bar Chart
 engine: mpl
+level: basic
 order: 10
 purpose: A bar chart whose bars grow left or right (or up or down) from a shared reference line. Color
   shows direction, so the eye picks out above and below the baseline before reading magnitude.

@@ -1,0 +1,33 @@
+title: Hierarchical Edge Bundling
+engine: mpl
+order: 900
+level: advanced
+data_shape: [flows, hierarchy]
+purpose: >-
+  Leaves of a hierarchy sit around a circle, grouped by parent. Each connection is drawn as a
+  B-spline routed through the hierarchy (leaf → parent → root → parent → leaf), so edges between
+  the same groups bundle into a shared "cable". This turns the hairball of a dense network into
+  readable group-to-group traffic while keeping every individual link.
+when_to_use:
+  - Show many connections (100s) between items that belong to a known hierarchy
+  - Reveal which groups depend on which, e.g. module imports, interbank exposures, team communication
+  - Find unexpected links that leave their group's main bundle
+avoid:
+  - There is no meaningful hierarchy to route edges through (use a force-directed network or matrix)
+  - Readers need exact weights or the direction of every edge (use an adjacency matrix)
+  - Only a handful of edges exist (a plain network or arc diagram is simpler)
+alternatives:
+  - Adjacency matrix (ordered)
+  - Chord diagram (group-level totals only)
+  - Network graph (force-directed)
+tips:
+  - "Bundling strength β (0.7–0.9) trades readability for faithfulness: β=1 follows the hierarchy exactly, β=0 is a straight line"
+  - Color edges by source group; keep them thin and semi-transparent so bundles read by density
+  - Rotate leaf labels radially and keep the inner area free of text
+example: >-
+  Simulated import dependencies between 36 modules of a trading platform, grouped into six packages
+  (data, pricing, risk, execution, reporting, api). Edges are colored by the importing package.
+read: >-
+  Thick bundles show heavy package-to-package traffic. Pricing and risk modules lean on data, execution
+  depends on risk and pricing, and api reaches into nearly everything. A thin strand that breaks away
+  from its bundle is an unusual cross-package import worth reviewing.

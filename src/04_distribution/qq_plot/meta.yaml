@@ -1,5 +1,6 @@
 title: Q-Q Plot (Quantile-Quantile)
 engine: mpl
+level: intermediate
 order: 120
 purpose: Plots a sample's quantiles against those of a theoretical distribution, usually the normal. If
   the points follow the diagonal, the data fits; curved tails show skew or heavy tails.

@@ -1,5 +1,6 @@
 title: Violin Plot
 engine: mpl
+level: intermediate
 order: 40
 purpose: A mirrored density curve for each group, often with a mini box plot inside. It keeps a box plot's
   compact group comparison while showing the full shape of each distribution.

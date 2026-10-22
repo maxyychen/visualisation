@@ -1,5 +1,6 @@
 title: Raincloud Plot
 engine: mpl
+level: intermediate
 order: 100
 purpose: Combines a half-violin (the 'cloud'), a box plot, and jittered raw points (the 'rain'). Shape,
   summary statistics and every observation appear together, which addresses the main criticism of bar

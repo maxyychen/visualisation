@@ -1,5 +1,6 @@
 title: Gantt Chart
 engine: mpl
+level: basic
 order: 110
 purpose: 'Horizontal bars placed on a time axis, one per task, showing start, duration and end. It is
   the standard view of a schedule: sequence, overlap and progress.'

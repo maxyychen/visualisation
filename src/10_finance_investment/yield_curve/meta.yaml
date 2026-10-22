@@ -1,5 +1,6 @@
 title: Yield Curve (with Inversion)
 engine: mpl
+level: intermediate
 order: 240
 purpose: Plots government bond yields against maturity for a few dates. The curve's shape (upward, flat
   or inverted) summarises market expectations for interest rates and growth. Shading where long rates

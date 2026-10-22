@@ -1,5 +1,6 @@
 title: Option Payoff Diagrams
 engine: mpl
+level: intermediate
 order: 260
 purpose: Plots profit or loss at expiry against the underlying price for an option strategy, with the
   premium paid or received included. Small multiples put several strategies side by side, so their risk

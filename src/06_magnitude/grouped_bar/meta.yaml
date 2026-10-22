@@ -1,5 +1,6 @@
 title: Grouped (Clustered) Bar Chart
 engine: mpl
+level: basic
 order: 30
 purpose: Places bars for several sub-groups side by side within each category. Sub-groups can be compared
   within a category, and the same sub-group across categories.

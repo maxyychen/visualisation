@@ -1,0 +1,35 @@
+title: Event Study (Cumulative Abnormal Returns)
+engine: mpl
+order: 430
+level: advanced
+data_shape: [prices, time, uncertainty]
+purpose: >-
+  Lines up many events, such as earnings announcements, on a common clock (day 0 = event) and
+  plots the average cumulative abnormal return (CAR): the return beyond what the market model
+  predicts. A confidence band shows whether the reaction is distinguishable from noise. It is the
+  standard way to measure how prices respond to news.
+when_to_use:
+  - Measure the average price reaction to a type of event (earnings, dividends, rate decisions, index inclusion)
+  - Compare reactions between event groups (beats vs. misses, upgrades vs. downgrades)
+  - Check for information leakage before the event or drift after it
+avoid:
+  - There are only a handful of events (the average is dominated by one case)
+  - Events overlap in time for the same stock (windows contaminate each other)
+  - Readers need the reaction of one specific event (plot that stock's returns instead)
+alternatives:
+  - Bar chart of day-0 abnormal return by group
+  - Small multiples of individual event paths
+tips:
+  - Estimate the market model on a window that ends well before the event (e.g. days −250 to −30)
+  - Always show a confidence band; state n per group
+  - Mark day 0 and the zero line clearly
+example: >-
+  160 simulated earnings announcements (about 60% beats). Abnormal returns come from a market
+  model estimated on days −250 to −30, and the event window is day −10 to +10. The simulation includes
+  a small pre-announcement run-up and post-announcement drift. Not investment advice.
+read: >-
+  Both lines start near zero and split on day 0: beats (blue) jump up and misses (orange) drop,
+  and both keep drifting in the same direction for days afterwards (post-earnings drift). The small
+  moves just before day 0 hint at information leaking ahead of the release. The bands are
+  95% confidence intervals for the mean; after day 0 they no longer overlap, so the difference is
+  unlikely to be chance.

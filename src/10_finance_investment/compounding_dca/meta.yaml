@@ -1,5 +1,6 @@
 title: Lump Sum vs Dollar-Cost Averaging vs Cash
 engine: mpl
+level: basic
 order: 330
 purpose: Compares investing a sum all at once, spreading it over twelve months (dollar-cost averaging),
   and leaving it in cash. One example path shows compounding over time, and a histogram across thousands

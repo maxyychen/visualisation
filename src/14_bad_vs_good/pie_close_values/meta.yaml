@@ -1,5 +1,6 @@
 title: "Pie of Close Values vs. Sorted Bar"
 engine: mpl
+level: basic
 order: 30
 purpose: >-
   People judge angles and areas much less accurately than lengths on a common baseline. In a pie

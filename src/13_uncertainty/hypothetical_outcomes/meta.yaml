@@ -1,5 +1,6 @@
 title: Hypothetical Outcome Plot (HOP)
 engine: plotly
+level: intermediate
 order: 30
 purpose: >-
   Animates uncertainty instead of summarizing it. Each frame shows one plausible outcome drawn from the

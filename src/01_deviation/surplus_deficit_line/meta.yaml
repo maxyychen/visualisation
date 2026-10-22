@@ -1,5 +1,6 @@
 title: Surplus / Deficit Filled Line
 engine: mpl
+level: basic
 order: 30
 purpose: A line chart filled toward a reference value, in one color above it and another below. It shows
   when a series runs in surplus or deficit and by how much.

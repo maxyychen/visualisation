@@ -1,5 +1,6 @@
 title: Market Map (Sector Treemap Heatmap)
 engine: mpl
+level: basic
 order: 210
 purpose: 'A treemap where each rectangle is a stock, sized by market capitalisation, grouped by sector
   and colored by the day''s return. It answers two questions at once: what moved, and how much of the

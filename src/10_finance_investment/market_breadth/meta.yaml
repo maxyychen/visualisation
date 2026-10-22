@@ -1,5 +1,6 @@
 title: Market Breadth Panels
 engine: mpl
+level: intermediate
 order: 230
 purpose: Stacks a cap-weighted index above two breadth measures, the cumulative advance-decline line and
   the share of stocks above their 200-day moving average, on a shared time axis. It shows whether a rally

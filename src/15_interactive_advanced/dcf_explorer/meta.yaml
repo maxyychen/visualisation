@@ -1,0 +1,36 @@
+title: DCF Valuation Explorer (what-if sliders)
+engine: altair
+order: 30
+level: advanced
+data_shape: [numeric, time]
+purpose: >-
+  An interactive discounted-cash-flow model. Sliders change the discount rate (WACC), terminal
+  growth and free-cash-flow margin; the chart recomputes the cash flows, their present values and
+  the implied value per share against the current price. It shows how much of a valuation rests on
+  assumptions, especially the terminal value.
+when_to_use:
+  - Show stakeholders which assumptions drive a valuation (usually WACC and terminal growth)
+  - Teach the mechanics of discounting and terminal value
+  - "Pressure-test an investment case: how far must assumptions move before the upside disappears?"
+avoid:
+  - A formal valuation report (show a sensitivity table with the base case outlined)
+  - Businesses whose cash flows are negative or highly cyclical for years (a 5-year DCF misleads)
+  - Readers might treat the slider output as a price target
+alternatives:
+  - DCF sensitivity table (static two-way grid)
+  - Valuation football field
+tips:
+  - The PNG shows the default state; open the HTML to interact
+  - Always show the share of value that comes from the terminal value; it is often over 70%
+  - Guard against WACC ≤ growth, where the Gordon formula breaks (the chart blanks the value)
+  - Keep the value axis fixed so movements are comparable as sliders change
+example: >-
+  Illustrative company: revenue $1.0bn growing 12% → 5% over five years, 100M shares, $300M net debt,
+  share price $36. Free cash flow = revenue × FCF margin. Terminal value uses the Gordon growth
+  formula on year-5 cash flow.
+read: >-
+  The top bar is the implied value per share. It is blue when above the $36 price (upside) and
+  orange when below, and the text gives the upside and the terminal value's share. The lower panel
+  compares each year's cash flow (gray) with its present value (blue). Raise the WACC and the blue
+  bars and the terminal value shrink. Raise the terminal growth and the value jumps, because most of
+  it sits in the terminal value.

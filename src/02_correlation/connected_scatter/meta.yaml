@@ -1,5 +1,6 @@
 title: Connected Scatter Plot
 engine: mpl
+level: intermediate
 order: 40
 purpose: A scatter plot whose points are joined in time order. It shows how the relationship between two
   variables changes over time, including loops, reversals and turning points.

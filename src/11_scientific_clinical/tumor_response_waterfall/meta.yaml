@@ -1,5 +1,6 @@
 title: Tumour Response Waterfall Plot
 engine: mpl
+level: intermediate
 order: 100
 purpose: One vertical bar per patient shows the best percentage change in tumour size from baseline, sorted
   from worst to best. Response categories (RECIST) can be read straight off the threshold lines.

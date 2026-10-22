@@ -1,5 +1,6 @@
 title: Mutation Lollipop Plot
 engine: mpl
+level: advanced
 order: 190
 purpose: Draws a protein as a horizontal bar with its functional domains, and places a lollipop at each mutated amino
   acid position. Stem height is the number of patients with that mutation and head color is the mutation type, so

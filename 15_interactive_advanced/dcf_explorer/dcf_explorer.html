@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "view": {"stroke": null}, "range": {"category": ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6", "#e34948"]}, "font": "Helvetica, Arial, sans-serif", "title": {"anchor": "start", "fontSize": 14, "color": "#0b0b0b"}, "axis": {"gridColor": "#e6e5e1", "domainColor": "#c9c8c3", "tickColor": "#c9c8c3", "labelColor": "#52514e", "titleColor": "#52514e", "titleFontWeight": "normal"}, "legend": {"labelColor": "#52514e", "titleColor": "#52514e"}}, "vconcat": [{"layer": [{"data": {"name": "data-2df07b92139ca5ed999c053e9b6c191c"}, "mark": {"type": "bar", "cornerRadiusEnd": 4, "height": 26}, "encoding": {"color": {"condition": {"test": "datum.upside >= 0", "value": "#2a78d6"}, "value": "#eb6834"}, "tooltip": [{"field": "per_share", "format": "$.2f", "type": "quantitative"}, {"field": "upside", "format": "+.0%", "type": "quantitative"}], "x": {"field": "per_share", "scale": {"domain": [0, 100]}, "title": "Value per share ($)", "type": "quantitative"}}, "transform": [{"calculate": "datum.revenue * margin", "as": "fcf"}, {"calculate": "datum.fcf / pow(1 + wacc, datum.year)", "as": "pv"}, {"calculate": "datum.year == 5 ? datum.fcf * (1 + tg) / (wacc - tg) / pow(1 + wacc, 5) : 0", "as": "tv_pv"}, {"aggregate": [{"op": "sum", "field": "pv", "as": "pv_sum"}, {"op": "sum", "field": "tv_pv", "as": "tv"}]}, {"calculate": "wacc > tg + 0.005", "as": "ok"}, {"calculate": "datum.ok ? (datum.pv_sum + datum.tv - 300.0) / 100.0 : null", "as": "per_share"}, {"calculate": "datum.tv / (datum.pv_sum + datum.tv)", "as": "tv_share"}, {"calculate": "datum.per_share / 36.0 - 1", "as": "upside"}, {"calculate": "datum.ok ? 'Implied value $' + format(datum.per_share, '.2f') + ' vs. price $36  \u2192  ' + format(datum.per_share / 36.0 - 1, '+.0%') + '   \u00b7   terminal value = ' + format(datum.tv_share, '.0%') + ' of enterprise value' : 'WACC must exceed terminal growth'", "as": "label"}]}, {"data": {"name": "data-db31e21f6544d5a98b63bbe7710cfecd"}, "mark": {"type": "rule", "color": "#0b0b0b", "strokeWidth": 2}, "encoding": {"x": {"field": "p", "scale": {"domain": [0, 100]}, "type": "quantitative"}}}, {"data": {"name": "data-db31e21f6544d5a98b63bbe7710cfecd"}, "mark": {"type": "text", "align": "left", "dx": 4, "dy": -24, "fontSize": 11}, "encoding": {"text": {"value": "Price $36"}, "x": {"field": "p", "scale": {"domain": [0, 100]}, "type": "quantitative"}}}, {"data": {"name": "data-2df07b92139ca5ed999c053e9b6c191c"}, "mark": {"type": "text", "align": "left", "fontSize": 14, "fontWeight": "bold"}, "encoding": {"text": {"field": "label", "type": "nominal"}, "x": {"value": 0}, "y": {"value": -30}}, "transform": [{"calculate": "datum.revenue * margin", "as": "fcf"}, {"calculate": "datum.fcf / pow(1 + wacc, datum.year)", "as": "pv"}, {"calculate": "datum.year == 5 ? datum.fcf * (1 + tg) / (wacc - tg) / pow(1 + wacc, 5) : 0", "as": "tv_pv"}, {"aggregate": [{"op": "sum", "field": "pv", "as": "pv_sum"}, {"op": "sum", "field": "tv_pv", "as": "tv"}]}, {"calculate": "wacc > tg + 0.005", "as": "ok"}, {"calculate": "datum.ok ? (datum.pv_sum + datum.tv - 300.0) / 100.0 : null", "as": "per_share"}, {"calculate": "datum.tv / (datum.pv_sum + datum.tv)", "as": "tv_share"}, {"calculate": "datum.per_share / 36.0 - 1", "as": "upside"}, {"calculate": "datum.ok ? 'Implied value $' + format(datum.per_share, '.2f') + ' vs. price $36  \u2192  ' + format(datum.per_share / 36.0 - 1, '+.0%') + '   \u00b7   terminal value = ' + format(datum.tv_share, '.0%') + ' of enterprise value' : 'WACC must exceed terminal growth'", "as": "label"}]}], "height": 50, "width": 640}, {"data": {"name": "data-2df07b92139ca5ed999c053e9b6c191c"}, "mark": {"type": "bar", "cornerRadiusEnd": 3}, "encoding": {"color": {"field": "kind", "legend": {"direction": "horizontal", "orient": "top"}, "scale": {"range": ["#b8b7b1", "#2a78d6"]}, "sort": ["Free cash flow", "Present value"], "title": null, "type": "nominal"}, "tooltip": [{"field": "year", "type": "ordinal"}, {"field": "kind", "type": "nominal"}, {"field": "amount", "format": ",.0f", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0}, "field": "year", "title": "Forecast year", "type": "ordinal"}, "xOffset": {"field": "kind", "sort": ["Free cash flow", "Present value"], "type": "nominal"}, "y": {"field": "amount", "scale": {"domain": [0, 500]}, "title": "$ millions", "type": "quantitative"}}, "height": 230, "transform": [{"calculate": "datum.revenue * margin", "as": "fcf"}, {"calculate": "datum.fcf / pow(1 + wacc, datum.year)", "as": "pv"}, {"calculate": "datum.year == 5 ? datum.fcf * (1 + tg) / (wacc - tg) / pow(1 + wacc, 5) : 0", "as": "tv_pv"}, {"fold": ["fcf", "pv"], "as": ["kind", "amount"]}, {"calculate": "datum.kind == 'fcf' ? 'Free cash flow' : 'Present value'", "as": "kind"}], "width": 640}], "params": [{"name": "wacc", "bind": {"input": "range", "max": 0.14, "min": 0.06, "name": "WACC ", "step": 0.0025}, "value": 0.09}, {"name": "tg", "bind": {"input": "range", "max": 0.04, "min": 0.0, "name": "Terminal growth ", "step": 0.0025}, "value": 0.025}, {"name": "margin", "bind": {"input": "range", "max": 0.3, "min": 0.1, "name": "FCF margin ", "step": 0.01}, "value": 0.18}], "resolve": {"legend": {"color": "independent"}, "scale": {"color": "independent"}}, "spacing": 30, "title": {"text": "DCF explorer: what is the company worth per share?", "subtitle": ["Illustrative five-year DCF with a Gordon-growth terminal value. Move the sliders below.", " ", " "]}, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-2df07b92139ca5ed999c053e9b6c191c": [{"year": 1, "growth": 0.12, "revenue": 1120.0}, {"year": 2, "growth": 0.1, "revenue": 1232.0}, {"year": 3, "growth": 0.08, "revenue": 1330.6}, {"year": 4, "growth": 0.06, "revenue": 1410.4}, {"year": 5, "growth": 0.05, "revenue": 1480.9}], "data-db31e21f6544d5a98b63bbe7710cfecd": [{"p": 36.0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

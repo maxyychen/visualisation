@@ -1,5 +1,6 @@
 title: Chord Diagram
 engine: mpl
+level: intermediate
 order: 40
 purpose: Groups are placed as arcs around a circle and joined by ribbons whose width is proportional to
   the flow between them. It shows two-way flows in a matrix (A→B and B→A) compactly, including self-flows.

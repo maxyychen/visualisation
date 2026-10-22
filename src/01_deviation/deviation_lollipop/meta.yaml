@@ -1,5 +1,6 @@
 title: Deviation Lollipop (from mean)
 engine: mpl
+level: basic
 order: 40
 purpose: Each item is a dot joined by a thin stem to a reference value such as the group mean. It carries
   the same message as a diverging bar with much less ink, so it works well with many items.

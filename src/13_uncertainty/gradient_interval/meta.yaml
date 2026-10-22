@@ -1,5 +1,6 @@
 title: Gradient Interval
 engine: mpl
+level: intermediate
 order: 10
 purpose: >-
   Draws each estimate's uncertainty as a band whose opacity follows the probability density: darkest at

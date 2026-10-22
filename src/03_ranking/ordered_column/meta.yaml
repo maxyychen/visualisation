@@ -1,5 +1,6 @@
 title: Ordered Column Chart
 engine: mpl
+level: basic
 order: 20
 purpose: Vertical bars sorted by value. It works like the ordered bar chart, but suits short labels and
   layouts that are wider than they are tall.

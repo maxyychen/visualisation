@@ -1,5 +1,6 @@
 title: "Dynamite Plot vs. Points + Confidence Interval"
 engine: mpl
+level: intermediate
 order: 80
 purpose: >-
   A "dynamite plot" (bar of the mean plus a standard-error whisker) shows only two numbers per group and

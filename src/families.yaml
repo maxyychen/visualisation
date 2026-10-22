@@ -41,3 +41,6 @@
 - folder: 14_bad_vs_good
   name: Bad vs. good
   description: Common chart mistakes, each shown next to a better alternative that fixes it.
+- folder: 15_interactive_advanced
+  name: Interactive, animated & big data
+  description: What-if sliders, linked views, animation and million-point rendering. Use these when exploration or motion adds understanding that a static chart cannot.

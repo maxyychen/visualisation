@@ -1,5 +1,6 @@
 title: Icicle Chart
 engine: plotly
+level: intermediate
 order: 70
 purpose: A rectangular, linear version of the sunburst. Each hierarchy level is a row (or column), and
   each child sits directly under its parent with a width proportional to its value. Straight edges are

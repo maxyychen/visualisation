@@ -1,0 +1,34 @@
+title: Animated Yield Curve (2000–2025)
+engine: plotly
+order: 110
+level: intermediate
+animated: true
+data_shape: [time, numeric]
+purpose: >-
+  Plays the government bond yield curve through time, one frame per year, with a faint trail of the
+  previous three years' curves. The curve's shape (upward sloping, flat or inverted) is the message, and
+  watching it twist, shift and invert shows rate cycles more intuitively than any single snapshot.
+when_to_use:
+  - "Explain rate cycles: easing, tightening, and curve inversions before recessions"
+  - Teach how the short end follows the central bank while the long end follows growth and inflation expectations
+  - Present the history of a term structure (yields, futures, swap curves)
+avoid:
+  - Readers need to compare two specific dates precisely (overlay those two curves statically)
+  - The medium is print (use the yield curve history heatmap instead)
+alternatives:
+  - Yield curve history heatmap (maturity × time)
+  - Static overlay of a few chosen dates
+  - 10y–2y spread line chart
+tips:
+  - Fix the y-axis range across frames so movement is real, not rescaling
+  - Show the date and the 10y–2y spread in the title of each frame
+  - Mark inversion with a color change of the current curve, plus a text label (not color alone)
+  - Keep the trail faint so it gives context without competing
+example: >-
+  Simulated year-end US-Treasury-like curves (1 month to 30 years) for 2000–2025. Short and long
+  anchors follow the broad shape of the real cycle (2001–03 easing, 2006–07 inversion, zero rates
+  2009–15 and 2020–21, the 2022–24 inversion), but the values are illustrative.
+read: >-
+  Press play. Blue curves slope upward (normal) and orange curves are inverted, with short rates above
+  long rates. Watch the short end collapse to zero in 2009 and 2020, then jump above the long end by the
+  end of 2023 to produce the deepest inversion in the series.

@@ -1,0 +1,35 @@
+title: Hierarchical Risk Parity (Dendrogram + Weights)
+engine: mpl
+order: 410
+level: advanced
+data_shape: [prices, hierarchy]
+purpose: >-
+  Shows how hierarchical risk parity (López de Prado, 2016) builds a portfolio. A dendrogram
+  clusters assets by correlation, the reordered correlation matrix shows the clusters as blocks,
+  and the weights panel shows how risk is split across clusters, then within them. The method needs
+  no inversion of the covariance matrix, so it avoids the unstable, concentrated weights of
+  classic mean-variance optimisation.
+when_to_use:
+  - Explain or audit an HRP (or other cluster-based) allocation
+  - Show the correlation structure of a multi-asset universe
+  - Compare risk-based weighting schemes side by side
+avoid:
+  - The audience only needs the final weights (a simple bar chart)
+  - There are fewer than ~6 assets (the hierarchy is trivial)
+alternatives:
+  - Correlation network (minimum spanning tree)
+  - Risk contribution chart
+  - Clustered heatmap (seaborn clustermap)
+tips:
+  - Use the same asset order in the heatmap and the weights panel
+  - Diverging colors centred on zero correlation, one hue for each sign
+  - Compare HRP with simple baselines (equal weight, inverse volatility)
+example: >-
+  Simulated daily returns for 12 assets in three groups (equities, bonds, commodities) over three
+  years. HRP is implemented from scratch with numpy/scipy (single linkage, quasi-diagonalisation,
+  recursive bisection). Not investment advice.
+read: >-
+  The dendrogram joins the most correlated assets first; the three big branches are equities, bonds
+  and commodities, which appear as bright blocks on the diagonal of the heatmap. In the weights panel,
+  HRP gives the low-volatility bonds more weight than equal weighting does, and spreads it more
+  evenly within each cluster than pure inverse-volatility weighting.

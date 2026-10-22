@@ -1,5 +1,6 @@
 title: Waterfall Chart
 engine: mpl
+level: intermediate
 order: 100
 purpose: Shows how a starting value becomes an ending value through a sequence of positive and negative
   steps. Each floating bar starts where the previous one ended, so the chart is a running total broken

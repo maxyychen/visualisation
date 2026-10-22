@@ -1,5 +1,6 @@
 title: Bullet Chart
 engine: mpl
+level: intermediate
 order: 70
 purpose: Stephen Few's compact replacement for gauges. A bar shows the actual value, a tick marks the
   target, and shaded bands mark qualitative ranges (poor, ok, good), all in a small strip.

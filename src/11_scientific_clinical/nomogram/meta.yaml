@@ -1,5 +1,6 @@
 title: Nomogram
 engine: mpl
+level: advanced
 order: 170
 purpose: A graphical calculator for a regression model. Each predictor has its own scale; you read off points for
   a patient's values, add them up, and convert the total to a predicted probability on the bottom scale. It makes a

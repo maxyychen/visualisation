@@ -1,5 +1,6 @@
 title: Contour / Isarithmic Map
 engine: mpl
+level: intermediate
 order: 60
 purpose: Draws lines (isolines) or filled bands joining points of equal value over a continuous surface.
   The shape of the field (peaks, valleys, gradients) becomes readable, as on topographic and weather maps.

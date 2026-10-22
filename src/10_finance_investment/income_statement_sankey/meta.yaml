@@ -1,5 +1,6 @@
 title: Income Statement Sankey
 engine: plotly
+level: intermediate
 order: 300
 purpose: A Sankey diagram that follows revenue from its segments through cost of revenue, operating expenses,
   interest and tax to net income. Band widths are proportional to dollars, so margins and the biggest

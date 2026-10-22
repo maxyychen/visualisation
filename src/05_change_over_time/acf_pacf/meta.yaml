@@ -1,0 +1,32 @@
+title: ACF & PACF (Autocorrelation Plots)
+engine: mpl
+order: 900
+level: intermediate
+data_shape: [time, model]
+purpose: >-
+  Shows how strongly a time series is correlated with its own past. The autocorrelation function
+  (ACF) shows the correlation at each lag; the partial autocorrelation function (PACF) shows each
+  lag's correlation after removing the effect of shorter lags. Bars outside the confidence band
+  reveal memory and seasonality, and their pattern suggests which ARIMA-type model fits.
+when_to_use:
+  - Check for seasonality and its period (spikes at lags 7, 12, 52…)
+  - Choose AR and MA orders before fitting a forecasting model
+  - Test whether model residuals are white noise (no bars should cross the band)
+avoid:
+  - The series has a strong trend (difference or detrend it first, or every lag looks significant)
+  - The audience is non-technical (show the seasonal pattern directly instead)
+alternatives:
+  - Seasonal cycle plot
+  - STL decomposition
+  - Lag scatter plot (y_t vs. y_t−k)
+tips:
+  - Always draw the confidence band (approx. ±1.96/√n)
+  - Show the series itself above the correlograms so readers see what is being measured
+  - Mark the expected seasonal lags
+example: >-
+  365 days of simulated website sessions (detrended): an AR(1) process with a weekly pattern, as
+  traffic dips every weekend.
+read: >-
+  The ACF decays slowly with spikes at lags 7, 14 and 21, so there is short-term memory plus a weekly
+  cycle. The PACF has a large bar at lag 1 and another near lag 7, then mostly stays inside the band.
+  A model with one autoregressive term and a weekly seasonal term should fit.

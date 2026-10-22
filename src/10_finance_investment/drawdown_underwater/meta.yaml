@@ -1,5 +1,6 @@
 title: Drawdown (Underwater) Chart
 engine: mpl
+level: intermediate
 order: 30
 data_shape: [prices, time]
 purpose: >-

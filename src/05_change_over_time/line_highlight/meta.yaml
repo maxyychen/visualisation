@@ -1,5 +1,6 @@
 title: Highlighted Line Chart (one vs. many)
 engine: mpl
+level: basic
 order: 20
 purpose: Draws every series in a muted gray and highlights the one or two that matter. The reader gets
   the context of the whole group without a tangle of colors.

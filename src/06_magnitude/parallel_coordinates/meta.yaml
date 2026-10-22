@@ -1,5 +1,6 @@
 title: Parallel Coordinates
 engine: mpl
+level: intermediate
 order: 60
 purpose: Each variable gets a vertical axis and each observation is a line crossing every axis. Patterns,
   clusters and trade-offs across many dimensions become visible.

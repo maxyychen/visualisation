@@ -1,0 +1,34 @@
+title: Tail Dependence (Joint Crashes)
+engine: mpl
+order: 470
+level: advanced
+data_shape: [prices, numeric]
+purpose: >-
+  Asks whether two assets crash together more often than their ordinary correlation suggests. The
+  scatter highlights the joint-crash quadrant, where both returns are in their worst 5%. The second
+  panel plots the empirical lower-tail dependence, P(B in its worst q | A in its worst q), against the
+  level a Gaussian model with the same correlation would predict. A gap means diversification fails
+  exactly when it is needed.
+when_to_use:
+  - Stress-test a diversification claim ("they're only 0.4 correlated")
+  - Compare copula or risk-model assumptions with the data
+  - Explain why portfolio losses in crises exceed what normal-distribution models predict
+avoid:
+  - Samples are short (tail estimates need many observations; show uncertainty if n is small)
+  - The audience is unfamiliar with quantiles (start with the scatter only)
+alternatives:
+  - Rolling correlation
+  - Return scatter colored by market regime
+tips:
+  - Match the Gaussian benchmark's correlation to the data (here via Kendall's tau)
+  - Work on ranks (pseudo-observations) so the tail measure ignores each asset's volatility
+  - Highlight only the joint-crash points; gray the rest
+example: >-
+  2,500 simulated daily returns for two equity indices drawn from a Student-t copula (3 degrees of
+  freedom), which crashes together more often than a Gaussian copula with the same correlation.
+  Not investment advice.
+read: >-
+  Left: orange points are days when both indices were in their worst 5%. There are more of them than
+  a normal model would produce. Right: at every threshold the blue line (data) sits above the gray
+  line (Gaussian model with the same correlation). At the 5% level, a crash in A comes with a crash in
+  B roughly one and a half to two times as often as the Gaussian model predicts.

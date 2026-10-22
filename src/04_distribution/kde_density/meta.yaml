@@ -1,5 +1,6 @@
 title: Density Plot (KDE)
 engine: mpl
+level: intermediate
 order: 20
 purpose: A smoothed, continuous estimate of a distribution (kernel density estimate). With no bin edges
   it shows shape clearly, and two or three groups can overlay without the clutter of overlapping bars.

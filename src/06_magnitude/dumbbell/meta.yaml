@@ -1,5 +1,6 @@
 title: Dumbbell Chart (connected dot plot)
 engine: mpl
+level: basic
 order: 40
 purpose: 'Two dots per category joined by a line: before and after, or group A and group B. The line''s
   length shows the gap and its direction shows which value is larger. It is far cleaner than paired bars.'

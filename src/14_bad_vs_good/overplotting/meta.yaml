@@ -1,5 +1,6 @@
 title: "Overplotting vs. Density Binning"
 engine: mpl
+level: basic
 order: 70
 purpose: >-
   With tens of thousands of points, opaque markers pile on top of each other until the plot becomes a

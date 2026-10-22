@@ -69,6 +69,16 @@
   .links { margin-top: auto; display: flex; gap: 12px; font-size: 13px; padding-top: 6px; }
   .links a { color: var(--accent); text-decoration: none; }
   .links a:hover { text-decoration: underline; }
+  .links button { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; }
+  .links button:hover { text-decoration: underline; }
+  dialog { width: min(1100px, calc(100vw - 32px)); height: min(760px, calc(100vh - 32px)); padding: 0;
+           border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); }
+  dialog::backdrop { background: rgba(0, 0, 0, 0.45); }
+  .dlg-head { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px;
+              border-bottom: 1px solid var(--border); font-weight: 600; }
+  .dlg-head a, .dlg-head button { font: inherit; font-weight: 400; color: var(--accent); background: none; border: 0;
+                                   cursor: pointer; text-decoration: none; margin-left: 14px; }
+  dialog iframe { width: 100%; height: calc(100% - 46px); border: 0; background: #fcfcfb; }
   .empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px; }
 </style>
 </head>
@@ -80,20 +90,27 @@
 <div class="controls">
   <input class="search" id="q" type="search" placeholder="Search charts, purposes, use cases…  (e.g. drawdown, share, outlier, yield)" aria-label="Search charts">
   <div class="row"><span class="lbl">Goal</span><div class="chips" id="chips" role="group" aria-label="Filter by family"></div></div>
+  <div class="row"><span class="lbl">Level</span><div class="chips" id="levels" role="group" aria-label="Filter by level"></div></div>
   <div class="row"><span class="lbl">Your data</span><div class="chips" id="shapes" role="group" aria-label="Filter by the data you have"></div></div>
   <div class="toggles">
     <label><input type="checkbox" id="real"> Has a real-data variant</label>
     <label><input type="checkbox" id="alts"> Also shown in other libraries</label>
-    <label><input type="checkbox" id="interactive"> Interactive (plotly)</label>
+    <label><input type="checkbox" id="interactive"> Interactive</label>
+    <label><input type="checkbox" id="animated"> Animated</label>
     <span class="count" id="count"></span>
   </div>
 </div>
 <main id="grid"></main>
+<dialog id="dlg" aria-label="Interactive chart">
+  <div class="dlg-head"><span id="dlg-title"></span>
+    <span><a id="dlg-open" target="_blank" rel="noopener">Open in new tab</a><button id="dlg-close">Close</button></span></div>
+  <iframe id="dlg-frame" title="Interactive chart"></iframe>
+</dialog>
 <script>
 /*DATA*/
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
-let fam = null, shape = null;
+let fam = null, shape = null, level = null;
 try { fam = sessionStorage.getItem("vizlib-fam"); } catch (e) {}
 $("sub").textContent = `${CHARTS.length} chart types in ${FAMILIES.length} families · each with a notebook and a runnable Python script`;
 
@@ -102,6 +119,17 @@ function chips() {
   $("chips").innerHTML = all.map((f) =>
     `<button class="chip" data-f="${f.folder ?? ""}" aria-pressed="${(f.folder ?? null) === fam}">${esc(f.name)}<span class="n">${f.n}</span></button>`).join("");
 }
+function levelChips() {
+  const all = [[null, "Any"], ...Object.entries(LEVELS)];
+  $("levels").innerHTML = all.map(([k, label]) => {
+    const n = k ? CHARTS.filter((c) => c.level === k).length : CHARTS.length;
+    return `<button class="chip" data-l="${k ?? ""}" aria-pressed="${k === level}">${esc(label)}<span class="n">${n}</span></button>`;
+  }).join("");
+}
+$("levels").addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  level = b.dataset.l || null; levelChips(); render();
+});
 function shapeChips() {
   const all = [[null, "Any"], ...Object.entries(SHAPES)];
   $("shapes").innerHTML = all.map(([k, label]) => {
@@ -125,9 +153,11 @@ function render() {
   const list = CHARTS.filter((c) => {
     if (fam && c.family !== fam) return false;
     if (shape && !c.shapes.includes(shape)) return false;
+    if (level && c.level !== level) return false;
+    if ($("animated").checked && !c.animated) return false;
     if ($("real").checked && !c.real) return false;
     if ($("alts").checked && !c.alts.length) return false;
-    if ($("interactive").checked && c.engine !== "plotly") return false;
+    if ($("interactive").checked && !c.html) return false;
     const hay = [c.title, c.familyName, c.purpose, ...c.use, ...c.avoid, c.slug].join(" ").toLowerCase();
     return q.every((w) => hay.includes(w));
   });
@@ -137,7 +167,8 @@ function render() {
 }
 
 function card(c) {
-  const badges = [c.real ? "real data" : "", c.alts.length ? "+" + c.alts.join(", ") : "", c.engine === "plotly" ? "interactive" : ""]
+  const badges = [c.level !== "basic" ? c.level : "", c.animated ? "animated" : "", c.real ? "real data" : "",
+                  c.alts.length ? "+" + c.alts.join(", ") : "", c.html ? "interactive" : ""]
     .filter(Boolean).map((b) => `<span class="badge">${esc(b)}</span>`).join("");
   const li = (xs) => xs.map((x) => `<li>${esc(x)}</li>`).join("");
   return `<article class="card">
@@ -149,12 +180,22 @@ function card(c) {
       <details><summary>Purpose &amp; when to use</summary>
         <p>${esc(c.purpose)}</p><h4>Use when</h4><ul>${li(c.use)}</ul><h4>Avoid when</h4><ul>${li(c.avoid)}</ul>
       </details>
-      <div class="links"><a href="${c.ipynb}">Notebook</a><a href="${c.py}">Script</a>${c.html ? `<a href="${c.html}">Interactive</a>` : ""}</div>
+      <div class="links"><a href="${c.ipynb}">Notebook</a><a href="${c.py}">Script</a>${c.html ? `<button data-live="${c.slug}">Live</button>` : ""}</div>
     </div></article>`;
 }
 
-["q", "real", "alts", "interactive"].forEach((id) => $(id).addEventListener("input", render));
-chips(); shapeChips(); render();
+["q", "real", "alts", "interactive", "animated"].forEach((id) => $(id).addEventListener("input", render));
+$("grid").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-live]"); if (!b) return;
+  const c = CHARTS.find((x) => x.slug === b.dataset.live);
+  $("dlg-title").textContent = c.title;
+  $("dlg-open").href = c.html;
+  $("dlg-frame").src = c.html;
+  $("dlg").showModal();
+});
+$("dlg-close").addEventListener("click", () => $("dlg").close());
+$("dlg").addEventListener("close", () => { $("dlg-frame").src = "about:blank"; });
+chips(); levelChips(); shapeChips(); render();
 </script>
 </body>
 </html>

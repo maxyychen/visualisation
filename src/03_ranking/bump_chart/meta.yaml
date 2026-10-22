@@ -1,5 +1,6 @@
 title: Bump Chart
 engine: mpl
+level: intermediate
 order: 70
 purpose: Plots each item's rank (not its value) over several periods, with rank 1 at the top. Overtakes
   and changes in standing are easy to follow even when the underlying values are close.

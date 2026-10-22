@@ -1,5 +1,6 @@
 title: Decision Curve Analysis
 engine: mpl
+level: advanced
 order: 160
 purpose: Plots the net benefit of using a prediction model to decide on treatment, across the range of threshold
   probabilities at which a clinician or patient would act. Each model is compared against the default strategies

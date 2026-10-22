@@ -1,5 +1,6 @@
 title: Half-Eye Plot (Density + Intervals)
 engine: mpl
+level: advanced
 order: 50
 purpose: >-
   Combines a half-violin density (the shape of the uncertainty) with a point estimate and two nested

@@ -1,5 +1,6 @@
 title: t-SNE / UMAP Embedding
 engine: mpl
+level: advanced
 order: 20
 purpose: >-
   A non-linear projection that places observations with similar profiles near each other in 2-D. It

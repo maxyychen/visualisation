@@ -1,5 +1,6 @@
 title: Factor Exposure (Betas with Confidence Intervals)
 engine: mpl
+level: advanced
 order: 150
 data_shape: [prices, model, uncertainty]
 purpose: >-

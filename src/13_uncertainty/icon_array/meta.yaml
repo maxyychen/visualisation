@@ -1,5 +1,6 @@
 title: Icon Array (Risk Communication)
 engine: mpl
+level: basic
 order: 40
 purpose: >-
   Shows a probability as a grid of 100 people, colouring those affected. Natural frequencies ("7 in

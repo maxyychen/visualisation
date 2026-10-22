@@ -1,0 +1,33 @@
+title: Adjacency Matrix (ordered)
+engine: mpl
+order: 910
+level: intermediate
+data_shape: [flows]
+purpose: >-
+  A network drawn as a grid: one row and one column per node, with each cell shaded by the
+  strength of the link between them. The power is in the ordering. Reordered so that similar
+  nodes sit together, clusters appear as dark blocks on the diagonal, and every link stays
+  visible without the overlap of node-link diagrams.
+when_to_use:
+  - Show dense networks (dozens to hundreds of nodes) where a node-link drawing becomes a hairball
+  - Reveal communities, bridges and outliers by reordering rows and columns
+  - Show weighted links precisely (overlap, exposure, correlation, message counts)
+avoid:
+  - Readers need to trace paths through several hops (node-link diagrams show paths better)
+  - The network is small and sparse (a network graph is more intuitive)
+  - Rows are left in arbitrary (e.g. alphabetical) order, which hides all structure
+alternatives:
+  - Network graph (force-directed)
+  - Hierarchical edge bundling
+  - Clustered heatmap
+tips:
+  - Order rows by hierarchical clustering or community detection, never alphabetically
+  - Use one-hue sequential color with white for "no link"
+  - Outline detected clusters and label them on the margin
+example: >-
+  Simulated portfolio overlap between 40 investment funds: the share of holdings two funds have in
+  common. The funds come from four strategy groups, but their IDs are assigned at random.
+read: >-
+  On the left, in ID order, the matrix looks like noise. On the right the same matrix is reordered by
+  hierarchical clustering, and four dark blocks appear: the strategy groups whose funds hold the same
+  stocks. Light cells off the blocks are funds that bridge two strategies.

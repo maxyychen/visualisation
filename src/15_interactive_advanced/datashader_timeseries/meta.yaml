@@ -1,0 +1,31 @@
+title: Line Density of Many Series (datashader)
+engine: mpl
+order: 210
+level: advanced
+data_shape: [time, prices]
+purpose: >-
+  Draws thousands of time series at once by counting how many lines pass through each pixel. The
+  "spaghetti" becomes a density field that shows where paths typically go, how wide the spread is,
+  and where unusual paths escape, which thousands of overlapping lines cannot show.
+when_to_use:
+  - Show thousands of simulated paths (Monte Carlo, bootstrap, scenario sets)
+  - Show many real series at once (all stocks in an index, sensors, user sessions)
+  - Reveal multimodal outcomes, such as paths that split into two regimes
+avoid:
+  - There are fewer than ~50 series (highlight a few and gray the rest)
+  - Each line's identity matters (density loses identity)
+alternatives:
+  - Fan chart (percentile bands only)
+  - Highlighted spaghetti (gray context with a few colored lines)
+  - Ridgeline of the final-value distribution
+tips:
+  - Overlay a few summary lines (median, 5th and 95th percentiles) in a contrasting color with direct labels
+  - Use a log color scale; most of the ink sits near the median
+  - "Requires the advanced extras: `pip install -r requirements-advanced.txt`"
+example: >-
+  2,000 simulated one-year price paths (geometric Brownian motion, 8% drift, 16% volatility, with a
+  15% chance of a six-week crash of about 35%), rendered as a line-density image.
+read: >-
+  The dark core is where most paths travel; it fans out over the year. A second, fainter branch falls
+  away below: the crash-regime paths, which a percentile fan would blur into one wide band. The
+  orange lines mark the median and the 5th–95th percentile range.

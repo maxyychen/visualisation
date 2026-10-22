@@ -1,5 +1,6 @@
 title: Bland–Altman Plot
 engine: mpl
+level: intermediate
 order: 110
 purpose: Plots the difference between two measurement methods against their mean, with lines for the mean
   bias and the 95% limits of agreement. It answers whether two methods agree well enough to be interchangeable,

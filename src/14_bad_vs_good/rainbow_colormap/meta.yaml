@@ -1,5 +1,6 @@
 title: "Rainbow Colormap vs. One-Hue Sequential"
 engine: mpl
+level: basic
 order: 40
 purpose: >-
   Rainbow colormaps such as jet do not change lightness evenly. They brighten to yellow and cyan and

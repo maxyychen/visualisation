@@ -1,5 +1,6 @@
 title: Kaplan–Meier Survival Curve
 engine: mpl
+level: intermediate
 order: 10
 purpose: A step function estimating the probability of remaining event-free over time while correctly
   handling censored subjects, meaning those whose follow-up ended before an event. It is the standard

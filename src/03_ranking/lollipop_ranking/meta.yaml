@@ -1,5 +1,6 @@
 title: Lollipop Chart
 engine: mpl
+level: basic
 order: 30
 purpose: A thin stem with a dot at the value. It encodes the same thing as a bar but with far less ink,
   so long rankings look lighter and the endpoints stand out.

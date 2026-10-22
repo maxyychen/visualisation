@@ -1,5 +1,6 @@
 title: Choropleth Map (world)
 engine: plotly
+level: basic
 order: 10
 purpose: Fills each region with a color that encodes a statistic. Geographic clusters and regional gradients
   (the north–south divide, a hot spot) become visible at a glance.

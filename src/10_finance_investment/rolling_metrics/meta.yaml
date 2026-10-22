@@ -1,5 +1,6 @@
 title: Rolling Return, Volatility and Sharpe
 engine: mpl
+level: intermediate
 order: 60
 data_shape: [prices, time]
 purpose: >-

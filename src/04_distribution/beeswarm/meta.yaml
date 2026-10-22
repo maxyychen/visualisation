@@ -1,5 +1,6 @@
 title: Beeswarm Plot
 engine: mpl
+level: intermediate
 order: 60
 purpose: Places each point along the value axis and nudges overlapping points sideways without overlap,
   so the swarm's outline traces the distribution. Every point stays visible, unlike random jitter.

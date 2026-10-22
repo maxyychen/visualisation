@@ -1,5 +1,6 @@
 title: Correlation Matrix Heatmap
 engine: mpl
+level: intermediate
 order: 50
 purpose: A grid that colors each cell by the correlation coefficient between a pair of variables. Strong
   positive and negative relationships across many variables stand out in one view.

@@ -9,6 +9,10 @@ description = "Data visualization library: chart catalogue, shared styles and fi
 requires-python = ">=3.10"
 dependencies = ["numpy", "pandas", "matplotlib"]
 
+[project.optional-dependencies]
+advanced = ["datashader", "pydeck", "imageio", "statsmodels", "networkx",
+            "plotly", "kaleido", "altair", "vl-convert-python"]
+
 [tool.setuptools]
 packages = ["vizlib"]
 

@@ -1,5 +1,6 @@
 title: Yield Curve History (Heatmap + Spread)
 engine: mpl
+level: intermediate
 order: 250
 purpose: Shows the whole term structure through time as a heatmap (maturity × date, color = yield), with
   the 10Y–2Y spread in a panel below. Decades of rate cycles, curve flattening and inversions fit in one

@@ -1,5 +1,6 @@
 title: Permutation Feature Importance
 engine: mpl
+level: intermediate
 order: 70
 purpose: >-
   Ranks features by how much a model's held-out performance drops when that feature's values are randomly

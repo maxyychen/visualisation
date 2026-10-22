@@ -1,5 +1,6 @@
 title: Diverging Stacked Bar (Likert)
 engine: mpl
+level: intermediate
 order: 20
 purpose: Stacks survey response levels so negative answers extend left and positive answers extend right
   from a central neutral line. Overall sentiment and its composition show together.

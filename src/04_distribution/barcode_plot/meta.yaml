@@ -1,5 +1,6 @@
 title: Barcode Plot (Rug Plot)
 engine: mpl
+level: intermediate
 order: 110
 purpose: Draws each observation as a thin vertical tick on a line. It is a minimal, high-resolution distribution
   display that also works well for placing one item among the rest.

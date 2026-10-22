@@ -1,5 +1,6 @@
 title: Indexed Line Chart (rebased to 100)
 engine: mpl
+level: intermediate
 order: 140
 purpose: Divides each series by its value at a common start date and multiplies by 100, so all series
   start at 100 and show relative growth. It is the honest replacement for a dual-axis chart when series

@@ -1,5 +1,6 @@
 title: Ridgeline Plot (Joy Plot)
 engine: mpl
+level: intermediate
 order: 70
 purpose: Stacks partially overlapping density curves for many groups, one per row. Shifts in the distribution
   across groups or time read as a compact landscape.

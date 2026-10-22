@@ -1,5 +1,6 @@
 title: Cleveland Dot Plot
 engine: mpl
+level: basic
 order: 40
 purpose: Dots on a common scale, one row per category, sorted by value. Without bars the axis need not
   start at zero, so small differences between similar values become visible.

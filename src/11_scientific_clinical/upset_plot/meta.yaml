@@ -1,5 +1,6 @@
 title: UpSet Plot
 engine: mpl
+level: intermediate
 order: 140
 purpose: Shows how several sets overlap. A matrix of dots marks which sets make up each intersection, and a bar
   above each column gives its size. It scales to many sets where Venn and Euler diagrams become unreadable.

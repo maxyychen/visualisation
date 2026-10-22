@@ -1,0 +1,35 @@
+title: 3-D Hexagon Columns Map (pydeck)
+engine: mpl
+order: 910
+level: advanced
+data_shape: [geo]
+purpose: >-
+  An interactive WebGL map that bins point locations into hexagons and extrudes each one into a column
+  whose height and color show the count. The reader can tilt, rotate and zoom, so dense hot spots stand
+  out as towers while the overall layout stays recognisable. The static preview shows the same
+  aggregation as a 3-D bar chart.
+when_to_use:
+  - Explore very dense point data interactively (tens of thousands to millions of points)
+  - Make hot spots pop out in presentations or exploratory sessions
+  - Put the result in a web page, where readers can rotate and hover for counts
+avoid:
+  - Readers need to compare heights precisely (3-D perspective distorts them; use a flat hexbin map)
+  - The output is printed or static (tall columns hide the ones behind them)
+  - The reader's browser has no WebGL (some locked-down corporate machines)
+alternatives:
+  - Hexagonal grid map (flat hexbin)
+  - Choropleth
+  - Bubble map
+tips:
+  - Encode the count twice (height and one-hue color) so it still reads from a top-down view
+  - Start from a moderate pitch (40–50°) and give readers the tooltip for exact values
+  - Use map_style=None (no basemap, no token) or a free basemap; Mapbox styles need an API key
+  - Needs a browser with WebGL and an internet connection (deck.gl loads from a CDN)
+example: >-
+  15,000 simulated ride-hailing pick-ups around a city centre, made of a dense core, two transit hubs
+  and a scatter of background trips. The interactive page uses pydeck's HexagonLayer with a 300 m radius.
+  The PNG preview is a matplotlib 3-D bar chart of the same data on a square grid.
+read: >-
+  The tallest, darkest columns are the city centre and the two transit hubs. Tilt the interactive map
+  to compare tower heights, or hover a column for its exact count. The low, pale columns around the
+  edges are background trips.

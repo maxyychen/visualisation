@@ -1,5 +1,6 @@
 title: KPI Stat Tile (big number)
 engine: mpl
+level: basic
 order: 100
 purpose: When the story is one number, the best chart is the number itself. A large value with a label,
   a change versus a comparison period, and an optional sparkline answers 'how are we doing?' instantly.

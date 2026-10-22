@@ -1,5 +1,6 @@
 title: Streamgraph
 engine: mpl
+level: intermediate
 order: 60
 purpose: A stacked area chart laid out around a central, wiggling baseline instead of zero. It gives an
   organic, flowing picture of how many categories rise and fall over time.

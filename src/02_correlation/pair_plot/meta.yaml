@@ -1,5 +1,6 @@
 title: Pair Plot (Scatter-plot Matrix)
 engine: mpl
+level: intermediate
 order: 80
 purpose: A grid of scatter plots for every pair of variables, with each variable's distribution on the
   diagonal. It is a standard first look at a multivariate dataset.

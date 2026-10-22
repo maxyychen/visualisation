@@ -1,5 +1,6 @@
 title: Swimmer Plot
 engine: mpl
+level: intermediate
 order: 90
 purpose: One horizontal bar per patient shows time on treatment, with markers for key events (response
   onset, progression, ongoing therapy). It tells each patient's story, which summary curves hide.

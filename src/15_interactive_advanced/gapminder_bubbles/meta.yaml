@@ -1,0 +1,34 @@
+title: Animated Bubble Chart (Gapminder)
+engine: plotly
+order: 120
+level: intermediate
+animated: true
+data_shape: [numeric, time, categories]
+purpose: >-
+  An animated scatter of two measures, with bubble area for a third (population) and color for a group,
+  stepping through time. Hans Rosling made it famous to show countries' wealth and health converging.
+  Every country's path is visible at once, which a static chart cannot show without clutter.
+when_to_use:
+  - Show how many entities move through a two-measure space over time (wealth vs. health, risk vs. return)
+  - Tell a development or convergence story to a general audience
+  - Explore a panel dataset interactively (hover, pause, scrub)
+avoid:
+  - Precise year-to-year comparisons are needed (use connected scatter for a few entities)
+  - There are too few frames or entities for motion to matter
+  - The medium is static print
+alternatives:
+  - Connected scatter (a few entities over time)
+  - Small multiples of the scatter at key years
+  - Bubble chart (one year)
+tips:
+  - Scale bubble AREA (not radius) by the third measure, and keep the size reference constant across frames
+  - Fix axis ranges for the whole animation; use a log scale for income-like measures
+  - More than 3 colors on a scatter is hard to separate; here 5 continents are acceptable because of hover and legend, in fixed palette order
+  - Let users pause and scrub with the slider
+example: >-
+  Real data: Gapminder life expectancy, GDP per capita and population for 142 countries, 1952–2007,
+  bundled offline with plotly (`px.data.gapminder()`).
+read: >-
+  Press play. Bubbles drift up and right: most countries got richer and lived longer. Asia's large
+  bubbles (China, India) climb steeply after the 1970s. Several African countries fall back in the
+  1990s as HIV/AIDS cut life expectancy.

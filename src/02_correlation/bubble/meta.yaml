@@ -1,5 +1,6 @@
 title: Bubble Chart
 engine: mpl
+level: basic
 order: 30
 purpose: A scatter plot whose marker area encodes a third numeric variable. Three measures fit in one
   view, with the size channel adding emphasis.

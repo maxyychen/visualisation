@@ -1,5 +1,6 @@
 title: Cumulative Return vs. Benchmark
 engine: mpl
+level: basic
 order: 20
 data_shape: [prices, time]
 purpose: >-

@@ -1,5 +1,6 @@
 title: Efficient Frontier
 engine: mpl
+level: intermediate
 order: 110
 data_shape: [prices, numeric]
 purpose: >-

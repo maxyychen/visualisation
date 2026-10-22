@@ -1,5 +1,6 @@
 title: Radar (Spider) Chart
 engine: mpl
+level: intermediate
 order: 50
 purpose: Plots several variables on axes radiating from a center and joins them into a polygon. Each entity's
   overall profile reads as a shape.

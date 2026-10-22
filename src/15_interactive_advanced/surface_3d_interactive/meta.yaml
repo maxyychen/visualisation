@@ -1,0 +1,32 @@
+title: Interactive 3-D Surface (implied volatility)
+engine: plotly
+order: 230
+level: advanced
+data_shape: [numeric, prices]
+purpose: >-
+  A rotatable 3-D surface of a measure over two continuous inputs, here implied volatility over
+  strike and expiry, shown next to a 2-D heatmap of the same grid. The surface gives the overall
+  shape (skew, smile, term structure) at a glance, and the heatmap is where values are actually read.
+when_to_use:
+  - "Show the shape of a function of two variables: volatility surfaces, yield/term surfaces, loss landscapes, response surfaces"
+  - The reader can rotate and hover (interactive HTML, notebook)
+  - Shape matters more than exact values
+avoid:
+  - "Static images and print: a fixed 3-D view hides parts of the surface and distorts heights (use a heatmap or contour plot)"
+  - Comparing precise values (perspective makes heights unreadable)
+  - "Bars or pies in 3-D: never"
+alternatives:
+  - Heatmap or contour plot (precise and static)
+  - Small multiples of 2-D slices (e.g. smiles by expiry)
+tips:
+  - Always pair a 3-D view with a 2-D one that can be read precisely
+  - Use one sequential hue shared by both views and a single color bar
+  - Project contours onto the floor to connect the 3-D shape to 2-D positions
+  - Choose a default camera angle that shows the main feature (here, the downside skew)
+example: >-
+  Simulated equity-index implied volatility for strikes at 70–130% of spot and expiries of 1 week to
+  2 years: downside skew, a smile at short expiries, and an upward-sloping term structure.
+read: >-
+  Rotate the surface: volatility is highest for low strikes at short expiries (crash protection is
+  expensive), and the skew flattens as expiry lengthens. Read exact values from the heatmap on the
+  right, or hover on either view.

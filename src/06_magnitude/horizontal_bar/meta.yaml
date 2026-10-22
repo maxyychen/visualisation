@@ -1,5 +1,6 @@
 title: Horizontal Bar Chart (sorted)
 engine: mpl
+level: basic
 order: 20
 purpose: Bars laid out horizontally and sorted by value. Long category labels stay readable, and the sort
   turns the chart into a ranking as well as a size comparison.

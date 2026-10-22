@@ -1,5 +1,6 @@
 title: Diverging Column (over time)
 engine: mpl
+level: basic
 order: 50
 purpose: Vertical bars rising from or falling below zero, one per time period. Each discrete period's
   positive or negative result stands on its own.

@@ -10,6 +10,10 @@ Source of truth (edit these):
         # %% plot         the chart; must define `fig`                           [required]
         # %% real-data    optional: same variables from a real dataset (meta: real_data)
         # %% alt:<lib>    optional: the same chart in another library (plotly / altair / seaborn)
+        # %% html         optional: defines `html`, a standalone interactive page (e.g. pydeck)
+    meta keys: engine (mpl | plotly | altair), level (basic | intermediate | advanced),
+        animated: true  ->  mpl plot defines `anim` (FuncAnimation); plotly fig has frames.
+                           Either way a GIF preview is written.
     vizlib/*_style.py                    shared styles
 
 Generated (do not edit by hand):
@@ -46,7 +50,10 @@ SRC = ROOT / "src"
 STYLE_DIR = ROOT / "vizlib"
 
 REQUIRED_META = ["title", "engine", "purpose", "when_to_use", "avoid", "example"]
-ENGINES = {"mpl": "matplotlib / seaborn", "plotly": "plotly"}
+ENGINES = {"mpl": "matplotlib / seaborn", "plotly": "plotly", "altair": "Altair (Vega-Lite)"}
+PLOT_VAR = {"mpl": "fig", "plotly": "fig", "altair": "chart"}
+STYLE_FOR = {"mpl": "mpl_style", "plotly": "plotly_style", "altair": "altair_style"}
+LEVELS = {"basic": "Basic", "intermediate": "Intermediate", "advanced": "Advanced"}
 ALT_LIBS = {"plotly", "altair", "seaborn", "matplotlib"}
 # "What data do you have?" vocabulary for the gallery's chart chooser (meta: data_shape).
 DATA_SHAPES = {
@@ -119,15 +126,29 @@ def validate(charts, families):
         for s in ("data", "plot"):
             if s not in c["sections"]:
                 errors.append(f"{where}: chart.py missing '# %% {s}' section")
-        if "fig" not in c["sections"].get("plot", ""):
-            errors.append(f"{where}: plot section must define `fig`")
+        var = PLOT_VAR.get(c.get("engine"), "fig")
+        if var not in c["sections"].get("plot", ""):
+            errors.append(f"{where}: plot section must define `{var}`")
+        if c.get("animated") and c.get("engine") == "mpl" and "anim" not in c["sections"].get("plot", ""):
+            errors.append(f"{where}: animated mpl chart must define `anim` (FuncAnimation)")
+        if c.get("animated") and c.get("engine") == "altair":
+            errors.append(f"{where}: animated charts must use mpl or plotly")
+        if c.get("level", "basic") not in LEVELS:
+            errors.append(f"{where}: level must be one of {list(LEVELS)}")
+        if "html" in c["sections"] and "html" not in c["sections"]["html"]:
+            errors.append(f"{where}: '# %% html' section must define `html`")
         if ("real-data" in c["sections"]) != ("real_data" in c):
             errors.append(f"{where}: '# %% real-data' section and meta 'real_data' must go together")
         for s in c["sections"]:
             if s.startswith("alt:") and s[4:] not in ALT_LIBS:
                 errors.append(f"{where}: unknown alt library '{s}'")
-            elif s not in ("setup", "data", "plot", "real-data") and not s.startswith("alt:"):
+            elif s not in ("setup", "data", "plot", "real-data", "html") and not s.startswith("alt:"):
                 errors.append(f"{where}: unknown section '# %% {s}'")
+        for k in ("when_to_use", "avoid", "alternatives", "tips"):
+            items = c.get(k, [])
+            if not isinstance(items, list) or not all(isinstance(x, str) for x in items):
+                errors.append(f"{where}: '{k}' must be a list of strings "
+                              "(quote items that contain ': ' so YAML does not read them as mappings)")
         bad = [x for x in c.get("data_shape", []) if x not in DATA_SHAPES]
         if bad:
             errors.append(f"{where}: unknown data_shape {bad}; use {list(DATA_SHAPES)}")
@@ -140,8 +161,7 @@ def validate(charts, families):
 # --------------------------------------------------------------------------- code assembly
 def setup_code(c, extra_styles=()):
     setup = c["sections"].get("setup", "")
-    modules = STYLE_IMPORT.findall(setup) or [
-        "plotly_style" if c["engine"] == "plotly" else "mpl_style"]
+    modules = STYLE_IMPORT.findall(setup) or [STYLE_FOR[c["engine"]]]
     modules += [m for m in extra_styles if m not in modules]
     rest = STYLE_IMPORT.sub("", setup).strip("\n")
     code = "\n\n".join(style_source(m) for m in modules)
@@ -150,6 +170,29 @@ def setup_code(c, extra_styles=()):
 
 def out_dir(c):
     return ROOT / c["family"] / c["slug"]
+
+
+def bar_(t):
+    return f"# --- {t} " + "-" * (72 - len(t))
+
+
+PLOTLY_GIF = """\
+try:  # animated: also write a GIF preview from the frames (kaleido + Pillow)
+    import io
+    from PIL import Image
+    still = go.Figure(fig)
+    still.layout.updatemenus, still.layout.sliders = (), ()  # no play controls in a GIF
+    step = max(1, len(fig.frames) // 40)
+    images = []
+    for frame in fig.frames[::step]:
+        still.update(data=list(frame.data), layout=frame.layout)
+        png = still.to_image(format="png", width=900, height=560)
+        images.append(Image.open(io.BytesIO(png)).convert("P", palette=Image.ADAPTIVE))
+    images[0].save(out.with_suffix(".gif"), save_all=True, append_images=images[1:],
+                   duration=int(1000 / 6), loop=0)
+except Exception as exc:
+    print(f"GIF preview skipped: {exc}")
+"""
 
 
 def script_text(c, families):
@@ -178,20 +221,33 @@ def script_text(c, families):
         stem = 'Path(__file__).stem + ("_real" if REAL_DATA else "")'
     else:
         stem = "Path(__file__).stem"
-    if c["engine"] == "plotly":
+    gif = PLOTLY_GIF if (c.get("animated") and c["engine"] == "plotly") else ""
+    if c["engine"] == "altair":
+        save = (f"out = Path(__file__).with_name({stem} + \".html\")\n"
+                "chart.save(out)\n"
+                "chart.save(out.with_suffix(\".png\"), scale_factor=2)  # static preview (vl-convert)\n"
+                "print(f\"saved {out}\")\n"
+                "if \"--no-show\" not in sys.argv:\n"
+                "    import webbrowser\n    webbrowser.open(out.resolve().as_uri())")
+    elif c["engine"] == "plotly":
         save = (f"out = Path(__file__).with_name({stem} + \".html\")\n"
                 f"fig.write_html(out, include_plotlyjs=\"cdn\", div_id=\"{c['slug']}\")\n"
                 "try:  # static preview; needs kaleido + a local Chrome\n"
                 "    fig.write_image(out.with_suffix(\".png\"), width=1000, height=620, scale=1.5)\n"
-                "except Exception:\n    pass\n"
+                "except Exception:\n    pass\n" + gif +
                 "print(f\"saved {out}\")\n"
                 "if \"--no-show\" not in sys.argv:\n    fig.show()")
     else:
         save = (f"out = Path(__file__).with_name({stem} + \".png\")\n"
                 "fig.savefig(out, dpi=150, bbox_inches=\"tight\")\n"
-                "print(f\"saved {out}\")\n"
+                + (f"anim.save(out.with_suffix(\".gif\"), writer=\"pillow\", fps={c.get('fps', 8)}, dpi=80)\n"
+                   if c.get("animated") else "")
+                + "print(f\"saved {out}\")\n"
                 "if \"--no-show\" not in sys.argv:\n    plt.show()")
-    bar = lambda t: f"# --- {t} " + "-" * (72 - len(t))
+    if "html" in c["sections"]:
+        save = (bar_("Interactive page") + "\n" + c["sections"]["html"] + "\n"
+                f"Path(__file__).with_name({stem} + \".html\").write_text(html)\n\n" + save)
+    bar = bar_
     boot = [BOOTSTRAP.format(base="__file__").replace("parents[1]", "parents[2]"), ""] \
         if LIB_IMPORT.search(c["sections"].get("setup", "")) else []
     return "\n".join(['"""', *doc, '"""', "import sys", "from pathlib import Path", "", *boot,
@@ -203,7 +259,11 @@ def notebook(c, families):
     fam = families[c["family"]]
     bullets = lambda xs: "\n".join(f"- {x}" for x in xs)
     plotly = c["engine"] == "plotly"
-    show = "fig.show()" if plotly else "plt.show()"
+    show = {"plotly": "fig.show()", "altair": "chart", "mpl": "plt.show()"}[c["engine"]]
+    if c.get("animated") and c["engine"] == "mpl":
+        show = (f"plt.close(fig)  # show the animation instead of the last frame\n"
+                f"anim.save(\"{c['slug']}.gif\", writer=\"pillow\", fps={c.get('fps', 8)}, dpi=80)\n"
+                f"from IPython.display import Image\nImage(\"{c['slug']}.gif\")")
     alts = {s[4:]: body for s, body in c["sections"].items() if s.startswith("alt:")}
     extra = []
     if "plotly" in alts and not plotly:
@@ -211,13 +271,14 @@ def notebook(c, families):
     if "altair" in alts:
         extra.append("altair_style")
     setup = setup_code(c, extra)
-    setup = ("%matplotlib inline\n" if not plotly else "") + setup
+    setup = ("%matplotlib inline\n" if c["engine"] == "mpl" else "") + setup
     if LIB_IMPORT.search(c["sections"].get("setup", "")):
         setup = ("import sys\nfrom pathlib import Path\n" + BOOTSTRAP.format(base='"."') + "\n") + setup
     if plotly or "plotly" in alts:
         setup += '\npio.renderers.default = "plotly_mimetype+notebook_connected"'
 
-    md = (f"# {c['title']}\n\n**Family:** {fam['name']} &nbsp;|&nbsp; **Library:** {ENGINES[c['engine']]}\n\n"
+    md = (f"# {c['title']}\n\n**Family:** {fam['name']} &nbsp;|&nbsp; **Library:** {ENGINES[c['engine']]}"
+          f" &nbsp;|&nbsp; **Level:** {LEVELS[c.get('level', 'basic')]}\n\n"
           f"> *{fam['name']}:* {fam['description']}\n\n"
           + (f"> ⚠️ {fam['note']}\n\n" if fam.get("note") else "")
           + f"## Design purpose\n\n{c['purpose']}")
@@ -230,6 +291,13 @@ def notebook(c, families):
              new_markdown_cell(f"## Example\n\n{c['example']}\n\n### Setup"), new_code_cell(setup),
              new_markdown_cell("### Data"), new_code_cell(c["sections"]["data"]),
              new_markdown_cell("### Plot"), new_code_cell(c["sections"]["plot"] + "\n" + show)]
+    if "html" in c["sections"]:
+        cells += [new_markdown_cell("### Interactive version\n\nThe same data as a standalone interactive page "
+                                    "(also saved next to the script as an `.html` file)."),
+                  new_code_cell(c["sections"]["html"] + "\nimport html as _html\n"
+                                "from IPython.display import HTML\n"
+                                "HTML(f'<iframe srcdoc=\"{_html.escape(html)}\" width=\"100%\" height=\"560\" "
+                                "style=\"border:0\"></iframe>')")]
     if c.get("read"):
         cells.append(new_markdown_cell(f"## How to read it\n\n{c['read']}"))
     if alts:
@@ -307,6 +375,14 @@ def rel(c, ext):
     return f"{c['family']}/{c['slug']}/{c['slug']}.{ext}"
 
 
+def has_html(c):
+    return c["engine"] in ("plotly", "altair") or "html" in c["sections"]
+
+
+def preview(c):
+    return rel(c, "gif" if c.get("animated") else "png")
+
+
 def write_readme(charts, families):
     n = len(charts)
     lines = [
@@ -336,7 +412,8 @@ def write_readme(charts, families):
         "sequential), or polarity (two-hue diverging with a neutral midpoint).",
         "4. **Avoid the classic mistakes.** See [14 · Bad vs. good](#14-bad-vs-good).", "",
         "**Chart chooser:** see [What data do you have?](#chooser) below, or filter by data type in the gallery.", "",
-        "Legend: ★ real-dataset variant · 🔀 also shown in other libraries (plotly / Altair / seaborn)", "",
+        "Legend: ★ real-dataset variant · 🔀 also shown in other libraries (plotly / Altair / seaborn) · "
+        "<sub>intermediate</sub> / <sub>advanced</sub> level (unmarked = basic) · animated charts preview as GIFs", "",
         "| Family | Charts | Question it answers |", "|---|---|---|"]
     for folder, f in families.items():
         k = sum(c["family"] == folder for c in charts)
@@ -353,10 +430,12 @@ def write_readme(charts, families):
                     ("🔀" if any(s.startswith("alt:") for s in c["sections"]) else "")
             use = c["when_to_use"][0].replace("|", "\\|")
             files = f"[ipynb]({rel(c, 'ipynb')}) · [py]({rel(c, 'py')})"
-            if c["engine"] == "plotly":
-                files += f" · [html]({rel(c, 'html')})"
-            lines.append(f"| **{c['title']}** {marks} | {use} | {files} | "
-                         f"<img src=\"{rel(c, 'png')}\" width=\"170\"> |")
+            if has_html(c):
+                files += f" · [interactive]({rel(c, 'html')})"
+            level = c.get("level", "basic")
+            tag = "" if level == "basic" else f"<br><sub>{LEVELS[level].lower()}</sub>"
+            lines.append(f"| **{c['title']}** {marks}{tag} | {use} | {files} | "
+                         f"<img src=\"{preview(c)}\" width=\"170\"> |")
     lines += ["", "<a id=\"chooser\"></a>", "## Chart chooser: what data do you have?", "",
               "| Your data | Charts that fit |", "|---|---|"]
     for key, label in DATA_SHAPES.items():
@@ -375,6 +454,11 @@ def write_readme(charts, families):
               "pip install -e .     # once, at the repo root",
               "python -m vizlib.finance prices.csv --price Fund --benchmark Index --rf 0.03 -o report.png",
               "pytest               # unit tests for the metrics", "```"]
+    lines += ["", "## Advanced extras", "",
+              "Large-data, 3-D map and time-series charts use optional packages:", "", "```bash",
+              "pip install -r requirements-advanced.txt   # or: pip install -e \".[advanced]\"", "```", "",
+              "Interactive charts (plotly, Altair, pydeck) save a standalone `.html` page next to the script. "
+              "Open it in a browser, or use the **Live** button in the gallery. Animated charts also save a `.gif`."]
     lines += ["", "## Extending the library", "",
               "Everything above is generated. Edit the sources in `src/` and rebuild:", "", "```bash",
               "python build_library.py --new 04 my_chart   # scaffold src/04_.../my_chart/{meta.yaml,chart.py}",
@@ -407,35 +491,52 @@ def write_gallery(charts, families):
     tdir.mkdir(parents=True, exist_ok=True)
     items = []
     for c in charts:
-        png = ROOT / rel(c, "png")
-        thumb = tdir / f"{c['slug']}.png"
-        if png.exists() and (not thumb.exists() or thumb.stat().st_mtime < png.stat().st_mtime):
-            im = Image.open(png).convert("RGB")
-            im.thumbnail((560, 400))
-            im.save(thumb, optimize=True)
+        src = ROOT / preview(c)
+        thumb = tdir / f"{c['slug']}.{src.suffix[1:]}"
+        if src.exists() and (not thumb.exists() or thumb.stat().st_mtime < src.stat().st_mtime):
+            im = Image.open(src)
+            if c.get("animated"):
+                from PIL import ImageSequence
+                frames = []
+                for fr in ImageSequence.Iterator(im):
+                    fr = fr.convert("RGB")
+                    fr.thumbnail((560, 400))
+                    frames.append(fr.convert("P", palette=Image.ADAPTIVE))
+                frames[0].save(thumb, save_all=True, append_images=frames[1:],
+                               duration=im.info.get("duration", 150), loop=0, optimize=True)
+            else:
+                im = im.convert("RGB")
+                im.thumbnail((560, 400))
+                im.save(thumb, optimize=True)
         items.append({
             "slug": c["slug"], "title": c["title"], "family": c["family"],
             "familyName": families[c["family"]]["name"], "purpose": c["purpose"],
             "use": c["when_to_use"], "avoid": c["avoid"], "engine": c["engine"],
             "real": "real-data" in c["sections"], "shapes": c.get("data_shape", []),
             "alts": [s[4:] for s in c["sections"] if s.startswith("alt:")],
-            "thumb": f"thumbs/{c['slug']}.png", "ipynb": "../" + rel(c, "ipynb"),
-            "py": "../" + rel(c, "py"), "html": "../" + rel(c, "html") if c["engine"] == "plotly" else None,
+            "level": c.get("level", "basic"), "animated": bool(c.get("animated")),
+            "thumb": f"thumbs/{c['slug']}.{'gif' if c.get('animated') else 'png'}",
+            "ipynb": "../" + rel(c, "ipynb"), "py": "../" + rel(c, "py"),
+            "html": "../" + rel(c, "html") if has_html(c) else None,
         })
     fams = [{"folder": k, "name": v["name"], "n": sum(i["family"] == k for i in items)}
             for k, v in families.items()]
     page = (Path(__file__).parent / "vizlib" / "gallery_template.html").read_text()
     page = page.replace("/*DATA*/", "const CHARTS = " + json.dumps(items, ensure_ascii=False)
                         + ";\nconst FAMILIES = " + json.dumps(fams, ensure_ascii=False)
-                        + ";\nconst SHAPES = " + json.dumps(DATA_SHAPES, ensure_ascii=False) + ";")
+                        + ";\nconst SHAPES = " + json.dumps(DATA_SHAPES, ensure_ascii=False)
+                        + ";\nconst LEVELS = " + json.dumps(LEVELS) + ";")
     (gdir / "index.html").write_text(page)
 
 
 # --------------------------------------------------------------------------- commands
 NEW_META = """\
 title: {title}
-engine: mpl            # mpl | plotly
+engine: mpl            # mpl | plotly | altair
+level: basic           # basic | intermediate | advanced
 order: 999             # position within the family
+data_shape: [numeric]  # what data it needs; keys in DATA_SHAPES (build_library.py)
+# animated: true       # mpl: plot defines `anim` (FuncAnimation); plotly: fig.frames -> GIF preview
 purpose: >-
   What the chart is and the perceptual job it does.
 when_to_use:

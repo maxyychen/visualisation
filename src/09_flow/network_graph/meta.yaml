@@ -1,5 +1,6 @@
 title: Network Graph (Node-Link Diagram)
 engine: mpl
+level: intermediate
 order: 50
 purpose: Entities are drawn as nodes and relationships as edges. A force-directed layout pulls connected
   nodes together, so clusters, hubs, and bridges show in the structure itself.

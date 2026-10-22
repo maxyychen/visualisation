@@ -1,0 +1,34 @@
+title: Order Book Depth & Liquidity Heatmap
+engine: mpl
+order: 440
+level: advanced
+data_shape: [prices, numeric, time]
+purpose: >-
+  Two views of market microstructure. The depth chart shows a single moment: the cumulative size of
+  buy orders (bids) below the price and sell orders (asks) above it, so the spread and the slope of
+  the "walls" show how much can trade before the price moves. The liquidity heatmap shows resting
+  order size at every price level over time, with the traded mid-price on top, so persistent walls,
+  pulled orders and price reactions at liquidity become visible.
+when_to_use:
+  - Explain liquidity, spread and market impact to traders or execution analysts
+  - Spot large resting orders (support/resistance "walls") and whether price respects them
+  - Compare liquidity across venues or times of day
+avoid:
+  - The audience only needs price direction (use a price chart)
+  - The data is aggregated to daily bars (microstructure detail is lost)
+  - Order-book data is unreliable or spoofed (the chart will look authoritative anyway)
+alternatives:
+  - Bid-ask spread over time (line chart)
+  - Volume profile (volume traded at each price)
+tips:
+  - Bids blue, asks orange, consistently across both panels
+  - Use one sequential hue for the heatmap and a log or clipped scale (a few huge orders dominate)
+  - Keep the price axes identical between the two panels
+example: >-
+  A simulated limit-order book for a stock trading around $100: one snapshot plus 240 one-minute
+  snapshots, with two large resting walls (bids near $99.00, asks near $101.00). Not investment advice.
+read: >-
+  Left: the gap between the blue and orange steps at the centre is the bid-ask spread, and the jumps
+  near $99 and $101 are large resting orders. Right: darker cells mean more resting size at that price
+  and minute. The mid-price line stays below the dark band at $101 (a large sell wall) until the wall
+  is pulled at minute 175, then breaks straight through. The bid wall at $99 is never tested.

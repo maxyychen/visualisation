@@ -1,5 +1,6 @@
 title: Precision–Recall Curve
 engine: mpl
+level: intermediate
 order: 40
 purpose: Plots precision (positive predictive value) against recall (sensitivity) across thresholds. Unlike
   ROC, it focuses on the positive class, so it stays honest when positives are rare.

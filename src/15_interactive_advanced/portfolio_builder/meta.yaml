@@ -1,0 +1,36 @@
+title: Portfolio Builder (weights → risk, return, drawdown)
+engine: altair
+order: 40
+level: advanced
+data_shape: [prices, time]
+purpose: >-
+  Sliders set the weights of four asset classes. The chart places the resulting portfolio on the
+  risk/return plane against the efficient frontier and the individual assets, redraws its growth of
+  $1, and reports return, volatility and maximum drawdown, all recomputed in the browser from the
+  monthly return history. Readers learn diversification by doing it.
+when_to_use:
+  - Teach diversification and the efficient frontier interactively
+  - Let a client or committee explore allocations before a formal optimisation
+  - Show how adding a low-correlation asset (bonds, gold) changes risk and drawdown
+avoid:
+  - A recommendation document (show the chosen allocation and its statistics statically)
+  - More than about five assets (sliders become unwieldy; use an optimiser and show results)
+  - Readers might take historical or simulated statistics as forecasts
+alternatives:
+  - Efficient frontier (static)
+  - Risk contribution chart
+  - Allocation drift
+tips:
+  - The PNG shows the default state; open the HTML to interact
+  - Normalise weights by their sum, so the sliders never need to add up to 100
+  - Compute statistics from the same return history as the frontier, so the point and the curve are consistent
+  - Show drawdown next to volatility; investors feel drawdowns, not standard deviations
+example: >-
+  Simulated monthly returns for 15 years of four asset classes (US equities, international equities,
+  bonds, gold) with realistic volatilities and correlations. The frontier comes from 4,000 random
+  long-only portfolios of the same history.
+read: >-
+  The gray cloud is every random portfolio; its upper edge (dark line) is the efficient frontier.
+  The blue dot is your portfolio. Shifting weight from equities to bonds moves it down and left
+  (less risk, less return), and the drawdown readout shrinks. Adding gold can move the dot toward
+  the frontier, because gold is barely correlated with the other assets.

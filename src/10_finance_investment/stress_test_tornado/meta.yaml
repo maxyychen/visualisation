@@ -1,5 +1,6 @@
 title: Stress-Test Tornado Chart
 engine: mpl
+level: intermediate
 order: 100
 data_shape: [categories, numeric]
 purpose: >-

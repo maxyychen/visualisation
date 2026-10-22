@@ -1,5 +1,6 @@
 title: Learning Curve
 engine: mpl
+level: intermediate
 order: 60
 purpose: >-
   Plots training and cross-validated performance against the number of training examples. The gap

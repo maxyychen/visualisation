@@ -1,5 +1,6 @@
 title: Performance Attribution (Brinson)
 engine: mpl
+level: advanced
 order: 140
 data_shape: [categories, numeric]
 purpose: >-

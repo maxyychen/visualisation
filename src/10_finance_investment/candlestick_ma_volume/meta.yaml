@@ -1,5 +1,6 @@
 title: Candlestick with Moving Averages, Bollinger Band & Volume
 engine: mpl
+level: intermediate
 order: 200
 purpose: The technical analyst's standard price panel. Candles show each day's open, high, low and close.
   20- and 50-day moving averages show trend, a Bollinger band shows how unusual the price is relative

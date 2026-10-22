@@ -1,0 +1,7 @@
+# Optional extras for the advanced charts (large data, 3-D maps, regime models)
+-r requirements.txt
+datashader
+pydeck
+imageio
+statsmodels
+networkx

@@ -1,5 +1,6 @@
 title: Donut Chart
 engine: mpl
+level: basic
 order: 40
 purpose: A pie chart with the center removed. Readers judge arc length rather than angle, and the hole
   holds a headline number such as the total or the key share. The same limits as a pie apply.

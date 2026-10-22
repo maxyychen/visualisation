@@ -1,5 +1,6 @@
 title: Event Timeline
 engine: mpl
+level: basic
 order: 150
 purpose: Places labelled events along a time axis, with stems alternating above and below so labels don't
   collide. It shows chronology, gaps and the density of events at a glance.

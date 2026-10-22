@@ -1,5 +1,6 @@
 title: Ordered Horizontal Bar Chart
 engine: mpl
+level: basic
 order: 10
 purpose: Horizontal bars sorted from largest to smallest. Sorting turns comparison into a ranking that
   reads top to bottom, and horizontal bars leave room for long category labels.

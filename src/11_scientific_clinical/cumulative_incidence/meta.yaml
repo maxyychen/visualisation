@@ -1,5 +1,6 @@
 title: Cumulative Incidence (Competing Risks)
 engine: mpl
+level: advanced
 order: 150
 purpose: Plots the probability that a specific event has happened by time t when other events can prevent it,
   for example relapse when patients can also die without relapsing. The Aalen–Johansen estimator splits

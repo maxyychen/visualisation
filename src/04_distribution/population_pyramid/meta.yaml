@@ -1,5 +1,6 @@
 title: Population Pyramid
 engine: mpl
+level: basic
 order: 90
 purpose: Back-to-back horizontal histograms of age bands, with males on one side and females on the other.
   A population's age structure (growing, stable or ageing) shows at a glance.

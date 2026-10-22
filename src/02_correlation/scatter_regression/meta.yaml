@@ -1,5 +1,6 @@
 title: Scatter with Regression Line
 engine: mpl
+level: intermediate
 order: 20
 purpose: A scatter plot with a fitted trend line and its confidence band. The fit summarises the relationship,
   the band shows how certain the estimate is, and the raw points stay visible as evidence.

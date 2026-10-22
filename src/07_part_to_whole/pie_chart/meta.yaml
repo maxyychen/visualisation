@@ -1,5 +1,6 @@
 title: Pie Chart
 engine: mpl
+level: basic
 order: 30
 purpose: 'A circle divided into slices that add up to 100%. It answers one question: roughly what share
   of the whole is each part? People judge angles and areas less accurately than lengths, so a pie is for

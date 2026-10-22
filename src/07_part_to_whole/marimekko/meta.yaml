@@ -1,5 +1,6 @@
 title: Marimekko (Mosaic) Chart
 engine: mpl
+level: intermediate
 order: 90
 purpose: 'A 100% stacked bar chart in which each bar''s width is proportional to its total. It shows two
   part-to-whole splits at once: how big each segment is (width) and how it divides internally (height).'

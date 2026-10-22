@@ -1,5 +1,6 @@
 title: Stacked Bar Chart
 engine: mpl
+level: basic
 order: 10
 purpose: Each bar is a total, divided into segments for its components. It shows the total and its composition
   at once. The first segment and the total are easy to compare across bars. Inner segments are harder

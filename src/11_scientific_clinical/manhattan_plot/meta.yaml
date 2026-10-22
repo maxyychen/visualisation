@@ -1,5 +1,6 @@
 title: Manhattan Plot
 engine: mpl
+level: advanced
 order: 80
 purpose: Plots −log10 p for every genetic variant against its genomic position, chromosome by chromosome.
   Association signals stand out as 'skyscrapers' above a genome-wide significance line.

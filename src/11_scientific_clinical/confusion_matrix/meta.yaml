@@ -1,5 +1,6 @@
 title: Confusion Matrix
 engine: mpl
+level: intermediate
 order: 60
 purpose: A grid of actual versus predicted classes. The diagonal holds correct predictions, and every
   off-diagonal cell shows a specific kind of mistake.

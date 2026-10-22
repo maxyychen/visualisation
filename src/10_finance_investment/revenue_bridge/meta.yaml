@@ -1,5 +1,6 @@
 title: Revenue Bridge (Price / Volume / Mix / FX)
 engine: mpl
+level: basic
 order: 310
 purpose: 'A waterfall that walks from last year''s revenue to this year''s, one driver at a time: price,
   volume, product mix, currency and acquisitions. It answers the CFO''s question ''why did revenue change?''

@@ -1,5 +1,6 @@
 title: Word Cloud
 engine: mpl
+level: basic
 order: 120
 purpose: Shows words from a text sized by their frequency. It gives an at-a-glance, impressionistic summary
   of the dominant terms in open-ended text.

@@ -1,5 +1,6 @@
 title: Joint Plot (Scatter + Marginals)
 engine: mpl
+level: intermediate
 order: 90
 purpose: A scatter plot with the marginal distribution of each variable drawn along its axis. The joint
   relationship and both individual distributions show together.

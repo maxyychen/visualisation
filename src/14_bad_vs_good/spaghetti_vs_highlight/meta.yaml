@@ -1,5 +1,6 @@
 title: "Spaghetti Chart vs. Highlight"
 engine: mpl
+level: basic
 order: 50
 purpose: >-
   Plotting a dozen or more colored lines together produces a "spaghetti" tangle. Colors run out and repeat,

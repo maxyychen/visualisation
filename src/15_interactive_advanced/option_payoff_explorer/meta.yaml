@@ -1,0 +1,35 @@
+title: Option Payoff Explorer (what-if sliders)
+engine: altair
+order: 10
+level: advanced
+data_shape: [prices, numeric]
+purpose: >-
+  An interactive profit-and-loss chart for a single option. Sliders change the strike, implied
+  volatility, days to expiry and option type, and the chart redraws two curves: the payoff at
+  expiry (the hockey stick) and the Black-Scholes value today. Moving the sliders shows how time
+  value and volatility bend the curve, which a static payoff diagram cannot show.
+when_to_use:
+  - Teach how strike, volatility and time to expiry change an option's value and risk
+  - Compare today's mark-to-market P&L with the P&L at expiry before entering a trade
+  - Explore "what if implied volatility drops after earnings?" scenarios interactively
+avoid:
+  - A printed report or slide (sliders do nothing there; use the static option payoff small multiples)
+  - Multi-leg strategies with many strikes (the parameter space gets too large for sliders)
+  - Exact pricing of American options or with dividends (the model here is plain Black-Scholes)
+alternatives:
+  - Option payoff small multiples (static, in Finance & investment)
+  - Volatility smile / surface
+tips:
+  - The PNG shows the default state; open the HTML to interact
+  - Keep the y-axis label explicit ("per share") and mark the spot price and the strike
+  - Show both curves; the gap between them is the time value that decays as expiry approaches
+  - Sliders run entirely in the browser (Vega expressions include cumulativeNormal), so no Python kernel is needed
+example: >-
+  A long call or put bought today with the underlying at $100, a 3% risk-free rate and
+  Black-Scholes pricing. Prices on the x-axis are hypothetical values of the underlying.
+read: >-
+  The gray line is the P&L if you hold to expiry: the premium is lost below the strike, and gains
+  rise one-for-one above the breakeven. The blue line is the P&L if the underlying moved to that
+  price today. It is smooth because the option still has time value. Raise the volatility or the
+  days to expiry and the premium rises and the blue curve lifts away from the gray one. Shorten
+  the time and the two converge.

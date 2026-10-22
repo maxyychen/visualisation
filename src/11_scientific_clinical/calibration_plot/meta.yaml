@@ -1,5 +1,6 @@
 title: Calibration (Reliability) Plot
 engine: mpl
+level: intermediate
 order: 50
 purpose: Compares predicted probabilities with observed event frequencies, bin by bin. It shows whether
   a model's '30% risk' really means that 30 of 100 such patients have the event.

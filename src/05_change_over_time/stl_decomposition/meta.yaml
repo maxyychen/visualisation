@@ -1,0 +1,33 @@
+title: STL Decomposition (Trend / Seasonal / Residual)
+engine: mpl
+order: 910
+level: intermediate
+data_shape: [time]
+purpose: >-
+  Splits a time series into three additive parts with STL (Seasonal-Trend decomposition using
+  LOESS): a smooth trend, a repeating seasonal pattern that can change slowly, and a residual. Stacked
+  panels on a shared time axis separate the questions "is it growing?", "what is the seasonal
+  pattern?" and "was this month unusual?", which a single line mixes together.
+when_to_use:
+  - Separate long-term growth from seasonality before reporting a trend
+  - Find unusual periods (large residuals) such as outages, strikes or promotions
+  - Check whether the seasonal pattern is changing over time
+avoid:
+  - The series has no clear seasonality or is very short (fewer than ~3 full cycles)
+  - Effects are multiplicative and growing fast (log-transform first)
+alternatives:
+  - Seasonal cycle plot
+  - Line chart with a moving average
+  - ACF/PACF plots
+tips:
+  - Give each panel its own y-scale but keep the x-axis shared
+  - Draw residuals as bars or points around zero, not as a connected line
+  - Use the robust option so outliers land in the residual, not the trend
+example: >-
+  Monthly electricity demand, 2010–2024 (simulated): a rising then flattening trend, summer and
+  winter peaks that grow over time, and a few anomalies (a heat wave and a lockdown dip).
+read: >-
+  Observed demand (top) is the sum of the three panels below. The trend rises until about 2019 and
+  then flattens. The seasonal panel shows a double peak each year, summer and winter, whose summer
+  peak grows larger. The residual panel isolates the 2020 lockdown dip and the 2022 heat wave as
+  large bars.

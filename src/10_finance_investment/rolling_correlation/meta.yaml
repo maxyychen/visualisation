@@ -1,5 +1,6 @@
 title: Rolling Correlation
 engine: mpl
+level: intermediate
 order: 80
 data_shape: [prices, time]
 purpose: >-

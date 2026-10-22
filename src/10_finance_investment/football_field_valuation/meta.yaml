@@ -1,5 +1,6 @@
 title: Football Field (Valuation Summary)
 engine: mpl
+level: intermediate
 order: 280
 purpose: Floating horizontal bars show the implied value-per-share range from each valuation method (trading
   range, analyst targets, comparable companies, precedent deals, DCF, LBO) against the current share price.

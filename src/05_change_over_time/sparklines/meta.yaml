@@ -1,5 +1,6 @@
 title: Sparklines
 engine: mpl
+level: basic
 order: 120
 purpose: Tiny, word-sized line charts with no axes, set next to numbers in a table or text (the term was
   coined by Edward Tufte). They add the shape of the recent trend to each figure at very little cost in

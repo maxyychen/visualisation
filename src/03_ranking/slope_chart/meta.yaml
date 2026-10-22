@@ -1,5 +1,6 @@
 title: Slope Chart
 engine: mpl
+level: basic
 order: 60
 purpose: Joins each item's value at two points in time (or two conditions) with a straight line. The slope
   shows the direction and size of change, and crossing lines show changes in rank.

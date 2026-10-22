@@ -1,5 +1,6 @@
 title: Tile Grid Map
 engine: mpl
+level: basic
 order: 50
 purpose: Replaces every region with an equal-sized square laid out roughly in its geographic position.
   Each state gets the same visual weight, which fixes the choropleth's large-area bias.

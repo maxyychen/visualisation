@@ -1,5 +1,6 @@
 title: Risk Contribution vs. Capital Weight
 engine: mpl
+level: advanced
 order: 90
 data_shape: [prices, categories]
 purpose: >-

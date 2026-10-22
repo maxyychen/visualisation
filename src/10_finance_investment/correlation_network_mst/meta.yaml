@@ -1,0 +1,33 @@
+title: Correlation Network (Minimum Spanning Tree)
+engine: mpl
+order: 400
+level: advanced
+data_shape: [prices, flows]
+purpose: >-
+  Turns a correlation matrix of many assets into a tree. Each correlation becomes a distance
+  d = √(2(1 − ρ)), and the minimum spanning tree keeps only the strongest links that connect every
+  asset (Mantegna 1999). A 600-cell heatmap becomes a readable map of which stocks move together,
+  which clusters exist, and which names sit at the centre of the market.
+when_to_use:
+  - Find clusters and "hub" stocks in a universe of 20–200 assets
+  - Check whether sector labels match how stocks actually trade
+  - Explain portfolio concentration (many holdings on one branch = one bet)
+avoid:
+  - There are fewer than ~10 assets (a correlation heatmap is clearer)
+  - Readers need exact correlation values (the tree drops most pairs)
+  - The return window is short or crosses a regime change (the tree is unstable)
+alternatives:
+  - Clustered correlation heatmap (HRP dendrogram)
+  - Correlation heatmap
+tips:
+  - Use returns, not prices, and state the window length
+  - Color nodes by sector (four colors or fewer) to test whether clusters match labels
+  - Scale edge width by correlation so the strongest links stand out
+  - Re-run on sub-periods; a stable tree is more trustworthy
+example: >-
+  Simulated daily returns for 24 stocks in four sectors over two years (market factor + sector factor
+  + stock-specific noise). Not investment advice.
+read: >-
+  Each dot is a stock, and each line joins it to its most similar neighbour. Stocks of the same color
+  (sector) form branches, so the sector factor dominates. Thicker lines mean higher correlation. Stocks
+  with many links, near the centre, move most with the market.

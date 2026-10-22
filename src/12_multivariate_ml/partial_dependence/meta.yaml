@@ -1,5 +1,6 @@
 title: Partial Dependence & ICE Plot
 engine: mpl
+level: intermediate
 order: 40
 purpose: >-
   Shows how a model's prediction changes as one feature varies while the others stay at their observed

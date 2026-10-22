@@ -1,5 +1,6 @@
 title: ROC Curve
 engine: mpl
+level: intermediate
 order: 30
 purpose: Plots a classifier's true-positive rate against its false-positive rate at every decision threshold.
   The area under the curve (AUC) summarises discrimination independently of the threshold.

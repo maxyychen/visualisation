@@ -1,5 +1,6 @@
 title: Highlight Table (heat-shaded table)
 engine: mpl
+level: basic
 order: 110
 purpose: A table of numbers with each cell shaded by its value. Readers can look up exact values and still
   see high and low cells at a glance, which makes it a bridge between a table and a heatmap.

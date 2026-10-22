@@ -1,5 +1,6 @@
 title: Fan Chart (forecast uncertainty)
 engine: mpl
+level: intermediate
 order: 90
 purpose: Shows observed history followed by a forecast drawn as nested bands of uncertainty that widen
   over time. It shows the best guess together with honest uncertainty about it.

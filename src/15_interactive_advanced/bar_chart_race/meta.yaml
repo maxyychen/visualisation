@@ -1,0 +1,36 @@
+title: Bar Chart Race (animated ranking)
+engine: mpl
+order: 100
+level: intermediate
+animated: true
+fps: 6
+data_shape: [time, categories]
+purpose: >-
+  An animated, re-sorting horizontal bar chart. Each frame shows the top N items at one moment, and
+  bars overtake each other as time advances. Motion turns rank changes into a story: who rose, who fell,
+  and when the leader changed.
+when_to_use:
+  - Tell a "who led when" story in a presentation or social post, where motion holds attention
+  - Show rank changes among many entities over a long period (market caps, brands, countries)
+  - Hook the audience before a detailed static analysis
+avoid:
+  - Readers need to compare values precisely between two dates (use a slope or bump chart)
+  - The output is a printed report or PDF (a single frame loses the story)
+  - Ranks barely change (a static sorted bar is clearer)
+alternatives:
+  - Bump chart (ranks over time, static)
+  - Slope chart (two dates)
+  - Small multiples of sorted bars at key dates
+tips:
+  - Keep each entity's color fixed across frames; color follows the entity, never the rank
+  - Give named colors only to the few entities that matter (≤ 8 hues) and gray the rest
+  - Interpolate between data points so bars glide instead of jumping
+  - Show the date large and quiet in a corner; note that the axis rescales each frame
+  - Pair it with a static chart that readers can study
+example: >-
+  Simulated market capitalisation (US$ bn) of 15 fictional companies, 2005–2024, interpolated to
+  39 frames, including a 2008 crash and the rise of two tech challengers.
+read: >-
+  Watch Ionix Cloud and Helix Semis climb from outside the top ten to the top two, while the old
+  energy and industrial leaders slide down. The x-axis rescales every frame, so compare positions,
+  not absolute bar lengths, across years.

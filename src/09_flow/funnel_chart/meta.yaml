@@ -1,5 +1,6 @@
 title: Funnel Chart
 engine: mpl
+level: basic
 order: 30
 purpose: A sequence of centered bars, one per stage of a process, each no larger than the one before.
   It shows how many items remain at each step and where the largest drop-offs occur.

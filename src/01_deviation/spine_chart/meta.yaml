@@ -1,5 +1,6 @@
 title: Spine Chart (opposing bars)
 engine: mpl
+level: basic
 order: 60
 purpose: Two sets of bars extend in opposite directions from a central spine. It splits one total into
   two opposing components (for example, for vs. against, or imports vs. exports) for each category.

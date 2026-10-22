@@ -1,5 +1,6 @@
 title: Parliament (Semicircle) Chart
 engine: mpl
+level: basic
 order: 120
 purpose: Seats drawn as dots arranged in semicircular rows and colored by party. Each dot is a countable
   unit, so the chart shows composition and whether a majority threshold is crossed.

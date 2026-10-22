@@ -1,5 +1,6 @@
 title: Clustered Heatmap (with dendrograms)
 engine: mpl
+level: advanced
 order: 120
 purpose: A matrix heatmap whose rows and columns are reordered by hierarchical clustering, with dendrograms
   on the margins. Blocks of similar features and similar samples emerge without any prior grouping.

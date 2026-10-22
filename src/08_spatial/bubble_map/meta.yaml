@@ -1,5 +1,6 @@
 title: Bubble Map (proportional symbols)
 engine: plotly
+level: basic
 order: 30
 purpose: Places a circle at each location with area proportional to a quantity. Unlike a choropleth, the
   symbol size, not the region size, carries the value, so raw counts are safe to show.

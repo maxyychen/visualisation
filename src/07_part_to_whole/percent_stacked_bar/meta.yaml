@@ -1,5 +1,6 @@
 title: 100% Stacked Bar Chart
 engine: mpl
+level: basic
 order: 20
 purpose: Stacked bars scaled so that each one totals 100%. Absolute size is removed, so readers compare
   the share of each component across groups.

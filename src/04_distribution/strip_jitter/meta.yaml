@@ -1,5 +1,6 @@
 title: Strip Plot (Jittered Dots)
 engine: mpl
+level: basic
 order: 50
 purpose: Plots every observation as a dot along a value axis, with random sideways jitter to reduce overlap.
   Nothing is summarised away, so sample size, clusters and outliers stay visible.

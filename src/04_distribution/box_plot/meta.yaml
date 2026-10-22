@@ -1,5 +1,6 @@
 title: Box Plot (Box-and-Whisker)
 engine: mpl
+level: intermediate
 order: 30
 purpose: 'Summarises a distribution with five numbers: the median, the quartiles (box) and the whiskers
   to 1.5×IQR, with outliers drawn as points. It is compact enough to compare many groups side by side.'

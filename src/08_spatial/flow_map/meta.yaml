@@ -1,5 +1,6 @@
 title: Flow Map (origin–destination)
 engine: plotly
+level: intermediate
 order: 40
 purpose: Draws lines between origins and destinations on a map, with line width (or opacity) encoding
   the volume of movement. It combines geography with flow.

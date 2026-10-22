@@ -1,5 +1,6 @@
 title: Sunburst Chart
 engine: plotly
+level: intermediate
 order: 60
 purpose: Concentric rings that show a hierarchy. The center is the root and each ring outward is one level
   deeper. Each arc's angle is proportional to its value. In the interactive version, clicking a segment

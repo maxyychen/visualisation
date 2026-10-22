@@ -1,5 +1,6 @@
 title: Venn Diagram
 engine: mpl
+level: basic
 order: 110
 purpose: Overlapping circles that show how two or three sets share members. Each region is labeled with
   its count, so readers see the size of every combination, including what is unique and what is shared.

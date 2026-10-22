@@ -1,5 +1,6 @@
 title: Return Distribution with VaR and CVaR
 engine: mpl
+level: intermediate
 order: 70
 data_shape: [prices, numeric]
 purpose: >-

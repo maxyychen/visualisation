@@ -1,0 +1,33 @@
+title: Million-Point Scatter (datashader)
+engine: mpl
+order: 200
+level: advanced
+data_shape: [numeric]
+purpose: >-
+  Renders millions of points by binning them into a pixel grid and coloring each pixel by how many
+  points fall in it, instead of drawing each marker. The result shows the true density structure
+  (clusters, ridges, gaps) that an ordinary scatter plot hides under a solid blob of ink.
+when_to_use:
+  - Plot hundreds of thousands to billions of points (trades, transactions, sensor readings, logs)
+  - Reveal structure in dense regions where markers overlap completely
+  - Keep rendering fast and file sizes small whatever the data size
+avoid:
+  - There are only a few thousand points (an ordinary scatter, with transparency, works)
+  - Individual points must stay identifiable or hoverable (use WebGL scatter)
+  - The audience will misread density color as a third measure; label the scale as a count
+alternatives:
+  - Hexbin plot (moderate sizes, built into matplotlib)
+  - 2D density contour
+  - WebGL scatter (interactive, up to ~1M points)
+tips:
+  - Use a single-hue sequential ramp and a log or histogram-equalised color scale; raw linear counts hide everything but the peak
+  - Label the color bar as "points per pixel" so density is not read as a value
+  - Show the naive scatter alongside once, to justify the method
+  - "Requires the advanced extras: `pip install -r requirements-advanced.txt`"
+example: >-
+  Three million simulated card transactions: time of day vs. transaction amount (log scale), with
+  morning, lunch and evening peaks plus a band of fixed-price subscription charges.
+read: >-
+  On the left, three million points merge into one blob and the structure is gone. On the right,
+  each pixel is colored by its count on a log scale, so the lunchtime peak, the evening shopping band,
+  the overnight lull and the thin horizontal line of identical $9.99 subscription charges all appear.

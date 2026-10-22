@@ -1,5 +1,6 @@
 title: Volcano Plot
 engine: mpl
+level: advanced
 order: 70
 purpose: A scatter of effect size (log2 fold change) against statistical significance (−log10 p) for thousands
   of features at once. Hits that are both large and significant rise to the upper corners.

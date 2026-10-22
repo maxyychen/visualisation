@@ -1,5 +1,6 @@
 title: Scatter Plot
 engine: mpl
+level: basic
 order: 10
 purpose: 'Each observation is a dot placed by two numeric variables. It is the basic chart for relationships:
   the direction, strength, shape (linear or curved), clusters and outliers all show at once.'

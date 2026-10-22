@@ -1,5 +1,6 @@
 title: Hexbin Plot
 engine: mpl
+level: intermediate
 order: 60
 purpose: Bins a large scatter into hexagonal cells colored by point count. It replaces an unreadable blob
   of overplotted points with a readable density surface.

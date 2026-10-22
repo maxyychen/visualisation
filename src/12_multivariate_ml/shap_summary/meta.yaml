@@ -1,5 +1,6 @@
 title: SHAP Summary (Beeswarm)
 engine: mpl
+level: advanced
 order: 30
 purpose: >-
   One row per feature, one dot per prediction. A dot's horizontal position is how much that feature

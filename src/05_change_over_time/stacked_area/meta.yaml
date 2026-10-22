@@ -1,5 +1,6 @@
 title: Stacked Area Chart
 engine: mpl
+level: basic
 order: 50
 purpose: Stacks several series on top of each other over time. The top edge shows the total, and each
   band shows how much one component contributes.

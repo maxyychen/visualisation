@@ -1,3 +1,5 @@
+import numpy as np
+import pandas as pd
 import altair as alt
 
 PALETTE = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100",

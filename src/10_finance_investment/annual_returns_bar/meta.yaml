@@ -1,5 +1,6 @@
 title: Annual Returns vs. Benchmark
 engine: mpl
+level: basic
 order: 50
 data_shape: [prices, time, categories]
 purpose: >-

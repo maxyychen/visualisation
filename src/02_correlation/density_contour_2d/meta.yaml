@@ -1,5 +1,6 @@
 title: 2-D Density Contour Plot
 engine: mpl
+level: intermediate
 order: 70
 purpose: Estimates the joint probability density of two variables and draws it as filled contour bands,
   like a topographic map. It shows peaks (modes) and the shape of the joint distribution.

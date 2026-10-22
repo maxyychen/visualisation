@@ -1,5 +1,6 @@
 title: Quantile Dotplot
 engine: mpl
+level: intermediate
 order: 20
 purpose: >-
   Turns a probability distribution into a small number of dots (here 20), each holding an equal share of

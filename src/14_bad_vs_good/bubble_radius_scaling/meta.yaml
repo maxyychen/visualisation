@@ -1,5 +1,6 @@
 title: "Bubble Scaled by Radius vs. by Area"
 engine: mpl
+level: basic
 order: 90
 purpose: >-
   Readers judge a circle by its area. If the radius (or diameter) is made proportional to the value, the

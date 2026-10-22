@@ -1,5 +1,6 @@
 title: Line Chart
 engine: mpl
+level: basic
 order: 10
 purpose: The standard way to show a continuous series over time. Points joined by a line put the reader's
   attention on the trend, its direction, speed and turning points, more than on any single value.

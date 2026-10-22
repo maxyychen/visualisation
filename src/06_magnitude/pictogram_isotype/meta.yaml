@@ -1,5 +1,6 @@
 title: Pictogram / Isotype Chart
 engine: mpl
+level: basic
 order: 80
 purpose: Represents quantities by counting repeated icons (Otto Neurath's Isotype). It turns abstract
   numbers into countable things for general and infographic audiences.

@@ -1,5 +1,6 @@
 title: CONSORT Flow Diagram
 engine: mpl
+level: basic
 order: 210
 purpose: A standardised flowchart showing how participants moved through a randomised trial, from assessment for
   eligibility through allocation and follow-up to analysis, with the number excluded and the reason at each step.

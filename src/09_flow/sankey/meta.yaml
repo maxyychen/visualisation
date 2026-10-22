@@ -1,5 +1,6 @@
 title: Sankey Diagram
 engine: plotly
+level: intermediate
 order: 10
 purpose: Nodes joined by bands whose width is proportional to the quantity flowing between them. It shows
   where a quantity comes from, where it goes, and where it is lost or split, and the total is conserved

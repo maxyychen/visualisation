@@ -1,5 +1,6 @@
 title: "Truncated Bar Axis vs. Zero Baseline"
 engine: mpl
+level: basic
 order: 20
 purpose: >-
   Bars encode value by length, so a bar chart whose y-axis starts above zero makes small differences

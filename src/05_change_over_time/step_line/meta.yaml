@@ -1,5 +1,6 @@
 title: Step Line Chart
 engine: mpl
+level: basic
 order: 70
 purpose: A line that moves in horizontal and vertical steps instead of diagonals. It shows that a value
   holds constant between changes, as with policy rates, prices, or inventory levels.

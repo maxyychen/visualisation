@@ -1,5 +1,6 @@
 title: OncoPrint (Mutation Matrix)
 engine: mpl
+level: advanced
 order: 180
 purpose: A genes × samples grid in which each cell's glyph shows the type of alteration (mutation, amplification,
   deletion) a tumour carries in that gene. Samples are sorted so patterns of co-occurrence and mutual exclusivity

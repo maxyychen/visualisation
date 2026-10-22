@@ -1,5 +1,6 @@
 title: Means with 95% Confidence Intervals
 engine: mpl
+level: intermediate
 order: 130
 purpose: Plots each group's mean as a dot with a 95% confidence interval, over the raw observations. Readers
   see the estimate, its uncertainty, and the data behind it, which a bar-of-means ('dynamite plot') hides.

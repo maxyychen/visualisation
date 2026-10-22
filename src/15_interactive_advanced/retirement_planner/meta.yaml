@@ -1,0 +1,37 @@
+title: Retirement Planner (Monte Carlo what-if)
+engine: altair
+order: 20
+level: advanced
+data_shape: [uncertainty, time]
+purpose: >-
+  An interactive Monte Carlo fan chart. Sliders set expected return, volatility and annual
+  spending; the fan shows the range of portfolio values from 65 to 95, and a side panel shows the
+  probability that the money lasts. Uncertainty is the message: readers see the spread of
+  outcomes and how fast success falls as spending rises, instead of one optimistic projection.
+when_to_use:
+  - Financial planning conversations about a sustainable withdrawal rate
+  - Show how sensitive an outcome is to assumptions (return, volatility, spending)
+  - Replace a single straight-line projection with a range of plausible outcomes
+avoid:
+  - The audience reads the median as a promise (label the fan and state the probability)
+  - Assumptions are unknown or contested (show a static scenario comparison instead)
+  - Precise tax or fee modelling is needed (this simulator ignores both)
+alternatives:
+  - Monte Carlo wealth fan (static, in Finance & investment)
+  - Fan chart (forecast uncertainty)
+  - Quantile dot plot (single outcome)
+tips:
+  - The PNG shows the default state; open the HTML to interact
+  - Lead with the probability of success; the fan explains it
+  - Precompute the simulation on a grid of slider values, because Monte Carlo cannot run in the browser here
+  - Use the same random draws for every grid point (common random numbers) so the fan moves smoothly between settings
+example: >-
+  Simulated: a $1.5M portfolio at age 65, withdrawing a fixed nominal amount each year to 95, with
+  2,000 random return paths for each of 210 slider combinations (normal annual returns, no tax or
+  fees). Illustrative only, not financial advice.
+read: >-
+  The dark band holds the middle half of outcomes and the light band 80% of them; the line is the
+  median. The right panel shows the probability of not running out before 95 at each spending level
+  for the chosen return and volatility, and the big dot marks the selected spending. With the
+  defaults (5% return, 12% volatility, $70k a year) about three outcomes in four last to 95, and each
+  extra $10k of spending costs roughly 10–15 points of probability.

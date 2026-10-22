@@ -1,5 +1,6 @@
 title: Calendar Heatmap
 engine: mpl
+level: intermediate
 order: 100
 purpose: Lays daily values out on a week-by-weekday grid, like a wall calendar, and colors each day by
   magnitude. Weekly rhythms, seasonal patterns and unusual days stand out across a whole year.

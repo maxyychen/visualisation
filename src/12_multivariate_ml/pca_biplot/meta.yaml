@@ -1,5 +1,6 @@
 title: PCA Biplot
 engine: mpl
+level: intermediate
 order: 10
 purpose: >-
   Projects many correlated numeric variables onto the first two principal components. It draws the

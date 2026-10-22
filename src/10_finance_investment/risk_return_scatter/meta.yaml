@@ -1,5 +1,6 @@
 title: Risk-Return Scatter
 engine: mpl
+level: intermediate
 order: 120
 data_shape: [prices, numeric]
 purpose: >-

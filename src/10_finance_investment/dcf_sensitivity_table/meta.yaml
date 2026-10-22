@@ -1,5 +1,6 @@
 title: DCF Sensitivity Table
 engine: mpl
+level: intermediate
 order: 290
 purpose: A two-way table of discounted-cash-flow value per share across discount rates (WACC) and terminal
   growth rates, colored relative to the current share price. It shows how much of a valuation depends

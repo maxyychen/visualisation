@@ -1,5 +1,6 @@
 title: Spaghetti Plot (Longitudinal Trajectories)
 engine: mpl
+level: intermediate
 order: 200
 purpose: Draws one thin line per subject for repeated measurements over time, with the group mean and its
   confidence band on top. Individual variation, dropout and the average trend are visible together, which a plot of

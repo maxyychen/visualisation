@@ -1,0 +1,33 @@
+title: Linked Price & Returns (brush to select a window)
+engine: altair
+order: 50
+level: intermediate
+data_shape: [prices, time]
+purpose: >-
+  Two linked views of one price history. Dragging across the price chart selects a time window,
+  and the histogram of daily returns and the summary statistics update to show only that window,
+  against the full-period distribution in gray. The reader asks "what was risk like during that
+  episode?" by pointing at it.
+when_to_use:
+  - Compare return distributions across calm and turbulent periods
+  - Explore a long price history before choosing the window for a formal analysis
+  - Show non-specialists that volatility changes over time
+avoid:
+  - Static reports (pick the windows yourself and show small multiples)
+  - Very short histories, where a selected window has too few returns for a meaningful histogram
+alternatives:
+  - Rolling volatility chart
+  - Return distribution with VaR (static)
+tips:
+  - The PNG shows the default state (full period); open the HTML and drag across the price chart
+  - Keep the full-period histogram in gray behind the selection, so every window has a baseline
+  - Fix the histogram bins so the shape is comparable between windows
+  - Double-click the price chart to clear the selection
+example: >-
+  Simulated daily prices over three years with a turbulent stretch in the middle, where daily
+  volatility more than doubles.
+read: >-
+  With nothing selected, the blue and gray histograms coincide and the readout covers the whole
+  period. Drag across the turbulent middle section and the blue histogram widens sharply and the
+  annualised volatility jumps. Select a calm stretch and it narrows. The worst-day figure shows how
+  the tail changes too.

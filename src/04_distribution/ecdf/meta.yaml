@@ -1,5 +1,6 @@
 title: Empirical CDF (ECDF)
 engine: mpl
+level: intermediate
 order: 80
 purpose: For every value x, plots the fraction of observations ≤ x. It has no bins or smoothing, and it
   answers percentile questions directly ('what share of users wait under 2 s?').

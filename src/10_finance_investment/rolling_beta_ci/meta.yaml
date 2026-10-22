@@ -1,0 +1,35 @@
+title: Rolling Beta with Confidence Band
+engine: mpl
+order: 460
+level: advanced
+data_shape: [prices, time, uncertainty]
+purpose: >-
+  Estimates a stock's or fund's beta to the market over a moving window with a rolling regression,
+  and draws a 95% confidence band around each estimate. Market exposure is not fixed, and a
+  one-year estimate is noisy. The band shows which wiggles are real shifts in exposure and which are
+  estimation error.
+when_to_use:
+  - Monitor whether a fund's market exposure is drifting from its mandate
+  - Check if a stock became more or less defensive after a business change
+  - Show why a single "beta = 1.2" number can mislead
+avoid:
+  - The window is too short for the return frequency (wide bands, little information)
+  - The relationship is clearly non-linear (options-like payoffs); beta summarises it poorly
+alternatives:
+  - Rolling correlation
+  - Scatter of stock vs. market returns for two sub-periods
+tips:
+  - State the window and frequency (e.g. 252 daily returns)
+  - Draw beta = 1 (market-like) as a reference line
+  - Use the regression's standard error for the band, not ad-hoc smoothing
+example: >-
+  Simulated daily returns for a stock whose true beta moves from 0.8 to 1.4 and back to about 1.0,
+  regressed on market returns over a rolling 252-day window with statsmodels RollingOLS. The real-data
+  variant uses weekly 2018–2019 prices with a 52-week window. Not investment advice.
+read: >-
+  The blue line is the estimated beta and the band its 95% confidence interval. In the simulation the
+  thin gray line is the true beta: the estimate tracks it with a lag of about half a window. The band
+  is wide enough that moves smaller than ±0.15 are not reliably real.
+real_data:
+  source: plotly.express.data.stocks (weekly 2018–2019; AAPL vs. equal-weight of six tech stocks)
+  offline: true

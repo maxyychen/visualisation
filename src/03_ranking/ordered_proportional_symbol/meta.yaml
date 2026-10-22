@@ -1,5 +1,6 @@
 title: Ordered Proportional Symbol Chart
 engine: mpl
+level: basic
 order: 80
 purpose: Circles sized by value and arranged in rank order. It suits values that span a very wide range,
   where bars for the small items would be too short to see.

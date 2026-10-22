@@ -1,0 +1,32 @@
+title: Sector Click-to-Filter (overview → detail)
+engine: altair
+order: 60
+level: intermediate
+data_shape: [categories, prices]
+purpose: >-
+  An overview bar chart of sector returns linked to a detail scatter of individual stocks. Clicking
+  a sector highlights its stocks on the risk/return plane and fades the rest, following
+  Shneiderman's mantra: overview first, zoom and filter, details on demand. Readers go from "which
+  sector did well?" to "which stocks drove it, and at what risk?" in one gesture.
+when_to_use:
+  - Drill down from an aggregate (sector, region, fund) to its members
+  - Compare one group's members against the whole universe without losing context
+  - Explore a screen or watchlist interactively
+avoid:
+  - Readers who need every group at once (use small multiples)
+  - Fewer than about 20 members in total (one labelled scatter is enough)
+alternatives:
+  - Sector heat map (treemap)
+  - Risk-return scatter
+  - Small multiples by sector
+tips:
+  - The PNG shows the default state (nothing selected); open the HTML and click a bar (shift-click adds more)
+  - Fade the unselected points to gray rather than hiding them, to keep the context
+  - Keep the scatter's axes fixed so the selection doesn't rescale the view
+  - Put names and numbers in tooltips, not labels, to keep the scatter readable
+example: >-
+  Simulated one-year returns and volatilities for 72 fictional stocks in eight sectors.
+read: >-
+  The bars rank sectors by average return: blue gained and orange lost. Click Technology and its
+  stocks light up in the scatter, mostly high-return but also high-volatility. Click Utilities and
+  they cluster at low risk and low return. Hover any dot for the stock's name and figures.

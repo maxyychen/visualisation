@@ -1,5 +1,6 @@
 title: Candlestick (OHLC) Chart
 engine: mpl
+level: intermediate
 order: 80
 purpose: Each period is drawn as a candle. The body spans open to close and the wicks span the low and
   high, so one mark shows both direction and volatility. It is the standard view of financial price action.

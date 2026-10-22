@@ -1,5 +1,6 @@
 title: Regression Residual Diagnostics
 engine: mpl
+level: advanced
 order: 50
 purpose: >-
   A 2×2 panel of standard checks for a linear regression: residuals vs fitted (non-linearity), normal

@@ -1,0 +1,30 @@
+title: "Animation vs. Small Multiples"
+engine: mpl
+order: 100
+level: basic
+data_shape: [time, categories]
+purpose: >-
+  Animation shows one moment at a time, so comparing frames depends on the reader's memory. Did East
+  grow between March and October? In an animation you have to remember March's bar while watching
+  October's. Research on animated transitions (e.g. Robertson et al., 2008) found animation engaging
+  but worse for analysis than static small multiples.
+when_to_use:
+  - Use small multiples when readers must compare states over time or find the trend
+  - Use a single line chart when the trend of a few series is the message
+  - Keep animation for presentations and storytelling, alongside a static chart
+avoid:
+  - Animating data the audience must analyse or compare
+  - Animation as the only view in a report, dashboard or PDF
+alternatives:
+  - Small multiples (one panel per period, shared axes)
+  - Line chart of the series over time
+  - Slope chart (first vs. last period)
+tips:
+  - If you animate, also provide the static version
+  - Share axes across all panels so differences are real
+  - Highlight the entity that carries the message and gray the rest
+example: Monthly sales (US$ k) for six regions over 12 months; East grows steadily while the others stay flat.
+read: >-
+  On the left is the animation's July frame: nothing stands out, and no earlier frame is visible to
+  compare against. On the right, all twelve months sit side by side, and East's steady climb is
+  obvious at a glance.

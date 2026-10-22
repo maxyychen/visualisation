@@ -1,5 +1,6 @@
 title: Packed Bubble Chart (proportional symbols)
 engine: mpl
+level: basic
 order: 90
 purpose: Circles sized by value and packed together without axes. It gives a quick, attractive impression
   of which items are big and which are small.

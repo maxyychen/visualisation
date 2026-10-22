@@ -1,5 +1,6 @@
 title: Monthly Returns Heatmap (Calendar Table)
 engine: mpl
+level: basic
 order: 40
 data_shape: [prices, time]
 purpose: >-

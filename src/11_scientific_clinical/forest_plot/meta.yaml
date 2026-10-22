@@ -1,5 +1,6 @@
 title: Forest Plot
 engine: mpl
+level: intermediate
 order: 20
 purpose: Shows effect estimates (hazard ratio, odds ratio, mean difference) with confidence intervals
   for many subgroups or studies, aligned against a line of no effect. It is the core figure of meta-analyses

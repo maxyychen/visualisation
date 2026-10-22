@@ -1,5 +1,6 @@
 title: Arc Diagram
 engine: mpl
+level: intermediate
 order: 60
 purpose: Nodes are placed along a single line and connections are drawn as arcs above it. The one-dimensional
   layout makes node order meaningful (time, sequence, or group). Arc height shows how far apart connected

@@ -1,0 +1,32 @@
+title: Futures Term Structure (Contango vs. Backwardation)
+engine: mpl
+order: 450
+level: advanced
+data_shape: [prices, time]
+purpose: >-
+  Plots futures prices against time to expiry for several dates, alongside the history of the spread
+  between a later contract and the front month. Upward-sloping curves (contango) mean later delivery
+  costs more, usually because of storage and financing. Downward-sloping curves (backwardation)
+  signal scarcity today. The slope drives the roll return of every futures-based investment.
+when_to_use:
+  - Explain roll yield and why commodity ETFs can lag spot prices
+  - Show how supply shocks flip a market from contango to backwardation
+  - Compare curve shapes across commodities, VIX futures or rates futures
+avoid:
+  - Readers only need the spot price trend
+  - Contracts have very different liquidity (thin back months distort the curve)
+alternatives:
+  - Yield curve chart (the same idea for bonds)
+  - Calendar-spread line chart only
+tips:
+  - Plot maturity in months on the x-axis, not calendar dates, so curves from different days align
+  - Use a polarity color for the spread (blue = contango, orange = backwardation)
+  - Mark the dates of the plotted curves on the spread history
+example: >-
+  Simulated crude-oil futures, 2019–2024: futures priced as F = S·e^((r − y)·T) with a stochastic
+  convenience yield y. The market sits in contango during a glut and flips into steep backwardation
+  during a supply squeeze. Not investment advice.
+read: >-
+  Left: each line is the whole futures curve on one date. Rising lines are contango and falling lines
+  are backwardation. Right: the 12-month minus front-month spread as a percentage of the front month,
+  blue above zero (contango) and orange below. The dots mark the four dates drawn on the left.

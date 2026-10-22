@@ -1,5 +1,6 @@
 title: Relative Rotation Graph (RRG)
 engine: mpl
+level: advanced
 order: 220
 purpose: Plots each sector's relative strength against a benchmark (x, RS-ratio) and the momentum of that
   relative strength (y, RS-momentum), with a short tail of recent weeks. Sectors tend to rotate clockwise

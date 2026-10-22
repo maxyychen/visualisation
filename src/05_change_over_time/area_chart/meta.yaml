@@ -1,5 +1,6 @@
 title: Area Chart
 engine: mpl
+level: basic
 order: 40
 purpose: A line chart with the area below the line filled in. The fill stresses volume, the cumulative
   size of the quantity over time, not just its trend.

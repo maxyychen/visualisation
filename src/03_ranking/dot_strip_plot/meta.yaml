@@ -1,5 +1,6 @@
 title: Dot Strip Plot (rank position)
 engine: mpl
+level: intermediate
 order: 50
 purpose: Places every item as a dot along a single value axis, one strip per group, with the item of interest
   highlighted. It shows where one entity ranks within each of several measures.

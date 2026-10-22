@@ -1,5 +1,6 @@
 title: Column Chart (vertical bar)
 engine: mpl
+level: basic
 order: 10
 purpose: Vertical bars whose heights encode values on a common zero baseline. Aligned length is the most
   accurately read visual encoding, which makes this the default for comparing amounts.

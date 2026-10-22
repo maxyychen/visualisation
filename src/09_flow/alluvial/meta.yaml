@@ -1,5 +1,6 @@
 title: Alluvial Diagram (Parallel Categories)
 engine: plotly
+level: intermediate
 order: 20
 purpose: Several categorical dimensions are drawn as vertical axes with ribbons connecting them. Each
   ribbon is the group of records sharing a combination of categories. It shows how membership in one classification

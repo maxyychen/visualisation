@@ -1,0 +1,34 @@
+title: Regime-Shaded Price Chart
+engine: mpl
+order: 420
+level: advanced
+data_shape: [prices, time, model]
+purpose: >-
+  Shades the background of a price chart by the market regime a statistical model infers, here a
+  two-state Markov-switching model of returns (calm vs. turbulent). A lower panel shows the model's
+  probability of being in the turbulent state. Readers see how prices behave inside each regime and
+  how confident the model is, not just where a hand-picked "crisis" began.
+when_to_use:
+  - Show when volatility or trend regimes switched, and how long they lasted
+  - Explain a regime-based strategy (risk-on / risk-off, volatility targeting)
+  - Put a long price history into context without manual annotation
+avoid:
+  - The audience will read the shading as a forecast (it is estimated with hindsight)
+  - The model has not been validated; shading lends false authority
+  - There are more than 3 regimes (colors and labels stop being readable)
+alternatives:
+  - Rolling volatility chart
+  - Drawdown chart
+  - Event timeline with manual annotations
+tips:
+  - Say whether probabilities are smoothed (use all data) or filtered (real-time)
+  - Shade only when the probability exceeds a stated threshold, e.g. 50%
+  - Keep the shading light so the price line stays dominant
+example: >-
+  Simulated daily returns from a two-regime process (calm: low volatility, slight upward drift;
+  turbulent: high volatility, negative drift). The regimes are then estimated back from the returns
+  with statsmodels' MarkovRegression. Not investment advice.
+read: >-
+  Orange bands mark days the model puts more than 50% probability on the turbulent regime. Prices
+  fall and swing widely inside the bands and grind higher outside them. The lower panel shows the
+  probability itself: values near 0 or 1 mean the model is confident, values in between mean it is not.

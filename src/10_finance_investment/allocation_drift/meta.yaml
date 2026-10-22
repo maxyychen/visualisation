@@ -1,5 +1,6 @@
 title: Allocation Drift and Rebalancing
 engine: mpl
+level: intermediate
 order: 130
 data_shape: [prices, time, categories]
 purpose: >-

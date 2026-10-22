@@ -1,5 +1,6 @@
 title: Waffle Chart
 engine: mpl
+level: basic
 order: 80
 purpose: A 10 × 10 grid of squares, each worth 1% (or one unit). Squares are colored by category. Counting
   squares is more accurate than judging angles, and the 'n out of 100' framing is easy for any audience.

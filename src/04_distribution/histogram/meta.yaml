@@ -1,5 +1,6 @@
 title: Histogram
 engine: mpl
+level: basic
 order: 10
 purpose: Bins one numeric variable into intervals and draws a bar for the count in each. It is the standard
   way to see a distribution's shape, centre, spread, skew and gaps.

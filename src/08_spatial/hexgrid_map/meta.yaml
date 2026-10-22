@@ -1,0 +1,32 @@
+title: Hexagonal Grid Map (hexbin)
+engine: mpl
+order: 900
+level: intermediate
+data_shape: [geo]
+purpose: >-
+  Thousands of point locations aggregated into equal-area hexagons, each shaded by how many
+  points fall inside. Unlike a dot map, density stays readable when points overlap. Unlike a
+  choropleth, the bins are all the same size, so large administrative areas don't dominate.
+when_to_use:
+  - Map dense point data (transactions, deliveries, incidents, sensor readings) over a city or region
+  - Compare densities across an area without depending on administrative boundaries
+  - Find hot spots and coverage gaps
+avoid:
+  - Each point's exact location matters (use a dot or bubble map)
+  - Values belong to administrative areas (use a choropleth)
+  - Hexagons are so large that the pattern depends on where the grid happens to start
+alternatives:
+  - Bubble map
+  - Choropleth
+  - 3-D hexagon columns (pydeck)
+tips:
+  - Use one-hue sequential color; leave empty hexes blank rather than coloring them with the lowest step
+  - "Use a log color scale when density varies over orders of magnitude, and say so in the legend"
+  - Try two or three hex sizes; report a pattern only if it survives all of them
+example: >-
+  50,000 simulated card transactions in a coastal metro area (40 × 30 km). The point pattern combines a
+  downtown core, three suburban centres, two malls and scattered background activity on land only.
+read: >-
+  The darkest hexes are downtown on the coast, with secondary hot spots at the suburban centres and
+  the malls. Pale hexes along the edges show thin background activity, and the blank strip of sea on
+  the right has none.

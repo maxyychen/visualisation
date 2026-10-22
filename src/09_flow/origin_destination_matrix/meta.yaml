@@ -1,5 +1,6 @@
 title: Origin–Destination Matrix (Flow Heatmap)
 engine: mpl
+level: intermediate
 order: 70
 purpose: A grid with origins as rows, destinations as columns, and flow volume as cell shade. It shows
   every pairwise flow without clutter, so it scales to many more entities than a chord or Sankey.

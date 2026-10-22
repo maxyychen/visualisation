@@ -1,5 +1,6 @@
 title: "Dual Axis vs. Indexed Line"
 engine: mpl
+level: basic
 order: 10
 purpose: >-
   A dual-axis chart plots two measures with different units against two independent y-scales.

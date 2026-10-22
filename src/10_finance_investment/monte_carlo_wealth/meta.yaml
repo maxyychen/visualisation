@@ -1,5 +1,6 @@
 title: Monte Carlo Retirement Projection
 engine: mpl
+level: intermediate
 order: 320
 purpose: Simulates thousands of possible market paths for a portfolio with withdrawals, then shows the
   spread of outcomes as a percentile fan and the probability that the money lasts to each age. It replaces

@@ -1,5 +1,6 @@
 title: Small Multiples (line)
 engine: mpl
+level: basic
 order: 30
 purpose: Repeats the same small chart, with the same axes and scale, once per series. Each series gets
   its own panel, so comparison is about shape rather than untangling colors.
