@@ -180,7 +180,7 @@ def script_text(c, families):
         stem = "Path(__file__).stem"
     if c["engine"] == "plotly":
         save = (f"out = Path(__file__).with_name({stem} + \".html\")\n"
-                "fig.write_html(out, include_plotlyjs=\"cdn\")\n"
+                f"fig.write_html(out, include_plotlyjs=\"cdn\", div_id=\"{c['slug']}\")\n"
                 "try:  # static preview; needs kaleido + a local Chrome\n"
                 "    fig.write_image(out.with_suffix(\".png\"), width=1000, height=620, scale=1.5)\n"
                 "except Exception:\n    pass\n"
@@ -254,6 +254,8 @@ def notebook(c, families):
     cells.append(new_markdown_cell(
         f"---\nStandalone script: [`{c['slug']}.py`]({c['slug']}.py) &nbsp;·&nbsp; "
         "[Catalogue](../../README.md) &nbsp;·&nbsp; [Gallery](../../gallery/index.html)"))
+    for i, cell in enumerate(cells):  # stable ids -> clean git diffs on rebuild
+        cell["id"] = f"{c['slug'][:56]}-{i:02d}"
     return new_notebook(cells=cells, metadata={
         "kernelspec": {"name": "python3", "display_name": "Python 3", "language": "python"},
         "language_info": {"name": "python"}})
@@ -267,6 +269,25 @@ def run_script(path, *args):
     return path, r.returncode, (r.stderr or r.stdout)[-1500:]
 
 
+RANDOM_IDS = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+                        r"|(?<=altair-viz-)[0-9a-f]{32}|(?<=T_)[0-9a-f]{5}(?![0-9a-f])|(?<= at 0x)[0-9a-f]+(?=>)")
+
+
+def stable_ids(text, seed):
+    """Replace random ids that plotly/Altair/pandas put in HTML outputs with deterministic ones."""
+    import hashlib
+    seen = {}
+
+    def sub(m):
+        old = m.group(0)
+        if old not in seen:
+            h = hashlib.md5(f"{seed}-{len(seen)}".encode()).hexdigest()
+            seen[old] = (f"{h[:8]}-{h[8:12]}-{h[12:16]}-{h[16:20]}-{h[20:32]}" if "-" in old
+                         else h[:len(old)])
+        return seen[old]
+    return RANDOM_IDS.sub(sub, text)
+
+
 def execute_notebook(path):
     from nbclient import NotebookClient
     nb = nbformat.read(path, as_version=4)
@@ -275,7 +296,7 @@ def execute_notebook(path):
                        resources={"metadata": {"path": str(path.parent)}}).execute()
         for cell in nb.cells:  # drop timestamps so rebuilds give clean git diffs
             cell.metadata.pop("execution", None)
-        nbformat.write(nb, path)
+        path.write_text(stable_ids(nbformat.writes(nb), path.stem))
         return path, 0, ""
     except Exception as e:
         return path, 1, str(e)[-1500:]

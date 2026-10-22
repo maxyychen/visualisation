@@ -77,7 +77,7 @@ fig.update_layout(title="Customer journey: age → channel → satisfaction (n =
 
 # --- Save / show -------------------------------------------------------------
 out = Path(__file__).with_name(Path(__file__).stem + ".html")
-fig.write_html(out, include_plotlyjs="cdn")
+fig.write_html(out, include_plotlyjs="cdn", div_id="alluvial")
 try:  # static preview; needs kaleido + a local Chrome
     fig.write_image(out.with_suffix(".png"), width=1000, height=620, scale=1.5)
 except Exception:
