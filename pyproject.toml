@@ -11,7 +11,7 @@ dependencies = ["numpy", "pandas", "matplotlib"]
 
 [project.optional-dependencies]
 advanced = ["datashader", "pydeck", "imageio", "statsmodels", "networkx",
-            "plotly", "kaleido", "altair", "vl-convert-python"]
+            "plotly", "kaleido", "altair", "vl-convert-python", "umap-learn", "pacmap"]
 
 [tool.setuptools]
 packages = ["vizlib"]

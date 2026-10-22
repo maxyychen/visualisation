@@ -1,0 +1,41 @@
+title: Murphy Diagram (forecast comparison)
+engine: mpl
+level: advanced
+order: 510
+data_shape: [model, time]
+purpose: >-
+  Compares two point forecasts across every decision threshold at once. For each threshold θ it
+  plots the average elementary score: the loss a user who acts when the forecast exceeds θ would
+  suffer. Every consistent scoring function for the mean (squared error and many others) is a mixture
+  of these elementary scores. If one forecast's curve is lower everywhere, it wins under all of them.
+when_to_use:
+  - "Compare two forecasts of a mean (volatility, returns, demand, inflation) without committing to one loss function"
+  - "Find for which decision thresholds a model is better (e.g. only for high-volatility regimes)"
+  - "Back up a forecast ranking that might otherwise depend on whether you chose squared or absolute error"
+avoid:
+  - "You need a single headline number (report RMSE or another score, and use this as the robustness check)"
+  - "The forecasts target different quantities (a median and a mean are scored differently)"
+  - "Very short samples; the difference band will straddle zero everywhere"
+alternatives:
+  - "Single score table (RMSE, MAE) with a Diebold-Mariano test"
+  - "Cumulative squared-error difference over time"
+  - "CORP reliability diagram (for probability forecasts)"
+tips:
+  - "What it fixes: a ranking by RMSE can flip under another loss; a Murphy diagram shows whether the ranking holds for every consistent loss"
+  - "Plot the difference with a confidence band; dominance is only convincing where the band stays on one side of zero"
+  - "Use a block bootstrap for time series so the band respects autocorrelation"
+  - "Thresholds where curves touch zero are values almost no forecast or outcome reaches"
+example: >-
+  Fifty years of simulated monthly realised volatility for an equity index (annualised %) and two
+  forecasts: Model A tracks the volatility regime, Model B shrinks most of the way towards the
+  long-run average.
+read: >-
+  Top: Model A's curve (blue) is at or below Model B's (orange) almost everywhere, so A is the better
+  forecast for almost any user, whatever their loss function. Bottom: the difference A − B with a 90%
+  block-bootstrap band. In the shaded thresholds A is reliably better (mostly well away from the
+  long-run average, where shrinking towards it hurts); nowhere is B reliably better. Near the
+  long-run average the two forecasts are indistinguishable.
+reference:
+  - text: "Ehm, W., Gneiting, T., Jordan, A. & Krüger, F. (2016). Of quantiles and expectiles: consistent scoring functions, Choquet representations and forecast rankings. Journal of the Royal Statistical Society Series B 78(3), 505–562."
+    url: https://doi.org/10.1111/rssb.12154
+    year: 2016

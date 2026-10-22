@@ -1,0 +1,40 @@
+title: Triangulated Maximally Filtered Graph (TMFG)
+engine: mpl
+level: advanced
+order: 500
+data_shape: [prices, flows]
+purpose: >-
+  Filters a dense correlation matrix into a sparse, planar network that keeps the strongest
+  relationships. The minimum spanning tree keeps only n−1 links, so it cuts loops and drops much
+  of the structure. The TMFG grows a planar graph of triangles and 4-cliques with 3n−6 links. It
+  keeps clusters, loops and cross-sector ties, and stays sparse enough to draw and reason about.
+when_to_use:
+  - Mapping the dependency structure of a portfolio or market (dozens to hundreds of assets)
+  - Finding hubs and clusters for diversification, risk management or stress testing
+  - When the MST looks too thin and a threshold network too arbitrary or tangled
+avoid:
+  - Only a handful of assets (show the correlation heatmap)
+  - Readers need exact correlations (use a clustered heatmap)
+  - Correlations are unstable over the window (filter rolling windows, or show rolling correlation)
+alternatives:
+  - Correlation network (minimum spanning tree)
+  - Clustered correlation heatmap or HRP dendrogram
+  - Planar maximally filtered graph (PMFG), which is slower
+tips:
+  - Draw the MST next to the TMFG so readers see what the extra links add
+  - Size nodes by degree; high-degree hubs transmit shocks and are concentration risks
+  - Use a correlation-based distance for the layout, so tightly correlated stocks sit together
+  - TMFG runs in O(n²); PMFG needs O(n³) planarity tests, so TMFG scales to large universes
+example: >-
+  Simulated daily returns for 40 stocks in four sectors plus "Other", driven by a market factor,
+  sector factors, and a style factor shared by Tech and Consumer stocks. The same correlation matrix
+  is filtered as an MST (left) and as a TMFG (right).
+read: >-
+  Both networks group stocks by sector. The MST has 39 links and forms a tree, so each sector
+  hangs off a single branch. The TMFG has 114 links and adds the triangles inside each sector and
+  the cross links between Tech and Consumer created by the shared style factor. Large nodes are
+  hubs, the stocks most correlated with many others.
+reference:
+  - text: "Massara, G. P., Di Matteo, T. & Aste, T. (2016). Network filtering for big data: triangulated maximally filtered graph. Journal of Complex Networks 5(2), 161–178."
+    url: https://arxiv.org/abs/1505.02445
+    year: 2016

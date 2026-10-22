@@ -1,0 +1,44 @@
+title: Time-Series Downsampling (LTTB / MinMaxLTTB)
+engine: mpl
+level: intermediate
+order: 300
+data_shape: [time, prices]
+purpose: >-
+  Reduces a very long series (ticks, sensor readings, logs) to the number of points a screen can
+  show, while keeping its visual shape. Taking every n-th point is fast but drops spikes and crashes
+  that fall between the kept samples. LTTB keeps, in each bucket, the point that forms the largest
+  triangle with its neighbours, so extremes survive. MinMaxLTTB first keeps each small bucket's
+  minimum and maximum (cheap and vectorised), then runs LTTB on that much smaller set. It gives
+  near-identical output an order of magnitude faster.
+when_to_use:
+  - Plotting millions of points in a line chart, notebook, dashboard or web page
+  - Interactive charts that must re-render quickly while zooming
+  - Any series where rare spikes, outages or crashes must stay visible
+avoid:
+  - Small series (draw every point)
+  - You need exact values or statistics; downsampling is for drawing, not for analysis
+  - Dense scatter data without an order (use datashader or hexbin instead)
+alternatives:
+  - Datashader line rendering (aggregate to pixels)
+  - Min/max envelope per pixel (M4 aggregation)
+  - OHLC bars or candlesticks at a coarser interval
+tips:
+  - Target roughly 2 to 4 points per horizontal pixel of the final chart
+  - Re-downsample the visible window on zoom, rather than once for the whole series
+  - "In Python, the tsdownsample package (Rust) implements MinMax, M4, LTTB and MinMaxLTTB"
+  - Never use plain decimation on financial ticks; it can hide the very event you are looking for
+example: >-
+  1.5 million simulated ticks for one trading session, with fat-tailed moves, a 5% flash crash
+  and recovery mid-afternoon, and a few single-tick bad prints. Each method reduces the series to
+  1,000 points; the right column zooms into the crash.
+read: >-
+  The top row is the truth. Every n-th point (orange) loses all four single-tick bad prints and
+  stops short of the crash low, so a reader would never know they happened. LTTB and MinMaxLTTB
+  (blue) look almost identical to the full-resolution chart, crash low and bad prints included,
+  from 0.07% of the points.
+reference:
+  - text: "Van Der Donckt, J., Van Der Donckt, J., Rademaker, M. & Van Hoecke, S. (2023). MinMaxLTTB: Leveraging MinMax-preselection to scale LTTB. IEEE VIS 2023 (Short Papers)."
+    url: https://arxiv.org/abs/2305.00332
+    year: 2023
+  - text: "Steinarsson, S. (2013). Downsampling time series for visual representation. MSc thesis, University of Iceland."
+    year: 2013

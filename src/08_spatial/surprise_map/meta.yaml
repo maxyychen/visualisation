@@ -1,0 +1,43 @@
+title: Bayesian Surprise Map
+engine: mpl
+level: advanced
+order: 510
+data_shape: [geo, categories]
+purpose: >-
+  Maps how much each region's data changes what we believe, not the raw value. Several simple
+  models predict where events should occur (equally everywhere, in proportion to population, or
+  per-capita rates that vary by chance more in small regions). Each region is scored by the
+  Bayesian surprise (KL divergence) its data causes across those models. Raw-count maps mostly
+  show where people live, and per-capita maps exaggerate small regions whose rates are noisy;
+  a surprise map discounts both effects and highlights what is genuinely unusual.
+when_to_use:
+  - Mapping event counts (fraud, defaults, claims, incidents) across regions of very different size
+  - Choosing where to investigate first, when chance variation in small regions keeps raising false alarms
+  - Explaining why the per-capita leader is not necessarily the real hot spot
+avoid:
+  - Regions have similar populations (a per-capita choropleth is fine)
+  - Readers need the actual rate (show it alongside, as here, or in a table)
+  - The candidate models do not represent reasonable expectations for the data
+alternatives:
+  - Funnel plot of rate against population with control limits
+  - Per-capita choropleth with uncertainty (VSUP map)
+  - Empirical-Bayes shrunken rates on a choropleth
+tips:
+  - Show the surprise map next to the raw and per-capita maps; the contrast is the lesson
+  - Use a diverging palette with a gray midpoint, signed by whether the region has more or fewer events than population predicts
+  - The model space is a modelling choice; state which models you used
+  - This implementation uses normalised posteriors, as recommended by the bayesiansurpriser R package
+example: >-
+  Simulated card-fraud case counts for 50 states and DC, using approximate 2020 census populations.
+  Four states have a genuinely different fraud rate (New York and Florida higher, Minnesota and
+  Wisconsin lower); every state also has chance variation, which is larger for small states.
+read: >-
+  Panel 1 mostly repeats the population map (CA, TX, FL, NY). Panel 2 puts small states such as
+  NE and KS at the top, largely by chance. Panel 3 gives its strongest signal to NY and FL, large
+  states with genuinely more cases, and shows WI and MN in blue; NE and KS get roughly half
+  that signal despite topping panel 2. GA and CA also show blue: in states this large, even a modest gap from the average is
+  hard to explain by chance.
+reference:
+  - text: "Correll, M. & Heer, J. (2017). Surprise! Bayesian weighting for de-biasing thematic maps. IEEE Transactions on Visualization and Computer Graphics 23(1), 651–660."
+    url: https://idl.uw.edu/papers/surprise-maps
+    year: 2017

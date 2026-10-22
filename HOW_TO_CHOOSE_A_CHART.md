@@ -60,7 +60,7 @@ The verb in your sentence picks a chart **family**. These nine families follow t
 | A trend over time | Change over time | [Line chart](05_change_over_time/line_chart/line_chart.ipynb) | [Area](05_change_over_time/area_chart/area_chart.ipynb), [indexed line](05_change_over_time/indexed_line/indexed_line.ipynb), [small multiples](05_change_over_time/small_multiples_line/small_multiples_line.ipynb) |
 | A size comparison | Magnitude | [Bar chart](06_magnitude/horizontal_bar/horizontal_bar.ipynb) | [Grouped bar](06_magnitude/grouped_bar/grouped_bar.ipynb), [dumbbell](06_magnitude/dumbbell/dumbbell.ipynb), [bullet chart](06_magnitude/bullet_chart/bullet_chart.ipynb) |
 | A share of a total | Part-to-whole | [Stacked bar](07_part_to_whole/stacked_bar/stacked_bar.ipynb) | [100% stacked bar](07_part_to_whole/percent_stacked_bar/percent_stacked_bar.ipynb), [treemap](07_part_to_whole/treemap/treemap.ipynb), [waffle](07_part_to_whole/waffle_chart/waffle_chart.ipynb), [waterfall](07_part_to_whole/waterfall_chart/waterfall_chart.ipynb) |
-| A location or geographic pattern | Spatial | [Choropleth](08_spatial/choropleth_world/choropleth_world.ipynb) | [Bubble map](08_spatial/bubble_map/bubble_map.ipynb), [tile grid map](08_spatial/tile_grid_map/tile_grid_map.ipynb), [hex-grid map](08_spatial/hexgrid_map/hexgrid_map.ipynb) |
+| A location or geographic pattern | Spatial | [Choropleth](08_spatial/choropleth_world/choropleth_world.ipynb) | [Bubble map](08_spatial/bubble_map/bubble_map.ipynb), [tile grid map](08_spatial/tile_grid_map/tile_grid_map.ipynb), [hex-grid map](08_spatial/hexgrid_map/hexgrid_map.ipynb), [surprise map](08_spatial/surprise_map/surprise_map.ipynb) (counts that just follow population) |
 | Movement between stages or places | Flow | [Sankey](09_flow/sankey/sankey.ipynb) | [Funnel](09_flow/funnel_chart/funnel_chart.ipynb), [chord](09_flow/chord_diagram/chord_diagram.ipynb), [flow map](08_spatial/flow_map/flow_map.ipynb) |
 | An estimate, forecast or risk | Uncertainty | [Error bars / CI](11_scientific/error_bar_ci/error_bar_ci.ipynb) | [Fan chart](05_change_over_time/fan_chart/fan_chart.ipynb), [gradient interval](13_uncertainty/gradient_interval/gradient_interval.ipynb), [quantile dot plot](13_uncertainty/quantile_dotplot/quantile_dotplot.ipynb) |
 
@@ -100,6 +100,7 @@ Most chart failures are scale failures. Check these before choosing:
 | More than ~4 lines | Spaghetti | [Highlight one, gray the rest](05_change_over_time/line_highlight/line_highlight.ipynb), or [small multiples](05_change_over_time/small_multiples_line/small_multiples_line.ipynb) |
 | More than ~5 slices | Pie angles can't be compared | [Sorted bar](03_ranking/ordered_bar/ordered_bar.ipynb) or [stacked bar](07_part_to_whole/stacked_bar/stacked_bar.ipynb) |
 | More than ~10,000 points | Overplotting turns into a blob | Transparency → [hexbin](02_correlation/hexbin/hexbin.ipynb) → [datashader](15_interactive_advanced/datashader_scatter/datashader_scatter.ipynb) |
+| Millions of points in a line | Plotting libraries slow down; naive thinning drops spikes | [LTTB / MinMaxLTTB downsampling](15_interactive_advanced/lttb_downsampling/lttb_downsampling.ipynb) |
 | Measures on different scales | The temptation of a dual axis | [Index to 100](05_change_over_time/indexed_line/indexed_line.ipynb), or stack panels sharing the x-axis ([rolling metrics](10_finance_investment/rolling_metrics/rolling_metrics.ipynb)) |
 | More than ~8 colours needed | Hues become indistinguishable | Fold into "Other", facet into small multiples, or label directly |
 
@@ -169,11 +170,16 @@ more certainty than you have.
 
 | Situation | Chart |
 |---|---|
-| Group means or effects | [Points + 95% CI](11_scientific/error_bar_ci/error_bar_ci.ipynb), not a bar of means ([see why](14_bad_vs_good/dynamite_plot/dynamite_plot.ipynb)) |
+| Group means or effects | [Points + 95% CI](11_scientific/error_bar_ci/error_bar_ci.ipynb), not a bar of means ([see why](14_bad_vs_good/dynamite_plot/dynamite_plot.ipynb)); [estimation plot](11_scientific/estimation_plot/estimation_plot.ipynb) to show the effect size itself |
+| Repeated experiments (replicates) | [SuperPlot](11_scientific/superplot/superplot.ipynb): statistics on replicates, not on every point |
 | A forecast | [Fan chart](05_change_over_time/fan_chart/fan_chart.ipynb), [Monte Carlo wealth paths](10_finance_investment/monte_carlo_wealth/monte_carlo_wealth.ipynb) |
 | Several estimates, compared | [Gradient interval](13_uncertainty/gradient_interval/gradient_interval.ipynb), [half-eye plot](13_uncertainty/half_eye/half_eye.ipynb), [forest plot](11_scientific/forest_plot/forest_plot.ipynb) |
 | Risk for a non-technical audience | [Icon array](13_uncertainty/icon_array/icon_array.ipynb) ("7 in 100"), [quantile dot plot](13_uncertainty/quantile_dotplot/quantile_dotplot.ipynb) |
 | Tail risk | [Return distribution with VaR/CVaR](10_finance_investment/return_distribution_var/return_distribution_var.ipynb) |
+| Many simulated paths or curves | [Functional boxplot](13_uncertainty/functional_boxplot/functional_boxplot.ipynb): median path, central region and outlier paths |
+| A result that depends on analyst choices | [Specification curve](13_uncertainty/specification_curve/specification_curve.ipynb): every reasonable specification at once |
+| A map of estimates with different precision | [Value-suppressing uncertainty palette](08_spatial/vsup_map/vsup_map.ipynb) |
+| "Is this pattern real or noise?" | [Lineup protocol](11_scientific/lineup_protocol/lineup_protocol.ipynb): hide the real chart among null charts |
 
 ---
 
@@ -237,7 +243,12 @@ Movement between stages or places?     → funnel (one path) / sankey (branches)
 | Where does portfolio risk come from? | [Risk contribution](10_finance_investment/risk_contribution/risk_contribution.ipynb), [factor exposure](10_finance_investment/factor_exposure/factor_exposure.ipynb), [stress-test tornado](10_finance_investment/stress_test_tornado/stress_test_tornado.ipynb) |
 | Is the allocation efficient? | [Efficient frontier](10_finance_investment/efficient_frontier/efficient_frontier.ipynb), [risk/return scatter](10_finance_investment/risk_return_scatter/risk_return_scatter.ipynb) |
 | Why did we beat (or miss) the benchmark? | [Brinson attribution](10_finance_investment/brinson_attribution/brinson_attribution.ipynb) |
-| How do assets cluster? | [Correlation heatmap](02_correlation/correlation_heatmap/correlation_heatmap.ipynb), [correlation network](10_finance_investment/correlation_network_mst/correlation_network_mst.ipynb), [HRP dendrogram](10_finance_investment/hrp_dendrogram/hrp_dendrogram.ipynb) |
+| How do assets cluster? | [Correlation heatmap](02_correlation/correlation_heatmap/correlation_heatmap.ipynb), [correlation network](10_finance_investment/correlation_network_mst/correlation_network_mst.ipynb), [TMFG network](10_finance_investment/tmfg_network/tmfg_network.ipynb), [HRP dendrogram](10_finance_investment/hrp_dendrogram/hrp_dendrogram.ipynb) |
+| Is a fund's outperformance skill or luck? | [Funnel plot](11_scientific/funnel_plot/funnel_plot.ipynb) (alpha vs. track-record length) |
+| Is my backtest robust? | [Specification curve](13_uncertainty/specification_curve/specification_curve.ipynb) |
+| Are the model's default probabilities reliable? | [CORP reliability diagram](12_machine_learning/corp_reliability_diagram/corp_reliability_diagram.ipynb) |
+| Which of two forecasts is better? | [Murphy diagram](12_machine_learning/murphy_diagram/murphy_diagram.ipynb) |
+| Why did the model score this applicant high-risk? | [SHAP waterfall](12_machine_learning/shap_waterfall/shap_waterfall.ipynb) |
 | What is the market doing? | [Candlestick + moving averages](10_finance_investment/candlestick_ma_volume/candlestick_ma_volume.ipynb), [sector heatmap](10_finance_investment/sector_heatmap/sector_heatmap.ipynb), [market breadth](10_finance_investment/market_breadth/market_breadth.ipynb) |
 | What are rates telling us? | [Yield curve](10_finance_investment/yield_curve/yield_curve.ipynb), [yield curve history](10_finance_investment/yield_curve_history/yield_curve_history.ipynb), [animated yield curve](15_interactive_advanced/animated_yield_curve/animated_yield_curve.ipynb) |
 | What does this option position do? | [Option payoff](10_finance_investment/option_payoff/option_payoff.ipynb), [option payoff explorer](15_interactive_advanced/option_payoff_explorer/option_payoff_explorer.ipynb) (interactive) |
@@ -312,6 +323,7 @@ Each links to a side-by-side example in the **Bad vs. good** family.
   *Purpose & when to use* lists when **not** to use it.
 - **README → Chart chooser:** the data-type mapping as a table.
 - **Every notebook:** design purpose, when to use, when to avoid, alternatives, design tips, a worked example and how to read it.
+- **README → Methods from the research literature:** peer-reviewed methods, newest first, each with its citation (filter **From research papers** in the gallery).
 - **Your own price data:**
   `python -m vizlib.finance prices.csv --price Fund --benchmark Index -o report.png`
 

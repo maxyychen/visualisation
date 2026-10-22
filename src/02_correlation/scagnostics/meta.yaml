@@ -1,0 +1,40 @@
+title: Scagnostics (scatterplot diagnostics)
+engine: mpl
+level: advanced
+order: 520
+data_shape: [numeric]
+purpose: >-
+  Scores every pairwise scatterplot of a dataset on measures of shape such as outlying, skewed,
+  clumpy, sparse, striated, stringy and monotonic, computed from the minimum spanning tree of the
+  points. A heatmap of measure × pair then points the analyst to the few scatterplots worth looking at,
+  instead of scanning dozens or hundreds of panels in a scatterplot matrix.
+when_to_use:
+  - "Screen many numeric variables (stock characteristics, risk factors, KPIs) for unusual pairwise patterns"
+  - "Pick which scatterplots to show from a pair plot that is too big to read"
+  - "Flag pairs with outliers, clusters or discrete stripes before modelling"
+avoid:
+  - "Fewer than about 5 variables; just draw the pair plot"
+  - "You already know which relationship matters"
+  - "Very small samples, where the spanning-tree measures are noisy"
+alternatives:
+  - "Pair plot (scatterplot matrix)"
+  - "Correlation heatmap (linear association only)"
+  - "Parallel coordinates"
+tips:
+  - "What it adds: a correlation heatmap only sees straight-line association; scagnostics also catch clusters, outliers, stripes and strings that correlation misses"
+  - "Each axis is min-max scaled to [0, 1] first, as in the original method, so measures compare across pairs (rank scaling would hide outliers)"
+  - "Outliers are removed before the other measures are computed, as in the original method"
+  - "This implementation computes 7 of the 9 original measures; convex and skinny need an alpha-shape hull and are omitted"
+example: >-
+  Eight simulated characteristics for 400 stocks in four sectors: size, beta, volatility, dividend
+  yield, P/E, ROE, 12-month momentum and debt-to-equity.
+read: >-
+  In the heatmap, dark cells are the pairs that score high on a measure. Beta vs. volatility is the
+  most monotonic pair; the ROE pairs are the most outlying (a few loss-making firms far from the
+  rest) and also clumpy, because those firms form their own clump; dividend-yield pairs score high on
+  striated and stringy, because many tech stocks pay exactly 0% or 0.5%. The three panels on the
+  right show the top pair for monotonic, outlying and striated, so you can check each flag by eye.
+reference:
+  - text: "Wilkinson, L., Anand, A. & Grossman, R. (2005). Graph-theoretic scagnostics. Proceedings of the IEEE Symposium on Information Visualization (InfoVis 2005), 157–164. 20-Year Test of Time Award, IEEE VIS 2025."
+    url: https://tableau.com/research/publications/graph-theoretic-scagnostics
+    year: 2005

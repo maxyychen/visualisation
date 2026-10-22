@@ -12,6 +12,7 @@ Source of truth (edit these):
         # %% alt:<lib>    optional: the same chart in another library (plotly / altair / seaborn)
         # %% html         optional: defines `html`, a standalone interactive page (e.g. pydeck)
     meta keys: engine (mpl | plotly | altair), level (basic | intermediate | advanced),
+        reference: [{text, url, year}]  ->  the paper(s) that introduced the method
         animated: true  ->  mpl plot defines `anim` (FuncAnimation); plotly fig has frames.
                            Either way a GIF preview is written.
     vizlib/*_style.py                    shared styles
@@ -149,6 +150,10 @@ def validate(charts, families):
             if not isinstance(items, list) or not all(isinstance(x, str) for x in items):
                 errors.append(f"{where}: '{k}' must be a list of strings "
                               "(quote items that contain ': ' so YAML does not read them as mappings)")
+        refs = c.get("reference", [])
+        if not isinstance(refs, list) or not all(isinstance(r, dict) and isinstance(r.get("text"), str)
+                                                 and isinstance(r.get("year"), int) for r in refs):
+            errors.append(f"{where}: 'reference' must be a list of {{text: str, url: str, year: int}}")
         bad = [x for x in c.get("data_shape", []) if x not in DATA_SHAPES]
         if bad:
             errors.append(f"{where}: unknown data_shape {bad}; use {list(DATA_SHAPES)}")
@@ -203,6 +208,9 @@ def script_text(c, families):
            *map(wrap, c["when_to_use"]), "", "AVOID WHEN", *map(wrap, c["avoid"])]
     if c.get("alternatives"):
         doc += ["", "ALTERNATIVES", *map(wrap, c["alternatives"])]
+    if c.get("reference"):
+        doc += ["", "REFERENCE"] + [wrap(r["text"] + (f" {r['url']}" if r.get("url") else ""))
+                                    for r in c["reference"]]
     doc += ["", "EXAMPLE", textwrap.fill(c["example"], 78)]
     if fam.get("note"):
         doc += ["", textwrap.fill("NOTE: " + fam["note"], 78)]
@@ -300,6 +308,9 @@ def notebook(c, families):
                                 "style=\"border:0\"></iframe>')")]
     if c.get("read"):
         cells.append(new_markdown_cell(f"## How to read it\n\n{c['read']}"))
+    if c.get("reference"):
+        refs = "\n".join(f"- {r['text']}" + (f" <{r['url']}>" if r.get("url") else "") for r in c["reference"])
+        cells.append(new_markdown_cell(f"## Reference\n\nThis method comes from the research literature:\n\n{refs}"))
     if alts:
         cells.append(new_markdown_cell(
             "## The same chart in other libraries\n\nEach version uses the example data above. Pick the "
@@ -439,7 +450,7 @@ def write_readme(charts, families):
         "sequential), or polarity (two-hue diverging with a neutral midpoint).",
         "4. **Avoid the classic mistakes.** See [14 · Bad vs. good](#14-bad-vs-good).", "",
         "**Chart chooser:** see [What data do you have?](#chooser) below, or filter by data type in the gallery.", "",
-        "Legend: ★ real-dataset variant · 🔀 also shown in other libraries (plotly / Altair / seaborn) · "
+        "Legend: 📄 method from a research paper (see [Methods from the research literature](#research)) · ★ real-dataset variant · 🔀 also shown in other libraries (plotly / Altair / seaborn) · "
         "<sub>intermediate</sub> / <sub>advanced</sub> level (unmarked = basic) · animated charts preview as GIFs", "",
         "| Family | Charts | Question it answers |", "|---|---|---|"]
     for folder, f in families.items():
@@ -453,7 +464,7 @@ def write_readme(charts, families):
         lines += ["", f"<a id=\"{folder.replace('_', '-')}\"></a>", f"## {folder[:2]} · {f['name']}", "",
                   f"*{f['description']}*", "", "| Chart | Use it to… | Files | Preview |", "|---|---|---|---|"]
         for c in group:
-            marks = ("★" if "real-data" in c["sections"] else "") + \
+            marks = ("📄" if c.get("reference") else "") + ("★" if "real-data" in c["sections"] else "") + \
                     ("🔀" if any(s.startswith("alt:") for s in c["sections"]) else "")
             use = c["when_to_use"][0].replace("|", "\\|")
             files = f"[ipynb]({rel(c, 'ipynb')}) · [py]({rel(c, 'py')})"
@@ -463,6 +474,16 @@ def write_readme(charts, families):
             tag = "" if level == "basic" else f"<br><sub>{LEVELS[level].lower()}</sub>"
             lines.append(f"| **{c['title']}** {marks}{tag} | {use} | {files} | "
                          f"<img src=\"{preview(c)}\" width=\"170\"> |")
+    research = sorted((c for c in charts if c.get("reference")), key=lambda c: -c["reference"][0]["year"])
+    if research:
+        lines += ["", "<a id=\"research\"></a>", "## Methods from the research literature", "",
+                  "Peer-reviewed visualization methods, newest first. Each notebook has a **Reference** section.", "",
+                  "| Year | Chart | Family | Reference |", "|---|---|---|---|"]
+        for c in research:
+            r = c["reference"][0]
+            cite = f"[{r['text']}]({r['url']})" if r.get("url") else r["text"]
+            lines.append(f"| {r['year']} | [{c['title']}]({rel(c, 'ipynb')}) | {families[c['family']]['name']} | "
+                         f"{cite.replace('|', '/')} |")
     lines += ["", "<a id=\"chooser\"></a>", "## Chart chooser: what data do you have?", "",
               "| Your data | Charts that fit |", "|---|---|"]
     for key, label in DATA_SHAPES.items():
@@ -548,6 +569,7 @@ def write_gallery(charts, families):
             "real": "real-data" in c["sections"], "shapes": c.get("data_shape", []),
             "alts": [s[4:] for s in c["sections"] if s.startswith("alt:")],
             "level": c.get("level", "basic"), "animated": bool(c.get("animated")),
+            "refs": [dict(text=r["text"], url=r.get("url"), year=r["year"]) for r in c.get("reference", [])],
             "thumb": f"thumbs/{c['slug']}.{'gif' if c.get('animated') else 'png'}",
             "ipynb": "../" + rel(c, "ipynb"), "py": "../" + rel(c, "py"),
             "html": "../" + rel(c, "html") if has_html(c) else None,

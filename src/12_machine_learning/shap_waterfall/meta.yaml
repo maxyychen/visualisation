@@ -1,0 +1,38 @@
+title: SHAP Waterfall (one prediction explained)
+engine: mpl
+level: intermediate
+order: 520
+data_shape: [model]
+purpose: >-
+  Explains a single prediction as a walk from the model's average output to this case's output. Each
+  bar is one feature's contribution (its SHAP value), sorted by size, so the reader sees which facts
+  about this applicant pushed the risk up and which pulled it down, and by how much.
+when_to_use:
+  - "Explain an individual decision to a customer, analyst or regulator (why was this loan declined?)"
+  - "Audit surprising predictions case by case"
+  - "Complement global importance charts with a concrete example"
+avoid:
+  - "You need the model's overall behaviour (use a SHAP summary or permutation importance)"
+  - "Features are strongly correlated and the model is non-linear; attributions then depend on modelling choices and need care"
+  - "More than about ten features matter; fold the rest into one bar"
+alternatives:
+  - "SHAP summary (beeswarm) for the whole dataset"
+  - "SHAP dependence plot for one feature"
+  - "Reason codes table (the top 3–4 contributions in words)"
+tips:
+  - "What it adds: global importance says what matters on average; the waterfall says what mattered for this one case, in the model's own units"
+  - "Start from the average prediction E[f(x)] and end at this case's f(x), and state both as probabilities as well as log-odds"
+  - "Label each bar with the feature's actual value (utilisation = 82%), not just its name"
+  - "Here the model is a logistic regression with independent features, so each contribution is exactly β·(x − mean): exact SHAP values in log-odds. Tree or neural models need the shap package"
+example: >-
+  A simulated credit-default model (logistic regression on 8 applicant features, trained on 5,000
+  synthetic applicants), explaining one high-risk applicant.
+read: >-
+  The average applicant has a 5% default probability (top). High credit utilisation and four recent
+  credit inquiries push this applicant's risk up the most, and a short account history and a past
+  delinquency add more (orange). A high income and 14 years of employment pull it down (blue). The
+  applicant ends at about a 32% default probability.
+reference:
+  - text: "Lundberg, S. M. et al. (2020). From local explanations to global understanding with explainable AI for trees. Nature Machine Intelligence 2, 56–67."
+    url: https://doi.org/10.1038/s42256-019-0138-9
+    year: 2020

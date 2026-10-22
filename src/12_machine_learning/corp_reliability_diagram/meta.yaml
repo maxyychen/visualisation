@@ -1,0 +1,43 @@
+title: CORP Reliability Diagram
+engine: mpl
+level: advanced
+order: 500
+data_shape: [model]
+purpose: >-
+  A reliability diagram built the CORP way (consistent, optimally binned, reproducible). Instead of
+  averaging outcomes in arbitrary bins, it fits an isotonic (pool-adjacent-violators) regression of
+  outcomes on predicted probabilities. The bins come out of the data automatically. A consistency band
+  shows how far a perfectly calibrated model could wander from the diagonal by chance, and the Brier
+  score splits into miscalibration, discrimination and uncertainty.
+when_to_use:
+  - "Check whether a probability model (default, churn, fraud, recession odds) is calibrated, i.e. whether 10% predictions come true 10% of the time"
+  - "Compare calibration across models or vintages without the result depending on how you chose bins"
+  - "Report calibration and discrimination as numbers that add up to the Brier score"
+avoid:
+  - "Only the ranking of cases matters (use ROC or precision-recall)"
+  - "The outcome is continuous rather than binary (use a Murphy diagram or a residual plot)"
+  - "There are only a few dozen cases; the band will be too wide to say anything"
+alternatives:
+  - "Classic binned calibration plot (simpler, but the shape changes with the bins)"
+  - "Murphy diagram (compares forecasts over all decision thresholds)"
+  - "Decision curve (value of acting on the predictions)"
+tips:
+  - "What it fixes: a classic 10-bin calibration curve can change shape when you move the bin edges; the PAV fit is unique, so two analysts get the same picture from the same data"
+  - "Points outside the gray band are miscalibration that chance alone is unlikely to explain"
+  - "Read the decomposition: MCB is the cost of miscalibration (fixable by recalibration), DSC is the skill of ranking, UNC is the difficulty of the problem"
+  - "Show the histogram of predictions; calibration where few predictions fall is unreliable"
+example: >-
+  A simulated credit book of 3,000 loans. The true default risk depends on a latent score, and the
+  model's predicted default probabilities are over-confident: too low for safe borrowers, too high
+  for risky ones.
+read: >-
+  Left: above a predicted probability of about 0.25 the blue CORP curve runs well below the diagonal
+  and outside the gray consistency band. When the model says 50%, only about 25–40% of those loans
+  default: it is over-confident for risky borrowers. The decomposition shows that miscalibration (MCB)
+  costs a noticeable part of the Brier score, and recalibration could remove it. Right: the classic
+  binned curves on the same predictions zig-zag and shift with the bin choice, especially above 0.6
+  where few loans sit.
+reference:
+  - text: "Dimitriadis, T., Gneiting, T. & Jordan, A. I. (2021). Stable reliability diagrams for probabilistic classifiers. PNAS 118(8), e2016191118."
+    url: https://doi.org/10.1073/pnas.2016191118
+    year: 2021

@@ -1,0 +1,39 @@
+title: SuperPlot (replicate-aware comparison)
+engine: mpl
+level: intermediate
+order: 510
+data_shape: [categories, numeric]
+purpose: >-
+  Overlays every individual observation, colored by the independent replicate it came from (a market,
+  a batch, a day, a lab), with each replicate's mean drawn as a large marker. Statistics are computed on
+  the replicate means, the true independent units. Variability within replicates and reproducibility
+  across replicates show in one chart.
+when_to_use:
+  - Data are nested, with many observations inside a few independent replicates (customers within markets, trades within days, cells within experiments)
+  - Show whether an effect reproduces in each replicate, not just on average
+  - Correct a report whose p-value treats thousands of correlated observations as independent
+avoid:
+  - Every observation is genuinely independent (a plain strip or box plot is enough)
+  - There are more than ~6 replicates (colors stop being distinguishable; facet or use a mixed-model coefficient plot)
+alternatives:
+  - Estimation plot
+  - Mixed-effects model with a coefficient plot
+  - Small multiples, one panel per replicate
+tips:
+  - "What it fixes: counting every observation as n (pseudoreplication) inflates confidence; false-positive rates above 50% are possible"
+  - Run the test on the replicate means (paired across conditions when replicates are matched)
+  - Connect matched replicate means between conditions so the reader sees which replicates moved and which didn't
+  - Give replicates a marker shape as well as a color, so the chart still works in grayscale
+example: >-
+  A simulated pricing experiment run in four independent markets, with 1,000 customers per market in each
+  condition, measuring monthly spend. Left: the conventional bar chart that treats all 8,000 customers as
+  independent (4,000 per arm). Right: the SuperPlot of the same data.
+read: >-
+  The left chart claims a highly significant lift, because it treats 4,000 customers per arm as 4,000
+  independent results. The SuperPlot shows why that is misleading: customers in the same market move
+  together, and only four markets were tested. Two markets show a clear lift, one a small one and one
+  none, so the replicate-level test is far from conclusive.
+reference:
+  - text: "Lord, S. J., Velle, K. B., Mullins, R. D. & Fritz-Laylin, L. K. (2020). SuperPlots: Communicating reproducibility and variability in cell biology. Journal of Cell Biology 219(6), e202001064."
+    url: https://doi.org/10.1083/jcb.202001064
+    year: 2020

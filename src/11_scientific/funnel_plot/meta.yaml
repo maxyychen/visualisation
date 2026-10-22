@@ -1,0 +1,40 @@
+title: Funnel Plot (institutional comparison)
+engine: mpl
+level: intermediate
+order: 530
+data_shape: [uncertainty, numeric]
+purpose: >-
+  Plots each unit's performance (a rate, a return, an alpha) against its size or exposure (volume, track
+  record), with control limits that narrow as size grows. Small units naturally swing further by chance,
+  so the limits form a funnel. Only units outside the funnel differ by more than chance alone would
+  produce.
+when_to_use:
+  - Compare many funds, branches, traders or suppliers whose results rest on very different amounts of data
+  - Replace a league table, which rewards small units for lucky extremes
+  - Decide which units deserve investigation (outside the 99.8% limits) and which are noise
+avoid:
+  - All units have the same size (control limits are flat; a dot plot with one band does the job)
+  - The performance measure isn't comparable across units (adjust for risk or case mix first)
+  - Units are not independent, or there is real overdispersion you haven't modelled (widen the limits first)
+alternatives:
+  - Caterpillar plot (ranked estimates with CIs)
+  - Forest plot
+  - Shrinkage (empirical Bayes) estimates in a ranked dot plot
+tips:
+  - "What it fixes: ranking tables put the luckiest small units at the top and bottom; the funnel shows that most of those extremes are noise"
+  - Use 95% (≈2 SD) limits as a warning and 99.8% (≈3 SD) limits as an alarm
+  - Label only the units outside the outer limits; everything inside is consistent with the benchmark
+  - If many units fall outside, the limits are too narrow (overdispersion); inflate them before drawing conclusions
+example: >-
+  150 simulated equity funds. Annualised alpha vs. the benchmark is plotted against track-record length,
+  with tracking error of 5% a year. Almost all funds have no true skill; three long-running funds
+  genuinely add or destroy value.
+read: >-
+  The dots near the left edge, with short track records, show the most extreme alphas. They sit inside
+  the funnel because a year or two of results says little. Only the labelled funds, all with long track
+  records, fall outside the 99.8% limits. The right panel shows how a naive top-10 table would have
+  chosen mostly short-record funds.
+reference:
+  - text: "Spiegelhalter, D. J. (2005). Funnel plots for comparing institutional performance. Statistics in Medicine 24(8), 1185–1202."
+    url: https://doi.org/10.1002/sim.1970
+    year: 2005

@@ -1,0 +1,41 @@
+title: Specification Curve (robustness to analyst choices)
+engine: mpl
+level: advanced
+order: 500
+data_shape: [model, uncertainty]
+purpose: >-
+  Runs the same analysis under every reasonable combination of analyst choices (data window, definitions,
+  filters, costs) and plots all the resulting estimates, sorted, with their confidence intervals. A
+  dashboard below shows which choices produced each estimate. The reader sees whether a result is robust
+  or hinges on a few convenient decisions, a source of uncertainty that standard errors leave out.
+when_to_use:
+  - Show that a backtest, factor premium or model result does not depend on cherry-picked settings
+  - Find which choices drive the result (look for bands in the dashboard that line up with high or low estimates)
+  - Pre-empt the "garden of forking paths" criticism in research, due diligence or model validation
+avoid:
+  - Including unreasonable or redundant specifications to inflate the count (define the set before looking at results)
+  - There are only two or three plausible specifications (a small table is clearer)
+  - The audience needs a single number for a decision (report the median estimate and the share of specs that agree)
+alternatives:
+  - Multiverse analysis (histogram of estimates plus a tile plot of choices)
+  - Forest plot of a few key specifications
+  - Sensitivity tornado chart (one choice at a time)
+tips:
+  - "What it fixes: reporting one specification hides how much the answer depends on analyst choices"
+  - Sort by estimate and color by significance; the share of significant specifications is a useful headline
+  - Order dashboard rows by choice, and keep each choice's options adjacent, so systematic patterns show as diagonal bands
+  - For formal joint inference, compare the observed curve with curves from data where the effect is removed by construction (e.g. shuffled signals)
+example: >-
+  A simulated momentum strategy's Sharpe ratio, estimated over 20 years under 288 specifications: 4
+  lookback windows × skip-month yes/no × 2 rebalance frequencies × 3 universes × 3 transaction-cost levels
+  × 2 winsorising rules.
+read: >-
+  Each dot is the Sharpe ratio under one specification, sorted from lowest to highest, and its line is
+  the 95% CI. Blue dots are significantly above zero, gray ones are not. The dashboard below shows that
+  the low end of the curve consists almost entirely of the 3-month lookback and the 25 bp cost
+  assumption, while results above the median need low costs. The strategy is robustly positive only
+  when trading costs stay low.
+reference:
+  - text: "Simonsohn, U., Simmons, J. P. & Nelson, L. D. (2020). Specification curve analysis. Nature Human Behaviour 4, 1208–1214."
+    url: https://doi.org/10.1038/s41562-020-0912-z
+    year: 2020

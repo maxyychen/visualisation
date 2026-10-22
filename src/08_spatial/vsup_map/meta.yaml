@@ -1,0 +1,41 @@
+title: Value-Suppressing Uncertainty Palette (VSUP) Map
+engine: mpl
+level: advanced
+order: 500
+data_shape: [geo, uncertainty]
+purpose: >-
+  A map palette that spends colour on precision only where the estimate is precise. Certain
+  estimates get many distinguishable shades. As uncertainty grows, neighbouring value bins merge
+  and their colours fade toward gray, so the reader cannot over-read a noisy estimate. A
+  conventional bivariate map keeps every value × uncertainty combination distinct, which is hard
+  to decode and still invites precise readings of unreliable numbers.
+when_to_use:
+  - Mapping estimates whose precision varies a lot between regions (survey rates, small-area statistics, model estimates)
+  - The reader will make decisions from the map and should be cautious where data is thin
+  - Showing value and uncertainty together in one map instead of two side-by-side maps
+avoid:
+  - All estimates have similar precision (a normal choropleth is simpler)
+  - Readers must look up exact values for every region (use a table with intervals)
+  - The audience has never seen the palette and there is no room for the legend
+alternatives:
+  - Choropleth plus a separate map of the margin of error
+  - Dot or interval plot of the estimates, sorted, with confidence intervals
+  - Bayesian surprise map
+tips:
+  - The legend is part of the method; always show the arc (wedge) legend, outer ring = most certain
+  - Choose uncertainty thresholds that mean something to the reader (for example, standard error in percentage points)
+  - Keep one sequential hue for value; uncertainty is shown by bin merging and fading, not by a second hue
+  - "Compared with the bivariate map: fewer colour classes to learn, and uncertain regions no longer look precise"
+example: >-
+  Simulated survey estimates of mortgage delinquency for 50 states and DC. Large states have
+  thousands of respondents, small states fewer than 250, so their standard errors differ several-fold.
+  Left: a conventional 4 × 4 bivariate palette. Right: a 4-level VSUP.
+read: >-
+  On the VSUP map, dark, saturated tiles are estimates that are both high and reliable. Grayish
+  tiles say "this estimate is uncertain"; only the broad level (low or high) can be read. Compare a
+  small state with a large state of similar colour on the left map: on the right, the small
+  state loses its detail because its survey was too small to support it.
+reference:
+  - text: "Correll, M., Moritz, D. & Heer, J. (2018). Value-suppressing uncertainty palettes. Proceedings of the ACM CHI Conference on Human Factors in Computing Systems (CHI 2018)."
+    url: https://tableau.com/research/publications/value-suppressing-uncertainty-palettes
+    year: 2018

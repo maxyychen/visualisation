@@ -97,6 +97,7 @@
     <label><input type="checkbox" id="alts"> Also shown in other libraries</label>
     <label><input type="checkbox" id="interactive"> Interactive</label>
     <label><input type="checkbox" id="animated"> Animated</label>
+    <label><input type="checkbox" id="research"> From research papers</label>
     <span class="count" id="count"></span>
   </div>
 </div>
@@ -161,10 +162,11 @@ function render() {
     if (shape && !c.shapes.includes(shape)) return false;
     if (level && c.level !== level) return false;
     if ($("animated").checked && !c.animated) return false;
+    if ($("research").checked && !c.refs.length) return false;
     if ($("real").checked && !c.real) return false;
     if ($("alts").checked && !c.alts.length) return false;
     if ($("interactive").checked && !c.html) return false;
-    const hay = [c.title, c.familyName, c.purpose, ...c.use, ...c.avoid, c.slug].join(" ").toLowerCase();
+    const hay = [c.title, c.familyName, c.purpose, ...c.use, ...c.avoid, c.slug, ...c.refs.map((r) => r.text)].join(" ").toLowerCase();
     return q.every((w) => hay.includes(w));
   });
   $("count").textContent = `${list.length} shown`;
@@ -173,7 +175,7 @@ function render() {
 }
 
 function card(c) {
-  const badges = [c.level !== "basic" ? c.level : "", c.animated ? "animated" : "", c.real ? "real data" : "",
+  const badges = [c.refs.length ? `research ${c.refs[0].year}` : "", c.level !== "basic" ? c.level : "", c.animated ? "animated" : "", c.real ? "real data" : "",
                   c.alts.length ? "+" + c.alts.join(", ") : "", c.html ? "interactive" : ""]
     .filter(Boolean).map((b) => `<span class="badge">${esc(b)}</span>`).join("");
   const li = (xs) => xs.map((x) => `<li>${esc(x)}</li>`).join("");
@@ -184,13 +186,13 @@ function card(c) {
       <div class="title">${esc(c.title)}<span class="badges">${badges}</span></div>
       <div class="use">${esc(c.use[0])}</div>
       <details><summary>Purpose &amp; when to use</summary>
-        <p>${esc(c.purpose)}</p><h4>Use when</h4><ul>${li(c.use)}</ul><h4>Avoid when</h4><ul>${li(c.avoid)}</ul>
+        <p>${esc(c.purpose)}</p><h4>Use when</h4><ul>${li(c.use)}</ul><h4>Avoid when</h4><ul>${li(c.avoid)}</ul>${c.refs.length ? `<h4>Reference</h4><ul>${c.refs.map((r) => `<li>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.text)}</a>` : esc(r.text)}</li>`).join("")}</ul>` : ""}
       </details>
       <div class="links"><a href="${source(c.ipynb)}">Notebook</a><a href="${source(c.py)}">Script</a>${c.html ? `<button data-live="${c.slug}">Live</button>` : ""}</div>
     </div></article>`;
 }
 
-["q", "real", "alts", "interactive", "animated"].forEach((id) => $(id).addEventListener("input", render));
+["q", "real", "alts", "interactive", "animated", "research"].forEach((id) => $(id).addEventListener("input", render));
 $("grid").addEventListener("click", (e) => {
   const b = e.target.closest("[data-live]"); if (!b) return;
   const c = CHARTS.find((x) => x.slug === b.dataset.live);

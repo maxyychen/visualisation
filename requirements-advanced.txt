@@ -5,3 +5,5 @@ pydeck
 imageio
 statsmodels
 networkx
+umap-learn
+pacmap

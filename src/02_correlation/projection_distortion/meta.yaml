@@ -1,0 +1,39 @@
+title: Projection Distortion Map (indicatrix)
+engine: mpl
+level: advanced
+order: 510
+data_shape: [numeric]
+purpose: >-
+  Overlays small ellipses on a 2-D embedding (t-SNE, UMAP, PCA) to show where and in which direction
+  the projection stretches or squeezes the original high-dimensional space. It borrows Tissot's
+  indicatrix from cartography: on a world map, Tissot's circles reveal that Greenland is inflated; here
+  the ellipses reveal which clusters look tighter or looser than they really are.
+when_to_use:
+  - "Before reading cluster size, spread or gaps from a t-SNE or UMAP map"
+  - "Compare which regions of an embedding are trustworthy"
+  - "Explain to an audience why embedding distances should not be read literally"
+avoid:
+  - "Linear projections like PCA, whose distortion is uniform and simpler to state"
+  - "Sparse embeddings with only a few points per region; the local fits become unstable"
+  - "A general audience that only needs to see the clusters"
+alternatives:
+  - "Dimension reduction comparison (t-SNE, UMAP, PaCMAP side by side)"
+  - "Trustworthiness / neighbour-preservation scores"
+  - "PCA biplot"
+tips:
+  - "What it adds: a plain embedding hides its own distortions; the indicatrix shows them in place"
+  - "Each ellipse is the 2-D image of a small high-dimensional ball around that spot. A large ellipse means the map spreads that region out; an elongated one means it is stretched in one direction"
+  - "Colour shows the ratio of high-D to 2-D neighbour distances, relative to the whole map: orange = compressed (more different than it looks), blue = stretched (more similar than it looks), gray = faithful"
+  - "This is a simplified re-implementation: a least-squares local linear map from 2-D neighbour offsets to high-D offsets in each grid cell. The original Hypertrix code and metric were questioned by a 2026 preprint (FADEx, arXiv 2607.27463), so treat the ellipses as a qualitative guide"
+example: >-
+  A t-SNE map of the real handwritten-digits dataset that ships with scikit-learn (1,797 images, 64
+  dimensions), with distortion ellipses on a regular grid.
+read: >-
+  Inside most digit clusters the ellipses are gray: locally the map is faithful. The large blue
+  ellipses sit in the gaps and bridges between clusters (for example between 2 and 8, and below 7):
+  t-SNE has spread those regions out, exaggerating how separate the digits are. Orange ellipses sit
+  on cluster edges, where the map squeezes a lot of variety into a small area.
+reference:
+  - text: "Raval, S., Viégas, F. & Wattenberg, M. (2024). Hypertrix: An indicatrix for high-dimensional visualizations. IEEE VIS 2024 (Short Papers), Best Paper Award."
+    url: https://doi.org/10.1109/VIS55277.2024.00073
+    year: 2024

@@ -1,0 +1,45 @@
+title: Functional Boxplot (curve ensembles)
+engine: mpl
+level: advanced
+order: 510
+data_shape: [time, uncertainty]
+purpose: >-
+  A boxplot for whole curves. Every path in an ensemble (simulations, scenarios, yield curves) is ranked
+  by band depth, a measure of how central it is as a shape. The chart draws the most central curve
+  (median), the envelope of the 50% most central curves, whisker envelopes, and the outlier curves that
+  leave them. Unlike a pointwise mean ± 2 SD band, it is built from whole real paths, follows the skew
+  of the ensemble, and flags individual scenarios worth a closer look.
+when_to_use:
+  - Summarise hundreds of Monte Carlo paths, scenarios or forecast ensembles without spaghetti
+  - Flag the individual scenarios that run far outside the typical range
+  - Compare the typical path with its spread when the distribution is skewed (wealth, prices)
+avoid:
+  - Only a few curves (draw them all)
+  - The reader needs probabilities at a specific horizon (show a fan chart or the distribution at that date)
+  - Curves are on different time grids (align or interpolate them first)
+alternatives:
+  - Fan chart (pointwise quantiles)
+  - Spaghetti with highlight
+  - Line-density image (datashader_timeseries)
+tips:
+  - "What it fixes: mean ± 2 SD bands assume symmetry, can extend to impossible values, and say nothing about which paths are unusual"
+  - Use modified band depth (MBD) for many crossing curves; statsmodels provides `banddepth` and `fboxplot`
+  - The 50% central region is built from whole curves, so it is usually wider than the pointwise interquartile range (it is conservative)
+  - Show outlier curves individually; they are often the most interesting scenarios
+  - The whisker rule catches magnitude outliers; add a shape-outlier method (e.g. outlyingness on derivatives) when unusual shapes matter
+example: >-
+  300 simulated 10-year paths of a $100 portfolio (monthly steps, log-normal returns, about 7% a year
+  with 15% volatility).
+read: >-
+  The left panel's symmetric band treats a fall towards zero as being as likely as a large gain, and
+  no line in it is a path any portfolio actually followed. On the right, the black line is the most central real path and the dark band the 50% most central paths. Both
+  are skewed upward, as wealth paths are. The orange curves leave the whisker envelope; they are the
+  scenarios to inspect individually. This rule flags extreme magnitudes. Paths with an unusual shape but
+  ordinary values (a crash and recovery) need a separate shape-outlier check.
+reference:
+  - text: "Sun, Y. & Genton, M. G. (2011). Functional boxplots. Journal of Computational and Graphical Statistics 20(2), 316–334."
+    url: https://doi.org/10.1198/jcgs.2011.09224
+    year: 2011
+  - text: "Mirzargar, M., Whitaker, R. T. & Kirby, R. M. (2014). Curve boxplot: generalization of boxplot for ensembles of curves. IEEE Transactions on Visualization and Computer Graphics 20(12), 2654–2663."
+    url: https://doi.org/10.1109/TVCG.2014.2346455
+    year: 2014

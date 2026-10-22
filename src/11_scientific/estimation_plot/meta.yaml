@@ -1,0 +1,40 @@
+title: Estimation Plot (Gardner–Altman & Cumming)
+engine: mpl
+level: intermediate
+order: 500
+data_shape: [categories, numeric, uncertainty]
+purpose: >-
+  Shows every observation and, on a second aligned axis, the effect size (difference in means) with
+  its bootstrap sampling distribution and 95% confidence interval. The reader sees how big the effect
+  is and how sure we are, rather than a yes/no p-value. The Gardner–Altman layout compares two groups;
+  the Cumming layout compares several groups against a shared control.
+when_to_use:
+  - Report an A/B test or experiment where the size of the effect matters more than "significant or not"
+  - Compare several variants against one control (Cumming layout)
+  - Replace a bar chart of means plus asterisks in a report or paper
+avoid:
+  - The audience only needs the headline number (state the effect and CI in text)
+  - Groups are paired or repeated measures without showing the pairing (use a paired estimation plot)
+  - There are so many observations that the swarm becomes a solid block (show a density or box instead)
+alternatives:
+  - Points + 95% CI (error_bar_ci)
+  - Forest plot (many effects)
+  - Raincloud plot
+tips:
+  - "What it fixes: a bar of means with a p-value hides the data and reduces the result to a binary verdict; the estimation plot shows the data, the effect size and its precision"
+  - Anchor the difference axis so that zero lines up with the control mean; the effect then reads as a distance
+  - Use a bootstrap (5,000+ resamples) for the CI so skewed data need no normality assumption
+  - Python implementation of the original method — DABEST (`pip install dabest`)
+example: >-
+  A simulated A/B test of four onboarding flows in a trading app (60 new customers each), measuring
+  first-month deposits. Left: the current flow vs. Flow A (Gardner–Altman). Right: all three new flows
+  vs. the current one (Cumming).
+read: >-
+  In the left panel, the dot on the right-hand axis is the extra deposit per customer for Flow A, and
+  its vertical line is the 95% CI. The shaded curve shows the bootstrap distribution. Zero on that axis
+  lines up with the current flow's mean. On the right, each new flow's effect sits below its customers:
+  Flow C's whole CI is above zero, while Flow B's CI straddles zero, so its effect could be nothing.
+reference:
+  - text: "Ho, J., Tumkaya, T., Aryal, S., Choi, H. & Claridge-Chang, A. (2019). Moving beyond P values: data analysis with estimation graphics. Nature Methods 16, 565–566."
+    url: https://doi.org/10.1038/s41592-019-0470-3
+    year: 2019

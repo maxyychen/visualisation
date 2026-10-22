@@ -1,0 +1,41 @@
+title: Dimension Reduction Comparison (t-SNE, UMAP, PaCMAP)
+engine: mpl
+level: advanced
+order: 500
+data_shape: [numeric]
+purpose: >-
+  Embeds the same high-dimensional dataset with three popular methods side by side, and scores each
+  for local structure (are nearest neighbours kept?) and global structure (are distances between
+  clusters kept?). Every 2-D map of high-dimensional data distorts something; comparing methods shows
+  which patterns are robust and which are artefacts of one algorithm.
+when_to_use:
+  - "Before trusting clusters or gaps in a single t-SNE or UMAP map"
+  - "Choose a method for a recurring report (e.g. mapping stocks by return characteristics, customers by behaviour)"
+  - "Teach what each method preserves and what it throws away"
+avoid:
+  - "You need distances or axes with meaning (use PCA, whose axes are linear combinations you can interpret)"
+  - "Fewer than a few hundred points; the methods disagree mostly because of noise"
+  - "Audiences who will read cluster size or the gap between clusters literally"
+alternatives:
+  - "PCA biplot (linear, interpretable axes)"
+  - "Projection distortion map (where a single embedding stretches or squeezes)"
+  - "Clustered correlation heatmap"
+tips:
+  - "What it fixes: a single embedding invites over-reading; showing three with quality scores makes clear which structure is real"
+  - "Local score: share of each point's 10 nearest neighbours in high-D that are still among its 10 nearest in 2-D"
+  - "Global score: rank correlation between class-centroid distances in high-D and in 2-D (1 = cluster arrangement kept)"
+  - "Ten classes exceed the 8-colour palette, so two classes are drawn in grays and every cluster is labelled directly"
+  - "Fix random seeds; all three methods are stochastic. PaCMAP is run single-threaded with float32 input for stability on macOS"
+example: >-
+  The real handwritten-digits dataset that ships with scikit-learn (1,797 images of 8×8 pixels, 64
+  dimensions), embedded with t-SNE, UMAP and PaCMAP.
+read: >-
+  All three separate the ten digits, so those clusters are real. They disagree on everything else.
+  Here t-SNE keeps the most nearest neighbours and, with PaCMAP, the best cluster arrangement; UMAP
+  packs each digit into a tight blob and scatters the blobs, keeping less of the global arrangement.
+  Cluster size, spacing and position are artefacts of the method: read them only where the global
+  score is high, and never read the empty space between clusters as a distance.
+reference:
+  - text: "Wang, Y., Huang, H., Rudin, C. & Shaposhnik, Y. (2021). Understanding how dimension reduction tools work: an empirical approach to deciphering t-SNE, UMAP, TriMap, and PaCMAP for data visualization. Journal of Machine Learning Research 22(201), 1–73."
+    url: https://jmlr.org/papers/v22/20-1061.html
+    year: 2021
